@@ -9,27 +9,19 @@ jobs:
     - stage: build
       if: tag IS blank
       install: skip
-      before_script: if [[ $encrypted_d0c8c7a16e6b_key ]]; then openssl aes-256-cbc -K $encrypted_d0c8c7a16e6b_key -iv $encrypted_d0c8c7a16e6b_iv -in secring.gpg.enc -out secring.gpg -d; fi
+      before_script: if [[ $encrypted_3a48e5214dd2_key ]]; then openssl aes-256-cbc -K $encrypted_3a48e5214dd2_key -iv $encrypted_3a48e5214dd2_iv -in secring.gpg.enc -out secring.gpg -d; fi
       script: ./gradlew clean build
 
     - stage: deploy
       if: tag =~ ^\d+\.\d+\.\d+$
       install: skip
-      before_script: openssl aes-256-cbc -K $encrypted_d0c8c7a16e6b_key -iv $encrypted_d0c8c7a16e6b_iv -in secring.gpg.enc -out secring.gpg -d
+      before_script: openssl aes-256-cbc -K $encrypted_3a48e5214dd2_key -iv $encrypted_3a48e5214dd2_iv -in secring.gpg.enc -out secring.gpg -d
       script: ./gradlew clean build publishToSonatype closeAndReleaseRepository
 env:
   global:
     - signingSecretKeyRingFile="`pwd`/secring.gpg"
-    #
-    #  secure section for maven central deployment, individual for each project
-    #  provides properties:
-    #    repositoryUser=
-    #    repositoryPassword=
-    #    signingKeyId=
-    #    signingPassword=
-    #  looks like:
-    #    - secure: "0gcv..."
-    #    - secure: "XKrf..."
-    #    - secure: "FDGd..."
-    #    - secure: "gDfe..."
-    #
+    - secure: "RL4SRdtVasoufxih6d2CtCAp5++0ZsUymqXw/o/OOp4Szb4f68V72WgcBGLrDfGe0IjTQHTouNHEYuJda8wYmpt7PAoJ2wiDub/eJbsr1hfBiTHevTaCStUzRT7r23wxn9BHcsaT61s8fwq2ZytNEifHZWWIoYbQnLXLDmQH2mjav7Px8mVXbVGWHjeSoJARmeheK+kbCEMqLRcJff7u+FTBvs+XBkv1JWmGtMEaQVwsUY+fmnBWtlc+AfnRgWjOOcy/cVkzD3PJZQEIgqVvSrbe+iUP4SD3Hj0lT8ONKUPe8OGkJZ6NMMLO5T9u0/iTlhLWjkupGwX8zzWPflxtPb8wENKx6PEOQ1oe4aZe46shhkqlYsh1zrtFk+De8340D42Bvn0RJobrmFVEzgGNIrzbGyP/OPbNmpmUtYUTPtkj2NhWg/4mWdnKDuOAygk4YmR6KFqMEjQLHblSTu8P4NYHpDQD/v61CO3ClU25ZuxVO3xtMGQlA1yGhMgRvD9A3Deeo0q9IAAEpCCyQCQKbaxVYtCPXNL41ujIIcdG+U9zQXYgkO77UXJXoRwBBZWYIbDKmFGREub6T5FV+7j5ZWulWR33JVCqiLmXeIWJHdQIVJ1IV2la0fZuim9YxkpVfHM45iRRyMJ2Y2hawZMjHjMFwPRATQc4VxLxrCk4080="
+    - secure: "PLr5KRmkXNNHnV3DNh5UFJ7nSu8HqQk9TazChoME6sBKJY0zMX8nX1Ca1nWqKOroMizXCJLjOI+zu1FgEk4wRidwaUatNK87254guhKl1gHoHZ6DUMdtTKYovAuL+FXZFZIJ6xvXPqNCtoRVTacP7lp2VOdgv52/fIFyI8BBEYXZRwc8XMq/FKKdt2zUiv4LtHQInetpWoEHGIaNzE5PhQvsEbBMNlxWfy5gwP1KLw1R+PBSe8rB9jM3vf1/nVAnVS4i+gBoYg6SilndLiJWBoWU0zDtu+yqxt802QGNJlQVjDZpt+mOYPL61+K9L6PFmVP5daOFke9MPK/jXp0sBxJ/U19T14J6kY8nWdKRPNsPUCg7fdgpWOyJNYaGAa2FBrtxl+P5Osv8vI2GomKaG6nw7M62vNNW0V6FEXXdzsl8j4uPr4Uyq+Hx3uSqpAh5kfJwbCpny3XGtMkQrBTyDlf2ocdm3W7KdPIB7DactF/keacp7H7XK544gcBGwdpvAOOQtq+i15QQAoE/yY4u+Xc6nY9OxsRrqLGkA5Frkn3UcCskawb5xJ/u3hL1U4OTW3PCUpYcxaDOd3bVBSZ7xOSnciYGJnuzH9EdG3Ld5E/Ffahzkq+c9CEJa2ybVOhU8Czgf3DncjCrOQKz+fyzVf2R85ZkAYhicXhwBQtkQtc="
+    - secure: "nr9h/huoblM27Ow5qa6vfuUVd3cTQWruVIGfxN+6eNf2CuLhJT17OVDijyPCkaZ7LU6mAkoXzXUxFypLTRbvTO1zYcVEKazekgdCrVCdslB0+v4tRxMH+0rCOHgSlSABftQugLR3lPRPz0F6brFlRSqWRnNHmLPhGpdzojK4WNQ4DEv2Qj+79U2yyIplnkk/EBpsris0bCFphlPXGclCXvk/vZ4SUCOgQZpFXhhyS5Z2ETop30PaUh4kpsbyh790c8gPQwYEAAmj2HsG/wOPdlVXqmPjsUtgvY3HKVA9MlxCJ6lfLFe4bcG9Cg5MA0N+xN0NEozktTRPKDdzSYS/eHp1cknCgevSIaR+bs71JPqEph1t0By6KJ4Be8Ah7fX26nqzIWyrQtcX6fmRs9M2br0c2gVWEb6BpHZCXKJ66d5X1rL/APiYGYfAViYDhlcnxJEhLI/kYfKGwJku89G2JLxViyUVzFaZJS7zqZS1oVSCm3gZhBdg3GwxZtfUYNKzh6IzmZ4woLJr4UZw1KoKcRW59OTIpLf0DCutVnrOow0FWXWDxjDHqoCypChkM+rl2mwjODsJ4WqNiYG0/46oX0VBR0NEeSSJAEW2HeeHhdHnfzI5jQ46nAmmvt6C7MUY0dEfr5UwAvFl1d0jA8+/2jMBLYqfeyCMjkMORug3o80="
+    - secure: "cGVhyNP/QEZM8MoZGsR7IZki/1jL2RPdX5Yfi5cFAoIzsrYgzB11lqkAXKKC9ZM5wmBga07cGe5L+Py5TLQoJAJhnuK9qtrXHaJiLNwK2hl2nNAsR6vv1Rhd3Ww92ysAymtIFaOkYmWo1RQEX6dKTZ7EFjbFQHpY7XUd6D2oXKW6URyO84QN/8mx9QivcmyJjC/F0iP8zgY3+VAlp2PAU032ZtIKqFN/ytktejCsNxQg12bm6feXA0xCOaxyqX9cinTOXBBubuBx8pi8jouLSxmrPIuFfvTQinKVDWOlv5cUZH/Ndksqj8GGP0DyuhDRIb9bd0MNl6Cmh1VpxDYTE9g7gihejtBoCm0TKDe8/lIA0DOAYT3oIq+4NfhbWLxq7flKjfBJ6ihkI2qYthSpVjWRAvIxjfkStFgLrhuA/zX9jL3Ez8yUItsM6GGXw5B99YBLbnyUNZa82UgSxF3QtoqW8cDpUmm87XNFVLQve2Uua/udyS667dlC9R3JrdnAncfVN5V262vtY4SGtNQGVp4FGmzSXT656Q0JWq9eQ8DP0V3bAemUaHCNQ/QN4gyZUvISg4JzqEbbmHyAcPfXaTgLorRFitKp7nDy2t87IgXL/uDIUZKR5LZUSkEyV/OJjpb8DtC9YxHHzC1/UxkvsZa6sEUx4bIZy+1AR0hiMHY="
+    - secure: "ctNFnmeJD58U3uBM+4M47Nob2w12/IFpPMvdP4qWYNimT05KMJn6awgx9fRyTD4knH6C50BYroLvWCeUMnfCM8DIMqlOBkBxfVzJq7p5kEdWYYopvKEJ/1h5C27co3df6sfhU+WY76Nw3gEtsiy8R7VU6xMUvy2WITWEc52AuFihhXvcn1+X25RVhcT3iBJf3qxOGFWEWHORrImVYN3gknBymVd1yZTz56o994q0R4NPu4kKsbyLu6yjMKxHMpoaPmoUgXG2ZMkua1EAjqNisd7CPEupXrS9HDeOO5pLNFjjH8T3aUHsnetu0amTCoHc1qsfTlzz/OAMJjLmNXo5Npj0EALGla1s7L6yhALSxNGpnNXLiwniFFH8/cqqesmKKgLQfisxmVV3Z6c2TcShi0Os3PnHYNG5bVW60ldFBcUeKbWsFrCh58Onas1paOFrkNTBmDJYqBUYuV+Uwb2HD0NeFSninlpUIR9HFNt+pgUuhhwFdldj1qwyiDobuaLoj7UYeK15nZ52QycBiWWHGY1hQe6fwJcA0p6cvNio6qhVZUPfW190G1iK3ajI2pJL1IxOZkgOi5EKkdXOONbDzIIU/IoHnu0doOsy7z0m1ARqb50iqE3EYlQ80HEIkA8rlNAtVAOYEcQvYEd4p7+0XGA8AgBXWaS47qSfffSFjS0="
