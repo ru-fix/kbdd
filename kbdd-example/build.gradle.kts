@@ -10,7 +10,7 @@ allure{
 
 dependencies {
 
-    api(project(Projs.`jfix-kbdd`.asDependency))
+    api(project(Projs.`kbdd`.asDependency))
     api(Libs.mu_kotlin_logging)
 
     implementation(Libs.wiremock)

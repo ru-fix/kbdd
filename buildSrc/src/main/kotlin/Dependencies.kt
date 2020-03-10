@@ -81,8 +81,8 @@ object Libs {
 }
 
 enum class Projs{
-    `jfix-kbdd`,
-    `jfix-kbdd-example`
+    `kbdd`,
+    `kbdd-example`
     ;
 
     val asDependency get(): String = ":$name"
