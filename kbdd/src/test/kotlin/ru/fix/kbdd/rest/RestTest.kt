@@ -392,4 +392,32 @@ class RestTest {
                             """))
         )
     }
+
+    @Test
+    suspend fun `post multipart data`() {
+        request {
+            headers { "my-header" % "header-value" }
+            baseUri(server.baseUrl())
+            post("/post-form-data-request")
+            file("multipart-data-file.json", this::class.java.getResourceAsStream("/multipart-data-file.json"))
+        }
+
+        statusCode().isEquals(200)
+        bodyJson()["status"].isEquals("success")
+
+        server.verify(
+                postRequestedFor(urlPathEqualTo("/post-form-data-request"))
+                        .withHeader("my-header", equalTo("header-value"))
+                        .withHeader("Content-Type", containing("multipart/form-data"))
+                        .withRequestBodyPart(
+                                aMultipart()
+                                        .withHeader("Content-Disposition", containing("form-data"))
+                                        .withHeader("Content-Disposition", containing("name=\"file\""))
+                                        .withHeader("Content-Disposition", containing("filename=\"multipart-data-file.json\""))
+                                        .withHeader("Content-Type", equalTo("application/octet-stream"))
+                                        .withBody(equalTo("{\n  \"parameter\": \"value\"\n}"))
+                                        .build()
+                        )
+        )
+    }
 }

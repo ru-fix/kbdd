@@ -21,6 +21,7 @@ import ru.fix.kbdd.asserts.KPath
 import ru.fix.kbdd.json.Json
 import ru.fix.kbdd.json.json
 import ru.fix.kbdd.map.MapDsl
+import java.io.InputStream
 import java.util.concurrent.Executors
 
 private val log = KotlinLogging.logger { }
@@ -108,6 +109,13 @@ object Rest {
                 .run {
                     dsl.queryParams?.let { queryParams(it) } ?: this
                 }
+                .run {
+                    dsl.filename?.let { name ->
+                        dsl.fileContent?.let { content ->
+                            multiPart("file", name, content)
+                        }
+                    } ?: this
+                }
 
 
         val response = withContext(dispatcher) {
@@ -161,6 +169,8 @@ object Rest {
         internal var formParams: MutableMap<String, String>? = null
         internal var queryParams: MutableMap<String, String>? = null
         internal var headers: MutableMap<String, String>? = null
+        internal var filename: String? = null
+        internal var fileContent: InputStream? = null
 
         fun baseUri(baseUrl: String) {
             this.baseUrl = baseUrl
@@ -231,6 +241,11 @@ object Rest {
 
         fun headers(headers: Map<String, String>) {
             addHeaders(headers)
+        }
+
+        fun file(filename: String, fileContent: InputStream) {
+            this.filename = filename
+            this.fileContent = fileContent
         }
     }
 
