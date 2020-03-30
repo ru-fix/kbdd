@@ -14,6 +14,7 @@ import ru.fix.kbdd.rest.Rest.request
 import ru.fix.kbdd.rest.Rest.statusCode
 import ru.fix.kbdd.rest.Rest.statusLine
 import ru.fix.stdlib.socket.SocketChecker
+import java.io.File
 
 private val log = KotlinLogging.logger { }
 
@@ -390,6 +391,33 @@ class RestTest {
                                 }
                             }
                             """))
+        )
+    }
+
+    @Test
+    suspend fun `post multipart data`() {
+        request {
+            headers { "my-header" % "header-value" }
+            baseUri(server.baseUrl())
+            post("/post-form-data-request")
+            file("resource-with-placeholders.json", File("src/test/resources/resource-with-placeholders.json").inputStream())
+        }
+
+        statusCode().isEquals(200)
+        bodyJson()["status"].isEquals("success")
+
+        server.verify(
+                postRequestedFor(urlPathEqualTo("/post-form-data-request"))
+                        .withHeader("my-header", equalTo("header-value"))
+                        .withHeader("Content-Type", containing("multipart/form-data"))
+                        .withRequestBodyPart(
+                                aMultipart()
+                                        .withHeader("Content-Disposition", containing("form-data"))
+                                        .withHeader("Content-Disposition", containing("name=\"file\""))
+                                        .withHeader("Content-Disposition", containing("filename=\"resource-with-placeholders.json\""))
+                                        .withHeader("Content-Type", equalTo("application/octet-stream"))
+                                        .build()
+                        )
         )
     }
 }
