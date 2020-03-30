@@ -14,7 +14,6 @@ import ru.fix.kbdd.rest.Rest.request
 import ru.fix.kbdd.rest.Rest.statusCode
 import ru.fix.kbdd.rest.Rest.statusLine
 import ru.fix.stdlib.socket.SocketChecker
-import java.io.File
 
 private val log = KotlinLogging.logger { }
 
@@ -400,7 +399,7 @@ class RestTest {
             headers { "my-header" % "header-value" }
             baseUri(server.baseUrl())
             post("/post-form-data-request")
-            file("resource-with-placeholders.json", File("src/test/resources/resource-with-placeholders.json").inputStream())
+            file("multipart-data-file.json", this::class.java.getResourceAsStream("/multipart-data-file.json"))
         }
 
         statusCode().isEquals(200)
@@ -414,8 +413,9 @@ class RestTest {
                                 aMultipart()
                                         .withHeader("Content-Disposition", containing("form-data"))
                                         .withHeader("Content-Disposition", containing("name=\"file\""))
-                                        .withHeader("Content-Disposition", containing("filename=\"resource-with-placeholders.json\""))
+                                        .withHeader("Content-Disposition", containing("filename=\"multipart-data-file.json\""))
                                         .withHeader("Content-Type", equalTo("application/octet-stream"))
+                                        .withBody(equalTo("{\n  \"parameter\": \"value\"\n}"))
                                         .build()
                         )
         )
