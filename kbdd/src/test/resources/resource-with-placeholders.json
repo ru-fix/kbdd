@@ -2,6 +2,13 @@
   "lateinitValue": "http://${my-system-property}/path",
   "withOverriddenDefaultValue": "overridden",
   "withMissingPlaceholder": "${missing-placeholder}",
-  "compositeWithMissingPlaceholder": "com-${missing-placeholder}-posite"
+  "compositeWithMissingPlaceholder": "com-${missing-placeholder}-posite",
+  "complexWithOverriddenName": {
+    "name" : "overriddenName"
+  },
+  "overridenComplex": {
+    "name": "name2",
+    "value": "value2"
+  }
 
 }
