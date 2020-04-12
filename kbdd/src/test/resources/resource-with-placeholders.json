@@ -1,3 +1,7 @@
 {
-  "host": "http://${my-system-property}/path"
+  "lateinitValue": "http://${my-system-property}/path",
+  "withOverriddenDefaultValue": "overridden",
+  "withMissingPlaceholder": "${missing-placeholder}",
+  "compositeWithMissingPlaceholder": "com-${missing-placeholder}-posite"
+
 }
