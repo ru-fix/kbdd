@@ -4,7 +4,19 @@ import io.kotlintest.shouldBe
 import org.junit.jupiter.api.Test
 
 class MyResource{
-    lateinit var host: String
+    lateinit var lateinitValue: String
+    var withDefaultValue = "default"
+    var withOverriddenDefaultValue = "default"
+    var withMissingPlaceholder = ""
+    var compositeWithMissingPlaceholder = ""
+
+    class Complex{
+        var name = "name"
+        var value = "value"
+    }
+    var defaultComplex = Complex()
+    var complexWithOverriddenName = Complex()
+    var overridenComplex = Complex()
 }
 
 class ResourceTest{
@@ -15,7 +27,21 @@ class ResourceTest{
 
         val myResource = Resource.loadJsonWithPlaceholders<MyResource>("resource-with-placeholders.json")
 
-        myResource.host.shouldBe("http://system-value/path")
+        myResource.lateinitValue.shouldBe("http://system-value/path")
+        myResource.withDefaultValue.shouldBe("default")
+        myResource.withOverriddenDefaultValue.shouldBe("overridden")
+        myResource.withMissingPlaceholder.shouldBe("\${missing-placeholder}")
+        myResource.compositeWithMissingPlaceholder.shouldBe("com-\${missing-placeholder}-posite")
+
+        myResource.defaultComplex.name.shouldBe("name")
+        myResource.defaultComplex.value.shouldBe("value")
+
+        myResource.complexWithOverriddenName.name.shouldBe("overriddenName")
+        myResource.complexWithOverriddenName.value.shouldBe("value")
+
+        myResource.overridenComplex.name.shouldBe("name2")
+        myResource.overridenComplex.value.shouldBe("value2")
+
     }
 
 }
