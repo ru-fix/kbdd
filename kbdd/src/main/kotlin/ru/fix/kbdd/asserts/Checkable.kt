@@ -152,3 +152,31 @@ fun Checkable.isMatches(regex: String) = express { source ->
         override fun evaluate(): Boolean = source.evaluate().toString().matches(regex.toRegex())
     }
 }
+
+fun Checkable.shouldBeIn(vararg values: Any) = express { source ->
+    object : Expression {
+        override fun print(): String = "${source.print()} in ${values.toList()}"
+        override fun evaluate(): Boolean = source.evaluate() in values
+    }
+}
+
+fun Checkable.shouldBeIn(values: Collection<Any>) = express { source ->
+    object : Expression {
+        override fun print(): String = "${source.print()} in $values"
+        override fun evaluate(): Boolean = source.evaluate() in values
+    }
+}
+
+fun Checkable.shouldNotBeIn(vararg values: Any) = express { source ->
+    object : Expression {
+        override fun print(): String = "${source.print()} not in ${values.toList()}"
+        override fun evaluate(): Boolean = source.evaluate() !in values
+    }
+}
+
+fun Checkable.shouldNotBeIn(values: Collection<Any>) = express { source ->
+    object : Expression {
+        override fun print(): String = "${source.print()} not in $values"
+        override fun evaluate(): Boolean = source.evaluate() !in values
+    }
+}
