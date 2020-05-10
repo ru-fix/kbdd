@@ -7,8 +7,9 @@ object Vers {
     const val allure_cli = "2.13.1"
 
     //Dependencies
-    const val kotlin = "1.3.61"
-    const val kotlin_coroutines = "1.3.3"
+    const val kotlin = "1.3.71"
+    const val gradle_kotlin = "1.3.70"
+    const val kotlin_coroutines = "1.3.5"
 
     const val junit = "5.6.0"
     const val rest_assured = "4.2.0"
@@ -16,10 +17,12 @@ object Vers {
     const val jackson = "2.10.2"
     const val dynamic_property = "1.1.9"
     const val jfix_stdlib = "2.0.2"
-    const val corounit = "1.0.17"
+    const val corounit = "1.0.28"
+//    const val corounit = "1.0-SNAPSHOT"
     const val koin = "2.0.1"
 
-
+    const val aspectj = "1.9.5"
+    const val freefair_aspectj = "5.0.1"
 }
 object Libs {
     //Plugins
@@ -33,6 +36,10 @@ object Libs {
     const val kotlin_stdlib = "org.jetbrains.kotlin:kotlin-stdlib:${Vers.kotlin}"
     const val kotlin_jdk8 = "org.jetbrains.kotlin:kotlin-stdlib-jdk8:${Vers.kotlin}"
     const val kotlin_reflect = "org.jetbrains.kotlin:kotlin-reflect:${Vers.kotlin}"
+
+    const val gradle_kotlin_stdlib = "org.jetbrains.kotlin:kotlin-stdlib:${Vers.gradle_kotlin}"
+    const val gradle_kotlin_jdk8 = "org.jetbrains.kotlin:kotlin-stdlib-jdk8:${Vers.gradle_kotlin}"
+
     const val kotlinx_coroutines_core = "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Vers.kotlin_coroutines}"
 
     const val groovy = "org.codehaus.groovy:groovy:3.0.1"

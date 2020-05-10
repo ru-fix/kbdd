@@ -2,6 +2,7 @@ package ru.fix.kbdd.example.steps
 
 import org.koin.core.KoinComponent
 import org.koin.core.inject
+import ru.fix.corounit.allure.Step
 import ru.fix.kbdd.asserts.*
 import ru.fix.kbdd.example.config.Settings
 import ru.fix.kbdd.rest.Rest
@@ -16,7 +17,8 @@ open class AirportSteps : KoinComponent {
             val price: Int = -1
     )
 
-    open suspend fun `Reserve airport ticket for a flight for date`(reservationDate: LocalDate): Booking {
+    @Step
+    suspend fun `Reserve airport ticket for a flight for date`(reservationDate: LocalDate): Booking {
         Rest.request {
             baseUri(settings.airportBaseUri)
             post("/book-flight")
@@ -34,7 +36,8 @@ open class AirportSteps : KoinComponent {
         return Booking(price = bodyJson()["price"].asInt())
     }
 
-    open suspend fun `Check availability for the day`(dayOfMonth: Int, month: String) {
+    @Step
+    suspend fun `Check availability for the day`(dayOfMonth: Int, month: String) {
         Rest.request {
             baseUri(settings.airportBaseUri)
             post("/available")

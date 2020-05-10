@@ -1,8 +1,5 @@
 package ru.fix.kbdd.example
 
-import com.github.tomakehurst.wiremock.WireMockServer
-import com.github.tomakehurst.wiremock.client.WireMock
-import com.github.tomakehurst.wiremock.core.WireMockConfiguration
 import org.koin.core.context.startKoin
 import org.koin.dsl.module
 import ru.fix.corounit.allure.createStepClassInstance
@@ -11,7 +8,6 @@ import ru.fix.kbdd.example.config.Settings
 import ru.fix.kbdd.example.steps.AirportSteps
 import ru.fix.kbdd.example.steps.BillingSteps
 import ru.fix.kbdd.rest.Rest
-import ru.fix.stdlib.socket.SocketChecker
 import kotlin.coroutines.CoroutineContext
 
 object CorounitConfig : CorounitPlugin {
@@ -31,8 +27,8 @@ object CorounitConfig : CorounitPlugin {
         startKoin {
             printLogger()
             modules(module {
-                single { createStepClassInstance<AirportSteps>() }
-                single { createStepClassInstance<BillingSteps>() }
+                single { AirportSteps() }
+                single { BillingSteps() }
                 single { settings }
             })
         }
