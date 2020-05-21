@@ -123,4 +123,28 @@ internal class KPathTest {
                 .single { it["name"].isEquals("wallet") }["fields"]
                 .size().isEquals(2)
     }
+
+    @Test
+    fun `assert different type numbers`() {
+        val data = mutableMapOf<String, Any?>("one" to 1, "two" to 2.0)
+
+//        Int with Int
+        KPath(data)["one"].isEquals(1)
+        KPath(data)["one"].isLessThan(2)
+
+//        Int with Long
+        KPath(data)["one"].isEquals(1L)
+        KPath(data)["one"].isLessThan(2L)
+
+//        Int with Double
+        KPath(data)["one"].isEquals(1.0)
+        KPath(data)["one"].isLessThan(1.1)
+
+//        Double with Int
+        KPath(data)["two"].isEquals(2)
+        KPath(data)["two"].isGreaterThan(1)
+
+//        null with null
+        KPath(data)["three"].isEquals(null)
+    }
 }

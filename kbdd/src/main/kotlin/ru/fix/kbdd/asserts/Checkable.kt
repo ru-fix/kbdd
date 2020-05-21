@@ -75,39 +75,38 @@ fun Checkable.isNotNull() = express { source ->
 }
 
 private fun compareValuesWithStringAutoCast(first: Any, second: Any): Int {
-    if (first is String) {
-        when (second) {
-            is Boolean -> return first.toBoolean().compareTo(second)
-            is Byte -> return first.toByte().compareTo(second)
-            is Short -> return first.toShort().compareTo(second)
-            is Int -> return first.toInt().compareTo(second)
-            is Float -> return first.toFloat().compareTo(second)
-            is Double -> return first.toDouble().compareTo(second)
-            is Long -> return first.toLong().compareTo(second)
-            is BigDecimal -> return first.toBigDecimal().compareTo(second)
-            is BigInteger -> return first.toBigInteger().compareTo(second)
-        }
+    val firstString = first.toString()
+    when (second) {
+        is Boolean -> return firstString.toBoolean().compareTo(second)
+        is Byte -> return firstString.toByte().compareTo(second)
+        is Short -> return firstString.toShort().compareTo(second)
+        is Int -> return firstString.toInt().compareTo(second)
+        is Float -> return firstString.toFloat().compareTo(second)
+        is Double -> return firstString.toDouble().compareTo(second)
+        is Long -> return firstString.toLong().compareTo(second)
+        is BigDecimal -> return firstString.toBigDecimal().compareTo(second)
+        is BigInteger -> return firstString.toBigInteger().compareTo(second)
     }
-    return (first as Comparable<Any>).compareTo(second)
+    return (firstString as Comparable<Any>).compareTo(second)
 }
 
 private fun checkValuesEqualityWithStringAutoCast(first: Any?, second: Any?): Boolean {
     if(first == null && second != null) return false
     if(first != null && second == null) return false
-    if (first is String) {
-        when (second) {
-            is Boolean -> return first.toBoolean() == second
-            is Byte -> return first.toByte() == second
-            is Short -> return first.toShort() == second
-            is Int -> return first.toInt() == second
-            is Float -> return first.toFloat() == second
-            is Double -> return first.toDouble() == second
-            is Long -> return first.toLong() == second
-            is BigDecimal -> return first.toBigDecimal() == second
-            is BigInteger -> return first.toBigInteger() == second
-        }
+    if (first == null && second == null) return true
+    val firstString = first.toString()
+    when (second) {
+        is Boolean -> return firstString.toBoolean() == second
+        is Byte -> return firstString.toByte() == second
+        is Short -> return firstString.toShort() == second
+        is Int -> return firstString.toInt() == second
+        is Float -> return firstString.toFloat() == second
+        is Double -> return firstString.toDouble() == second
+        is Long -> return firstString.toLong() == second
+        is BigDecimal -> return firstString.toBigDecimal() == second
+        is BigInteger -> return firstString.toBigInteger() == second
     }
-    return (first as Comparable<Any>) == second
+    return firstString == second
 }
 
 fun Checkable.isLessThan(other: Any) = express { source ->
