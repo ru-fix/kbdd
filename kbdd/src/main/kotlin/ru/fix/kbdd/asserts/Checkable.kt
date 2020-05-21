@@ -87,7 +87,7 @@ private fun compareValuesWithStringAutoCast(first: Any, second: Any): Int {
         is BigDecimal -> return firstString.toBigDecimal().compareTo(second)
         is BigInteger -> return firstString.toBigInteger().compareTo(second)
     }
-    return (firstString as Comparable<Any>).compareTo(second)
+    return (first as Comparable<Any>).compareTo(second)
 }
 
 private fun checkValuesEqualityWithStringAutoCast(first: Any?, second: Any?): Boolean {
@@ -106,7 +106,7 @@ private fun checkValuesEqualityWithStringAutoCast(first: Any?, second: Any?): Bo
         is BigDecimal -> return firstString.toBigDecimal() == second
         is BigInteger -> return firstString.toBigInteger() == second
     }
-    return firstString == second
+    return first == second
 }
 
 fun Checkable.isLessThan(other: Any) = express { source ->

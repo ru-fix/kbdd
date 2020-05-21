@@ -140,10 +140,6 @@ internal class KPathTest {
         KPath(data)["one"].isEquals(1.0)
         KPath(data)["one"].isLessThan(1.1)
 
-//        Double with Int
-        KPath(data)["two"].isEquals(2)
-        KPath(data)["two"].isGreaterThan(1)
-
 //        null with null
         KPath(data)["three"].isEquals(null)
     }
