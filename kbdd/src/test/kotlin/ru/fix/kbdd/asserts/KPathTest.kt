@@ -6,6 +6,8 @@ import io.kotlintest.matchers.string.shouldContain
 import io.kotlintest.matchers.types.shouldNotBeNull
 import io.kotlintest.shouldBe
 import org.junit.jupiter.api.Test
+import java.math.BigDecimal
+import java.math.BigInteger
 
 internal class KPathTest {
 
@@ -125,22 +127,78 @@ internal class KPathTest {
     }
 
     @Test
-    fun `assert different type numbers`() {
-        val data = mutableMapOf<String, Any?>("one" to 1, "two" to 2.0)
+    fun `assert null with null`() {
+        val data = mutableMapOf<String, Any?>("one" to 1)
 
-//        Int with Int
-        KPath(data)["one"].isEquals(1)
-        KPath(data)["one"].isLessThan(2)
-
-//        Int with Long
-        KPath(data)["one"].isEquals(1L)
-        KPath(data)["one"].isLessThan(2L)
-
-//        Int with Double
-        KPath(data)["one"].isEquals(1.0)
-        KPath(data)["one"].isLessThan(1.1)
-
-//        null with null
         KPath(data)["three"].isEquals(null)
+    }
+
+    @Test
+    fun `assert integer with different type numbers`() {
+        val data = mapOf("a" to 5)
+
+        KPath(data)["a"].isEquals(5.toByte())
+        KPath(data)["a"].isEquals(5.toShort())
+        KPath(data)["a"].isEquals(5)
+        KPath(data)["a"].isEquals(5.toLong())
+        KPath(data)["a"].isEquals(5.toFloat())
+        KPath(data)["a"].isEquals(5.toDouble())
+        KPath(data)["a"].isEquals(BigDecimal(5))
+        KPath(data)["a"].isEquals(BigInteger.valueOf(5L))
+
+        KPath(data)["a"].isLessThan(6.toByte())
+        KPath(data)["a"].isLessThan(6.toShort())
+        KPath(data)["a"].isLessThan(6)
+        KPath(data)["a"].isLessThan(6.toLong())
+        KPath(data)["a"].isLessThan(6.toFloat())
+        KPath(data)["a"].isLessThan(6.toDouble())
+        KPath(data)["a"].isLessThan(BigDecimal(6))
+        KPath(data)["a"].isLessThan(BigInteger.valueOf(6L))
+    }
+
+    @Test
+    fun `assert real number with different type numbers`() {
+        val data = mapOf("5.0" to 5.0, "5.4" to 5.4)
+
+        KPath(data)["5.0"].isEquals(5.toByte())
+        KPath(data)["5.0"].isEquals(5.toShort())
+        KPath(data)["5.0"].isEquals(5)
+        KPath(data)["5.0"].isEquals(5.toLong())
+        KPath(data)["5.4"].isEquals(5.4.toFloat())
+        KPath(data)["5.4"].isEquals(5.4)
+        KPath(data)["5.4"].isEquals(BigDecimal(5.4))
+        KPath(data)["5.0"].isEquals(BigInteger.valueOf(5L))
+
+        KPath(data)["5.4"].isLessThan(6.toByte())
+        KPath(data)["5.4"].isLessThan(6.toShort())
+        KPath(data)["5.4"].isLessThan(6)
+        KPath(data)["5.4"].isLessThan(6.toLong())
+        KPath(data)["5.4"].isLessThan(6.1.toFloat())
+        KPath(data)["5.4"].isLessThan(6.1)
+        KPath(data)["5.4"].isLessThan(BigDecimal(6.1))
+        KPath(data)["5.4"].isLessThan(BigInteger.valueOf(6L))
+    }
+
+    @Test
+    fun `assert string number with different type numbers`() {
+        val data = mapOf("5.0" to "5", "5.4" to "5.4")
+
+        KPath(data)["5.0"].isEquals(5.toByte())
+        KPath(data)["5.0"].isEquals(5.toShort())
+        KPath(data)["5.0"].isEquals(5)
+        KPath(data)["5.0"].isEquals(5.toLong())
+        KPath(data)["5.4"].isEquals(5.4.toFloat())
+        KPath(data)["5.4"].isEquals(5.4)
+        KPath(data)["5.0"].isEquals(BigDecimal(5))
+        KPath(data)["5.0"].isEquals(BigInteger.valueOf(5L))
+
+        KPath(data)["5.4"].isLessThan(6.toByte())
+        KPath(data)["5.4"].isLessThan(6.toShort())
+        KPath(data)["5.4"].isLessThan(6)
+        KPath(data)["5.4"].isLessThan(6.toLong())
+        KPath(data)["5.4"].isLessThan(6.1.toFloat())
+        KPath(data)["5.4"].isLessThan(6.1)
+        KPath(data)["5.4"].isLessThan(BigDecimal(6.1))
+        KPath(data)["5.4"].isLessThan(BigInteger.valueOf(6L))
     }
 }
