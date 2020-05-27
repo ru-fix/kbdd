@@ -6,6 +6,10 @@ import io.kotlintest.matchers.string.shouldContain
 import io.kotlintest.matchers.types.shouldNotBeNull
 import io.kotlintest.shouldBe
 import org.junit.jupiter.api.Test
+import java.time.LocalDateTime
+import java.time.OffsetDateTime
+import java.time.ZoneOffset
+import java.time.format.DateTimeFormatter
 
 internal class KPathTest {
 
@@ -122,5 +126,16 @@ internal class KPathTest {
         KPath(map)["schema"]["entities"]
                 .single { it["name"].isEquals("wallet") }["fields"]
                 .size().isEquals(2)
+    }
+
+    @Test
+    fun `compare date time object`() {
+        val data = mutableMapOf<String, Any?>(
+                "localDateTime" to "2020-05-27T00:00:00Z",
+                "offsetDateTime" to "2020-05-27T00:00:00+03:00"
+        )
+        KPath(data)["localDateTime"].asLocalDateTime() shouldBe LocalDateTime.of(2020, 5, 27, 0, 0, 0, 0)
+        KPath(data)["localDateTime"].asOffsetDateTime() shouldBe OffsetDateTime.of(2020, 5, 27, 0, 0, 0, 0, ZoneOffset.UTC)
+        KPath(data)["offsetDateTime"].asOffsetDateTime(DateTimeFormatter.ISO_DATE_TIME) shouldBe OffsetDateTime.of(2020, 5, 27, 0, 0, 0, 0, ZoneOffset.ofHours(3))
     }
 }

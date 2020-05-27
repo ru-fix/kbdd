@@ -1,5 +1,9 @@
 package ru.fix.kbdd.asserts
 
+import java.time.LocalDateTime
+import java.time.OffsetDateTime
+import java.time.format.DateTimeFormatter
+
 internal class PathRecorder(val path: String) : Explorable {
     private fun context() = object : NavigationContext {
         override val path: String
@@ -88,6 +92,26 @@ fun Explorable.asLong() = export {
 fun Explorable.asString() = export {
     requireNotNullNode(path)
     node.toString()
+}
+
+/**
+ * @return OffsetDateTime, parsing using ISO_ZONED_DATE_TIME formatter
+ **/
+fun Explorable.asOffsetDateTime() = this.asOffsetDateTime(DateTimeFormatter.ISO_ZONED_DATE_TIME)
+
+fun Explorable.asOffsetDateTime(formatter: DateTimeFormatter) = export {
+    requireNotNullNode(path)
+    OffsetDateTime.parse(node.toString(), formatter)
+}
+
+/**
+ * @return LocalDateTime, parsing using ISO_ZONED_DATE_TIME formatter
+ **/
+fun Explorable.asLocalDateTime() = this.asLocalDateTime(DateTimeFormatter.ISO_ZONED_DATE_TIME)
+
+fun Explorable.asLocalDateTime(formatter: DateTimeFormatter) = export {
+    requireNotNullNode(path)
+    LocalDateTime.parse(node.toString(), formatter)
 }
 
 operator fun Explorable.get(index: Int) = navigate {
