@@ -216,4 +216,17 @@ internal class KPathTest {
         KPath(data)["5.4"].isLessThan(BigDecimal(6.1))
         KPath(data)["5.4"].isLessThan(BigInteger.valueOf(6L))
     }
+
+    @Test
+    fun `assert equals with delta`() {
+        val data = mapOf("5" to 5, "5.004" to 5.004, "stringNumber" to "10.005")
+
+        KPath(data)["5"].isEquals(5.01, 0.1)
+        KPath(data)["5.004"].isEquals(5, 0.01)
+        KPath(data)["5.004"].isEquals(5.01, 0.01)
+        KPath(data)["5"].isNotEquals(5.1, 0.001)
+        KPath(data)["5.004"].isNotEquals(5.01, 0.001)
+        KPath(data)["stringNumber"].isEquals(10, 0.01)
+        KPath(data)["stringNumber"].isNotEquals(10, 0.001)
+    }
 }

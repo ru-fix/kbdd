@@ -2,6 +2,7 @@ package ru.fix.kbdd.asserts
 
 import java.math.BigDecimal
 import java.math.BigInteger
+import kotlin.math.abs
 
 interface Expression {
     fun print(): String
@@ -57,6 +58,22 @@ fun Checkable.isNotEquals(other: Any) = express { source ->
     object : Expression {
         override fun print(): String = "${source.print()} != $other"
         override fun evaluate(): Boolean = source.evaluate() != other
+    }
+}
+
+fun Checkable.isEquals(other: Number, delta: Double) = express { source ->
+    object : Expression {
+        override fun print(): String = "${source.print()} == $other (with delta = $delta)"
+
+        override fun evaluate(): Boolean = checkValuesEqualityWithDelta(source.evaluate(), other, delta)
+    }
+}
+
+fun Checkable.isNotEquals(other: Number, delta: Double) = express { source ->
+    object : Expression {
+        override fun print(): String = "${source.print()} != $other (with delta = $delta)"
+
+        override fun evaluate(): Boolean = !checkValuesEqualityWithDelta(source.evaluate(), other, delta)
     }
 }
 
@@ -134,6 +151,18 @@ private fun checkValuesEqualityWithStringAutoCast(first: Any?, second: Any?): Bo
         }
     }
     return first == second
+}
+
+private fun checkValuesEqualityWithDelta(first: Any?, second: Number, delta: Double): Boolean {
+    if (first == null) return false
+
+    val firstDoubleValue = when(first) {
+        is Number -> first.toDouble()
+        is String -> first.toDouble()
+        else -> return false
+    }
+
+    return abs(firstDoubleValue - second.toDouble()) < delta
 }
 
 fun Checkable.isLessThan(other: Any) = express { source ->
