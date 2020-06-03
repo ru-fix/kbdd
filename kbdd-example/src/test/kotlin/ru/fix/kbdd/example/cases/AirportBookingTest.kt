@@ -87,8 +87,6 @@ class AirportBookingTest : KoinComponent {
 
         body.xmlPath("$.@a") isEquals "val a"
         body.xmlPath("$.@b") isEquals "val b"
-        body.xmlPath("rquest.@a") isEquals "val a"
-        body.xmlPath("request.@b") isEquals "val b"
         body.xmlPath("$.dayOfMonth.@a1") isEquals "val a1"
         body.xmlPath("$.month.@a2") isEquals "val a2"
         body.xmlPath("$.hour.size()") isEquals 3
