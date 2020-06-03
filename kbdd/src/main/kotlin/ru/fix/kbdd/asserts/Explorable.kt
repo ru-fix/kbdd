@@ -1,5 +1,6 @@
 package ru.fix.kbdd.asserts
 
+import io.restassured.path.xml.XmlPath
 import java.time.LocalDateTime
 import java.time.OffsetDateTime
 import java.time.format.DateTimeFormatter
@@ -45,10 +46,9 @@ interface NavigationContext {
     }
 
     fun requireNotNullNode(path: String): Any {
-        requireNotNull(node) {
+        return requireNotNull(node) {
             "Failed to access $path. Current value is null."
         }
-        return node as Any
     }
 
     fun requireNotNullMap(path: String): Map<String, Any?> {
@@ -130,6 +130,16 @@ operator fun Explorable.get(property: String) = navigate {
         override fun node(): Any? {
             val node = requireNotNullMap(path())
             return node[property]
+        }
+    }
+}
+
+fun Explorable.xmlPath(xmlPath: String) = navigate {
+    object : Navigation {
+        override fun path() = "$path.xmlPath(\"$xmlPath\")"
+        override fun node(): Any? {
+            val node = requireNotNullNode(path())
+            return (node as XmlPath).get<Any?>(xmlPath)
         }
     }
 }

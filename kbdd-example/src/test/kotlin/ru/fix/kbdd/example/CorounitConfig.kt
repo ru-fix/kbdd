@@ -2,7 +2,6 @@ package ru.fix.kbdd.example
 
 import org.koin.core.context.startKoin
 import org.koin.dsl.module
-import ru.fix.corounit.allure.createStepClassInstance
 import ru.fix.corounit.engine.CorounitPlugin
 import ru.fix.kbdd.example.config.Settings
 import ru.fix.kbdd.example.steps.AirportSteps

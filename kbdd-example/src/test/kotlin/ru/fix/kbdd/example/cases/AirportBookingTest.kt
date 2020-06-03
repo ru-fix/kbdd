@@ -14,12 +14,14 @@ import ru.fix.corounit.allure.row
 import ru.fix.kbdd.asserts.get
 import ru.fix.kbdd.asserts.isEquals
 import ru.fix.kbdd.asserts.isGreaterThanOrEqual
+import ru.fix.kbdd.asserts.xmlPath
 import ru.fix.kbdd.example.CorounitConfig
 import ru.fix.kbdd.example.config.Settings
 import ru.fix.kbdd.example.steps.AirportSteps
 import ru.fix.kbdd.example.steps.AirportSteps.Booking
 import ru.fix.kbdd.example.steps.BillingSteps
 import ru.fix.kbdd.rest.Rest.bodyJson
+import ru.fix.kbdd.rest.Rest.bodyXml
 import java.time.LocalDate
 
 @Epic("Travel")
@@ -64,9 +66,34 @@ class AirportBookingTest : KoinComponent {
     suspend fun `Flight booking is available for three days`() = parameterized(
             row(1, "Jan"),
             row(2, "Feb"),
-            row(3, "Mar")) { dayOfMonth, month ->
+            row(3, "Mar")
+    ) { dayOfMonth, month ->
 
         Airport.`Check availability for the day`(dayOfMonth, month)
         bodyJson()["result"].isEquals("success")
+    }
+
+    @Test
+    suspend fun `Flight booking is available for three days (xml)`() = parameterized(
+            row(1, "Jan"),
+            row(2, "Feb"),
+            row(3, "Mar")
+    ) { dayOfMonth, month ->
+
+        Airport.`Check availability for the day (xml)`(dayOfMonth, month)
+        val body = bodyXml()
+        body.xmlPath("$.dayOfMonth") isEquals 1
+        body.xmlPath("$.month") isEquals "Jan"
+
+        body.xmlPath("$.@a") isEquals "val a"
+        body.xmlPath("$.@b") isEquals "val b"
+        body.xmlPath("rquest.@a") isEquals "val a"
+        body.xmlPath("request.@b") isEquals "val b"
+        body.xmlPath("$.dayOfMonth.@a1") isEquals "val a1"
+        body.xmlPath("$.month.@a2") isEquals "val a2"
+        body.xmlPath("$.hour.size()") isEquals 3
+        body.xmlPath("$.hour[0]") isEquals 10
+        body.xmlPath("$.hour[1]") isEquals 12
+        body.xmlPath("$.hour[2]") isEquals 15
     }
 }

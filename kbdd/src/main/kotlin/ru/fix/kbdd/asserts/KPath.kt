@@ -17,10 +17,12 @@ object DefaultAssertor : KPathAssertor {
 /**
  * @param node either Map or List or Numeric or String
  */
-open class KPath(private val node: Any?,
-                 private val path: String = "",
-                 private val mode: Mode = Mode.IMMEDIATE_ASSERT,
-                 private val assertor: KPathAssertor = DefaultAssertor) : Explorable {
+open class KPath(
+        private val node: Any?,
+        private val path: String = "",
+        private val mode: Mode = Mode.IMMEDIATE_ASSERT,
+        private val assertor: KPathAssertor = DefaultAssertor
+) : Explorable {
 
     enum class Mode { LAZY_EVALUATE, IMMEDIATE_ASSERT }
 
@@ -59,14 +61,14 @@ open class KPath(private val node: Any?,
             override fun evaluate(): Any? = node
         }
         val expression = expression(source)
-        when (mode) {
+        return when (mode) {
             Mode.IMMEDIATE_ASSERT -> {
                 val result = expression.evaluate()
                 assertor.assert(expression.print(), source.evaluate(), result)
-                return expression
+                expression
             }
             Mode.LAZY_EVALUATE -> {
-                return expression
+                expression
             }
         }
     }

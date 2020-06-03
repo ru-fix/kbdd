@@ -25,7 +25,7 @@ class RestTest {
         server = WireMockServer(SocketChecker.getAvailableRandomPort())
         server.start()
 
-        for(path in listOf(
+        for (path in listOf(
                 "/json-post-request",
                 "/json-post-from-string-request")) {
 
@@ -48,7 +48,7 @@ class RestTest {
                             }""")))
         }
 
-        for(path in listOf(
+        for (path in listOf(
                 "/post-form-data-request",
                 "/json-post-without-nulls",
                 "/json-post-with-nulls",
@@ -57,7 +57,7 @@ class RestTest {
                 "/json-post-dto-with-nulls",
                 "/json-post-dsl-dto-with-nulls",
                 "/json-post-dsl-dto-without-nulls",
-                "/json-post-dto-without-nulls")){
+                "/json-post-dto-without-nulls")) {
 
             server.stubFor(post(urlPathEqualTo(path))
                     .willReturn(aResponse()
@@ -272,7 +272,7 @@ class RestTest {
         request {
             baseUri(server.baseUrl())
             post("/json-post-without-nulls")
-            body (sendNulls = false) {
+            body(sendNulls = false) {
                 "one" % 1
                 "two" % null
             }
@@ -296,7 +296,7 @@ class RestTest {
         request {
             baseUri(server.baseUrl())
             post("/json-post-dto-without-nulls")
-            body (sendNulls = false) {
+            body(sendNulls = false) {
                 "myObject" % MyObject("foo", null)
             }
         }
@@ -321,7 +321,7 @@ class RestTest {
         request {
             baseUri(server.baseUrl())
             post("/json-post-dto-with-nulls")
-            body (MyObject("foo", null))
+            body(MyObject("foo", null))
         }
         statusCode().isEquals(200)
         server.verify(

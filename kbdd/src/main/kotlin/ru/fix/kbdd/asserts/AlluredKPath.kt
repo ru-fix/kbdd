@@ -1,7 +1,6 @@
 package ru.fix.kbdd.asserts
 
 import ru.fix.corounit.allure.AllureStep
-import ru.fix.kbdd.asserts.*
 
 class AlluredKPath(
         private val parentStep: AllureStep,

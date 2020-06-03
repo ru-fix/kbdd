@@ -1,13 +1,13 @@
 import de.marcphilipp.gradle.nexus.NexusPublishExtension
+import org.asciidoctor.gradle.AsciidoctorTask
 import org.gradle.api.tasks.testing.logging.TestExceptionFormat
 import org.gradle.api.tasks.testing.logging.TestLogEvent
 import org.jetbrains.dokka.gradle.DokkaTask
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
-import kotlin.properties.ReadOnlyProperty
-import kotlin.reflect.KProperty
-import org.asciidoctor.gradle.AsciidoctorTask
 import java.time.Duration
 import java.time.temporal.ChronoUnit
+import kotlin.properties.ReadOnlyProperty
+import kotlin.reflect.KProperty
 
 buildscript {
     repositories {
@@ -182,7 +182,7 @@ subprojects {
     tasks {
         withType<KotlinCompile> {
             kotlinOptions {
-                jvmTarget = "1.8"
+                jvmTarget = JavaVersion.VERSION_1_8.toString()
             }
         }
         withType<Test> {

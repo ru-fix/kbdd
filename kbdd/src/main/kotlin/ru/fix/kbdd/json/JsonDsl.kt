@@ -105,7 +105,7 @@ class Json(private val jsonNodeCreator: JsonNodeCreator) {
             is Long -> jsonNode.put(this, value)
             is Float -> jsonNode.put(this, value)
             is Double -> jsonNode.put(this, value)
-            is String -> jsonNode.put(this, value.escape())
+            is String -> jsonNode.put(this, value)
             is LocalDate -> jsonNode.put(this, DateTimeFormatter.ISO_LOCAL_DATE.format(value))
             is LocalDateTime -> jsonNode.put(this, DateTimeFormatter.ISO_LOCAL_DATE_TIME.format(value))
             is OffsetDateTime -> jsonNode.put(this, DateTimeFormatter.ISO_OFFSET_DATE_TIME.format(value))
@@ -149,9 +149,6 @@ class Json(private val jsonNodeCreator: JsonNodeCreator) {
             }
         }
     }
-
-
-    private fun String.escape(): String = this.replace("\"", "\"")
 
     private fun putArray(name: String, data: Iterator<Any?>) {
         val jsonArray = jsonNode.putArray(name)

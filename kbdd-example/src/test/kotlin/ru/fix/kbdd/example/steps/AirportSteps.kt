@@ -11,7 +11,7 @@ import ru.fix.kbdd.rest.Rest.statusCode
 import java.time.LocalDate
 
 open class AirportSteps : KoinComponent {
-    val settings by inject<Settings>()
+    private val settings by inject<Settings>()
 
     data class Booking(
             val price: Int = -1
@@ -47,5 +47,18 @@ open class AirportSteps : KoinComponent {
             }
         }
         bodyJson()["error"].isNull()
+    }
+
+    open suspend fun `Check availability for the day (xml)`(dayOfMonth: Int, month: String) {
+        Rest.request {
+            baseUri(settings.airportBaseUri)
+            post("/available_xml")
+            bodyXml("""
+                <request>
+                    <dayOfMonth>$dayOfMonth</dayOfMonth>
+                    <month>$month</month>
+                </request>
+            """.trimIndent())
+        }
     }
 }
