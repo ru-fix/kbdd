@@ -2,6 +2,7 @@ package ru.fix.kbdd.asserts
 
 import java.math.BigDecimal
 import java.math.BigInteger
+import kotlin.math.abs
 
 interface Expression {
     fun print(): String
@@ -60,6 +61,22 @@ fun Checkable.isNotEquals(other: Any) = express { source ->
     }
 }
 
+fun Checkable.isEquals(other: Number, delta: Double) = express { source ->
+    object : Expression {
+        override fun print(): String = "${source.print()} == $other (with delta = $delta)"
+
+        override fun evaluate(): Boolean = checkValuesEqualityWithDelta(source.evaluate(), other, delta)
+    }
+}
+
+fun Checkable.isNotEquals(other: Number, delta: Double) = express { source ->
+    object : Expression {
+        override fun print(): String = "${source.print()} != $other (with delta = $delta)"
+
+        override fun evaluate(): Boolean = !checkValuesEqualityWithDelta(source.evaluate(), other, delta)
+    }
+}
+
 fun Checkable.isNull() = express { source ->
     object : Expression {
         override fun print(): String = "${source.print()} == null"
@@ -78,14 +95,26 @@ private fun compareValuesWithStringAutoCast(first: Any, second: Any): Int {
     if (first is String) {
         when (second) {
             is Boolean -> return first.toBoolean().compareTo(second)
+            is Byte -> return first.toDouble().compareTo(second)
+            is Short -> return first.toDouble().compareTo(second)
+            is Int -> return first.toDouble().compareTo(second)
+            is Float -> return first.toDouble().compareTo(second)
+            is Double -> return first.toDouble().compareTo(second)
+            is Long -> return first.toDouble().compareTo(second)
+            is BigDecimal -> return first.toBigDecimal().compareTo(second)
+            is BigInteger -> return first.toBigDecimal().compareTo(BigDecimal(second))
+        }
+    }
+    if (first is Number) {
+        when (second) {
             is Byte -> return first.toByte().compareTo(second)
             is Short -> return first.toShort().compareTo(second)
             is Int -> return first.toInt().compareTo(second)
             is Float -> return first.toFloat().compareTo(second)
             is Double -> return first.toDouble().compareTo(second)
             is Long -> return first.toLong().compareTo(second)
-            is BigDecimal -> return first.toBigDecimal().compareTo(second)
-            is BigInteger -> return first.toBigInteger().compareTo(second)
+            is BigDecimal -> return BigDecimal(first.toDouble()).compareTo(second)
+            is BigInteger -> return BigInteger.valueOf(first.toLong()).compareTo(second)
         }
     }
     return (first as Comparable<Any>).compareTo(second)
@@ -94,6 +123,7 @@ private fun compareValuesWithStringAutoCast(first: Any, second: Any): Int {
 private fun checkValuesEqualityWithStringAutoCast(first: Any?, second: Any?): Boolean {
     if(first == null && second != null) return false
     if(first != null && second == null) return false
+    if (first == null && second == null) return true
     if (first is String) {
         when (second) {
             is Boolean -> return first.toBoolean() == second
@@ -107,7 +137,32 @@ private fun checkValuesEqualityWithStringAutoCast(first: Any?, second: Any?): Bo
             is BigInteger -> return first.toBigInteger() == second
         }
     }
-    return (first as Comparable<Any>) == second
+    if (first is Number) {
+        when (second) {
+            is Boolean -> return false
+            is Byte -> return first.toByte() == second
+            is Short -> return first.toShort() == second
+            is Int -> return first.toInt() == second
+            is Float -> return first.toFloat() == second
+            is Double -> return first.toDouble() == second
+            is Long -> return first.toLong() == second
+            is BigDecimal -> return BigDecimal(first.toDouble()) == second
+            is BigInteger -> return BigInteger.valueOf(first.toLong()) == second
+        }
+    }
+    return first == second
+}
+
+private fun checkValuesEqualityWithDelta(first: Any?, second: Number, delta: Double): Boolean {
+    if (first == null) return false
+
+    val firstDoubleValue = when(first) {
+        is Number -> first.toDouble()
+        is String -> first.toDouble()
+        else -> return false
+    }
+
+    return abs(firstDoubleValue - second.toDouble()) < delta
 }
 
 fun Checkable.isLessThan(other: Any) = express { source ->
