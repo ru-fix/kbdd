@@ -2,6 +2,7 @@ package ru.fix.kbdd.asserts
 
 import java.math.BigDecimal
 import java.math.BigInteger
+import java.util.*
 import kotlin.math.abs
 
 interface Expression {
@@ -103,6 +104,7 @@ private fun compareValuesWithStringAutoCast(first: Any, second: Any): Int {
             is Long -> return first.toDouble().compareTo(second)
             is BigDecimal -> return first.toBigDecimal().compareTo(second)
             is BigInteger -> return first.toBigDecimal().compareTo(BigDecimal(second))
+            is UUID -> return UUID.fromString(first).compareTo(second)
         }
     }
     if (first is Number) {
@@ -135,6 +137,7 @@ private fun checkValuesEqualityWithStringAutoCast(first: Any?, second: Any?): Bo
             is Long -> return first.toLong() == second
             is BigDecimal -> return first.toBigDecimal() == second
             is BigInteger -> return first.toBigInteger() == second
+            is UUID -> return UUID.fromString(first) == second
         }
     }
     if (first is Number) {

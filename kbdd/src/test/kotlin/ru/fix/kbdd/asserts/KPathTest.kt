@@ -12,6 +12,7 @@ import java.time.LocalDateTime
 import java.time.OffsetDateTime
 import java.time.ZoneOffset
 import java.time.format.DateTimeFormatter
+import java.util.*
 
 internal class KPathTest {
 
@@ -228,5 +229,28 @@ internal class KPathTest {
         KPath(data)["5.004"].isNotEquals(5.01, 0.001)
         KPath(data)["stringNumber"].isEquals(10, 0.01)
         KPath(data)["stringNumber"].isNotEquals(10, 0.001)
+    }
+
+    @Test
+    fun `assert uuid objects`() {
+        val strUuid0 = "00000000-0000-0000-0000-000000000000"
+        val strUuid1 = "00000000-0000-0000-0000-000000000001"
+        val data = mapOf("0" to strUuid0, "1" to strUuid1)
+
+        val uuid0 = UUID.fromString(strUuid0)
+        val uuid1 = UUID.fromString(strUuid1)
+
+        KPath(data)["0"] isEquals uuid0
+        KPath(data)["0"] isEquals strUuid0
+        KPath(data)["0"] isNotEquals uuid1
+        KPath(data)["0"] isNotEquals strUuid1
+
+        KPath(data)["0"] isLessThan uuid1
+        KPath(data)["0"] isLessThanOrEqual uuid0
+        KPath(data)["0"] isLessThanOrEqual uuid1
+
+        KPath(data)["1"] isGreaterThan uuid0
+        KPath(data)["1"] isGreaterThanOrEqual uuid0
+        KPath(data)["1"] isGreaterThanOrEqual uuid1
     }
 }
