@@ -17,7 +17,7 @@ object Vers {
     const val jackson = "2.10.2"
     const val dynamic_property = "1.1.9"
     const val jfix_stdlib = "2.0.2"
-    const val corounit = "1.0.29"
+    const val corounit = "1.0.30"
     const val koin = "2.0.1"
 
     const val aspectj = "1.9.5"
