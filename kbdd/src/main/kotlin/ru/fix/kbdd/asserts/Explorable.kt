@@ -81,12 +81,18 @@ interface Explorable : Checkable {
 
 fun Explorable.asInt() = export {
     requireNotNullNode(path)
-    (node as Number).toInt()
+    when (val n = node) {
+        is String -> n.toInt()
+        else -> (n as Number).toInt()
+    }
 }
 
 fun Explorable.asLong() = export {
     requireNotNullNode(path)
-    (node as Number).toLong()
+    when (val n = node) {
+        is String -> n.toLong()
+        else -> (n as Number).toLong()
+    }
 }
 
 fun Explorable.asString() = export {
