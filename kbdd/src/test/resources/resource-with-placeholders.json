@@ -4,11 +4,10 @@
   "withMissingPlaceholder": "${missing-placeholder}",
   "compositeWithMissingPlaceholder": "com-${missing-placeholder}-posite",
   "complexWithOverriddenName": {
-    "name" : "overriddenName"
+    "name": "overriddenName"
   },
   "overridenComplex": {
     "name": "name2",
     "value": "value2"
   }
-
 }

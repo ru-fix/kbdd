@@ -1,6 +1,6 @@
 rootProject.name = "kbdd"
 
-for(project in listOf(
+for (project in listOf(
         "kbdd",
         "kbdd-example")) {
 

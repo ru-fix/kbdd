@@ -146,7 +146,7 @@ class JsonDslTest {
 
         class MyRequest {
             var type = -1
-            var data: Json.()->Unit = {}
+            var data: Json.() -> Unit = {}
         }
 
         fun doMyRequest(dsl: MyRequest.() -> Unit): String {

@@ -3,26 +3,27 @@ package ru.fix.kbdd.resource
 import io.kotlintest.shouldBe
 import org.junit.jupiter.api.Test
 
-class MyResource{
+class MyResource {
     lateinit var lateinitValue: String
     var withDefaultValue = "default"
     var withOverriddenDefaultValue = "default"
     var withMissingPlaceholder = ""
     var compositeWithMissingPlaceholder = ""
 
-    class Complex{
+    class Complex {
         var name = "name"
         var value = "value"
     }
+
     var defaultComplex = Complex()
     var complexWithOverriddenName = Complex()
     var overridenComplex = Complex()
 }
 
-class ResourceTest{
+class ResourceTest {
 
     @Test
-    fun `interpolate placeholder in string by variables from system property`(){
+    fun `interpolate placeholder in string by variables from system property`() {
         System.setProperty("my-system-property", "system-value")
 
         val myResource = Resource.loadJsonWithPlaceholders<MyResource>("resource-with-placeholders.json")

@@ -1,5 +1,6 @@
 package ru.fix.kbdd.asserts
 
+import io.restassured.path.xml.XmlPath
 import java.time.LocalDateTime
 import java.time.OffsetDateTime
 import java.time.format.DateTimeFormatter
@@ -45,10 +46,9 @@ interface NavigationContext {
     }
 
     fun requireNotNullNode(path: String): Any {
-        requireNotNull(node) {
+        return requireNotNull(node) {
             "Failed to access $path. Current value is null."
         }
-        return node as Any
     }
 
     fun requireNotNullMap(path: String): Map<String, Any?> {
@@ -81,12 +81,18 @@ interface Explorable : Checkable {
 
 fun Explorable.asInt() = export {
     requireNotNullNode(path)
-    (node as Number).toInt()
+    when (val n = node) {
+        is String -> n.toInt()
+        else -> (n as Number).toInt()
+    }
 }
 
 fun Explorable.asLong() = export {
     requireNotNullNode(path)
-    (node as Number).toLong()
+    when (val n = node) {
+        is String -> n.toLong()
+        else -> (n as Number).toLong()
+    }
 }
 
 fun Explorable.asString() = export {
@@ -130,6 +136,16 @@ operator fun Explorable.get(property: String) = navigate {
         override fun node(): Any? {
             val node = requireNotNullMap(path())
             return node[property]
+        }
+    }
+}
+
+fun Explorable.xmlPath(xmlPath: String) = navigate {
+    object : Navigation {
+        override fun path() = "$path.xmlPath(\"$xmlPath\")"
+        override fun node(): Any? {
+            val node = requireNotNullNode(path())
+            return (node as XmlPath).get<Any?>(xmlPath)
         }
     }
 }

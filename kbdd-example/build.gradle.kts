@@ -5,7 +5,7 @@ plugins {
     id("io.freefair.aspectj.post-compile-weaving") version Vers.freefair_aspectj
 }
 
-allure{
+allure {
     version = Vers.allure_cli
 }
 

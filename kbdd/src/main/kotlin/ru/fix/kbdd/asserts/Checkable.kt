@@ -2,6 +2,7 @@ package ru.fix.kbdd.asserts
 
 import java.math.BigDecimal
 import java.math.BigInteger
+import java.util.*
 import kotlin.math.abs
 
 interface Expression {
@@ -44,7 +45,7 @@ interface Checkable {
 }
 
 
-fun Checkable.isEquals(other: Any?) = express { source ->
+infix fun Checkable.isEquals(other: Any?) = express { source ->
     object : Expression {
         override fun print(): String = "${source.print()} == ${
         if (other != null && other is String) "\"$other\"" else "$other"
@@ -54,7 +55,7 @@ fun Checkable.isEquals(other: Any?) = express { source ->
     }
 }
 
-fun Checkable.isNotEquals(other: Any) = express { source ->
+infix fun Checkable.isNotEquals(other: Any) = express { source ->
     object : Expression {
         override fun print(): String = "${source.print()} != $other"
         override fun evaluate(): Boolean = source.evaluate() != other
@@ -103,6 +104,7 @@ private fun compareValuesWithStringAutoCast(first: Any, second: Any): Int {
             is Long -> return first.toDouble().compareTo(second)
             is BigDecimal -> return first.toBigDecimal().compareTo(second)
             is BigInteger -> return first.toBigDecimal().compareTo(BigDecimal(second))
+            is UUID -> return UUID.fromString(first).compareTo(second)
         }
     }
     if (first is Number) {
@@ -121,8 +123,8 @@ private fun compareValuesWithStringAutoCast(first: Any, second: Any): Int {
 }
 
 private fun checkValuesEqualityWithStringAutoCast(first: Any?, second: Any?): Boolean {
-    if(first == null && second != null) return false
-    if(first != null && second == null) return false
+    if (first == null && second != null) return false
+    if (first != null && second == null) return false
     if (first == null && second == null) return true
     if (first is String) {
         when (second) {
@@ -135,6 +137,7 @@ private fun checkValuesEqualityWithStringAutoCast(first: Any?, second: Any?): Bo
             is Long -> return first.toLong() == second
             is BigDecimal -> return first.toBigDecimal() == second
             is BigInteger -> return first.toBigInteger() == second
+            is UUID -> return UUID.fromString(first) == second
         }
     }
     if (first is Number) {
@@ -156,7 +159,7 @@ private fun checkValuesEqualityWithStringAutoCast(first: Any?, second: Any?): Bo
 private fun checkValuesEqualityWithDelta(first: Any?, second: Number, delta: Double): Boolean {
     if (first == null) return false
 
-    val firstDoubleValue = when(first) {
+    val firstDoubleValue = when (first) {
         is Number -> first.toDouble()
         is String -> first.toDouble()
         else -> return false
@@ -165,28 +168,28 @@ private fun checkValuesEqualityWithDelta(first: Any?, second: Number, delta: Dou
     return abs(firstDoubleValue - second.toDouble()) < delta
 }
 
-fun Checkable.isLessThan(other: Any) = express { source ->
+infix fun Checkable.isLessThan(other: Any) = express { source ->
     object : Expression {
         override fun print(): String = "${source.print()} < $other"
         override fun evaluate(): Boolean = compareValuesWithStringAutoCast(source.evaluate()!!, other) < 0
     }
 }
 
-fun Checkable.isLessThanOrEqual(other: Any) = express { source ->
+infix fun Checkable.isLessThanOrEqual(other: Any) = express { source ->
     object : Expression {
         override fun print(): String = "${source.print()} <= $other"
         override fun evaluate(): Boolean = compareValuesWithStringAutoCast(source.evaluate()!!, other) <= 0
     }
 }
 
-fun Checkable.isGreaterThan(other: Any) = express { source ->
+infix fun Checkable.isGreaterThan(other: Any) = express { source ->
     object : Expression {
         override fun print(): String = "${source.print()} > $other"
         override fun evaluate(): Boolean = compareValuesWithStringAutoCast(source.evaluate()!!, other) > 0
     }
 }
 
-fun Checkable.isGreaterThanOrEqual(other: Any) = express { source ->
+infix fun Checkable.isGreaterThanOrEqual(other: Any) = express { source ->
     object : Expression {
         override fun print(): String = "${source.print()} >= $other"
         override fun evaluate(): Boolean = compareValuesWithStringAutoCast(source.evaluate()!!, other) >= 0
@@ -194,14 +197,14 @@ fun Checkable.isGreaterThanOrEqual(other: Any) = express { source ->
 }
 
 
-fun Checkable.isContains(text: String) = express { source ->
+infix fun Checkable.isContains(text: String) = express { source ->
     object : Expression {
         override fun print(): String = "${source.print()}.isContains($text)"
         override fun evaluate(): Boolean = source.evaluate().toString().contains(text)
     }
 }
 
-fun Checkable.isMatches(regex: String) = express { source ->
+infix fun Checkable.isMatches(regex: String) = express { source ->
     object : Expression {
         override fun print(): String = "${source.print()}.isMatches(\"$regex\")"
         override fun evaluate(): Boolean = source.evaluate().toString().matches(regex.toRegex())
@@ -215,7 +218,7 @@ fun Checkable.shouldBeIn(vararg values: Any) = express { source ->
     }
 }
 
-fun Checkable.shouldBeIn(values: Collection<Any>) = express { source ->
+infix fun Checkable.shouldBeIn(values: Collection<Any>) = express { source ->
     object : Expression {
         override fun print(): String = "${source.print()} in $values"
         override fun evaluate(): Boolean = source.evaluate() in values
@@ -229,7 +232,7 @@ fun Checkable.shouldNotBeIn(vararg values: Any) = express { source ->
     }
 }
 
-fun Checkable.shouldNotBeIn(values: Collection<Any>) = express { source ->
+infix fun Checkable.shouldNotBeIn(values: Collection<Any>) = express { source ->
     object : Expression {
         override fun print(): String = "${source.print()} not in $values"
         override fun evaluate(): Boolean = source.evaluate() !in values

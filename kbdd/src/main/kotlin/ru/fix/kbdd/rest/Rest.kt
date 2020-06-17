@@ -75,6 +75,7 @@ object Rest {
                         dsl.formParams != null -> contentType(ContentType.URLENC)
                         dsl.bodyJsonDsl != null -> contentType(ContentType.JSON)
                         dsl.bodyString != null -> contentType(ContentType.JSON)
+                        dsl.bodyXml != null -> contentType(ContentType.XML)
                         else -> this
                     }
                 }
@@ -90,7 +91,7 @@ object Rest {
                         dsl.bodyJsonDsl != null -> {
                             val selectedMapper = selectMapper(dsl.bodyJsonSendNulls)
                             val objectNode = selectedMapper.json(dsl.bodyJsonDsl!!)
-                            if(!dsl.bodyJsonSendNulls){
+                            if (!dsl.bodyJsonSendNulls) {
                                 removeNullFiledsInObjectNodes(listOf(objectNode))
                             }
                             val content = selectedMapper.writeValueAsString(objectNode)
@@ -99,6 +100,9 @@ object Rest {
 
                         dsl.bodyString != null ->
                             body(dsl.bodyString!!)
+
+                        dsl.bodyXml != null ->
+                            body(dsl.bodyXml!!)
 
                         else -> this
                     }
@@ -139,10 +143,10 @@ object Rest {
     }
 
     private tailrec fun removeNullFiledsInObjectNodes(objectNodes: List<ObjectNode>) {
-        if(objectNodes.isEmpty()) return
+        if (objectNodes.isEmpty()) return
 
         val childContainers = mutableListOf<ObjectNode>()
-        for(node in objectNodes) {
+        for (node in objectNodes) {
             for (name in node.fieldNames().asSequence().toList()) {
                 val child = node[name]
                 if (child.isNull) {
@@ -162,6 +166,7 @@ object Rest {
         internal var baseUrl: String? = null
         internal var bodyJsonDsl: (Json.() -> Unit)? = null
         internal var bodyString: String? = null
+        internal var bodyXml: String? = null
         internal var post: String? = null
         internal var get: String? = null
         internal var delete: String? = null
@@ -190,6 +195,9 @@ object Rest {
             this.bodyString = selectMapper(sendNulls).writeValueAsString(pojo)
         }
 
+        fun bodyXml(xml: String) {
+            this.bodyXml = xml
+        }
 
         fun post(path: String) {
             this.post = path
@@ -260,7 +268,7 @@ object Rest {
      * Returns last request
      */
     suspend fun statusCode(): Checkable {
-        val response = Rest.rawResponse()
+        val response = rawResponse()
         return AlluredKPath(
                 parentStep = AllureStep.fromCurrentCoroutineContext(),
                 node = response.statusCode,
@@ -270,8 +278,8 @@ object Rest {
     }
 
     suspend fun statusLine(): Checkable {
-        val response = Rest.rawResponse()
-        return return AlluredKPath(
+        val response = rawResponse()
+        return AlluredKPath(
                 parentStep = AllureStep.fromCurrentCoroutineContext(),
                 node = response.statusLine,
                 mode = KPath.Mode.IMMEDIATE_ASSERT,
@@ -280,8 +288,8 @@ object Rest {
     }
 
     suspend fun bodyString(): Checkable {
-        val response = Rest.rawResponse()
-        return return AlluredKPath(
+        val response = rawResponse()
+        return AlluredKPath(
                 parentStep = AllureStep.fromCurrentCoroutineContext(),
                 node = response.body().asString(),
                 mode = KPath.Mode.IMMEDIATE_ASSERT,
@@ -290,16 +298,22 @@ object Rest {
     }
 
     suspend fun bodyJson(): Explorable {
-        val response = Rest.rawResponse()
-        return return AlluredKPath(
+        val response = rawResponse()
+        return AlluredKPath(
                 parentStep = AllureStep.fromCurrentCoroutineContext(),
                 node = response.jsonPath().get<Any?>()!!,
                 mode = KPath.Mode.IMMEDIATE_ASSERT,
                 path = "bodyJson()"
         )
     }
+
+    suspend fun bodyXml(): Explorable {
+        val response = rawResponse()
+        return AlluredKPath(
+                parentStep = AllureStep.fromCurrentCoroutineContext(),
+                node = response.xmlPath(),
+                mode = KPath.Mode.IMMEDIATE_ASSERT,
+                path = "bodyXml()"
+        )
+    }
 }
-
-
-
-

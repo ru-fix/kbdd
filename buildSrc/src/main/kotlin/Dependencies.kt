@@ -13,16 +13,17 @@ object Vers {
 
     const val junit = "5.6.0"
     const val rest_assured = "4.2.0"
-    const val log4j =  "2.13.1"
+    const val log4j = "2.13.1"
     const val jackson = "2.10.2"
     const val dynamic_property = "1.1.9"
     const val jfix_stdlib = "2.0.2"
-    const val corounit = "1.0.29"
+    const val corounit = "1.0.30"
     const val koin = "2.0.1"
 
     const val aspectj = "1.9.5"
     const val freefair_aspectj = "5.0.1"
 }
+
 object Libs {
     //Plugins
     val gradle_release_plugin = "ru.fix:gradle-release-plugin:${Vers.gradle_release_plugin}"
@@ -42,7 +43,7 @@ object Libs {
     const val kotlinx_coroutines_core = "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Vers.kotlin_coroutines}"
 
     const val groovy = "org.codehaus.groovy:groovy:3.0.1"
-    const val groovy_xml= "org.codehaus.groovy:groovy-xml:3.0.1"
+    const val groovy_xml = "org.codehaus.groovy:groovy-xml:3.0.1"
 
     const val dynamic_property_api = "ru.fix:dynamic-property-api:${Vers.dynamic_property}"
 
@@ -86,7 +87,7 @@ object Libs {
     const val koin = "org.koin:koin-core:${Vers.koin}"
 }
 
-enum class Projs{
+enum class Projs {
     `kbdd`,
     `kbdd-example`
     ;
