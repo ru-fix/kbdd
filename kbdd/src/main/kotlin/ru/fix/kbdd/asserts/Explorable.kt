@@ -79,6 +79,26 @@ interface Explorable : Checkable {
     fun <T> export(exporter: NavigationContext.() -> T): T
 }
 
+/**
+ * Assert that current value can be represented as a `Map<String, Any?>`
+ * and returns content as a `Map<String, Any?>`
+ */
+fun Explorable.asMap() = export {
+    requireNotNullMap(path) as Map<String, Any?>
+}
+
+/**
+ * Assert that current value can be represented as a `List`
+ * and returns content as a `List`
+ */
+fun <T : Any?> Explorable.asList() = export {
+    requireNotNullList(path) as List<T>
+}
+
+fun Explorable.asListOfMaps() = export {
+    requireNotNullList(path) as List<Map<String, Any?>>
+}
+
 fun Explorable.asInt() = export {
     requireNotNullNode(path)
     when (val n = node) {
@@ -140,6 +160,12 @@ operator fun Explorable.get(property: String) = navigate {
     }
 }
 
+fun <T> Explorable.map(mapping: (Explorable) -> T): List<T> {
+    return (0 until this.size().asInt()).map { index ->
+        mapping(this[index])
+    }
+}
+
 fun Explorable.xmlPath(xmlPath: String) = navigate {
     object : Navigation {
         override fun path() = "$path.xmlPath(\"$xmlPath\")"
@@ -183,6 +209,17 @@ fun Explorable.filter(predicate: (Explorable) -> Expression) = navigate {
             } else {
                 node.filter { evaluatePredicate(it, predicate) }
             }
+        }
+    }
+}
+
+fun Explorable.assert(predicate: (Explorable) -> Expression): Unit {
+
+    export {
+        val assertPath = "$path.assert{${printPredicate(predicate)}}"
+        val result = evaluatePredicate(node, predicate)
+        if (!result) {
+            throw AssertionError("Assert: $assertPath failed. Node: $node")
         }
     }
 }

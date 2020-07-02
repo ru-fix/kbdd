@@ -40,6 +40,33 @@ Example can be found at `jfix-kbdd-example` module.
 * `Rest.bodyString()` provide access to response body as a String
 
 ### Json DSL
+
+In given example we will send request:
+```
+POST /auth-service/check-permission
+{
+  "identity": {
+    "token": "03A40BC430D9F3579D8CA"
+  }
+}
+```
+And validate response:
+```json
+{
+  "error": null,
+  "permissions": [
+    {
+      "resource":  "booking",
+      "status": "enabled"
+    },
+    {
+      "resource":  "selling",
+      "status": "disabled"
+    }
+  ]
+}
+```
+
 ```kotlin
 request {
     baseUri(settings.myServiceBaseUri)
@@ -55,7 +82,7 @@ statusCode().isEquals(200)
 bodyJson()["error"].isNull()
 bodyJson()["permissions"].first{
     it["resource"].isEquals("booking")
-}["status"].isEquals("active")
+}["status"].isEquals("enabled")
 ```
 
 ### POJO
@@ -72,7 +99,7 @@ statusCode().isEquals(200)
 bodyJson()["error"].isNull()
 bodyJson()["permissions"].first{
     it["resource"].isEquals("booking")
-}["status"].isEquals("active")
+}["status"].isEquals("enabled")
 ```
 
 ### Do not send nulls
@@ -107,6 +134,132 @@ bodyJson()["permissions"].first{
 ```json
 {
   "one": 1
+}
+```
+
+## Response Assertions
+
+### Content reading
+```json
+{
+  "count": 56,
+  "items": ["first", "second"]
+}
+```
+```kotlin
+val count = bodyJson()["count"].asInt()
+//56
+println(count)
+
+val items = bodyJson()["items"].asList<String>()
+//firstsecond
+println(items[0] + items[1])
+```
+
+### Access collections
+
+Using map method access elements of json array as `Explorable` elements 
+and converting them to integers by `asInt()`  
+```json
+{
+  "data": [
+   {"id": 14},
+   {"id":  15} 
+  ]
+}
+```
+```kotlin
+//14, 15
+val listOfInts = path["data"].map { it["id"].asInt() }
+```
+
+Using map method access and validating each element individually        
+ 
+```json
+{
+  "data": [
+   {"id": 14},
+   {"id":  15} 
+  ]
+}
+```
+```kotlin
+bodyJson()["data"].map{it["id"]}.forEach{element ->
+    element.isLessThan(20)
+}
+```
+
+Access collections by converting node to Kotlin List of Maps and using Kotlin collection API
+```json
+{
+  "data": [
+   {"id": 14},
+   {"id":  15} 
+  ]
+}
+```
+```kotlin
+//14, 15
+val listOfInts = path["data"].asListOfMaps()
+    .map { it["id"] as String }
+    .map { it.toInt() }
+```
+
+Access collections by converting node to Kotlin List and using Kotlin collection API  
+```json
+{
+  "data": [
+   {"id": 14},
+   {"id":  15} 
+  ]
+}
+```
+```kotlin
+//14, 15
+val listOfInts = path["data"].asList<Map<String, Any?>>()
+    .map { it["id"] as String }
+    .map { it.toInt() }
+```
+
+Using size of a json array and explicitly iterating through elements using Kotlin API 
+
+```json
+{
+  "data": [
+   {"id": 14},
+   {"id":  15} 
+  ]
+}
+```
+```kotlin
+//14, 15
+val listOfInts = (0 until path["data"].size().asInt())
+    .map { path["data"][it]["id"].asInt() }
+```
+
+
+### Single assertion
+```json
+{
+  "data": 42
+}
+```
+```kotlin
+bodyJson()["data"].isLessThanOrEqual(43)
+```
+
+### Complex assertion
+```json
+{
+  "product": {
+    "type": "wood",
+    "amount": 150
+  }
+}
+```
+```kotlin
+bodyJson()["product"].assert{
+    it["type"].isEquals("water") or it["amount"].isLessThanOrEqual(150)
 }
 ```
 

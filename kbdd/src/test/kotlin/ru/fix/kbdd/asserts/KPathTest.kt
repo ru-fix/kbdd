@@ -2,9 +2,11 @@ package ru.fix.kbdd.asserts
 
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.fasterxml.jackson.module.kotlin.registerKotlinModule
+import io.kotlintest.matchers.collections.shouldContainExactly
 import io.kotlintest.matchers.string.shouldContain
 import io.kotlintest.matchers.types.shouldNotBeNull
 import io.kotlintest.shouldBe
+import io.kotlintest.shouldThrow
 import org.junit.jupiter.api.Test
 import java.math.BigDecimal
 import java.math.BigInteger
@@ -252,5 +254,76 @@ internal class KPathTest {
         KPath(data)["1"] isGreaterThan uuid0
         KPath(data)["1"] isGreaterThanOrEqual uuid0
         KPath(data)["1"] isGreaterThanOrEqual uuid1
+    }
+
+    @Test
+    fun `extract submap fields values as List`() {
+        val json = """
+            {
+                "sql": null,
+                "data": [
+                    {
+                        "id": "201695",
+                        "file_name": "cd55accd-00bb-44d9-a66d-80d837722727_registry"
+                    },
+                    {
+                        "id": "201696",
+                        "file_name": "cd55accd-00bb-44d9-a66d-80d837722727_registry"
+                    }
+                ]
+            }
+        """
+        val map = ObjectMapper().registerKotlinModule().readValue<Map<*, *>>(json, Map::class.java)
+        val path = KPath(map)
+
+
+        path["data"].asList<Map<String, Any?>>().map { it["id"] as String }.map { it.toInt() }
+                .shouldContainExactly(201695, 201696)
+
+        path["data"].asListOfMaps().map { it["id"] as String }.map { it.toInt() }
+                .shouldContainExactly(201695, 201696)
+
+        (0 until path["data"].size().asInt()).map {
+            path["data"][it]["id"].asInt()
+        }.shouldContainExactly(201695, 201696)
+
+        path["data"].map { it["id"].asInt() }
+                .shouldContainExactly(201695, 201696)
+
+    }
+
+    @Test
+    fun `assert complex expression`(){
+        val json = """
+            {
+                "sql": null,
+                "data": [
+                    {
+                        "id": "201695",
+                        "file_name": "cd55accd-00bb-44d9-a66d-80d837722727_registry"
+                    },
+                    {
+                        "id": "201696",
+                        "file_name": "cd55accd-00bb-44d9-a66d-80d837722727_registry"
+                    }
+                ]
+            }
+        """
+        val map = ObjectMapper().registerKotlinModule().readValue<Map<*, *>>(json, Map::class.java)
+        val path = KPath(map)
+
+        path["data"].map { it["id"] }.forEach { element ->
+            element.assert { it.isEquals(201695) or it.isEquals(201696) }
+        }
+
+        val assertionError = shouldThrow<AssertionError> {
+            path["data"].map { it["id"] }.forEach { element ->
+                element.assert { it.isEquals(101) or it.isEquals(102) }
+            }
+        }
+
+        assertionError.message.shouldContain("101")
+        assertionError.message.shouldContain("20169")
+        println(assertionError.message)
     }
 }
