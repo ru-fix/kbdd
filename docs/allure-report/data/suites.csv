@@ -1,8 +1,12 @@
 "Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
-"passed","Fri Jul 03 18:05:36 MSK 2020","Fri Jul 03 18:05:38 MSK 2020","2571","","ru.fix.kbdd.example.cases.AirportBookingTest","","ru.fix.kbdd.example.cases.AirportBookingTest","Successfull booking for tomorrow","Successfull booking for tomorrow","
+"passed","Fri Jul 03 18:15:28 MSK 2020","Fri Jul 03 18:15:30 MSK 2020","1944","","ru.fix.kbdd.example.cases.AirportBookingTest","","ru.fix.kbdd.example.cases.AirportBookingTest","Successfull booking for tomorrow","Successfull booking for tomorrow","
         User successfully purchases a ticket for the tomorrow's flight.
         http://documentation.acme.com/booking.html
         "
-"passed","Fri Jul 03 18:05:36 MSK 2020","Fri Jul 03 18:05:38 MSK 2020","2625","","ru.fix.kbdd.example.cases.AirportBookingTest","","ru.fix.kbdd.example.cases.AirportBookingTest","Flight booking is available for three days","Flight booking is available for three days",""
-"passed","Fri Jul 03 18:05:36 MSK 2020","Fri Jul 03 18:05:39 MSK 2020","3323","","ru.fix.kbdd.example.cases.AirportBookingTest","","ru.fix.kbdd.example.cases.AirportBookingTest","Flight booking is available for three days (xml)","Flight booking is available for three days (xml)",""
+"passed","Fri Jul 03 18:15:28 MSK 2020","Fri Jul 03 18:15:30 MSK 2020","1987","","ru.fix.kbdd.example.cases.AirportBookingTest","","ru.fix.kbdd.example.cases.AirportBookingTest","Flight booking is available for three days","Flight booking is available for three days",""
+"passed","Fri Jul 03 18:15:28 MSK 2020","Fri Jul 03 18:15:31 MSK 2020","2574","","ru.fix.kbdd.example.cases.AirportBookingTest","","ru.fix.kbdd.example.cases.AirportBookingTest","Flight booking is available for three days (xml)","Flight booking is available for three days (xml)",""
+"passed","Fri Jul 03 18:15:28 MSK 2020","Fri Jul 03 18:15:30 MSK 2020","1754","","ru.fix.kbdd.example.cases.IntroductionTest","","ru.fix.kbdd.example.cases.IntroductionTest","Send HTTP request and validate response","Send HTTP request and validate response","
+        Code example block contains test code snippet.
+        MockServer is used to setup HTTP response from local HTTP mock server.
+    "
 "passed","Fri Jul 03 18:05:36 MSK 2020","Fri Jul 03 18:05:39 MSK 2020","2646","","ru.fix.kbdd.example.cases.IntroductionTest","","ru.fix.kbdd.example.cases.IntroductionTest","REST request response","REST request response",""

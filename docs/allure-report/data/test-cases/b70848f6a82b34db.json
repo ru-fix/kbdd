@@ -1,5 +1,5 @@
 {
-  "uid" : "42e6b95cd790faa",
+  "uid" : "b70848f6a82b34db",
   "name" : "REST request response",
   "fullName" : "REST request response",
   "historyId" : "ff69f4370625c34f3b82bf07a6e9b22f",
@@ -28,9 +28,9 @@
       "status" : "passed",
       "steps" : [ ],
       "attachments" : [ {
-        "uid" : "13b97f588a4bdb37",
+        "uid" : "c0e110c4e8faeffb",
         "name" : "code-example",
-        "source" : "13b97f588a4bdb37.txt",
+        "source" : "c0e110c4e8faeffb.txt",
         "type" : "text/plain",
         "size" : 874
       } ],
@@ -64,15 +64,15 @@
       "status" : "passed",
       "steps" : [ ],
       "attachments" : [ {
-        "uid" : "9862dc51e9691780",
+        "uid" : "a14c84d3ded50411",
         "name" : "request http://localhost:32947/introduction/account/state",
-        "source" : "9862dc51e9691780.txt",
+        "source" : "a14c84d3ded50411.txt",
         "type" : "text/plain",
         "size" : 256
       }, {
-        "uid" : "9cba7cab6175cfc1",
+        "uid" : "13082f9e92e900c5",
         "name" : "response http://localhost:32947/introduction/account/state",
-        "source" : "9cba7cab6175cfc1.txt",
+        "source" : "13082f9e92e900c5.txt",
         "type" : "text/plain",
         "size" : 305
       } ],
@@ -140,6 +140,6 @@
     "categories" : [ ],
     "tags" : [ ]
   },
-  "source" : "42e6b95cd790faa.json",
+  "source" : "b70848f6a82b34db.json",
   "parameterValues" : [ ]
 }

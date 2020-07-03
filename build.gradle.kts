@@ -221,6 +221,7 @@ tasks {
             Do not forget to commit updated content of docs directory to master branch.
             This will publish kbdd github pages site.
             """.trimIndent()
+        outputs.upToDateWhen { false }
 
         dependsOn(":kbdd-example:build", ":kbdd-example:allureReport", "asciidoctor")
 

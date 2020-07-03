@@ -1,61 +1,10 @@
 {
   "uid" : "b1a8273437954620fa374b796ffaacdd",
   "children" : [ {
-    "name" : "Travel",
-    "children" : [ {
-      "name" : "Flight",
-      "children" : [ {
-        "name" : "Flight booking is available for three days (xml)",
-        "uid" : "5a2220c5be169c46",
-        "parentUid" : "46152c51b4820a6cbc526bed36eee5e6",
-        "status" : "passed",
-        "time" : {
-          "start" : 1593788736306,
-          "stop" : 1593788739629,
-          "duration" : 3323
-        },
-        "flaky" : false,
-        "newFailed" : false,
-        "parameters" : [ ]
-      }, {
-        "name" : "Flight booking is available for three days",
-        "uid" : "d87eb236bc9cb738",
-        "parentUid" : "46152c51b4820a6cbc526bed36eee5e6",
-        "status" : "passed",
-        "time" : {
-          "start" : 1593788736344,
-          "stop" : 1593788738969,
-          "duration" : 2625
-        },
-        "flaky" : false,
-        "newFailed" : false,
-        "parameters" : [ ]
-      }, {
-        "name" : "Flight booking",
-        "children" : [ {
-          "name" : "Successfull booking for tomorrow",
-          "uid" : "2632f7fd8deb23f1",
-          "parentUid" : "c85646f0d7f342acedef3952606406b1",
-          "status" : "passed",
-          "time" : {
-            "start" : 1593788736367,
-            "stop" : 1593788738938,
-            "duration" : 2571
-          },
-          "flaky" : false,
-          "newFailed" : false,
-          "parameters" : [ ]
-        } ],
-        "uid" : "c85646f0d7f342acedef3952606406b1"
-      } ],
-      "uid" : "46152c51b4820a6cbc526bed36eee5e6"
-    } ],
-    "uid" : "907e3fe635aad291863239152808eda2"
-  }, {
     "name" : "Introduction",
     "children" : [ {
       "name" : "REST request response",
-      "uid" : "ce923e8b4185aa7b",
+      "uid" : "7de9891fca92f2ac",
       "parentUid" : "b7ce5fc2bbf1afdc784fd817341171a0",
       "status" : "passed",
       "time" : {
@@ -66,8 +15,72 @@
       "flaky" : false,
       "newFailed" : false,
       "parameters" : [ ]
+    }, {
+      "name" : "Send HTTP request and validate response",
+      "uid" : "b1940d9422d0fd59",
+      "parentUid" : "b7ce5fc2bbf1afdc784fd817341171a0",
+      "status" : "passed",
+      "time" : {
+        "start" : 1593789328660,
+        "stop" : 1593789330414,
+        "duration" : 1754
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
     } ],
     "uid" : "b7ce5fc2bbf1afdc784fd817341171a0"
+  }, {
+    "name" : "Travel",
+    "children" : [ {
+      "name" : "Flight",
+      "children" : [ {
+        "name" : "Flight booking is available for three days (xml)",
+        "uid" : "b1f83d5e812b2385",
+        "parentUid" : "46152c51b4820a6cbc526bed36eee5e6",
+        "status" : "passed",
+        "time" : {
+          "start" : 1593789328747,
+          "stop" : 1593789331321,
+          "duration" : 2574
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "Flight booking is available for three days",
+        "uid" : "bf6b3730c1ee9b33",
+        "parentUid" : "46152c51b4820a6cbc526bed36eee5e6",
+        "status" : "passed",
+        "time" : {
+          "start" : 1593789328769,
+          "stop" : 1593789330756,
+          "duration" : 1987
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "Flight booking",
+        "children" : [ {
+          "name" : "Successfull booking for tomorrow",
+          "uid" : "8cf8fb1e9d763882",
+          "parentUid" : "c85646f0d7f342acedef3952606406b1",
+          "status" : "passed",
+          "time" : {
+            "start" : 1593789328792,
+            "stop" : 1593789330736,
+            "duration" : 1944
+          },
+          "flaky" : false,
+          "newFailed" : false,
+          "parameters" : [ ]
+        } ],
+        "uid" : "c85646f0d7f342acedef3952606406b1"
+      } ],
+      "uid" : "46152c51b4820a6cbc526bed36eee5e6"
+    } ],
+    "uid" : "907e3fe635aad291863239152808eda2"
   } ],
   "name" : "behaviors"
 }

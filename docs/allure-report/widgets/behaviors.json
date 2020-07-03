@@ -1,19 +1,19 @@
 {
   "total" : 2,
   "items" : [ {
-    "uid" : "907e3fe635aad291863239152808eda2",
-    "name" : "Travel",
+    "uid" : "b7ce5fc2bbf1afdc784fd817341171a0",
+    "name" : "Introduction",
     "statistic" : {
       "failed" : 0,
       "broken" : 0,
       "skipped" : 0,
-      "passed" : 1,
+      "passed" : 2,
       "unknown" : 0,
-      "total" : 1
+      "total" : 2
     }
   }, {
-    "uid" : "b7ce5fc2bbf1afdc784fd817341171a0",
-    "name" : "Introduction",
+    "uid" : "907e3fe635aad291863239152808eda2",
+    "name" : "Travel",
     "statistic" : {
       "failed" : 0,
       "broken" : 0,

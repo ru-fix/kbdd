@@ -1,10 +1,61 @@
 {
   "uid" : "ab17fc5a4eb3bca4b216b548c7f9fcbc",
   "children" : [ {
+    "name" : "181362db-f522-449a-873f-84ba1d888d9e",
+    "children" : [ {
+      "name" : "Flight booking is available for three days (xml)",
+      "uid" : "f698a2956ed8b74d",
+      "parentUid" : "348c929ef9dd4453f9e8499a80a2fa4c",
+      "status" : "passed",
+      "time" : {
+        "start" : 1593788646017,
+        "stop" : 1593788648398,
+        "duration" : 2381
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    } ],
+    "uid" : "348c929ef9dd4453f9e8499a80a2fa4c"
+  }, {
+    "name" : "6a4c427b-f170-459d-ba50-0b077f053377",
+    "children" : [ {
+      "name" : "Flight booking is available for three days",
+      "uid" : "bf6b3730c1ee9b33",
+      "parentUid" : "537286b66357c8f26358b1dd3aaf8c46",
+      "status" : "passed",
+      "time" : {
+        "start" : 1593789328769,
+        "stop" : 1593789330756,
+        "duration" : 1987
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    } ],
+    "uid" : "537286b66357c8f26358b1dd3aaf8c46"
+  }, {
+    "name" : "5990ce68-6a5a-468b-9d5f-058ef6de8832",
+    "children" : [ {
+      "name" : "Flight booking is available for three days",
+      "uid" : "b62778bf13c11416",
+      "parentUid" : "8ebdd3a3d3532884f233e562a5932b7e",
+      "status" : "passed",
+      "time" : {
+        "start" : 1593788736344,
+        "stop" : 1593788738969,
+        "duration" : 2625
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    } ],
+    "uid" : "8ebdd3a3d3532884f233e562a5932b7e"
+  }, {
     "name" : "5f98def0-8b5a-4ef3-94b5-16482a0c7ac1",
     "children" : [ {
       "name" : "REST request response",
-      "uid" : "42e6b95cd790faa",
+      "uid" : "b70848f6a82b34db",
       "parentUid" : "89d67fbf93689d97adc30a57c2356ad1",
       "status" : "broken",
       "time" : {
@@ -21,7 +72,7 @@
     "name" : "bd118d73-ca4d-4f55-953b-5d9ffee34ebf",
     "children" : [ {
       "name" : "REST request response",
-      "uid" : "c6159e674fe0dc43",
+      "uid" : "da57b25b7500d0f5",
       "parentUid" : "ac295491e9c1df619d56229ed382119f",
       "status" : "passed",
       "time" : {
@@ -35,10 +86,61 @@
     } ],
     "uid" : "ac295491e9c1df619d56229ed382119f"
   }, {
+    "name" : "1601983c-4793-4fd2-a8d0-a20f4790a51f",
+    "children" : [ {
+      "name" : "Flight booking is available for three days (xml)",
+      "uid" : "b1f83d5e812b2385",
+      "parentUid" : "6127a37d998a05e363d4311ec29f7293",
+      "status" : "passed",
+      "time" : {
+        "start" : 1593789328747,
+        "stop" : 1593789331321,
+        "duration" : 2574
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    } ],
+    "uid" : "6127a37d998a05e363d4311ec29f7293"
+  }, {
+    "name" : "e0c2f14b-9219-4530-898d-1f4b62b8a40b",
+    "children" : [ {
+      "name" : "Successfull booking for tomorrow",
+      "uid" : "8cf8fb1e9d763882",
+      "parentUid" : "33ee02419ff8e29249f8346d12db4e8e",
+      "status" : "passed",
+      "time" : {
+        "start" : 1593789328792,
+        "stop" : 1593789330736,
+        "duration" : 1944
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    } ],
+    "uid" : "33ee02419ff8e29249f8346d12db4e8e"
+  }, {
+    "name" : "583d7982-baba-4366-b75f-57184906bf92",
+    "children" : [ {
+      "name" : "Send HTTP request and validate response",
+      "uid" : "b1940d9422d0fd59",
+      "parentUid" : "779772fa471e2716988f20ec5e8cc2ec",
+      "status" : "passed",
+      "time" : {
+        "start" : 1593789328660,
+        "stop" : 1593789330414,
+        "duration" : 1754
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    } ],
+    "uid" : "779772fa471e2716988f20ec5e8cc2ec"
+  }, {
     "name" : "bae6e0de-8f4e-4956-81e9-971152c79ce9",
     "children" : [ {
       "name" : "REST request response",
-      "uid" : "ce923e8b4185aa7b",
+      "uid" : "7de9891fca92f2ac",
       "parentUid" : "399674fc55d39a42dbf34ee47d3d0ab8",
       "status" : "passed",
       "time" : {
@@ -52,61 +154,27 @@
     } ],
     "uid" : "399674fc55d39a42dbf34ee47d3d0ab8"
   }, {
-    "name" : "5990ce68-6a5a-468b-9d5f-058ef6de8832",
+    "name" : "dab4da13-a3c7-4e11-8b24-f42511e2fe85",
     "children" : [ {
-      "name" : "Flight booking is available for three days",
-      "uid" : "d87eb236bc9cb738",
-      "parentUid" : "8ebdd3a3d3532884f233e562a5932b7e",
+      "name" : "Successfull booking for tomorrow",
+      "uid" : "2438ce5fdf83175e",
+      "parentUid" : "639fb6199747cee3cd5516389f4e0278",
       "status" : "passed",
       "time" : {
-        "start" : 1593788736344,
-        "stop" : 1593788738969,
-        "duration" : 2625
+        "start" : 1593788736367,
+        "stop" : 1593788738938,
+        "duration" : 2571
       },
       "flaky" : false,
       "newFailed" : false,
       "parameters" : [ ]
     } ],
-    "uid" : "8ebdd3a3d3532884f233e562a5932b7e"
-  }, {
-    "name" : "22f40b6e-9669-4335-96b4-93d4ed41db0a",
-    "children" : [ {
-      "name" : "REST request response",
-      "uid" : "636e8989f178bbea",
-      "parentUid" : "7bbf7f0c2c4d3b6c0b90a664dbc4f390",
-      "status" : "broken",
-      "time" : {
-        "start" : 1593788693710,
-        "stop" : 1593788694872,
-        "duration" : 1162
-      },
-      "flaky" : false,
-      "newFailed" : false,
-      "parameters" : [ ]
-    } ],
-    "uid" : "7bbf7f0c2c4d3b6c0b90a664dbc4f390"
-  }, {
-    "name" : "dd8f64a9-b516-4bd9-a280-784773aa04c5",
-    "children" : [ {
-      "name" : "Flight booking is available for three days",
-      "uid" : "e4c920e30548568c",
-      "parentUid" : "5f56f242fb70f1f228e88296e50da817",
-      "status" : "passed",
-      "time" : {
-        "start" : 1593788646037,
-        "stop" : 1593788647829,
-        "duration" : 1792
-      },
-      "flaky" : false,
-      "newFailed" : false,
-      "parameters" : [ ]
-    } ],
-    "uid" : "5f56f242fb70f1f228e88296e50da817"
+    "uid" : "639fb6199747cee3cd5516389f4e0278"
   }, {
     "name" : "28fa8337-7b27-470b-a89e-d20105e4c4fa",
     "children" : [ {
       "name" : "Flight booking is available for three days (xml)",
-      "uid" : "5a2220c5be169c46",
+      "uid" : "f8a96e4a6559c500",
       "parentUid" : "10aa80a65208aa49851359f022c72596",
       "status" : "passed",
       "time" : {
@@ -120,10 +188,27 @@
     } ],
     "uid" : "10aa80a65208aa49851359f022c72596"
   }, {
+    "name" : "dd8f64a9-b516-4bd9-a280-784773aa04c5",
+    "children" : [ {
+      "name" : "Flight booking is available for three days",
+      "uid" : "f0a7744813b7495a",
+      "parentUid" : "5f56f242fb70f1f228e88296e50da817",
+      "status" : "passed",
+      "time" : {
+        "start" : 1593788646037,
+        "stop" : 1593788647829,
+        "duration" : 1792
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    } ],
+    "uid" : "5f56f242fb70f1f228e88296e50da817"
+  }, {
     "name" : "76630daf-53d1-4b9d-9c0b-2bfad859e43b",
     "children" : [ {
       "name" : "Successfull booking for tomorrow",
-      "uid" : "cbf81fedbe3ddb60",
+      "uid" : "8683d28a733aefa",
       "parentUid" : "5dbdfbc9ec434184e2c79ff7ed1802bf",
       "status" : "passed",
       "time" : {
@@ -137,39 +222,22 @@
     } ],
     "uid" : "5dbdfbc9ec434184e2c79ff7ed1802bf"
   }, {
-    "name" : "181362db-f522-449a-873f-84ba1d888d9e",
+    "name" : "22f40b6e-9669-4335-96b4-93d4ed41db0a",
     "children" : [ {
-      "name" : "Flight booking is available for three days (xml)",
-      "uid" : "c65b370d8bf7c780",
-      "parentUid" : "348c929ef9dd4453f9e8499a80a2fa4c",
-      "status" : "passed",
+      "name" : "REST request response",
+      "uid" : "2c6d2961c6d25526",
+      "parentUid" : "7bbf7f0c2c4d3b6c0b90a664dbc4f390",
+      "status" : "broken",
       "time" : {
-        "start" : 1593788646017,
-        "stop" : 1593788648398,
-        "duration" : 2381
+        "start" : 1593788693710,
+        "stop" : 1593788694872,
+        "duration" : 1162
       },
       "flaky" : false,
       "newFailed" : false,
       "parameters" : [ ]
     } ],
-    "uid" : "348c929ef9dd4453f9e8499a80a2fa4c"
-  }, {
-    "name" : "dab4da13-a3c7-4e11-8b24-f42511e2fe85",
-    "children" : [ {
-      "name" : "Successfull booking for tomorrow",
-      "uid" : "2632f7fd8deb23f1",
-      "parentUid" : "639fb6199747cee3cd5516389f4e0278",
-      "status" : "passed",
-      "time" : {
-        "start" : 1593788736367,
-        "stop" : 1593788738938,
-        "duration" : 2571
-      },
-      "flaky" : false,
-      "newFailed" : false,
-      "parameters" : [ ]
-    } ],
-    "uid" : "639fb6199747cee3cd5516389f4e0278"
+    "uid" : "7bbf7f0c2c4d3b6c0b90a664dbc4f390"
   } ],
   "name" : "timeline"
 }

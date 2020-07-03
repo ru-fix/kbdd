@@ -1,34 +1,37 @@
 {
-  "uid" : "ce923e8b4185aa7b",
-  "name" : "REST request response",
-  "fullName" : "REST request response",
-  "historyId" : "ff69f4370625c34f3b82bf07a6e9b22f",
+  "uid" : "b1940d9422d0fd59",
+  "name" : "Send HTTP request and validate response",
+  "fullName" : "Send HTTP request and validate response",
+  "historyId" : "54f51053c1d481efe8159b5f1cbc5013",
   "time" : {
-    "start" : 1593788736401,
-    "stop" : 1593788739047,
-    "duration" : 2646
+    "start" : 1593789328660,
+    "stop" : 1593789330414,
+    "duration" : 1754
   },
+  "description" : "\n        Code example block contains test code snippet.\n        MockServer is used to setup HTTP response from local HTTP mock server.\n    ",
+  "descriptionHtml" : "<pre><code>    Code example block contains test code snippet.\n    MockServer is used to setup HTTP response from local HTTP mock server.\n</code></pre>\n",
   "status" : "passed",
   "flaky" : false,
   "newFailed" : false,
   "beforeStages" : [ ],
   "testStage" : {
+    "description" : "\n        Code example block contains test code snippet.\n        MockServer is used to setup HTTP response from local HTTP mock server.\n    ",
     "status" : "passed",
     "steps" : [ {
       "name" : "Code example",
       "time" : {
-        "start" : 1593788736465,
-        "stop" : 1593788736480,
-        "duration" : 15
+        "start" : 1593789328718,
+        "stop" : 1593789328722,
+        "duration" : 4
       },
       "status" : "passed",
       "steps" : [ ],
       "attachments" : [ {
-        "uid" : "f292a69e721caf0b",
+        "uid" : "cd490fae176672f0",
         "name" : "code-example",
-        "source" : "f292a69e721caf0b.txt",
+        "source" : "cd490fae176672f0.txt",
         "type" : "text/plain",
-        "size" : 937
+        "size" : 955
       } ],
       "parameters" : [ ],
       "stepsCount" : 0,
@@ -38,8 +41,8 @@
     }, {
       "name" : "Given server for url answers (url: /introduction/account/state, response: \n                {\n                    \"status\": \"active\",\n                    \"amount\": 120,\n                    \"owner\": {\n                        \"firstName\": \"John\",\n                        \"lastName\": \"Smith\"\n                    }\n                }\n                )",
       "time" : {
-        "start" : 1593788736518,
-        "stop" : 1593788736519,
+        "start" : 1593789328733,
+        "stop" : 1593789328734,
         "duration" : 1
       },
       "status" : "passed",
@@ -53,22 +56,22 @@
     }, {
       "name" : "Send HTTP GET request to a mocked server",
       "time" : {
-        "start" : 1593788736520,
-        "stop" : 1593788738819,
-        "duration" : 2299
+        "start" : 1593789328735,
+        "stop" : 1593789330237,
+        "duration" : 1502
       },
       "status" : "passed",
       "steps" : [ ],
       "attachments" : [ {
-        "uid" : "428d6d33b5a61aca",
-        "name" : "request http://localhost:54467/introduction/account/state",
-        "source" : "428d6d33b5a61aca.txt",
+        "uid" : "200d189af342d859",
+        "name" : "request http://localhost:59092/introduction/account/state",
+        "source" : "200d189af342d859.txt",
         "type" : "text/plain",
         "size" : 256
       }, {
-        "uid" : "5983d6218a2c240",
-        "name" : "response http://localhost:54467/introduction/account/state",
-        "source" : "5983d6218a2c240.txt",
+        "uid" : "26ad3d361ba52ae7",
+        "name" : "response http://localhost:59092/introduction/account/state",
+        "source" : "26ad3d361ba52ae7.txt",
         "type" : "text/plain",
         "size" : 343
       } ],
@@ -80,16 +83,16 @@
     }, {
       "name" : "Validate HTTP response content from previous request",
       "time" : {
-        "start" : 1593788738820,
-        "stop" : 1593788739017,
-        "duration" : 197
+        "start" : 1593789330237,
+        "stop" : 1593789330408,
+        "duration" : 171
       },
       "status" : "passed",
       "steps" : [ {
         "name" : "bodyJson()[\"status\"] == \"active\"",
         "time" : {
-          "start" : 1593788738989,
-          "stop" : 1593788738989,
+          "start" : 1593789330394,
+          "stop" : 1593789330394,
           "duration" : 0
         },
         "status" : "passed",
@@ -103,8 +106,8 @@
       }, {
         "name" : "bodyJson()[\"owner\"][\"firstName\"] == \"John\"",
         "time" : {
-          "start" : 1593788739017,
-          "stop" : 1593788739017,
+          "start" : 1593789330407,
+          "stop" : 1593789330407,
           "duration" : 0
         },
         "status" : "passed",
@@ -142,7 +145,7 @@
     "value" : "ru.fix.kbdd.example.cases.IntroductionTest"
   }, {
     "name" : "testMethod",
-    "value" : "REST request response"
+    "value" : "Send HTTP request and validate response"
   }, {
     "name" : "epic",
     "value" : "Introduction"
@@ -151,7 +154,7 @@
     "value" : "ru.fix.kbdd.example.cases.IntroductionTest"
   }, {
     "name" : "thread",
-    "value" : "bae6e0de-8f4e-4956-81e9-971152c79ce9"
+    "value" : "583d7982-baba-4366-b75f-57184906bf92"
   }, {
     "name" : "resultFormat",
     "value" : "allure2"
@@ -162,36 +165,10 @@
   "retry" : false,
   "extra" : {
     "severity" : "normal",
-    "retries" : [ {
-      "uid" : "c6159e674fe0dc43",
-      "status" : "passed",
-      "time" : {
-        "start" : 1593788712082,
-        "stop" : 1593788713284,
-        "duration" : 1202
-      }
-    }, {
-      "uid" : "636e8989f178bbea",
-      "status" : "broken",
-      "statusDetails" : "Failed to parse the JSON document",
-      "time" : {
-        "start" : 1593788693710,
-        "stop" : 1593788694872,
-        "duration" : 1162
-      }
-    }, {
-      "uid" : "42e6b95cd790faa",
-      "status" : "broken",
-      "statusDetails" : "Failed to parse the JSON document",
-      "time" : {
-        "start" : 1593788645712,
-        "stop" : 1593788647316,
-        "duration" : 1604
-      }
-    } ],
+    "retries" : [ ],
     "categories" : [ ],
     "tags" : [ ]
   },
-  "source" : "ce923e8b4185aa7b.json",
+  "source" : "b1940d9422d0fd59.json",
   "parameterValues" : [ ]
 }

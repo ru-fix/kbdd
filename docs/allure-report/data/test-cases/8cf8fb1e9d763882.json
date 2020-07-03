@@ -1,12 +1,12 @@
 {
-  "uid" : "2632f7fd8deb23f1",
+  "uid" : "8cf8fb1e9d763882",
   "name" : "Successfull booking for tomorrow",
   "fullName" : "Successfull booking for tomorrow",
   "historyId" : "d3217736f21f01a1ac6ddf2aab4537e1",
   "time" : {
-    "start" : 1593788736367,
-    "stop" : 1593788738938,
-    "duration" : 2571
+    "start" : 1593789328792,
+    "stop" : 1593789330736,
+    "duration" : 1944
   },
   "description" : "\n        User successfully purchases a ticket for the tomorrow's flight.\n        http://documentation.acme.com/booking.html\n        ",
   "descriptionHtml" : "<pre><code>    User successfully purchases a ticket for the tomorrow's flight.\n    http://documentation.acme.com/booking.html\n</code></pre>\n",
@@ -20,16 +20,16 @@
     "steps" : [ {
       "name" : "User make a request to reserve airport ticket for the next date",
       "time" : {
-        "start" : 1593788736424,
-        "stop" : 1593788738794,
-        "duration" : 2370
+        "start" : 1593789328815,
+        "stop" : 1593789330667,
+        "duration" : 1852
       },
       "status" : "passed",
       "steps" : [ {
         "name" : "statusCode() == 200",
         "time" : {
-          "start" : 1593788738641,
-          "stop" : 1593788738641,
+          "start" : 1593789330567,
+          "stop" : 1593789330567,
           "duration" : 0
         },
         "status" : "passed",
@@ -43,8 +43,8 @@
       }, {
         "name" : "bodyJson()[\"error\"] == null",
         "time" : {
-          "start" : 1593788738777,
-          "stop" : 1593788738777,
+          "start" : 1593789330661,
+          "stop" : 1593789330661,
           "duration" : 0
         },
         "status" : "passed",
@@ -58,8 +58,8 @@
       }, {
         "name" : "bodyJson()[\"price\"] >= 0",
         "time" : {
-          "start" : 1593788738791,
-          "stop" : 1593788738791,
+          "start" : 1593789330663,
+          "stop" : 1593789330663,
           "duration" : 0
         },
         "status" : "passed",
@@ -72,15 +72,15 @@
         "hasContent" : false
       } ],
       "attachments" : [ {
-        "uid" : "824c0bdd4cb7d479",
-        "name" : "request http://localhost:59350/book-flight",
-        "source" : "824c0bdd4cb7d479.txt",
+        "uid" : "53e7eb9983b8da21",
+        "name" : "request http://localhost:32199/book-flight",
+        "source" : "53e7eb9983b8da21.txt",
         "type" : "text/plain",
         "size" : 363
       }, {
-        "uid" : "c8f5d31780db405a",
-        "name" : "response http://localhost:59350/book-flight",
-        "source" : "c8f5d31780db405a.txt",
+        "uid" : "975ea2b91923306f",
+        "name" : "response http://localhost:32199/book-flight",
+        "source" : "975ea2b91923306f.txt",
         "type" : "text/plain",
         "size" : 259
       } ],
@@ -92,8 +92,8 @@
     }, {
       "name" : "Reservation price does not exceed 144000",
       "time" : {
-        "start" : 1593788738794,
-        "stop" : 1593788738794,
+        "start" : 1593789330668,
+        "stop" : 1593789330668,
         "duration" : 0
       },
       "status" : "passed",
@@ -107,16 +107,16 @@
     }, {
       "name" : "Money withdrawn and user receives bonus miles",
       "time" : {
-        "start" : 1593788738795,
-        "stop" : 1593788738923,
-        "duration" : 128
+        "start" : 1593789330669,
+        "stop" : 1593789330732,
+        "duration" : 63
       },
       "status" : "passed",
       "steps" : [ {
         "name" : "bodyJson()[\"result\"] == \"success\"",
         "time" : {
-          "start" : 1593788738900,
-          "stop" : 1593788738900,
+          "start" : 1593789330726,
+          "stop" : 1593789330726,
           "duration" : 0
         },
         "status" : "passed",
@@ -130,8 +130,8 @@
       }, {
         "name" : "bodyJson()[\"bonusMiles\"] >= 1",
         "time" : {
-          "start" : 1593788738901,
-          "stop" : 1593788738901,
+          "start" : 1593789330727,
+          "stop" : 1593789330727,
           "duration" : 0
         },
         "status" : "passed",
@@ -144,15 +144,15 @@
         "hasContent" : false
       } ],
       "attachments" : [ {
-        "uid" : "5bfd88e47d5af0b3",
-        "name" : "request http://localhost:59350/withdraw",
-        "source" : "5bfd88e47d5af0b3.txt",
+        "uid" : "6380dce14dc6ce7b",
+        "name" : "request http://localhost:32199/withdraw",
+        "source" : "6380dce14dc6ce7b.txt",
         "type" : "text/plain",
         "size" : 354
       }, {
-        "uid" : "388227792148d230",
-        "name" : "response http://localhost:59350/withdraw",
-        "source" : "388227792148d230.txt",
+        "uid" : "1331f77249613618",
+        "name" : "response http://localhost:32199/withdraw",
+        "source" : "1331f77249613618.txt",
         "type" : "text/plain",
         "size" : 267
       } ],
@@ -196,7 +196,7 @@
     "value" : "Flight booking"
   }, {
     "name" : "thread",
-    "value" : "dab4da13-a3c7-4e11-8b24-f42511e2fe85"
+    "value" : "e0c2f14b-9219-4530-898d-1f4b62b8a40b"
   }, {
     "name" : "resultFormat",
     "value" : "allure2"
@@ -208,7 +208,15 @@
   "extra" : {
     "severity" : "normal",
     "retries" : [ {
-      "uid" : "cbf81fedbe3ddb60",
+      "uid" : "2438ce5fdf83175e",
+      "status" : "passed",
+      "time" : {
+        "start" : 1593788736367,
+        "stop" : 1593788738938,
+        "duration" : 2571
+      }
+    }, {
+      "uid" : "8683d28a733aefa",
       "status" : "passed",
       "time" : {
         "start" : 1593788646052,
@@ -219,6 +227,6 @@
     "categories" : [ ],
     "tags" : [ ]
   },
-  "source" : "2632f7fd8deb23f1.json",
+  "source" : "8cf8fb1e9d763882.json",
   "parameterValues" : [ ]
 }

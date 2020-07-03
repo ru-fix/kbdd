@@ -1,5 +1,5 @@
 {
-  "uid" : "5a2220c5be169c46",
+  "uid" : "f8a96e4a6559c500",
   "name" : "Flight booking is available for three days (xml)",
   "fullName" : "Flight booking is available for three days (xml)",
   "historyId" : "114a22e9c5f0ecee8edb17fc5312d273",
@@ -166,15 +166,15 @@
       "hasContent" : false
     } ],
     "attachments" : [ {
-      "uid" : "61b2ae61748863fd",
+      "uid" : "9a6cf60e720c9fb1",
       "name" : "request http://localhost:59350/available_xml",
-      "source" : "61b2ae61748863fd.txt",
+      "source" : "9a6cf60e720c9fb1.txt",
       "type" : "text/plain",
       "size" : 354
     }, {
-      "uid" : "f5d3274d6964a052",
+      "uid" : "49aff7f819590693",
       "name" : "response http://localhost:59350/available_xml",
-      "source" : "f5d3274d6964a052.txt",
+      "source" : "49aff7f819590693.txt",
       "type" : "text/plain",
       "size" : 386
     } ],
@@ -215,22 +215,12 @@
   } ],
   "parameters" : [ ],
   "links" : [ ],
-  "hidden" : false,
-  "retry" : false,
+  "hidden" : true,
+  "retry" : true,
   "extra" : {
-    "severity" : "normal",
-    "retries" : [ {
-      "uid" : "c65b370d8bf7c780",
-      "status" : "passed",
-      "time" : {
-        "start" : 1593788646017,
-        "stop" : 1593788648398,
-        "duration" : 2381
-      }
-    } ],
     "categories" : [ ],
     "tags" : [ ]
   },
-  "source" : "5a2220c5be169c46.json",
+  "source" : "f8a96e4a6559c500.json",
   "parameterValues" : [ ]
 }

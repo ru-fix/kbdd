@@ -1,12 +1,12 @@
 {
-  "uid" : "d87eb236bc9cb738",
+  "uid" : "f0a7744813b7495a",
   "name" : "Flight booking is available for three days",
   "fullName" : "Flight booking is available for three days",
   "historyId" : "f353ce2cd18aba63ff3a5e1670bb992e",
   "time" : {
-    "start" : 1593788736344,
-    "stop" : 1593788738969,
-    "duration" : 2625
+    "start" : 1593788646037,
+    "stop" : 1593788647829,
+    "duration" : 1792
   },
   "status" : "passed",
   "flaky" : false,
@@ -17,16 +17,16 @@
     "steps" : [ {
       "name" : "parameterized(1, Jan)",
       "time" : {
-        "start" : 1593788736389,
-        "stop" : 1593788738778,
-        "duration" : 2389
+        "start" : 1593788646057,
+        "stop" : 1593788647753,
+        "duration" : 1696
       },
       "status" : "passed",
       "steps" : [ {
         "name" : "bodyJson()[\"error\"] == null",
         "time" : {
-          "start" : 1593788738777,
-          "stop" : 1593788738777,
+          "start" : 1593788647752,
+          "stop" : 1593788647752,
           "duration" : 0
         },
         "status" : "passed",
@@ -40,8 +40,8 @@
       }, {
         "name" : "bodyJson()[\"result\"] == \"success\"",
         "time" : {
-          "start" : 1593788738778,
-          "stop" : 1593788738778,
+          "start" : 1593788647753,
+          "stop" : 1593788647753,
           "duration" : 0
         },
         "status" : "passed",
@@ -54,15 +54,15 @@
         "hasContent" : false
       } ],
       "attachments" : [ {
-        "uid" : "482f0056139a5871",
-        "name" : "request http://localhost:59350/available",
-        "source" : "482f0056139a5871.txt",
+        "uid" : "6b87f91bbc7d6bd3",
+        "name" : "request http://localhost:57165/available",
+        "source" : "6b87f91bbc7d6bd3.txt",
         "type" : "text/plain",
         "size" : 324
       }, {
-        "uid" : "d449a7490c29cffd",
-        "name" : "response http://localhost:59350/available",
-        "source" : "d449a7490c29cffd.txt",
+        "uid" : "54348a19919acd60",
+        "name" : "response http://localhost:57165/available",
+        "source" : "54348a19919acd60.txt",
         "type" : "text/plain",
         "size" : 246
       } ],
@@ -74,16 +74,16 @@
     }, {
       "name" : "parameterized(2, Feb)",
       "time" : {
-        "start" : 1593788738778,
-        "stop" : 1593788738875,
-        "duration" : 97
+        "start" : 1593788647753,
+        "stop" : 1593788647798,
+        "duration" : 45
       },
       "status" : "passed",
       "steps" : [ {
         "name" : "bodyJson()[\"error\"] == null",
         "time" : {
-          "start" : 1593788738869,
-          "stop" : 1593788738869,
+          "start" : 1593788647797,
+          "stop" : 1593788647797,
           "duration" : 0
         },
         "status" : "passed",
@@ -97,8 +97,8 @@
       }, {
         "name" : "bodyJson()[\"result\"] == \"success\"",
         "time" : {
-          "start" : 1593788738870,
-          "stop" : 1593788738870,
+          "start" : 1593788647798,
+          "stop" : 1593788647798,
           "duration" : 0
         },
         "status" : "passed",
@@ -111,15 +111,15 @@
         "hasContent" : false
       } ],
       "attachments" : [ {
-        "uid" : "9931c5199bdbaf55",
-        "name" : "request http://localhost:59350/available",
-        "source" : "9931c5199bdbaf55.txt",
+        "uid" : "58d30bf50c85295f",
+        "name" : "request http://localhost:57165/available",
+        "source" : "58d30bf50c85295f.txt",
         "type" : "text/plain",
         "size" : 324
       }, {
-        "uid" : "33fe82c0e661231f",
-        "name" : "response http://localhost:59350/available",
-        "source" : "33fe82c0e661231f.txt",
+        "uid" : "2055cec960f95498",
+        "name" : "response http://localhost:57165/available",
+        "source" : "2055cec960f95498.txt",
         "type" : "text/plain",
         "size" : 246
       } ],
@@ -131,16 +131,16 @@
     }, {
       "name" : "parameterized(3, Mar)",
       "time" : {
-        "start" : 1593788738875,
-        "stop" : 1593788738968,
-        "duration" : 93
+        "start" : 1593788647798,
+        "stop" : 1593788647829,
+        "duration" : 31
       },
       "status" : "passed",
       "steps" : [ {
         "name" : "bodyJson()[\"error\"] == null",
         "time" : {
-          "start" : 1593788738967,
-          "stop" : 1593788738967,
+          "start" : 1593788647828,
+          "stop" : 1593788647828,
           "duration" : 0
         },
         "status" : "passed",
@@ -154,8 +154,8 @@
       }, {
         "name" : "bodyJson()[\"result\"] == \"success\"",
         "time" : {
-          "start" : 1593788738968,
-          "stop" : 1593788738968,
+          "start" : 1593788647829,
+          "stop" : 1593788647829,
           "duration" : 0
         },
         "status" : "passed",
@@ -168,15 +168,15 @@
         "hasContent" : false
       } ],
       "attachments" : [ {
-        "uid" : "a4074d3f7c71e017",
-        "name" : "request http://localhost:59350/available",
-        "source" : "a4074d3f7c71e017.txt",
+        "uid" : "9f19faca70f9885e",
+        "name" : "request http://localhost:57165/available",
+        "source" : "9f19faca70f9885e.txt",
         "type" : "text/plain",
         "size" : 324
       }, {
-        "uid" : "94419a9a3c297c14",
-        "name" : "response http://localhost:59350/available",
-        "source" : "94419a9a3c297c14.txt",
+        "uid" : "a70d303b22fcaf6b",
+        "name" : "response http://localhost:57165/available",
+        "source" : "a70d303b22fcaf6b.txt",
         "type" : "text/plain",
         "size" : 246
       } ],
@@ -217,29 +217,19 @@
     "value" : "ru.fix.kbdd.example.cases.AirportBookingTest"
   }, {
     "name" : "thread",
-    "value" : "5990ce68-6a5a-468b-9d5f-058ef6de8832"
+    "value" : "dd8f64a9-b516-4bd9-a280-784773aa04c5"
   }, {
     "name" : "resultFormat",
     "value" : "allure2"
   } ],
   "parameters" : [ ],
   "links" : [ ],
-  "hidden" : false,
-  "retry" : false,
+  "hidden" : true,
+  "retry" : true,
   "extra" : {
-    "severity" : "normal",
-    "retries" : [ {
-      "uid" : "e4c920e30548568c",
-      "status" : "passed",
-      "time" : {
-        "start" : 1593788646037,
-        "stop" : 1593788647829,
-        "duration" : 1792
-      }
-    } ],
     "categories" : [ ],
     "tags" : [ ]
   },
-  "source" : "d87eb236bc9cb738.json",
+  "source" : "f0a7744813b7495a.json",
   "parameterValues" : [ ]
 }
