@@ -1,5 +1,6 @@
 package ru.fix.kbdd.example.cases
 
+import io.qameta.allure.Description
 import io.qameta.allure.Epic
 import org.junit.jupiter.api.Test
 import org.koin.core.KoinComponent
@@ -13,13 +14,15 @@ import ru.fix.kbdd.example.TestFramework.makeCodeSnapshot
 
 @Epic("Introduction")
 class IntroductionTest : KoinComponent {
-
-
     val mockServer by inject<MockServer>()
 
 
+    @Description("""
+        Code example block contains test code snippet.
+        MockServer is used to setup HTTP response from local HTTP mock server.
+    """)
     @Test
-    suspend fun `REST request response`() {
+    suspend fun `Send HTTP request and validate response`() {
         makeCodeSnapshot()
 
         mockServer.`Given server for url answers`(
