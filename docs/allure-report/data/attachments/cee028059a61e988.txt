@@ -1,0 +1,16 @@
+Request method:	POST
+Request URI:	http://localhost:53631/available
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	<none>
+Headers:		Accept=*/*
+				Content-Type=application/json; charset=UTF-8
+Cookies:		<none>
+Multiparts:		<none>
+Body:
+{
+    "dayOfMonth": 1,
+    "month": "Jan"
+}

@@ -1,0 +1,52 @@
+{
+  "uid" : "83edc06c07f9ae9e47eb6dd1b683e4e2",
+  "children" : [ {
+    "name" : "ru.fix.kbdd.example.cases.AirportBookingTest",
+    "children" : [ {
+      "name" : "Flight booking is available for three days (xml)",
+      "uid" : "1b72c2bdb0646173",
+      "parentUid" : "2d148baca696dedc568de31366f382af",
+      "status" : "passed",
+      "time" : {
+        "start" : 1593696857640,
+        "stop" : 1593696859648,
+        "duration" : 2008
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "Flight booking is available for three days",
+      "uid" : "49bce83bdb29fa66",
+      "parentUid" : "2d148baca696dedc568de31366f382af",
+      "status" : "passed",
+      "time" : {
+        "start" : 1593696857657,
+        "stop" : 1593696859013,
+        "duration" : 1356
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    } ],
+    "uid" : "ru.fix.kbdd.example.cases.AirportBookingTest"
+  }, {
+    "name" : "Flights.Booking.For the next day.Successful",
+    "children" : [ {
+      "name" : "Successfull booking for tomorrow",
+      "uid" : "5b95187657a9fe67",
+      "parentUid" : "6839f5fb7b921c672c3f37828a1db25c",
+      "status" : "passed",
+      "time" : {
+        "start" : 1593696857663,
+        "stop" : 1593696858995,
+        "duration" : 1332
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    } ],
+    "uid" : "Flights.Booking.For the next day.Successful"
+  } ],
+  "name" : "packages"
+}

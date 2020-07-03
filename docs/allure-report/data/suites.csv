@@ -1,0 +1,7 @@
+"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
+"passed","Thu Jul 02 16:34:17 MSK 2020","Thu Jul 02 16:34:18 MSK 2020","1332","","ru.fix.kbdd.example.cases.AirportBookingTest","","ru.fix.kbdd.example.cases.AirportBookingTest","Successfull booking for tomorrow","Successfull booking for tomorrow","
+        User successfully purchases a ticket for the tomorrow's flight.
+        http://documentation.acme.com/booking.html
+        "
+"passed","Thu Jul 02 16:34:17 MSK 2020","Thu Jul 02 16:34:19 MSK 2020","2008","","ru.fix.kbdd.example.cases.AirportBookingTest","","ru.fix.kbdd.example.cases.AirportBookingTest","Flight booking is available for three days (xml)","Flight booking is available for three days (xml)",""
+"passed","Thu Jul 02 16:34:17 MSK 2020","Thu Jul 02 16:34:19 MSK 2020","1356","","ru.fix.kbdd.example.cases.AirportBookingTest","","ru.fix.kbdd.example.cases.AirportBookingTest","Flight booking is available for three days","Flight booking is available for three days",""

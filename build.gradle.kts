@@ -214,4 +214,20 @@ tasks {
             }
         }
     }
+
+    register("docs") {
+        description = """
+            Generates project site based on ascidoc and allure-report.
+            Do not forget to commit updated content of docs directory to master branch.
+            This will publish kbdd github pages site.
+            """.trimIndent()
+
+        dependsOn(":kbdd-example:build", ":kbdd-example:allureReport", "asciidoctor")
+        doLast {
+            copy {
+                from("${project.rootDir}/kbdd-example/build/reports/allure-report")
+                into(project.file("docs/allure-report"))
+            }
+        }
+    }
 }

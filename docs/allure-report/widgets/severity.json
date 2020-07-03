@@ -1,0 +1,31 @@
+[ {
+  "uid" : "49bce83bdb29fa66",
+  "name" : "Flight booking is available for three days",
+  "time" : {
+    "start" : 1593696857657,
+    "stop" : 1593696859013,
+    "duration" : 1356
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "1b72c2bdb0646173",
+  "name" : "Flight booking is available for three days (xml)",
+  "time" : {
+    "start" : 1593696857640,
+    "stop" : 1593696859648,
+    "duration" : 2008
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "5b95187657a9fe67",
+  "name" : "Successfull booking for tomorrow",
+  "time" : {
+    "start" : 1593696857663,
+    "stop" : 1593696858995,
+    "duration" : 1332
+  },
+  "status" : "passed",
+  "severity" : "normal"
+} ]

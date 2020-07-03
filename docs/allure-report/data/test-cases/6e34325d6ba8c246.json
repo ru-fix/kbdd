@@ -1,0 +1,259 @@
+{
+  "uid" : "6e34325d6ba8c246",
+  "name" : "Successfull booking for tomorrow",
+  "fullName" : "Successfull booking for tomorrow",
+  "historyId" : "d3217736f21f01a1ac6ddf2aab4537e1",
+  "time" : {
+    "start" : 1592376882519,
+    "stop" : 1592376884372,
+    "duration" : 1853
+  },
+  "description" : "\n        User successfully purchases a ticket for the tomorrow's flight.\n        http://documentation.acme.com/booking.html\n        ",
+  "descriptionHtml" : "<pre><code>    User successfully purchases a ticket for the tomorrow's flight.\n    http://documentation.acme.com/booking.html\n</code></pre>\n",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "testStage" : {
+    "description" : "\n        User successfully purchases a ticket for the tomorrow's flight.\n        http://documentation.acme.com/booking.html\n        ",
+    "status" : "passed",
+    "steps" : [ {
+      "name" : "User make a request to reserve airport ticket for the next date",
+      "time" : {
+        "start" : 1592376882530,
+        "stop" : 1592376884252,
+        "duration" : 1722
+      },
+      "status" : "passed",
+      "steps" : [ {
+        "name" : "Reserve airport ticket for a flight for date (reservationDate: 2020-06-18)",
+        "time" : {
+          "start" : 1592376882536,
+          "stop" : 1592376884252,
+          "duration" : 1716
+        },
+        "status" : "passed",
+        "steps" : [ {
+          "name" : "Reserve airport ticket for a flight for date (reservationDate: null)",
+          "time" : {
+            "start" : 1592376884168,
+            "stop" : 1592376884247,
+            "duration" : 79
+          },
+          "status" : "passed",
+          "steps" : [ ],
+          "attachments" : [ ],
+          "parameters" : [ ],
+          "stepsCount" : 0,
+          "attachmentsCount" : 0,
+          "shouldDisplayMessage" : false,
+          "hasContent" : false
+        }, {
+          "name" : "statusCode() == 200",
+          "time" : {
+            "start" : 1592376884172,
+            "stop" : 1592376884172,
+            "duration" : 0
+          },
+          "status" : "passed",
+          "steps" : [ ],
+          "attachments" : [ ],
+          "parameters" : [ ],
+          "stepsCount" : 0,
+          "attachmentsCount" : 0,
+          "shouldDisplayMessage" : false,
+          "hasContent" : false
+        }, {
+          "name" : "bodyJson()[\"error\"] == null",
+          "time" : {
+            "start" : 1592376884243,
+            "stop" : 1592376884243,
+            "duration" : 0
+          },
+          "status" : "passed",
+          "steps" : [ ],
+          "attachments" : [ ],
+          "parameters" : [ ],
+          "stepsCount" : 0,
+          "attachmentsCount" : 0,
+          "shouldDisplayMessage" : false,
+          "hasContent" : false
+        }, {
+          "name" : "bodyJson()[\"price\"] >= 0",
+          "time" : {
+            "start" : 1592376884246,
+            "stop" : 1592376884246,
+            "duration" : 0
+          },
+          "status" : "passed",
+          "steps" : [ ],
+          "attachments" : [ ],
+          "parameters" : [ ],
+          "stepsCount" : 0,
+          "attachmentsCount" : 0,
+          "shouldDisplayMessage" : false,
+          "hasContent" : false
+        } ],
+        "attachments" : [ {
+          "uid" : "bc833288573af8c2",
+          "name" : "request http://localhost:53631/book-flight",
+          "source" : "bc833288573af8c2.txt",
+          "type" : "text/plain",
+          "size" : 363
+        }, {
+          "uid" : "3ecf5f85efc30013",
+          "name" : "response http://localhost:53631/book-flight",
+          "source" : "3ecf5f85efc30013.txt",
+          "type" : "text/plain",
+          "size" : 259
+        } ],
+        "parameters" : [ ],
+        "stepsCount" : 4,
+        "attachmentsCount" : 2,
+        "shouldDisplayMessage" : false,
+        "hasContent" : true
+      } ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "stepsCount" : 5,
+      "attachmentsCount" : 2,
+      "shouldDisplayMessage" : false,
+      "hasContent" : true
+    }, {
+      "name" : "Reservation price does not exceed 144000",
+      "time" : {
+        "start" : 1592376884254,
+        "stop" : 1592376884254,
+        "duration" : 0
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : false
+    }, {
+      "name" : "Money withdrawn and user receives bonus miles",
+      "time" : {
+        "start" : 1592376884254,
+        "stop" : 1592376884365,
+        "duration" : 111
+      },
+      "status" : "passed",
+      "steps" : [ {
+        "name" : "Withdraw money from customers account (amount: 142)",
+        "time" : {
+          "start" : 1592376884257,
+          "stop" : 1592376884356,
+          "duration" : 99
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ {
+          "uid" : "f8eaa90d279116dd",
+          "name" : "request http://localhost:53631/withdraw",
+          "source" : "f8eaa90d279116dd.txt",
+          "type" : "text/plain",
+          "size" : 354
+        }, {
+          "uid" : "67415dd63e44ef2",
+          "name" : "response http://localhost:53631/withdraw",
+          "source" : "67415dd63e44ef2.txt",
+          "type" : "text/plain",
+          "size" : 267
+        } ],
+        "parameters" : [ ],
+        "stepsCount" : 0,
+        "attachmentsCount" : 2,
+        "shouldDisplayMessage" : false,
+        "hasContent" : true
+      }, {
+        "name" : "bodyJson()[\"result\"] == \"success\"",
+        "time" : {
+          "start" : 1592376884357,
+          "stop" : 1592376884359,
+          "duration" : 2
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "stepsCount" : 0,
+        "attachmentsCount" : 0,
+        "shouldDisplayMessage" : false,
+        "hasContent" : false
+      }, {
+        "name" : "bodyJson()[\"bonusMiles\"] >= 1",
+        "time" : {
+          "start" : 1592376884360,
+          "stop" : 1592376884360,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "stepsCount" : 0,
+        "attachmentsCount" : 0,
+        "shouldDisplayMessage" : false,
+        "hasContent" : false
+      } ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "stepsCount" : 3,
+      "attachmentsCount" : 2,
+      "shouldDisplayMessage" : false,
+      "hasContent" : true
+    } ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 11,
+    "attachmentsCount" : 4,
+    "shouldDisplayMessage" : false,
+    "hasContent" : true
+  },
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "framework",
+    "value" : "corounit"
+  }, {
+    "name" : "package",
+    "value" : "Flights.Booking.For the next day.Successful"
+  }, {
+    "name" : "suite",
+    "value" : "ru.fix.kbdd.example.cases.AirportBookingTest"
+  }, {
+    "name" : "feature",
+    "value" : "Flight"
+  }, {
+    "name" : "testMethod",
+    "value" : "Successfull booking for tomorrow"
+  }, {
+    "name" : "epic",
+    "value" : "Travel"
+  }, {
+    "name" : "testClass",
+    "value" : "ru.fix.kbdd.example.cases.AirportBookingTest"
+  }, {
+    "name" : "story",
+    "value" : "Flight booking"
+  }, {
+    "name" : "thread",
+    "value" : "e2333cd9-c44e-4792-a2f6-7897e8280d6e"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : true,
+  "retry" : true,
+  "extra" : {
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "6e34325d6ba8c246.json",
+  "parameterValues" : [ ]
+}

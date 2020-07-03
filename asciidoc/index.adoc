@@ -1,0 +1,17 @@
+= KBDD
+:toc: left
+:toclevels: 4
+:source-highlighter: coderay
+
+[abstract]
+Kotlin BDD Framework based on Corounit test engine.
+[link=http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22ru.fix%22:kbdd]
+
+image::https://img.shields.io/maven-central/v/ru.fix/kbdd.svg[]
+image:https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png[32,32]
+link:https://github.com/ru-fix/kbdd[]
+
+== Concept
+
+== Tests as documentation
+link:allure-report/index.html#behaviors[]
