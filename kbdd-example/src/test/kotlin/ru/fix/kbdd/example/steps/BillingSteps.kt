@@ -12,7 +12,7 @@ class BillingSteps : KoinComponent {
     @Step
     suspend fun `Withdraw money from customers account`(amount: Int) {
         Rest.request {
-            baseUri(settings.airportBaseUri)
+            baseUri(settings.baseUri)
             body {
                 "amount" {
                     "amount" % amount

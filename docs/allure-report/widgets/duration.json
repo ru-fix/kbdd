@@ -1,30 +1,40 @@
 [ {
-  "uid" : "5b95187657a9fe67",
+  "uid" : "2632f7fd8deb23f1",
   "name" : "Successfull booking for tomorrow",
   "time" : {
-    "start" : 1593696857663,
-    "stop" : 1593696858995,
-    "duration" : 1332
+    "start" : 1593788736367,
+    "stop" : 1593788738938,
+    "duration" : 2571
   },
   "status" : "passed",
   "severity" : "normal"
 }, {
-  "uid" : "1b72c2bdb0646173",
-  "name" : "Flight booking is available for three days (xml)",
-  "time" : {
-    "start" : 1593696857640,
-    "stop" : 1593696859648,
-    "duration" : 2008
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "49bce83bdb29fa66",
+  "uid" : "d87eb236bc9cb738",
   "name" : "Flight booking is available for three days",
   "time" : {
-    "start" : 1593696857657,
-    "stop" : 1593696859013,
-    "duration" : 1356
+    "start" : 1593788736344,
+    "stop" : 1593788738969,
+    "duration" : 2625
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "5a2220c5be169c46",
+  "name" : "Flight booking is available for three days (xml)",
+  "time" : {
+    "start" : 1593788736306,
+    "stop" : 1593788739629,
+    "duration" : 3323
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "ce923e8b4185aa7b",
+  "name" : "REST request response",
+  "time" : {
+    "start" : 1593788736401,
+    "stop" : 1593788739047,
+    "duration" : 2646
   },
   "status" : "passed",
   "severity" : "normal"

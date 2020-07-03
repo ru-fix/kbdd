@@ -12,7 +12,7 @@ allure {
 dependencies {
 
     api(project(Projs.`kbdd`.asDependency))
-    api(Libs.mu_kotlin_logging)
+    api(Libs.log4j_kotlin)
 
     implementation(Libs.wiremock)
     implementation(Libs.kotlin_jdk8)
@@ -43,6 +43,6 @@ dependencies {
     testImplementation(Libs.jfix_corounit_engine)
     testImplementation(Libs.koin)
 
-    testAspect(Libs.jfix_corounit_allure)
+    aspect(Libs.jfix_corounit_allure)
 }
 

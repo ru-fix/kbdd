@@ -4,45 +4,62 @@
     "name" : "ru.fix.kbdd.example.cases.AirportBookingTest",
     "children" : [ {
       "name" : "Flight booking is available for three days (xml)",
-      "uid" : "1b72c2bdb0646173",
+      "uid" : "5a2220c5be169c46",
       "parentUid" : "ba59090a75de8f7c8914c4a9cae92b47",
       "status" : "passed",
       "time" : {
-        "start" : 1593696857640,
-        "stop" : 1593696859648,
-        "duration" : 2008
+        "start" : 1593788736306,
+        "stop" : 1593788739629,
+        "duration" : 3323
       },
       "flaky" : false,
       "newFailed" : false,
       "parameters" : [ ]
     }, {
       "name" : "Flight booking is available for three days",
-      "uid" : "49bce83bdb29fa66",
+      "uid" : "d87eb236bc9cb738",
       "parentUid" : "ba59090a75de8f7c8914c4a9cae92b47",
       "status" : "passed",
       "time" : {
-        "start" : 1593696857657,
-        "stop" : 1593696859013,
-        "duration" : 1356
+        "start" : 1593788736344,
+        "stop" : 1593788738969,
+        "duration" : 2625
       },
       "flaky" : false,
       "newFailed" : false,
       "parameters" : [ ]
     }, {
       "name" : "Successfull booking for tomorrow",
-      "uid" : "5b95187657a9fe67",
+      "uid" : "2632f7fd8deb23f1",
       "parentUid" : "ba59090a75de8f7c8914c4a9cae92b47",
       "status" : "passed",
       "time" : {
-        "start" : 1593696857663,
-        "stop" : 1593696858995,
-        "duration" : 1332
+        "start" : 1593788736367,
+        "stop" : 1593788738938,
+        "duration" : 2571
       },
       "flaky" : false,
       "newFailed" : false,
       "parameters" : [ ]
     } ],
     "uid" : "ba59090a75de8f7c8914c4a9cae92b47"
+  }, {
+    "name" : "ru.fix.kbdd.example.cases.IntroductionTest",
+    "children" : [ {
+      "name" : "REST request response",
+      "uid" : "ce923e8b4185aa7b",
+      "parentUid" : "5944a934116b7db84c8b24f448984052",
+      "status" : "passed",
+      "time" : {
+        "start" : 1593788736401,
+        "stop" : 1593788739047,
+        "duration" : 2646
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    } ],
+    "uid" : "5944a934116b7db84c8b24f448984052"
   } ],
   "name" : "suites"
 }

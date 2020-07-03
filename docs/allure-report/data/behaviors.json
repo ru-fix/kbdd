@@ -6,26 +6,26 @@
       "name" : "Flight",
       "children" : [ {
         "name" : "Flight booking is available for three days (xml)",
-        "uid" : "1b72c2bdb0646173",
+        "uid" : "5a2220c5be169c46",
         "parentUid" : "46152c51b4820a6cbc526bed36eee5e6",
         "status" : "passed",
         "time" : {
-          "start" : 1593696857640,
-          "stop" : 1593696859648,
-          "duration" : 2008
+          "start" : 1593788736306,
+          "stop" : 1593788739629,
+          "duration" : 3323
         },
         "flaky" : false,
         "newFailed" : false,
         "parameters" : [ ]
       }, {
         "name" : "Flight booking is available for three days",
-        "uid" : "49bce83bdb29fa66",
+        "uid" : "d87eb236bc9cb738",
         "parentUid" : "46152c51b4820a6cbc526bed36eee5e6",
         "status" : "passed",
         "time" : {
-          "start" : 1593696857657,
-          "stop" : 1593696859013,
-          "duration" : 1356
+          "start" : 1593788736344,
+          "stop" : 1593788738969,
+          "duration" : 2625
         },
         "flaky" : false,
         "newFailed" : false,
@@ -34,13 +34,13 @@
         "name" : "Flight booking",
         "children" : [ {
           "name" : "Successfull booking for tomorrow",
-          "uid" : "5b95187657a9fe67",
+          "uid" : "2632f7fd8deb23f1",
           "parentUid" : "c85646f0d7f342acedef3952606406b1",
           "status" : "passed",
           "time" : {
-            "start" : 1593696857663,
-            "stop" : 1593696858995,
-            "duration" : 1332
+            "start" : 1593788736367,
+            "stop" : 1593788738938,
+            "duration" : 2571
           },
           "flaky" : false,
           "newFailed" : false,
@@ -51,6 +51,23 @@
       "uid" : "46152c51b4820a6cbc526bed36eee5e6"
     } ],
     "uid" : "907e3fe635aad291863239152808eda2"
+  }, {
+    "name" : "Introduction",
+    "children" : [ {
+      "name" : "REST request response",
+      "uid" : "ce923e8b4185aa7b",
+      "parentUid" : "b7ce5fc2bbf1afdc784fd817341171a0",
+      "status" : "passed",
+      "time" : {
+        "start" : 1593788736401,
+        "stop" : 1593788739047,
+        "duration" : 2646
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    } ],
+    "uid" : "b7ce5fc2bbf1afdc784fd817341171a0"
   } ],
   "name" : "behaviors"
 }

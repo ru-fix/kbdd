@@ -11,17 +11,17 @@ import kotlin.coroutines.CoroutineContext
 
 object CorounitConfig : CorounitPlugin {
 
-    private val airlineServer = AirlineServer()
+    private val mockServer = MockServer()
 
     init {
         Rest.threadPoolSize = 10
     }
 
     override suspend fun beforeAllTestClasses(globalContext: CoroutineContext): CoroutineContext {
-        airlineServer.start()
+        mockServer.start()
 
         val settings = Settings()
-        settings.airportBaseUri = airlineServer.baseUrl()
+        settings.baseUri = mockServer.baseUrl()
 
         startKoin {
             printLogger()
@@ -29,6 +29,7 @@ object CorounitConfig : CorounitPlugin {
                 single { AirportSteps() }
                 single { BillingSteps() }
                 single { settings }
+                single { mockServer }
             })
         }
 
@@ -36,7 +37,7 @@ object CorounitConfig : CorounitPlugin {
     }
 
     override suspend fun afterAllTestClasses(globalContext: CoroutineContext) {
-        airlineServer.stop()
+        mockServer.stop()
         super.afterAllTestClasses(globalContext)
     }
 }

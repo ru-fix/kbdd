@@ -20,7 +20,7 @@ open class AirportSteps : KoinComponent {
     @Step
     suspend fun `Reserve airport ticket for a flight for date`(reservationDate: LocalDate): Booking {
         Rest.request {
-            baseUri(settings.airportBaseUri)
+            baseUri(settings.baseUri)
             post("/book-flight")
             body {
                 "booking" {
@@ -39,7 +39,7 @@ open class AirportSteps : KoinComponent {
     @Step
     suspend fun `Check availability for the day`(dayOfMonth: Int, month: String) {
         Rest.request {
-            baseUri(settings.airportBaseUri)
+            baseUri(settings.baseUri)
             post("/available")
             body {
                 "dayOfMonth" % dayOfMonth
@@ -51,7 +51,7 @@ open class AirportSteps : KoinComponent {
 
     open suspend fun `Check availability for the day (xml)`(dayOfMonth: Int, month: String) {
         Rest.request {
-            baseUri(settings.airportBaseUri)
+            baseUri(settings.baseUri)
             post("/available_xml")
             bodyXml("""
                 <request>

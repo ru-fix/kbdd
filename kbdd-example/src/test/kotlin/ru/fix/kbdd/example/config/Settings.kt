@@ -4,5 +4,5 @@ import org.koin.core.KoinComponent
 
 
 class Settings : KoinComponent {
-    lateinit var airportBaseUri: String
+    lateinit var baseUri: String
 }

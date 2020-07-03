@@ -1,0 +1,235 @@
+{
+  "uid" : "e4c920e30548568c",
+  "name" : "Flight booking is available for three days",
+  "fullName" : "Flight booking is available for three days",
+  "historyId" : "f353ce2cd18aba63ff3a5e1670bb992e",
+  "time" : {
+    "start" : 1593788646037,
+    "stop" : 1593788647829,
+    "duration" : 1792
+  },
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "testStage" : {
+    "status" : "passed",
+    "steps" : [ {
+      "name" : "parameterized(1, Jan)",
+      "time" : {
+        "start" : 1593788646057,
+        "stop" : 1593788647753,
+        "duration" : 1696
+      },
+      "status" : "passed",
+      "steps" : [ {
+        "name" : "bodyJson()[\"error\"] == null",
+        "time" : {
+          "start" : 1593788647752,
+          "stop" : 1593788647752,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "stepsCount" : 0,
+        "attachmentsCount" : 0,
+        "shouldDisplayMessage" : false,
+        "hasContent" : false
+      }, {
+        "name" : "bodyJson()[\"result\"] == \"success\"",
+        "time" : {
+          "start" : 1593788647753,
+          "stop" : 1593788647753,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "stepsCount" : 0,
+        "attachmentsCount" : 0,
+        "shouldDisplayMessage" : false,
+        "hasContent" : false
+      } ],
+      "attachments" : [ {
+        "uid" : "2f855a325e3590bb",
+        "name" : "request http://localhost:57165/available",
+        "source" : "2f855a325e3590bb.txt",
+        "type" : "text/plain",
+        "size" : 324
+      }, {
+        "uid" : "27ddd5ca65430ff0",
+        "name" : "response http://localhost:57165/available",
+        "source" : "27ddd5ca65430ff0.txt",
+        "type" : "text/plain",
+        "size" : 246
+      } ],
+      "parameters" : [ ],
+      "stepsCount" : 2,
+      "attachmentsCount" : 2,
+      "shouldDisplayMessage" : false,
+      "hasContent" : true
+    }, {
+      "name" : "parameterized(2, Feb)",
+      "time" : {
+        "start" : 1593788647753,
+        "stop" : 1593788647798,
+        "duration" : 45
+      },
+      "status" : "passed",
+      "steps" : [ {
+        "name" : "bodyJson()[\"error\"] == null",
+        "time" : {
+          "start" : 1593788647797,
+          "stop" : 1593788647797,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "stepsCount" : 0,
+        "attachmentsCount" : 0,
+        "shouldDisplayMessage" : false,
+        "hasContent" : false
+      }, {
+        "name" : "bodyJson()[\"result\"] == \"success\"",
+        "time" : {
+          "start" : 1593788647798,
+          "stop" : 1593788647798,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "stepsCount" : 0,
+        "attachmentsCount" : 0,
+        "shouldDisplayMessage" : false,
+        "hasContent" : false
+      } ],
+      "attachments" : [ {
+        "uid" : "3eab176be63bd4ca",
+        "name" : "request http://localhost:57165/available",
+        "source" : "3eab176be63bd4ca.txt",
+        "type" : "text/plain",
+        "size" : 324
+      }, {
+        "uid" : "97bd239881a36d88",
+        "name" : "response http://localhost:57165/available",
+        "source" : "97bd239881a36d88.txt",
+        "type" : "text/plain",
+        "size" : 246
+      } ],
+      "parameters" : [ ],
+      "stepsCount" : 2,
+      "attachmentsCount" : 2,
+      "shouldDisplayMessage" : false,
+      "hasContent" : true
+    }, {
+      "name" : "parameterized(3, Mar)",
+      "time" : {
+        "start" : 1593788647798,
+        "stop" : 1593788647829,
+        "duration" : 31
+      },
+      "status" : "passed",
+      "steps" : [ {
+        "name" : "bodyJson()[\"error\"] == null",
+        "time" : {
+          "start" : 1593788647828,
+          "stop" : 1593788647828,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "stepsCount" : 0,
+        "attachmentsCount" : 0,
+        "shouldDisplayMessage" : false,
+        "hasContent" : false
+      }, {
+        "name" : "bodyJson()[\"result\"] == \"success\"",
+        "time" : {
+          "start" : 1593788647829,
+          "stop" : 1593788647829,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "stepsCount" : 0,
+        "attachmentsCount" : 0,
+        "shouldDisplayMessage" : false,
+        "hasContent" : false
+      } ],
+      "attachments" : [ {
+        "uid" : "8bbb4a0a85dd1e3d",
+        "name" : "request http://localhost:57165/available",
+        "source" : "8bbb4a0a85dd1e3d.txt",
+        "type" : "text/plain",
+        "size" : 324
+      }, {
+        "uid" : "3977f217c707298d",
+        "name" : "response http://localhost:57165/available",
+        "source" : "3977f217c707298d.txt",
+        "type" : "text/plain",
+        "size" : 246
+      } ],
+      "parameters" : [ ],
+      "stepsCount" : 2,
+      "attachmentsCount" : 2,
+      "shouldDisplayMessage" : false,
+      "hasContent" : true
+    } ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 9,
+    "attachmentsCount" : 6,
+    "shouldDisplayMessage" : false,
+    "hasContent" : true
+  },
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "framework",
+    "value" : "corounit"
+  }, {
+    "name" : "package",
+    "value" : "ru.fix.kbdd.example.cases.AirportBookingTest"
+  }, {
+    "name" : "suite",
+    "value" : "ru.fix.kbdd.example.cases.AirportBookingTest"
+  }, {
+    "name" : "feature",
+    "value" : "Flight"
+  }, {
+    "name" : "testMethod",
+    "value" : "Flight booking is available for three days"
+  }, {
+    "name" : "epic",
+    "value" : "Travel"
+  }, {
+    "name" : "testClass",
+    "value" : "ru.fix.kbdd.example.cases.AirportBookingTest"
+  }, {
+    "name" : "thread",
+    "value" : "dd8f64a9-b516-4bd9-a280-784773aa04c5"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : true,
+  "retry" : true,
+  "extra" : {
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "e4c920e30548568c.json",
+  "parameterValues" : [ ]
+}

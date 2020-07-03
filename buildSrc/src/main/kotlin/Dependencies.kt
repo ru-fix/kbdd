@@ -59,6 +59,7 @@ object Libs {
     const val log4j_core = "org.apache.logging.log4j:log4j-core:${Vers.log4j}"
     const val slf4j_over_log4j = "org.apache.logging.log4j:log4j-slf4j-impl:${Vers.log4j}"
     const val mu_kotlin_logging = "io.github.microutils:kotlin-logging:1.7.8"
+    const val log4j_kotlin = "org.apache.logging.log4j:log4j-api-kotlin:1.0.0"
 
 
     const val jackson_dataformat = "com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:${Vers.jackson}"

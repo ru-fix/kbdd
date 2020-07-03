@@ -223,10 +223,13 @@ tasks {
             """.trimIndent()
 
         dependsOn(":kbdd-example:build", ":kbdd-example:allureReport", "asciidoctor")
+
         doLast {
+            val targetDirectory = project.file("docs/allure-report")
+            delete(targetDirectory)
             copy {
                 from("${project.rootDir}/kbdd-example/build/reports/allure-report")
-                into(project.file("docs/allure-report"))
+                into(targetDirectory)
             }
         }
     }
