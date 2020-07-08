@@ -10,7 +10,7 @@ object TestFramework {
 
     private val logger = logger("TestFramework")
 
-    suspend fun makeCodeSnapshot() {
+    suspend fun makeCodeSnippet() {
         try {
             val stackFrame = Thread.currentThread().stackTrace[2]
             val sourceFile = Files.walk(Paths.get(""))
@@ -29,14 +29,14 @@ object TestFramework {
             }
 
             val snapshot = sourceLines.foldIndexed("") { index, acc, line ->
-                if (index in start..end && !line.contains(TestFramework::makeCodeSnapshot.name))
+                if (index in start..end && !line.contains(TestFramework::makeCodeSnippet.name))
                     acc + line + "\n"
                 else
                     acc
             }
 
-            "Code example"{
-                AllureStep.attachment("code-example", snapshot)
+            "Code snippet"{
+                AllureStep.attachment("code-snippet", snapshot)
             }
         } catch (exc: Exception) {
             logger.error(exc) { "Code snapshot failed during test execution" }

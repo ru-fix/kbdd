@@ -15,3 +15,72 @@ link:https://github.com/ru-fix/kbdd[]
 
 == Tests as documentation
 link:allure-report/index.html#behaviors[]
+
+
+== Best practices
+
+=== How to manage test data
+
+Let's consider a development process where you test application in dedicated environments called stands.
+The local stand is environment on your laptop. You launch docker-compose, setups database images required for your application, start application and run test suite.
+Any time you can drop database and start all over again wtih clean database that does not contain results of previously running tests.
+The dynamic stand is a similar environment that is created automatically by your build servers. Dynamic stands created with clean databases and destroyed at the end of a build process.
+The permanent stands are QA stand, Stage or Pre-Production stands that lives forever. If you run your automated tests over them, the results of the tests will stay in stands database and will. Also permanent stands used to test integration with different external to your team services. So this permanent stands contain data created with automated tests and data manually entered in order to manually test integration scenarios with external services.
+Data within permanent stands should be treated carefully since it is very easy to make stand database to become a big ball of mud, where you see tons of unreadable and understandable data and does not know can you change something and why particular entities configured in this way. +
+Next several principles can be very handy in resolving this problem.
+
+* Provide clean explanatory names and description to entities
+```
+account: {
+  name: "test1"
+  amount: 0
+}
+```
+```
+account: {
+  name: "Auto TestCase-4534 User debet account without money which does not accrue interest on the balance"
+  amount: 0
+}
+```
+* Entity names or description should contain prefix, that allows easily separate data that was created by automated tests,  data that was entered manually and data that is created and used by application itself. In given example team decided to use three prefixes:
+- `Auto` for data that is created by automated tests
+- `Int` for manually created data for integration tests with other teams
+- `Manual` for manually created data that is used by manually perfomed test cases.
+```
+accounts :[
+{name: "Auto TestCase-4233 User debet..."},
+{name: "Auto TestCase-3243 User debet..."},
+{name: "Int User debet for SQX service used for bonus program (TestCase-3249,TestCase-3255)")
+]
+```
+
+* Do not share test data among different automated tests.
+Suppose that we are testing payment system. In order to process payment request system requires Contractor and Contract entities to be configured appropriately.
+It is bad idea to be lazy and simply reuse data that was configured by another test written before you.
+Test by itself serves as a documentation, so if application allows to run different payment scenarios based on different contract and contractor configuration - different tests should use different contract and contractors.
+[source, kotlin]
+----
+// DO NOT DO THAT
+// Contractors.AL_BANK, Contracts.BAR_K is used by other tests
+// That leads to data coupling
+@Test
+suspend fun `Success registrly re-upload from Bank to ABX after failed upload due to invalid config`() {
+    ...
+    abx.`Prepare contractor`(Contractors.AL_BANK)
+    abx.`Prepare contact`(Contracts.BAR_K)
+    ...
+}
+----
+
+[source, kotlin]
+----
+// Test prepare it's own data used only in one place.
+// No coupling with other tests.
+@Test
+suspend fun `Success registrly re-upload from Bank to ABX after failed upload due to invalid config`() {
+    ...
+    abx.`Prepare contractor`(Contractor(name="Auto T3234 registry uploading contractor", ...)
+    abx.`Prepare contact`(Contracts(nane="Auto T3234 registry uploading contract for single product merchant",...)))
+    ...
+}
+----

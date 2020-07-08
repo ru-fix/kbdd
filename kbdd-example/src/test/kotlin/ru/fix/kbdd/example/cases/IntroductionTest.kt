@@ -10,7 +10,7 @@ import ru.fix.kbdd.asserts.*
 import ru.fix.kbdd.example.MockServer
 import ru.fix.kbdd.rest.Rest.bodyJson
 import ru.fix.kbdd.rest.Rest.request
-import ru.fix.kbdd.example.TestFramework.makeCodeSnapshot
+import ru.fix.kbdd.example.TestFramework.makeCodeSnippet
 
 @Epic("Introduction")
 class IntroductionTest : KoinComponent {
@@ -18,12 +18,14 @@ class IntroductionTest : KoinComponent {
 
 
     @Description("""
-        Code example block contains test code snippet.
-        MockServer is used to setup HTTP response from local HTTP mock server.
+        KBDD provides useful classes and methods that simplify test driven development.
+        Given example demonstrate simple HTTP interaction with testable application. 
+        Code example Allure step contains current test code snippet.
+        MockServer is used to setup HTTP response in local HTTP mock server.
     """)
     @Test
-    suspend fun `Send HTTP request and validate response`() {
-        makeCodeSnapshot()
+    suspend fun `Send HTTP request to application and validate response`() {
+        makeCodeSnippet()
 
         mockServer.`Given server for url answers`(
                 "/introduction/account/state",
@@ -50,6 +52,5 @@ class IntroductionTest : KoinComponent {
             bodyJson()["amount"].assert { it.isGreaterThan(100) and it.isLessThanOrEqual(300) }
             bodyJson()["owner"]["firstName"].isEquals("John")
         }
-
     }
 }
