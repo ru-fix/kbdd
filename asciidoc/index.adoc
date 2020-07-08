@@ -381,7 +381,7 @@ suspend fun `make a purchase in the shop`(){
 Gradle Allure Plugin allows to start a daemon, that will monitor allure-results.
 Daemon will rebuild Allure html report after each test run.
 This option is handy when you are writing new test and want to immediately see updates of the Allure report in real time.
-```shell script
+```
 gradle allureReport -t
 ```
 
@@ -389,7 +389,7 @@ gradle allureReport -t
 
 It is often useful to run kbb tests as separate step in your build pipeline.
 This allows not to run integraton kbb scenarios and unit test within same gradle test task.
-```text
+```
 my-project
  ┕ my-a-module
  ┕ my-b-module
@@ -398,7 +398,7 @@ my-project
    ┕ build.kts
 ```
 Disable `test` task in kbdd-test module and renaming it to `kbdd`
-```kotlin
+```
 tasks.test {
 onlyIf { false }
 }
