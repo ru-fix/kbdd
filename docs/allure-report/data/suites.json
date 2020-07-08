@@ -4,7 +4,7 @@
     "name" : "ru.fix.kbdd.example.cases.IntroductionTest",
     "children" : [ {
       "name" : "REST request response",
-      "uid" : "7de9891fca92f2ac",
+      "uid" : "14bad0b9db7dbc77",
       "parentUid" : "5944a934116b7db84c8b24f448984052",
       "status" : "passed",
       "time" : {
@@ -17,7 +17,7 @@
       "parameters" : [ ]
     }, {
       "name" : "Send HTTP request and validate response",
-      "uid" : "b1940d9422d0fd59",
+      "uid" : "92af1d096b5266af",
       "parentUid" : "5944a934116b7db84c8b24f448984052",
       "status" : "passed",
       "time" : {
@@ -28,51 +28,232 @@
       "flaky" : false,
       "newFailed" : false,
       "parameters" : [ ]
+    }, {
+      "name" : "Send HTTP request to application and validate response",
+      "uid" : "86eb8a077861fdd5",
+      "parentUid" : "5944a934116b7db84c8b24f448984052",
+      "status" : "passed",
+      "time" : {
+        "start" : 1594220044458,
+        "stop" : 1594220049122,
+        "duration" : 4664
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
     } ],
     "uid" : "5944a934116b7db84c8b24f448984052"
+  }, {
+    "name" : "ru.fix.kbdd.example.cases.ResponseAsserts",
+    "children" : [ {
+      "name" : "string values can be auto-casted to numeric values",
+      "uid" : "13b4513cf1d6813e",
+      "parentUid" : "46dac8815c07596607fecd9e458f0116",
+      "status" : "passed",
+      "time" : {
+        "start" : 1594220044652,
+        "stop" : 1594220048335,
+        "duration" : 3683
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "asserts can be combined into single assert block",
+      "uid" : "22805e688f70c2f",
+      "parentUid" : "46dac8815c07596607fecd9e458f0116",
+      "status" : "passed",
+      "time" : {
+        "start" : 1594220044694,
+        "stop" : 1594220048311,
+        "duration" : 3617
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "integer asserts",
+      "uid" : "c92bad972651c640",
+      "parentUid" : "46dac8815c07596607fecd9e458f0116",
+      "status" : "passed",
+      "time" : {
+        "start" : 1594220044707,
+        "stop" : 1594220048332,
+        "duration" : 3625
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "floating point asserts",
+      "uid" : "fd59de47fb89983c",
+      "parentUid" : "46dac8815c07596607fecd9e458f0116",
+      "status" : "passed",
+      "time" : {
+        "start" : 1594220044747,
+        "stop" : 1594220048311,
+        "duration" : 3564
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "string asserts",
+      "uid" : "860940b0c0a55cbf",
+      "parentUid" : "46dac8815c07596607fecd9e458f0116",
+      "status" : "passed",
+      "time" : {
+        "start" : 1594220044791,
+        "stop" : 1594220048311,
+        "duration" : 3520
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    } ],
+    "uid" : "46dac8815c07596607fecd9e458f0116"
+  }, {
+    "name" : "ru.fix.kbdd.example.cases.ResponseCustomAsserts",
+    "children" : [ {
+      "name" : "provide custom asserts",
+      "uid" : "b51723fca6e62e2",
+      "parentUid" : "8e29ac62fecd41f3c4f3eb22b94568a1",
+      "status" : "passed",
+      "time" : {
+        "start" : 1594220044777,
+        "stop" : 1594220049418,
+        "duration" : 4641
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    } ],
+    "uid" : "8e29ac62fecd41f3c4f3eb22b94568a1"
   }, {
     "name" : "ru.fix.kbdd.example.cases.AirportBookingTest",
     "children" : [ {
       "name" : "Flight booking is available for three days (xml)",
-      "uid" : "b1f83d5e812b2385",
+      "uid" : "5aca178abb1c9276",
       "parentUid" : "ba59090a75de8f7c8914c4a9cae92b47",
       "status" : "passed",
       "time" : {
-        "start" : 1593789328747,
-        "stop" : 1593789331321,
-        "duration" : 2574
+        "start" : 1594220045066,
+        "stop" : 1594220049815,
+        "duration" : 4749
       },
       "flaky" : false,
       "newFailed" : false,
       "parameters" : [ ]
     }, {
       "name" : "Flight booking is available for three days",
-      "uid" : "bf6b3730c1ee9b33",
+      "uid" : "f0e2b6c946225adf",
       "parentUid" : "ba59090a75de8f7c8914c4a9cae92b47",
       "status" : "passed",
       "time" : {
-        "start" : 1593789328769,
-        "stop" : 1593789330756,
-        "duration" : 1987
+        "start" : 1594220045143,
+        "stop" : 1594220048931,
+        "duration" : 3788
       },
       "flaky" : false,
       "newFailed" : false,
       "parameters" : [ ]
     }, {
       "name" : "Successfull booking for tomorrow",
-      "uid" : "8cf8fb1e9d763882",
+      "uid" : "9466777c12ce4b7a",
       "parentUid" : "ba59090a75de8f7c8914c4a9cae92b47",
       "status" : "passed",
       "time" : {
-        "start" : 1593789328792,
-        "stop" : 1593789330736,
-        "duration" : 1944
+        "start" : 1594220045161,
+        "stop" : 1594220048873,
+        "duration" : 3712
       },
       "flaky" : false,
       "newFailed" : false,
       "parameters" : [ ]
     } ],
     "uid" : "ba59090a75de8f7c8914c4a9cae92b47"
+  }, {
+    "name" : "ru.fix.kbdd.example.cases.NavigationTest",
+    "children" : [ {
+      "name" : "arrays size field",
+      "uid" : "f78ba3f216b8f976",
+      "parentUid" : "e9fa34de9879bcd3596a49d11cea2579",
+      "status" : "passed",
+      "time" : {
+        "start" : 1594220045284,
+        "stop" : 1594220048856,
+        "duration" : 3572
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "navigate to child by index",
+      "uid" : "574567a600b40d97",
+      "parentUid" : "e9fa34de9879bcd3596a49d11cea2579",
+      "status" : "passed",
+      "time" : {
+        "start" : 1594220045343,
+        "stop" : 1594220048851,
+        "duration" : 3508
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "navigate by filtering",
+      "uid" : "514fa4d67ace88f8",
+      "parentUid" : "e9fa34de9879bcd3596a49d11cea2579",
+      "status" : "passed",
+      "time" : {
+        "start" : 1594220045367,
+        "stop" : 1594220048848,
+        "duration" : 3481
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "navigate to element within Array that contains single element",
+      "uid" : "5a87f3a3b39a571f",
+      "parentUid" : "e9fa34de9879bcd3596a49d11cea2579",
+      "status" : "passed",
+      "time" : {
+        "start" : 1594220045391,
+        "stop" : 1594220048848,
+        "duration" : 3457
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "use map to process each elements of array",
+      "uid" : "a6c8da6f83a02b7",
+      "parentUid" : "e9fa34de9879bcd3596a49d11cea2579",
+      "status" : "passed",
+      "time" : {
+        "start" : 1594220045408,
+        "stop" : 1594220048851,
+        "duration" : 3443
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "navigate to child by name",
+      "uid" : "7901b4b2c7ad1769",
+      "parentUid" : "e9fa34de9879bcd3596a49d11cea2579",
+      "status" : "passed",
+      "time" : {
+        "start" : 1594220045451,
+        "stop" : 1594220048848,
+        "duration" : 3397
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    } ],
+    "uid" : "e9fa34de9879bcd3596a49d11cea2579"
   } ],
   "name" : "suites"
 }

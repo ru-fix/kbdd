@@ -1,5 +1,55 @@
 [ {
-  "uid" : "b1940d9422d0fd59",
+  "uid" : "5aca178abb1c9276",
+  "name" : "Flight booking is available for three days (xml)",
+  "time" : {
+    "start" : 1594220045066,
+    "stop" : 1594220049815,
+    "duration" : 4749
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "860940b0c0a55cbf",
+  "name" : "string asserts",
+  "time" : {
+    "start" : 1594220044791,
+    "stop" : 1594220048311,
+    "duration" : 3520
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "7901b4b2c7ad1769",
+  "name" : "navigate to child by name",
+  "time" : {
+    "start" : 1594220045451,
+    "stop" : 1594220048848,
+    "duration" : 3397
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "5a87f3a3b39a571f",
+  "name" : "navigate to element within Array that contains single element",
+  "time" : {
+    "start" : 1594220045391,
+    "stop" : 1594220048848,
+    "duration" : 3457
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "fd59de47fb89983c",
+  "name" : "floating point asserts",
+  "time" : {
+    "start" : 1594220044747,
+    "stop" : 1594220048311,
+    "duration" : 3564
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "92af1d096b5266af",
   "name" : "Send HTTP request and validate response",
   "time" : {
     "start" : 1593789328660,
@@ -9,27 +59,97 @@
   "status" : "passed",
   "severity" : "normal"
 }, {
-  "uid" : "b1f83d5e812b2385",
-  "name" : "Flight booking is available for three days (xml)",
+  "uid" : "514fa4d67ace88f8",
+  "name" : "navigate by filtering",
   "time" : {
-    "start" : 1593789328747,
-    "stop" : 1593789331321,
-    "duration" : 2574
+    "start" : 1594220045367,
+    "stop" : 1594220048848,
+    "duration" : 3481
   },
   "status" : "passed",
   "severity" : "normal"
 }, {
-  "uid" : "bf6b3730c1ee9b33",
-  "name" : "Flight booking is available for three days",
+  "uid" : "9466777c12ce4b7a",
+  "name" : "Successfull booking for tomorrow",
   "time" : {
-    "start" : 1593789328769,
-    "stop" : 1593789330756,
-    "duration" : 1987
+    "start" : 1594220045161,
+    "stop" : 1594220048873,
+    "duration" : 3712
   },
   "status" : "passed",
   "severity" : "normal"
 }, {
-  "uid" : "7de9891fca92f2ac",
+  "uid" : "22805e688f70c2f",
+  "name" : "asserts can be combined into single assert block",
+  "time" : {
+    "start" : 1594220044694,
+    "stop" : 1594220048311,
+    "duration" : 3617
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "f78ba3f216b8f976",
+  "name" : "arrays size field",
+  "time" : {
+    "start" : 1594220045284,
+    "stop" : 1594220048856,
+    "duration" : 3572
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "c92bad972651c640",
+  "name" : "integer asserts",
+  "time" : {
+    "start" : 1594220044707,
+    "stop" : 1594220048332,
+    "duration" : 3625
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "574567a600b40d97",
+  "name" : "navigate to child by index",
+  "time" : {
+    "start" : 1594220045343,
+    "stop" : 1594220048851,
+    "duration" : 3508
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "86eb8a077861fdd5",
+  "name" : "Send HTTP request to application and validate response",
+  "time" : {
+    "start" : 1594220044458,
+    "stop" : 1594220049122,
+    "duration" : 4664
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "13b4513cf1d6813e",
+  "name" : "string values can be auto-casted to numeric values",
+  "time" : {
+    "start" : 1594220044652,
+    "stop" : 1594220048335,
+    "duration" : 3683
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "a6c8da6f83a02b7",
+  "name" : "use map to process each elements of array",
+  "time" : {
+    "start" : 1594220045408,
+    "stop" : 1594220048851,
+    "duration" : 3443
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "14bad0b9db7dbc77",
   "name" : "REST request response",
   "time" : {
     "start" : 1593788736401,
@@ -39,12 +159,22 @@
   "status" : "passed",
   "severity" : "normal"
 }, {
-  "uid" : "8cf8fb1e9d763882",
-  "name" : "Successfull booking for tomorrow",
+  "uid" : "b51723fca6e62e2",
+  "name" : "provide custom asserts",
   "time" : {
-    "start" : 1593789328792,
-    "stop" : 1593789330736,
-    "duration" : 1944
+    "start" : 1594220044777,
+    "stop" : 1594220049418,
+    "duration" : 4641
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "f0e2b6c946225adf",
+  "name" : "Flight booking is available for three days",
+  "time" : {
+    "start" : 1594220045143,
+    "stop" : 1594220048931,
+    "duration" : 3788
   },
   "status" : "passed",
   "severity" : "normal"

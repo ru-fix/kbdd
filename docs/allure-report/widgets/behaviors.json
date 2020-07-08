@@ -1,8 +1,30 @@
 {
-  "total" : 2,
+  "total" : 4,
   "items" : [ {
+    "uid" : "0e3c709c74cf4c6a317ec19089925dbc",
+    "name" : "Navigation",
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 6,
+      "unknown" : 0,
+      "total" : 6
+    }
+  }, {
     "uid" : "b7ce5fc2bbf1afdc784fd817341171a0",
     "name" : "Introduction",
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 3,
+      "unknown" : 0,
+      "total" : 3
+    }
+  }, {
+    "uid" : "0ea2521763f67d3ef0136a8a0e172427",
+    "name" : "Asserts",
     "statistic" : {
       "failed" : 0,
       "broken" : 0,

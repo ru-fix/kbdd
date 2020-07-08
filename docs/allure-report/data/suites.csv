@@ -1,12 +1,69 @@
 "Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
-"passed","Fri Jul 03 18:15:28 MSK 2020","Fri Jul 03 18:15:30 MSK 2020","1944","","ru.fix.kbdd.example.cases.AirportBookingTest","","ru.fix.kbdd.example.cases.AirportBookingTest","Successfull booking for tomorrow","Successfull booking for tomorrow","
+"passed","Wed Jul 08 17:54:05 MSK 2020","Wed Jul 08 17:54:08 MSK 2020","3788","","ru.fix.kbdd.example.cases.AirportBookingTest","","ru.fix.kbdd.example.cases.AirportBookingTest","Flight booking is available for three days","Flight booking is available for three days",""
+"passed","Wed Jul 08 17:54:04 MSK 2020","Wed Jul 08 17:54:09 MSK 2020","4641","","ru.fix.kbdd.example.cases.ResponseCustomAsserts","","ru.fix.kbdd.example.cases.ResponseCustomAsserts","provide custom asserts","provide custom asserts","
+        You can write custom asserts by providing extension function. 
+        If you do so, maybe your asserts is worth to be added to main asserts list into KBDD project. 
+        Pull Requests are welcome!
+    "
+"passed","Wed Jul 08 17:54:04 MSK 2020","Wed Jul 08 17:54:08 MSK 2020","3625","","ru.fix.kbdd.example.cases.ResponseAsserts","","ru.fix.kbdd.example.cases.ResponseAsserts","integer asserts","integer asserts","
+        Integer asserts provides basic equality and comparision checks 
+    "
+"passed","Wed Jul 08 17:54:04 MSK 2020","Wed Jul 08 17:54:08 MSK 2020","3564","","ru.fix.kbdd.example.cases.ResponseAsserts","","ru.fix.kbdd.example.cases.ResponseAsserts","floating point asserts","floating point asserts","
+        Asserts for floating point numbers looks the same as for integers. 
+        Be aware that you can not simply check two floating point numbers for equality 
+        and should always provide delta that sets value comparison error limit.
+    "
+"passed","Wed Jul 08 17:54:05 MSK 2020","Wed Jul 08 17:54:08 MSK 2020","3481","","ru.fix.kbdd.example.cases.NavigationTest","","ru.fix.kbdd.example.cases.NavigationTest","navigate by filtering","navigate by filtering","
+        Array items can be filtered during navigation.
+        Use 'single' method if you expect single result after filtering
+    "
+"passed","Wed Jul 08 17:54:04 MSK 2020","Wed Jul 08 17:54:08 MSK 2020","3617","","ru.fix.kbdd.example.cases.ResponseAsserts","","ru.fix.kbdd.example.cases.ResponseAsserts","asserts can be combined into single assert block","asserts can be combined into single assert block","
+        Multiple assert of response subtree can be combained. 
+        You can invoke assert block on parent node 
+        and access and validate values within parent subtree. 
+    "
+"passed","Wed Jul 08 17:54:05 MSK 2020","Wed Jul 08 17:54:08 MSK 2020","3572","","ru.fix.kbdd.example.cases.NavigationTest","","ru.fix.kbdd.example.cases.NavigationTest","arrays size field","arrays size field","
+        Arrays provide system field: size.
+        Size can be used to validate count of elements within array.         
+    "
+"passed","Wed Jul 08 17:54:05 MSK 2020","Wed Jul 08 17:54:08 MSK 2020","3397","","ru.fix.kbdd.example.cases.NavigationTest","","ru.fix.kbdd.example.cases.NavigationTest","navigate to child by name","navigate to child by name","
+        Navigation to child by name allowed if currently selected node is a Map        
+    "
+"passed","Wed Jul 08 17:54:05 MSK 2020","Wed Jul 08 17:54:08 MSK 2020","3712","","ru.fix.kbdd.example.cases.AirportBookingTest","","ru.fix.kbdd.example.cases.AirportBookingTest","Successfull booking for tomorrow","Successfull booking for tomorrow","
         User successfully purchases a ticket for the tomorrow's flight.
         http://documentation.acme.com/booking.html
         "
-"passed","Fri Jul 03 18:15:28 MSK 2020","Fri Jul 03 18:15:30 MSK 2020","1987","","ru.fix.kbdd.example.cases.AirportBookingTest","","ru.fix.kbdd.example.cases.AirportBookingTest","Flight booking is available for three days","Flight booking is available for three days",""
-"passed","Fri Jul 03 18:15:28 MSK 2020","Fri Jul 03 18:15:31 MSK 2020","2574","","ru.fix.kbdd.example.cases.AirportBookingTest","","ru.fix.kbdd.example.cases.AirportBookingTest","Flight booking is available for three days (xml)","Flight booking is available for three days (xml)",""
+"passed","Wed Jul 08 17:54:05 MSK 2020","Wed Jul 08 17:54:08 MSK 2020","3508","","ru.fix.kbdd.example.cases.NavigationTest","","ru.fix.kbdd.example.cases.NavigationTest","navigate to child by index","navigate to child by index","
+        Navigation to child by index allowed if currently selected node is an Array        
+    "
+"passed","Wed Jul 08 17:54:04 MSK 2020","Wed Jul 08 17:54:08 MSK 2020","3683","","ru.fix.kbdd.example.cases.ResponseAsserts","","ru.fix.kbdd.example.cases.ResponseAsserts","string values can be auto-casted to numeric values","string values can be auto-casted to numeric values","
+        To simplify assertion logic string values in response can be automatically cast to numbers. 
+        Casting relay on asserting method argument. 
+        If you compare value from response with number, and value in response is a string, 
+        but can be casted to number. Then KBDD will try to automatically cast string value 
+        to a numeric type of the argument.
+        Test demonstratest difference in comparing string with string and 
+        comparing string with numbers with auto-cast in action.
+        "
+"passed","Wed Jul 08 17:54:05 MSK 2020","Wed Jul 08 17:54:08 MSK 2020","3443","","ru.fix.kbdd.example.cases.NavigationTest","","ru.fix.kbdd.example.cases.NavigationTest","use map to process each elements of array","use map to process each elements of array","
+        Arrays support map method that get you access to each of the itmes
+    "
 "passed","Fri Jul 03 18:15:28 MSK 2020","Fri Jul 03 18:15:30 MSK 2020","1754","","ru.fix.kbdd.example.cases.IntroductionTest","","ru.fix.kbdd.example.cases.IntroductionTest","Send HTTP request and validate response","Send HTTP request and validate response","
         Code example block contains test code snippet.
         MockServer is used to setup HTTP response from local HTTP mock server.
     "
+"passed","Wed Jul 08 17:54:04 MSK 2020","Wed Jul 08 17:54:09 MSK 2020","4664","","ru.fix.kbdd.example.cases.IntroductionTest","","ru.fix.kbdd.example.cases.IntroductionTest","Send HTTP request to application and validate response","Send HTTP request to application and validate response","
+        KBDD provides useful classes and methods that simplify test driven development.
+        Given example demonstrate simple HTTP interaction with testable application. 
+        Code example Allure step contains current test code snippet.
+        MockServer is used to setup HTTP response in local HTTP mock server.
+    "
+"passed","Wed Jul 08 17:54:04 MSK 2020","Wed Jul 08 17:54:08 MSK 2020","3520","","ru.fix.kbdd.example.cases.ResponseAsserts","","ru.fix.kbdd.example.cases.ResponseAsserts","string asserts","string asserts","
+        Asserts for strings validate content. 
+        String also can be lexicographically compared to another string.
+    "
 "passed","Fri Jul 03 18:05:36 MSK 2020","Fri Jul 03 18:05:39 MSK 2020","2646","","ru.fix.kbdd.example.cases.IntroductionTest","","ru.fix.kbdd.example.cases.IntroductionTest","REST request response","REST request response",""
+"passed","Wed Jul 08 17:54:05 MSK 2020","Wed Jul 08 17:54:09 MSK 2020","4749","","ru.fix.kbdd.example.cases.AirportBookingTest","","ru.fix.kbdd.example.cases.AirportBookingTest","Flight booking is available for three days (xml)","Flight booking is available for three days (xml)",""
+"passed","Wed Jul 08 17:54:05 MSK 2020","Wed Jul 08 17:54:08 MSK 2020","3457","","ru.fix.kbdd.example.cases.NavigationTest","","ru.fix.kbdd.example.cases.NavigationTest","navigate to element within Array that contains single element","navigate to element within Array that contains single element","
+        Singleton arrays support 'single' navigation method         
+    "
