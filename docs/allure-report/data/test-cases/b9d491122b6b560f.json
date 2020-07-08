@@ -1,0 +1,214 @@
+{
+  "uid" : "b9d491122b6b560f",
+  "name" : "Successfull booking for tomorrow",
+  "fullName" : "Successfull booking for tomorrow",
+  "historyId" : "d3217736f21f01a1ac6ddf2aab4537e1",
+  "time" : {
+    "start" : 1594219846765,
+    "stop" : 1594219850670,
+    "duration" : 3905
+  },
+  "description" : "\n        User successfully purchases a ticket for the tomorrow's flight.\n        http://documentation.acme.com/booking.html\n        ",
+  "descriptionHtml" : "<pre><code>    User successfully purchases a ticket for the tomorrow's flight.\n    http://documentation.acme.com/booking.html\n</code></pre>\n",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "testStage" : {
+    "description" : "\n        User successfully purchases a ticket for the tomorrow's flight.\n        http://documentation.acme.com/booking.html\n        ",
+    "status" : "passed",
+    "steps" : [ {
+      "name" : "User make a request to reserve airport ticket for the next date",
+      "time" : {
+        "start" : 1594219846833,
+        "stop" : 1594219850496,
+        "duration" : 3663
+      },
+      "status" : "passed",
+      "steps" : [ {
+        "name" : "statusCode() == 200",
+        "time" : {
+          "start" : 1594219850142,
+          "stop" : 1594219850142,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "stepsCount" : 0,
+        "attachmentsCount" : 0,
+        "shouldDisplayMessage" : false,
+        "hasContent" : false
+      }, {
+        "name" : "bodyJson()[\"error\"] == null",
+        "time" : {
+          "start" : 1594219850479,
+          "stop" : 1594219850479,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "stepsCount" : 0,
+        "attachmentsCount" : 0,
+        "shouldDisplayMessage" : false,
+        "hasContent" : false
+      }, {
+        "name" : "bodyJson()[\"price\"] >= 0",
+        "time" : {
+          "start" : 1594219850486,
+          "stop" : 1594219850486,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "stepsCount" : 0,
+        "attachmentsCount" : 0,
+        "shouldDisplayMessage" : false,
+        "hasContent" : false
+      } ],
+      "attachments" : [ {
+        "uid" : "445ee337c001513e",
+        "name" : "request http://localhost:48657/book-flight",
+        "source" : "445ee337c001513e.txt",
+        "type" : "text/plain",
+        "size" : 363
+      }, {
+        "uid" : "289e7ba94b8c4c4d",
+        "name" : "response http://localhost:48657/book-flight",
+        "source" : "289e7ba94b8c4c4d.txt",
+        "type" : "text/plain",
+        "size" : 259
+      } ],
+      "parameters" : [ ],
+      "stepsCount" : 3,
+      "attachmentsCount" : 2,
+      "shouldDisplayMessage" : false,
+      "hasContent" : true
+    }, {
+      "name" : "Reservation price does not exceed 144000",
+      "time" : {
+        "start" : 1594219850496,
+        "stop" : 1594219850496,
+        "duration" : 0
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : false
+    }, {
+      "name" : "Money withdrawn and user receives bonus miles",
+      "time" : {
+        "start" : 1594219850496,
+        "stop" : 1594219850665,
+        "duration" : 169
+      },
+      "status" : "passed",
+      "steps" : [ {
+        "name" : "bodyJson()[\"result\"] == \"success\"",
+        "time" : {
+          "start" : 1594219850650,
+          "stop" : 1594219850650,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "stepsCount" : 0,
+        "attachmentsCount" : 0,
+        "shouldDisplayMessage" : false,
+        "hasContent" : false
+      }, {
+        "name" : "bodyJson()[\"bonusMiles\"] >= 1",
+        "time" : {
+          "start" : 1594219850658,
+          "stop" : 1594219850658,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "stepsCount" : 0,
+        "attachmentsCount" : 0,
+        "shouldDisplayMessage" : false,
+        "hasContent" : false
+      } ],
+      "attachments" : [ {
+        "uid" : "5299e4b7407e7cd4",
+        "name" : "request http://localhost:48657/withdraw",
+        "source" : "5299e4b7407e7cd4.txt",
+        "type" : "text/plain",
+        "size" : 354
+      }, {
+        "uid" : "9cd161ea28188362",
+        "name" : "response http://localhost:48657/withdraw",
+        "source" : "9cd161ea28188362.txt",
+        "type" : "text/plain",
+        "size" : 267
+      } ],
+      "parameters" : [ ],
+      "stepsCount" : 2,
+      "attachmentsCount" : 2,
+      "shouldDisplayMessage" : false,
+      "hasContent" : true
+    } ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 8,
+    "attachmentsCount" : 4,
+    "shouldDisplayMessage" : false,
+    "hasContent" : true
+  },
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "framework",
+    "value" : "corounit"
+  }, {
+    "name" : "package",
+    "value" : "Flights.Booking.For the next day.Successful"
+  }, {
+    "name" : "suite",
+    "value" : "ru.fix.kbdd.example.cases.AirportBookingTest"
+  }, {
+    "name" : "feature",
+    "value" : "Flight"
+  }, {
+    "name" : "testMethod",
+    "value" : "Successfull booking for tomorrow"
+  }, {
+    "name" : "epic",
+    "value" : "Travel"
+  }, {
+    "name" : "testClass",
+    "value" : "ru.fix.kbdd.example.cases.AirportBookingTest"
+  }, {
+    "name" : "story",
+    "value" : "Flight booking"
+  }, {
+    "name" : "thread",
+    "value" : "2b473eaa-79a6-4f18-affc-37451cac611f"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : true,
+  "retry" : true,
+  "extra" : {
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "b9d491122b6b560f.json",
+  "parameterValues" : [ ]
+}

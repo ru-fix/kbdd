@@ -1,0 +1,133 @@
+{
+  "uid" : "e42fcb36c5de0171",
+  "name" : "use map to process each elements of array",
+  "fullName" : "use map to process each elements of array",
+  "historyId" : "915c4165570a6685d31cea8ace256ab8",
+  "time" : {
+    "start" : 1594212337161,
+    "stop" : 1594212338330,
+    "duration" : 1169
+  },
+  "description" : "\n        Arrays support map method that get you access to each of the itmes\n    ",
+  "descriptionHtml" : "<pre><code>    Arrays support map method that get you access to each of the itmes\n</code></pre>\n",
+  "status" : "failed",
+  "statusMessage" : "expected: <JohnJane> but was: <John, Jane>",
+  "statusTrace" : "org.opentest4j.AssertionFailedError: expected: <JohnJane> but was: <John, Jane>\n\tat org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:55)\n\tat org.junit.jupiter.api.AssertionUtils.failNotEqual(AssertionUtils.java:62)\n\tat org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:182)\n\tat org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:177)\n\tat org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:1124)\n\tat ru.fix.kbdd.example.cases.NavigationTest$use map to process each elements of array$3.invokeSuspend(NavigationTest.kt:225)\n\tat ru.fix.kbdd.example.cases.NavigationTest$use map to process each elements of array$3.invoke(NavigationTest.kt)\n\tat ru.fix.corounit.allure.AllureStep$step$result$1.invokeSuspend(AllureStep.kt:72)\n\tat ru.fix.corounit.allure.AllureStep$step$result$1.invoke(AllureStep.kt)\n\tat kotlinx.coroutines.intrinsics.UndispatchedKt.startUndispatchedOrReturn(Undispatched.kt:91)\n\tat kotlinx.coroutines.BuildersKt__Builders_commonKt.withContext(Builders.common.kt:154)\n\tat kotlinx.coroutines.BuildersKt.withContext(Unknown Source)\n\tat ru.fix.corounit.allure.AllureStep.step(AllureStep.kt:71)\n\tat ru.fix.corounit.allure.AllureKt.invoke(Allure.kt:16)\n\tat ru.fix.kbdd.example.cases.NavigationTest.use map to process each elements of array(NavigationTest.kt:223)\n\tat ru.fix.kbdd.example.cases.NavigationTest$use map to process each elements of array$1.invokeSuspend(NavigationTest.kt)\n\tat kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:33)\n\tat kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:56)\n\tat java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)\n\tat java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)\n\tat java.base/java.lang.Thread.run(Thread.java:834)\n",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "testStage" : {
+    "description" : "\n        Arrays support map method that get you access to each of the itmes\n    ",
+    "status" : "failed",
+    "statusMessage" : "expected: <JohnJane> but was: <John, Jane>",
+    "statusTrace" : "org.opentest4j.AssertionFailedError: expected: <JohnJane> but was: <John, Jane>\n\tat org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:55)\n\tat org.junit.jupiter.api.AssertionUtils.failNotEqual(AssertionUtils.java:62)\n\tat org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:182)\n\tat org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:177)\n\tat org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:1124)\n\tat ru.fix.kbdd.example.cases.NavigationTest$use map to process each elements of array$3.invokeSuspend(NavigationTest.kt:225)\n\tat ru.fix.kbdd.example.cases.NavigationTest$use map to process each elements of array$3.invoke(NavigationTest.kt)\n\tat ru.fix.corounit.allure.AllureStep$step$result$1.invokeSuspend(AllureStep.kt:72)\n\tat ru.fix.corounit.allure.AllureStep$step$result$1.invoke(AllureStep.kt)\n\tat kotlinx.coroutines.intrinsics.UndispatchedKt.startUndispatchedOrReturn(Undispatched.kt:91)\n\tat kotlinx.coroutines.BuildersKt__Builders_commonKt.withContext(Builders.common.kt:154)\n\tat kotlinx.coroutines.BuildersKt.withContext(Unknown Source)\n\tat ru.fix.corounit.allure.AllureStep.step(AllureStep.kt:71)\n\tat ru.fix.corounit.allure.AllureKt.invoke(Allure.kt:16)\n\tat ru.fix.kbdd.example.cases.NavigationTest.use map to process each elements of array(NavigationTest.kt:223)\n\tat ru.fix.kbdd.example.cases.NavigationTest$use map to process each elements of array$1.invokeSuspend(NavigationTest.kt)\n\tat kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:33)\n\tat kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:56)\n\tat java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)\n\tat java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)\n\tat java.base/java.lang.Thread.run(Thread.java:834)\n",
+    "steps" : [ {
+      "name" : "Code snippet",
+      "time" : {
+        "start" : 1594212337199,
+        "stop" : 1594212337201,
+        "duration" : 2
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ {
+        "uid" : "75a1517970448945",
+        "name" : "code-snippet",
+        "source" : "75a1517970448945.txt",
+        "type" : "text/plain",
+        "size" : 1210
+      } ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 1,
+      "shouldDisplayMessage" : false,
+      "hasContent" : true
+    }, {
+      "name" : "Given server for url answers (url: /navigation, response: \n                {\n                    \"accounts\": [\n                        {\n                            \"name\": \"John\",\n                            \"amount\": 100\n                        },\n                        {\n                            \"name\": \"Jane\",\n                            \"amount\": 200\n                        }\n                    ]\n                }\n                )",
+      "time" : {
+        "start" : 1594212337208,
+        "stop" : 1594212337209,
+        "duration" : 1
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : false
+    }, {
+      "name" : "using 'map' method to access all children",
+      "time" : {
+        "start" : 1594212338225,
+        "stop" : 1594212338326,
+        "duration" : 101
+      },
+      "status" : "failed",
+      "statusMessage" : "expected: <JohnJane> but was: <John, Jane>",
+      "statusTrace" : "org.opentest4j.AssertionFailedError: expected: <JohnJane> but was: <John, Jane>\n\tat org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:55)\n\tat org.junit.jupiter.api.AssertionUtils.failNotEqual(AssertionUtils.java:62)\n\tat org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:182)\n\tat org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:177)\n\tat org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:1124)\n\tat ru.fix.kbdd.example.cases.NavigationTest$use map to process each elements of array$3.invokeSuspend(NavigationTest.kt:225)\n\tat ru.fix.kbdd.example.cases.NavigationTest$use map to process each elements of array$3.invoke(NavigationTest.kt)\n\tat ru.fix.corounit.allure.AllureStep$step$result$1.invokeSuspend(AllureStep.kt:72)\n\tat ru.fix.corounit.allure.AllureStep$step$result$1.invoke(AllureStep.kt)\n\tat kotlinx.coroutines.intrinsics.UndispatchedKt.startUndispatchedOrReturn(Undispatched.kt:91)\n\tat kotlinx.coroutines.BuildersKt__Builders_commonKt.withContext(Builders.common.kt:154)\n\tat kotlinx.coroutines.BuildersKt.withContext(Unknown Source)\n\tat ru.fix.corounit.allure.AllureStep.step(AllureStep.kt:71)\n\tat ru.fix.corounit.allure.AllureKt.invoke(Allure.kt:16)\n\tat ru.fix.kbdd.example.cases.NavigationTest.use map to process each elements of array(NavigationTest.kt:223)\n\tat ru.fix.kbdd.example.cases.NavigationTest$use map to process each elements of array$1.invokeSuspend(NavigationTest.kt)\n\tat kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:33)\n\tat kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:56)\n\tat java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)\n\tat java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)\n\tat java.base/java.lang.Thread.run(Thread.java:834)\n",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : true,
+      "hasContent" : true
+    } ],
+    "attachments" : [ {
+      "uid" : "8b2790c3db54b152",
+      "name" : "request http://localhost:46425/navigation",
+      "source" : "8b2790c3db54b152.txt",
+      "type" : "text/plain",
+      "size" : 240
+    }, {
+      "uid" : "8f5622db486c54b5",
+      "name" : "response http://localhost:46425/navigation",
+      "source" : "8f5622db486c54b5.txt",
+      "type" : "text/plain",
+      "size" : 395
+    } ],
+    "parameters" : [ ],
+    "stepsCount" : 3,
+    "attachmentsCount" : 3,
+    "shouldDisplayMessage" : false,
+    "hasContent" : true
+  },
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "framework",
+    "value" : "corounit"
+  }, {
+    "name" : "package",
+    "value" : "ru.fix.kbdd.example.cases.NavigationTest"
+  }, {
+    "name" : "suite",
+    "value" : "ru.fix.kbdd.example.cases.NavigationTest"
+  }, {
+    "name" : "testMethod",
+    "value" : "use map to process each elements of array"
+  }, {
+    "name" : "epic",
+    "value" : "Navigation"
+  }, {
+    "name" : "testClass",
+    "value" : "ru.fix.kbdd.example.cases.NavigationTest"
+  }, {
+    "name" : "thread",
+    "value" : "9ca24c3d-fbb3-4c60-a604-4f6536e99d64"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : true,
+  "retry" : true,
+  "extra" : {
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "e42fcb36c5de0171.json",
+  "parameterValues" : [ ]
+}

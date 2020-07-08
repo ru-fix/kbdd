@@ -1,0 +1,220 @@
+{
+  "uid" : "7f5fabb8ba480209",
+  "name" : "integer asserts",
+  "fullName" : "integer asserts",
+  "historyId" : "37f54b9829dfc2ed4a83f6c75e03c0d",
+  "time" : {
+    "start" : 1594219846758,
+    "stop" : 1594219850215,
+    "duration" : 3457
+  },
+  "description" : "\n        Integer asserts provides basic equality and comparision checks \n    ",
+  "descriptionHtml" : "<pre><code>    Integer asserts provides basic equality and comparision checks \n</code></pre>\n",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "testStage" : {
+    "description" : "\n        Integer asserts provides basic equality and comparision checks \n    ",
+    "status" : "passed",
+    "steps" : [ {
+      "name" : "Code snippet",
+      "time" : {
+        "start" : 1594219846884,
+        "stop" : 1594219846885,
+        "duration" : 1
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ {
+        "uid" : "aade6a543e74ae62",
+        "name" : "code-snippet",
+        "source" : "aade6a543e74ae62.txt",
+        "type" : "text/plain",
+        "size" : 1016
+      } ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 1,
+      "shouldDisplayMessage" : false,
+      "hasContent" : true
+    }, {
+      "name" : "Given server for url answers (url: /asserts/standard/int/amount, response: \n                {\n                    \"amount\": 120,\n                }\n                )",
+      "time" : {
+        "start" : 1594219846921,
+        "stop" : 1594219846923,
+        "duration" : 2
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : false
+    }, {
+      "name" : "bodyJson()[\"amount\"] == 120",
+      "time" : {
+        "start" : 1594219850151,
+        "stop" : 1594219850152,
+        "duration" : 1
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : false
+    }, {
+      "name" : "bodyJson()[\"amount\"] <= 120",
+      "time" : {
+        "start" : 1594219850158,
+        "stop" : 1594219850158,
+        "duration" : 0
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : false
+    }, {
+      "name" : "bodyJson()[\"amount\"] <= 121",
+      "time" : {
+        "start" : 1594219850159,
+        "stop" : 1594219850159,
+        "duration" : 0
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : false
+    }, {
+      "name" : "bodyJson()[\"amount\"] < 121",
+      "time" : {
+        "start" : 1594219850203,
+        "stop" : 1594219850203,
+        "duration" : 0
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : false
+    }, {
+      "name" : "bodyJson()[\"amount\"] > 119",
+      "time" : {
+        "start" : 1594219850210,
+        "stop" : 1594219850210,
+        "duration" : 0
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : false
+    }, {
+      "name" : "bodyJson()[\"amount\"] >= 119",
+      "time" : {
+        "start" : 1594219850211,
+        "stop" : 1594219850211,
+        "duration" : 0
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : false
+    }, {
+      "name" : "bodyJson()[\"amount\"] >= 120",
+      "time" : {
+        "start" : 1594219850211,
+        "stop" : 1594219850211,
+        "duration" : 0
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : false
+    } ],
+    "attachments" : [ {
+      "uid" : "4db0ff78dd363149",
+      "name" : "request http://localhost:49191/asserts/standard/int/amount",
+      "source" : "4db0ff78dd363149.txt",
+      "type" : "text/plain",
+      "size" : 257
+    }, {
+      "uid" : "2c68325a11634bcc",
+      "name" : "response http://localhost:49191/asserts/standard/int/amount",
+      "source" : "2c68325a11634bcc.txt",
+      "type" : "text/plain",
+      "size" : 246
+    } ],
+    "parameters" : [ ],
+    "stepsCount" : 9,
+    "attachmentsCount" : 3,
+    "shouldDisplayMessage" : false,
+    "hasContent" : true
+  },
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "framework",
+    "value" : "corounit"
+  }, {
+    "name" : "package",
+    "value" : "ru.fix.kbdd.example.cases.ResponseAsserts"
+  }, {
+    "name" : "suite",
+    "value" : "ru.fix.kbdd.example.cases.ResponseAsserts"
+  }, {
+    "name" : "feature",
+    "value" : "Standard"
+  }, {
+    "name" : "testMethod",
+    "value" : "integer asserts"
+  }, {
+    "name" : "epic",
+    "value" : "Asserts"
+  }, {
+    "name" : "testClass",
+    "value" : "ru.fix.kbdd.example.cases.ResponseAsserts"
+  }, {
+    "name" : "thread",
+    "value" : "c36d2403-57cd-467d-a6a9-2b8d3d3eb66d"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : true,
+  "retry" : true,
+  "extra" : {
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "7f5fabb8ba480209.json",
+  "parameterValues" : [ ]
+}

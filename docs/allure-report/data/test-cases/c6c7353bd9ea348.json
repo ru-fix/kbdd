@@ -1,0 +1,142 @@
+{
+  "uid" : "c6c7353bd9ea348",
+  "name" : "navigate to child by name",
+  "fullName" : "navigate to child by name",
+  "historyId" : "9b6c83d9ee73299b474e9cd6bfa3b1e0",
+  "time" : {
+    "start" : 1594220000096,
+    "stop" : 1594220001489,
+    "duration" : 1393
+  },
+  "description" : "\n        Navigation to child by name allowed if currently selected node is a Map        \n    ",
+  "descriptionHtml" : "<pre><code>    Navigation to child by name allowed if currently selected node is a Map        \n</code></pre>\n",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "testStage" : {
+    "description" : "\n        Navigation to child by name allowed if currently selected node is a Map        \n    ",
+    "status" : "passed",
+    "steps" : [ {
+      "name" : "Code snippet",
+      "time" : {
+        "start" : 1594220000132,
+        "stop" : 1594220000132,
+        "duration" : 0
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ {
+        "uid" : "79900f8735a330fd",
+        "name" : "code-snippet",
+        "source" : "79900f8735a330fd.txt",
+        "type" : "text/plain",
+        "size" : 728
+      } ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 1,
+      "shouldDisplayMessage" : false,
+      "hasContent" : true
+    }, {
+      "name" : "Given server for url answers (url: /navigation/child-by-name, response: \n                {\n                    \"account\": {\n                        \"name\": \"John\",\n                        \"amount\": 100\n                    }\n                }\n                )",
+      "time" : {
+        "start" : 1594220000134,
+        "stop" : 1594220000136,
+        "duration" : 2
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : false
+    }, {
+      "name" : "bodyJson()[\"account\"][\"name\"] == \"John\"",
+      "time" : {
+        "start" : 1594220001483,
+        "stop" : 1594220001483,
+        "duration" : 0
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : false
+    }, {
+      "name" : "bodyJson()[\"account\"][\"amount\"] == 100",
+      "time" : {
+        "start" : 1594220001485,
+        "stop" : 1594220001485,
+        "duration" : 0
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : false
+    } ],
+    "attachments" : [ {
+      "uid" : "33fb7bdf7314ed68",
+      "name" : "request http://localhost:43329/navigation/child-by-name",
+      "source" : "33fb7bdf7314ed68.txt",
+      "type" : "text/plain",
+      "size" : 254
+    }, {
+      "uid" : "77f83f716c71afb2",
+      "name" : "response http://localhost:43329/navigation/child-by-name",
+      "source" : "77f83f716c71afb2.txt",
+      "type" : "text/plain",
+      "size" : 291
+    } ],
+    "parameters" : [ ],
+    "stepsCount" : 4,
+    "attachmentsCount" : 3,
+    "shouldDisplayMessage" : false,
+    "hasContent" : true
+  },
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "framework",
+    "value" : "corounit"
+  }, {
+    "name" : "package",
+    "value" : "ru.fix.kbdd.example.cases.NavigationTest"
+  }, {
+    "name" : "suite",
+    "value" : "ru.fix.kbdd.example.cases.NavigationTest"
+  }, {
+    "name" : "testMethod",
+    "value" : "navigate to child by name"
+  }, {
+    "name" : "epic",
+    "value" : "Navigation"
+  }, {
+    "name" : "testClass",
+    "value" : "ru.fix.kbdd.example.cases.NavigationTest"
+  }, {
+    "name" : "thread",
+    "value" : "6a821e75-8465-499d-9242-7f39e1cd0881"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : true,
+  "retry" : true,
+  "extra" : {
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "c6c7353bd9ea348.json",
+  "parameterValues" : [ ]
+}

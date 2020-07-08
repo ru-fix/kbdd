@@ -1,0 +1,43 @@
+    @Test
+    suspend fun `string values can be auto-casted to numeric values`() {
+        val url = "/asserts/standard/string/auto-cast"
+
+        mockServer.`Given server for url answers`(
+                url,
+                """
+                {
+                    "number-as-a-string": "344",
+                }
+                """)
+
+        request {
+            baseUri(mockServer.baseUrl())
+            get(url)
+        }
+
+        bodyJson()["number-as-a-string"].isContains("4")
+        bodyJson()["number-as-a-string"].isMatches("\\d.")
+        bodyJson()["number-as-a-string"].isGreaterThan("10000")
+        bodyJson()["number-as-a-string"].isGreaterThanOrEqual("10000")
+        bodyJson()["number-as-a-string"].isGreaterThanOrEqual("344")
+        bodyJson()["number-as-a-string"].isEquals("344")
+        bodyJson()["number-as-a-string"].isLessThanOrEqual("344")
+        bodyJson()["number-as-a-string"].isLessThanOrEqual("6")
+        bodyJson()["number-as-a-string"].isLessThan("6")
+
+        bodyJson()["number-as-a-string"].isGreaterThan(2)
+        bodyJson()["number-as-a-string"].isGreaterThan(200)
+        bodyJson()["number-as-a-string"].isGreaterThan(343)
+
+        bodyJson()["number-as-a-string"].isGreaterThanOrEqual(2)
+        bodyJson()["number-as-a-string"].isGreaterThanOrEqual(200)
+        bodyJson()["number-as-a-string"].isGreaterThanOrEqual(343)
+        bodyJson()["number-as-a-string"].isGreaterThanOrEqual(344)
+
+        bodyJson()["number-as-a-string"].isEquals(344)
+        bodyJson()["number-as-a-string"].isLessThanOrEqual(344)
+        bodyJson()["number-as-a-string"].isLessThanOrEqual(345)
+        bodyJson()["number-as-a-string"].isLessThanOrEqual(600)
+        bodyJson()["number-as-a-string"].isLessThan(600)
+    }
+}

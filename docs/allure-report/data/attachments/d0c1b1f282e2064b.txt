@@ -1,0 +1,29 @@
+    @Test
+    suspend fun `navigate to element within Array that contains single element`() {
+        val url = "/navigation"
+
+        mockServer.`Given server for url answers`(
+                url,
+                """
+                {
+                    "accounts": [
+                        {
+                            "name": "John",
+                            "amount": 100
+                        }
+                    ]
+                }
+                """)
+
+        request {
+            baseUri(mockServer.baseUrl())
+            get(url)
+        }
+
+        bodyJson()["accounts"].single()["name"].isEquals("John")
+    }
+
+    @Description("""
+        Arrays support map method that get you access to each of the itmes
+    """)
+    @Test

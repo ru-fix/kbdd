@@ -1,0 +1,37 @@
+    @Test
+    suspend fun `navigate to child by index`() {
+        val url = "/navigation/child-by-index"
+
+        mockServer.`Given server for url answers`(
+                url,
+                """
+                {
+                    "accounts": [
+                        {
+                            "name": "John",
+                            "amount": 100
+                        },
+                        {
+                            "name": "Jane",
+                            "amount": 200
+                        }
+                    ]
+                }
+                """)
+
+        request {
+            baseUri(mockServer.baseUrl())
+            get(url)
+        }
+
+        bodyJson()["account"][0]["name"].isEquals("Jane")
+        bodyJson()["account"][1]["amount"].isEquals(200)
+
+        bodyJson()["account"].size().isEquals(2)
+    }
+
+    @Description("""
+        Arrays provide system field: size.
+        Size can be used to validate count of elements within array.         
+    """)
+    @Test

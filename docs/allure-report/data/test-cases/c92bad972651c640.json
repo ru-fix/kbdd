@@ -1,0 +1,230 @@
+{
+  "uid" : "c92bad972651c640",
+  "name" : "integer asserts",
+  "fullName" : "integer asserts",
+  "historyId" : "37f54b9829dfc2ed4a83f6c75e03c0d",
+  "time" : {
+    "start" : 1594220044707,
+    "stop" : 1594220048332,
+    "duration" : 3625
+  },
+  "description" : "\n        Integer asserts provides basic equality and comparision checks \n    ",
+  "descriptionHtml" : "<pre><code>    Integer asserts provides basic equality and comparision checks \n</code></pre>\n",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "testStage" : {
+    "description" : "\n        Integer asserts provides basic equality and comparision checks \n    ",
+    "status" : "passed",
+    "steps" : [ {
+      "name" : "Code snippet",
+      "time" : {
+        "start" : 1594220044894,
+        "stop" : 1594220044895,
+        "duration" : 1
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ {
+        "uid" : "9e62863a6f645186",
+        "name" : "code-snippet",
+        "source" : "9e62863a6f645186.txt",
+        "type" : "text/plain",
+        "size" : 1016
+      } ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 1,
+      "shouldDisplayMessage" : false,
+      "hasContent" : true
+    }, {
+      "name" : "Given server for url answers (url: /asserts/standard/int/amount, response: \n                {\n                    \"amount\": 120,\n                }\n                )",
+      "time" : {
+        "start" : 1594220044953,
+        "stop" : 1594220044954,
+        "duration" : 1
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : false
+    }, {
+      "name" : "bodyJson()[\"amount\"] == 120",
+      "time" : {
+        "start" : 1594220048269,
+        "stop" : 1594220048269,
+        "duration" : 0
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : false
+    }, {
+      "name" : "bodyJson()[\"amount\"] <= 120",
+      "time" : {
+        "start" : 1594220048275,
+        "stop" : 1594220048275,
+        "duration" : 0
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : false
+    }, {
+      "name" : "bodyJson()[\"amount\"] <= 121",
+      "time" : {
+        "start" : 1594220048276,
+        "stop" : 1594220048276,
+        "duration" : 0
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : false
+    }, {
+      "name" : "bodyJson()[\"amount\"] < 121",
+      "time" : {
+        "start" : 1594220048290,
+        "stop" : 1594220048290,
+        "duration" : 0
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : false
+    }, {
+      "name" : "bodyJson()[\"amount\"] > 119",
+      "time" : {
+        "start" : 1594220048291,
+        "stop" : 1594220048291,
+        "duration" : 0
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : false
+    }, {
+      "name" : "bodyJson()[\"amount\"] >= 119",
+      "time" : {
+        "start" : 1594220048292,
+        "stop" : 1594220048292,
+        "duration" : 0
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : false
+    }, {
+      "name" : "bodyJson()[\"amount\"] >= 120",
+      "time" : {
+        "start" : 1594220048293,
+        "stop" : 1594220048293,
+        "duration" : 0
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : false
+    } ],
+    "attachments" : [ {
+      "uid" : "9f2bd24c03374e02",
+      "name" : "request http://localhost:50258/asserts/standard/int/amount",
+      "source" : "9f2bd24c03374e02.txt",
+      "type" : "text/plain",
+      "size" : 257
+    }, {
+      "uid" : "eea33bee1a616e95",
+      "name" : "response http://localhost:50258/asserts/standard/int/amount",
+      "source" : "eea33bee1a616e95.txt",
+      "type" : "text/plain",
+      "size" : 246
+    } ],
+    "parameters" : [ ],
+    "stepsCount" : 9,
+    "attachmentsCount" : 3,
+    "shouldDisplayMessage" : false,
+    "hasContent" : true
+  },
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "framework",
+    "value" : "corounit"
+  }, {
+    "name" : "package",
+    "value" : "ru.fix.kbdd.example.cases.ResponseAsserts"
+  }, {
+    "name" : "suite",
+    "value" : "ru.fix.kbdd.example.cases.ResponseAsserts"
+  }, {
+    "name" : "feature",
+    "value" : "Standard"
+  }, {
+    "name" : "testMethod",
+    "value" : "integer asserts"
+  }, {
+    "name" : "epic",
+    "value" : "Asserts"
+  }, {
+    "name" : "testClass",
+    "value" : "ru.fix.kbdd.example.cases.ResponseAsserts"
+  }, {
+    "name" : "thread",
+    "value" : "5fce0f8a-952e-439d-bc85-af789e251b6f"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ {
+      "uid" : "7f5fabb8ba480209",
+      "status" : "passed",
+      "time" : {
+        "start" : 1594219846758,
+        "stop" : 1594219850215,
+        "duration" : 3457
+      }
+    } ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "c92bad972651c640.json",
+  "parameterValues" : [ ]
+}

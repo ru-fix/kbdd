@@ -1,0 +1,116 @@
+{
+  "uid" : "115c5b293c29efe1",
+  "name" : "arrays size field",
+  "fullName" : "arrays size field",
+  "historyId" : "cba68642e6bf3d372cb97dd959c55e3f",
+  "time" : {
+    "start" : 1594219847121,
+    "stop" : 1594219850502,
+    "duration" : 3381
+  },
+  "description" : "\n        Arrays provide system field: size.\n        Size can be used to validate count of elements within array.         \n    ",
+  "descriptionHtml" : "<pre><code>    Arrays provide system field: size.\n    Size can be used to validate count of elements within array.         \n</code></pre>\n",
+  "status" : "broken",
+  "statusMessage" : "Failed to access bodyJson()[\"account\"].size(). Current value is not a List. Actual type: class java.util.LinkedHashMap",
+  "statusTrace" : "java.lang.IllegalArgumentException: Failed to access bodyJson()[\"account\"].size(). Current value is not a List. Actual type: class java.util.LinkedHashMap\n\tat ru.fix.kbdd.asserts.NavigationContext$DefaultImpls.requireNotNullList(Explorable.kt:64)\n\tat ru.fix.kbdd.asserts.KPath$context$1.requireNotNullList(KPath.kt:29)\n\tat ru.fix.kbdd.asserts.ExplorableKt$size$1$1.node(Explorable.kt:183)\n\tat ru.fix.kbdd.asserts.KPath.navigate(KPath.kt:48)\n\tat ru.fix.kbdd.asserts.ExplorableKt.size(Explorable.kt:179)\n\tat ru.fix.kbdd.example.cases.NavigationTest.arrays size field(NavigationTest.kt:116)\n\tat ru.fix.kbdd.example.cases.NavigationTest$arrays size field$1.invokeSuspend(NavigationTest.kt)\n\tat \b\b\b(Coroutine boundary.\b(\b)\n\tat ru.fix.corounit.engine.ExecutionContext.notifyListenerAndRunInSupervisorScope(ExecutionContext.kt:21)\n\tat ru.fix.corounit.engine.ClassRunner$executeMethod$2.invokeSuspend(ClassRunner.kt:118)\nCaused by: java.lang.IllegalArgumentException: Failed to access bodyJson()[\"account\"].size(). Current value is not a List. Actual type: class java.util.LinkedHashMap\n\tat ru.fix.kbdd.asserts.NavigationContext$DefaultImpls.requireNotNullList(Explorable.kt:64)\n\tat ru.fix.kbdd.asserts.KPath$context$1.requireNotNullList(KPath.kt:29)\n\tat ru.fix.kbdd.asserts.ExplorableKt$size$1$1.node(Explorable.kt:183)\n\tat ru.fix.kbdd.asserts.KPath.navigate(KPath.kt:48)\n\tat ru.fix.kbdd.asserts.ExplorableKt.size(Explorable.kt:179)\n\tat ru.fix.kbdd.example.cases.NavigationTest.arrays size field(NavigationTest.kt:116)\n\tat ru.fix.kbdd.example.cases.NavigationTest$arrays size field$1.invokeSuspend(NavigationTest.kt)\n\tat kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:33)\n\tat kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:56)\n\tat java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)\n\tat java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)\n\tat java.base/java.lang.Thread.run(Thread.java:834)\n",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "testStage" : {
+    "description" : "\n        Arrays provide system field: size.\n        Size can be used to validate count of elements within array.         \n    ",
+    "status" : "broken",
+    "statusMessage" : "Failed to access bodyJson()[\"account\"].size(). Current value is not a List. Actual type: class java.util.LinkedHashMap",
+    "statusTrace" : "java.lang.IllegalArgumentException: Failed to access bodyJson()[\"account\"].size(). Current value is not a List. Actual type: class java.util.LinkedHashMap\n\tat ru.fix.kbdd.asserts.NavigationContext$DefaultImpls.requireNotNullList(Explorable.kt:64)\n\tat ru.fix.kbdd.asserts.KPath$context$1.requireNotNullList(KPath.kt:29)\n\tat ru.fix.kbdd.asserts.ExplorableKt$size$1$1.node(Explorable.kt:183)\n\tat ru.fix.kbdd.asserts.KPath.navigate(KPath.kt:48)\n\tat ru.fix.kbdd.asserts.ExplorableKt.size(Explorable.kt:179)\n\tat ru.fix.kbdd.example.cases.NavigationTest.arrays size field(NavigationTest.kt:116)\n\tat ru.fix.kbdd.example.cases.NavigationTest$arrays size field$1.invokeSuspend(NavigationTest.kt)\n\tat \b\b\b(Coroutine boundary.\b(\b)\n\tat ru.fix.corounit.engine.ExecutionContext.notifyListenerAndRunInSupervisorScope(ExecutionContext.kt:21)\n\tat ru.fix.corounit.engine.ClassRunner$executeMethod$2.invokeSuspend(ClassRunner.kt:118)\nCaused by: java.lang.IllegalArgumentException: Failed to access bodyJson()[\"account\"].size(). Current value is not a List. Actual type: class java.util.LinkedHashMap\n\tat ru.fix.kbdd.asserts.NavigationContext$DefaultImpls.requireNotNullList(Explorable.kt:64)\n\tat ru.fix.kbdd.asserts.KPath$context$1.requireNotNullList(KPath.kt:29)\n\tat ru.fix.kbdd.asserts.ExplorableKt$size$1$1.node(Explorable.kt:183)\n\tat ru.fix.kbdd.asserts.KPath.navigate(KPath.kt:48)\n\tat ru.fix.kbdd.asserts.ExplorableKt.size(Explorable.kt:179)\n\tat ru.fix.kbdd.example.cases.NavigationTest.arrays size field(NavigationTest.kt:116)\n\tat ru.fix.kbdd.example.cases.NavigationTest$arrays size field$1.invokeSuspend(NavigationTest.kt)\n\tat kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:33)\n\tat kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:56)\n\tat java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)\n\tat java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)\n\tat java.base/java.lang.Thread.run(Thread.java:834)\n",
+    "steps" : [ {
+      "name" : "Code snippet",
+      "time" : {
+        "start" : 1594219847292,
+        "stop" : 1594219847295,
+        "duration" : 3
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ {
+        "uid" : "ebca85ddfe967e55",
+        "name" : "code-snippet",
+        "source" : "ebca85ddfe967e55.txt",
+        "type" : "text/plain",
+        "size" : 998
+      } ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 1,
+      "shouldDisplayMessage" : false,
+      "hasContent" : true
+    }, {
+      "name" : "Given server for url answers (url: /navigation, response: \n                {\n                    \"accounts\": [\n                        {\n                            \"name\": \"John\",\n                            \"amount\": 100\n                        },\n                        {\n                            \"name\": \"Jane\",\n                            \"amount\": 200\n                        }\n                    ]\n                }\n                )",
+      "time" : {
+        "start" : 1594219847376,
+        "stop" : 1594219847378,
+        "duration" : 2
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : false
+    } ],
+    "attachments" : [ {
+      "uid" : "5be38db6cfe655fd",
+      "name" : "request http://localhost:35050/navigation",
+      "source" : "5be38db6cfe655fd.txt",
+      "type" : "text/plain",
+      "size" : 240
+    }, {
+      "uid" : "6b905d8040a5fdd4",
+      "name" : "response http://localhost:35050/navigation",
+      "source" : "6b905d8040a5fdd4.txt",
+      "type" : "text/plain",
+      "size" : 291
+    } ],
+    "parameters" : [ ],
+    "stepsCount" : 2,
+    "attachmentsCount" : 3,
+    "shouldDisplayMessage" : true,
+    "hasContent" : true
+  },
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "framework",
+    "value" : "corounit"
+  }, {
+    "name" : "package",
+    "value" : "ru.fix.kbdd.example.cases.NavigationTest"
+  }, {
+    "name" : "suite",
+    "value" : "ru.fix.kbdd.example.cases.NavigationTest"
+  }, {
+    "name" : "testMethod",
+    "value" : "arrays size field"
+  }, {
+    "name" : "epic",
+    "value" : "Navigation"
+  }, {
+    "name" : "testClass",
+    "value" : "ru.fix.kbdd.example.cases.NavigationTest"
+  }, {
+    "name" : "thread",
+    "value" : "06979fbf-15b4-4404-a1fc-592aea07c326"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : true,
+  "retry" : true,
+  "extra" : {
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "115c5b293c29efe1.json",
+  "parameterValues" : [ ]
+}

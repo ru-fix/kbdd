@@ -1,0 +1,12 @@
+HTTP/1.1 200 OK
+Content-Type: application/json
+Matched-Stub-Id: 76f0378b-b712-4eb3-aab6-ff5ec3ec8c71
+Content-Encoding: gzip
+Vary: Accept-Encoding, User-Agent
+Transfer-Encoding: chunked
+Server: Jetty(9.2.28.v20190418)
+
+{
+    "result": true,
+    "price": 142
+}

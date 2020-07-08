@@ -1,0 +1,169 @@
+{
+  "uid" : "9bd75908dbc74e27",
+  "name" : "REST request response",
+  "fullName" : "REST request response",
+  "historyId" : "ff69f4370625c34f3b82bf07a6e9b22f",
+  "time" : {
+    "start" : 1593788712082,
+    "stop" : 1593788713284,
+    "duration" : 1202
+  },
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "testStage" : {
+    "status" : "passed",
+    "steps" : [ {
+      "name" : "Code example",
+      "time" : {
+        "start" : 1593788712117,
+        "stop" : 1593788712119,
+        "duration" : 2
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ {
+        "uid" : "cd9574cee4b34ce9",
+        "name" : "code-example",
+        "source" : "cd9574cee4b34ce9.txt",
+        "type" : "text/plain",
+        "size" : 937
+      } ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 1,
+      "shouldDisplayMessage" : false,
+      "hasContent" : true
+    }, {
+      "name" : "Given server for url answers (url: /introduction/account/state, response: \n                {\n                    \"status\": \"active\",\n                    \"amount\": 120,\n                    \"owner\": {\n                        \"firstName\": \"John\",\n                        \"lastName\": \"Smith\"\n                    }\n                }\n                )",
+      "time" : {
+        "start" : 1593788712126,
+        "stop" : 1593788712127,
+        "duration" : 1
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : false
+    }, {
+      "name" : "Send HTTP GET request to a mocked server",
+      "time" : {
+        "start" : 1593788712127,
+        "stop" : 1593788713161,
+        "duration" : 1034
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ {
+        "uid" : "8c66dc707262e308",
+        "name" : "request http://localhost:34585/introduction/account/state",
+        "source" : "8c66dc707262e308.txt",
+        "type" : "text/plain",
+        "size" : 256
+      }, {
+        "uid" : "30069df7c3e1e726",
+        "name" : "response http://localhost:34585/introduction/account/state",
+        "source" : "30069df7c3e1e726.txt",
+        "type" : "text/plain",
+        "size" : 343
+      } ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 2,
+      "shouldDisplayMessage" : false,
+      "hasContent" : true
+    }, {
+      "name" : "Validate HTTP response content from previous request",
+      "time" : {
+        "start" : 1593788713161,
+        "stop" : 1593788713278,
+        "duration" : 117
+      },
+      "status" : "passed",
+      "steps" : [ {
+        "name" : "bodyJson()[\"status\"] == \"active\"",
+        "time" : {
+          "start" : 1593788713271,
+          "stop" : 1593788713271,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "stepsCount" : 0,
+        "attachmentsCount" : 0,
+        "shouldDisplayMessage" : false,
+        "hasContent" : false
+      }, {
+        "name" : "bodyJson()[\"owner\"][\"firstName\"] == \"John\"",
+        "time" : {
+          "start" : 1593788713278,
+          "stop" : 1593788713278,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "stepsCount" : 0,
+        "attachmentsCount" : 0,
+        "shouldDisplayMessage" : false,
+        "hasContent" : false
+      } ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "stepsCount" : 2,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : true
+    } ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 6,
+    "attachmentsCount" : 3,
+    "shouldDisplayMessage" : false,
+    "hasContent" : true
+  },
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "framework",
+    "value" : "corounit"
+  }, {
+    "name" : "package",
+    "value" : "ru.fix.kbdd.example.cases.IntroductionTest"
+  }, {
+    "name" : "suite",
+    "value" : "ru.fix.kbdd.example.cases.IntroductionTest"
+  }, {
+    "name" : "testMethod",
+    "value" : "REST request response"
+  }, {
+    "name" : "epic",
+    "value" : "Introduction"
+  }, {
+    "name" : "testClass",
+    "value" : "ru.fix.kbdd.example.cases.IntroductionTest"
+  }, {
+    "name" : "thread",
+    "value" : "bd118d73-ca4d-4f55-953b-5d9ffee34ebf"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : true,
+  "retry" : true,
+  "extra" : {
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "9bd75908dbc74e27.json",
+  "parameterValues" : [ ]
+}

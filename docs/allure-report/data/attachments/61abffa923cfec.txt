@@ -1,0 +1,41 @@
+    @Test
+    suspend fun `asserts can be combined into single assert block`() {
+        val url = "/asserts/standard/complex"
+
+        mockServer.`Given server for url answers`(
+                url,
+                """
+                {
+                    "number": 1024,
+                    "word": "orange"
+                }
+                """)
+
+        request {
+            baseUri(mockServer.baseUrl())
+            get(url)
+        }
+
+        "single-expression field assert without assert block"{
+            bodyJson()["number"].isGreaterThan(100)
+        }
+
+        "single-expression field assert iside explicit assert block"{
+            bodyJson()["number"].assert {
+                it.isGreaterThan(100)
+            }
+        }
+
+        "single-expression assert with field selector inside explicit assert block"{
+            bodyJson().assert {
+                it["number"].isGreaterThan(100)
+            }
+        }
+
+        "multi-expression assert"{
+            bodyJson().assert {
+                it["number"].isGreaterThan(100) and it["word"].isContains("range")
+            }
+        }
+    }
+}

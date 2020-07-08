@@ -1,0 +1,41 @@
+    @Test
+    suspend fun `use map to process each elements of array`() {
+        val url = "/navigation"
+
+        mockServer.`Given server for url answers`(
+                url,
+                """
+                {
+                    "accounts": [
+                        {
+                            "name": "John",
+                            "amount": 100
+                        },
+                        {
+                            "name": "Jane",
+                            "amount": 200
+                        }
+                    ]
+                }
+                """)
+
+        request {
+            baseUri(mockServer.baseUrl())
+            get(url)
+        }
+
+        "using 'map' method to access all children"{
+            val names = bodyJson()["accounts"].map { it["name"].asString() }.joinToString (separator = "")
+            Assertions.assertEquals("JohnJane", names)
+        }
+
+        "using iteration over collection by index"{
+            var names = ""
+            for (index in 0 until bodyJson()["accounts"].size().asInt()) {
+                names += bodyJson()["accounts"][index]["name"].asString()
+            }
+            Assertions.assertEquals("JohnJane", names)
+        }
+
+    }
+}

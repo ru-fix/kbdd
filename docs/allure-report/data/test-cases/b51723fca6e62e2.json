@@ -1,0 +1,178 @@
+{
+  "uid" : "b51723fca6e62e2",
+  "name" : "provide custom asserts",
+  "fullName" : "provide custom asserts",
+  "historyId" : "1337dce0cc4842890e43c89928f8a9ff",
+  "time" : {
+    "start" : 1594220044777,
+    "stop" : 1594220049418,
+    "duration" : 4641
+  },
+  "description" : "\n        You can write custom asserts by providing extension function. \n        If you do so, maybe your asserts is worth to be added to main asserts list into KBDD project. \n        Pull Requests are welcome!\n    ",
+  "descriptionHtml" : "<pre><code>    You can write custom asserts by providing extension function. \n    If you do so, maybe your asserts is worth to be added to main asserts list into KBDD project. \n    Pull Requests are welcome!\n</code></pre>\n",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "testStage" : {
+    "description" : "\n        You can write custom asserts by providing extension function. \n        If you do so, maybe your asserts is worth to be added to main asserts list into KBDD project. \n        Pull Requests are welcome!\n    ",
+    "status" : "passed",
+    "steps" : [ {
+      "name" : "Code snippet",
+      "time" : {
+        "start" : 1594220044958,
+        "stop" : 1594220044968,
+        "duration" : 10
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ {
+        "uid" : "14f69b8542c6bcf",
+        "name" : "code-snippet",
+        "source" : "14f69b8542c6bcf.txt",
+        "type" : "text/plain",
+        "size" : 1007
+      } ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 1,
+      "shouldDisplayMessage" : false,
+      "hasContent" : true
+    }, {
+      "name" : "Given server for url answers (url: /asserts/custom/int/amount, response: \n                {\n                    \"amount\": 120,\n                }\n                )",
+      "time" : {
+        "start" : 1594220044999,
+        "stop" : 1594220045006,
+        "duration" : 7
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : false
+    }, {
+      "name" : "custom assert via extension method",
+      "time" : {
+        "start" : 1594220049191,
+        "stop" : 1594220049389,
+        "duration" : 198
+      },
+      "status" : "passed",
+      "steps" : [ {
+        "name" : "bodyJson()[\"amount\"] isEvenInteger",
+        "time" : {
+          "start" : 1594220049389,
+          "stop" : 1594220049389,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "stepsCount" : 0,
+        "attachmentsCount" : 0,
+        "shouldDisplayMessage" : false,
+        "hasContent" : false
+      } ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "stepsCount" : 1,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : true
+    }, {
+      "name" : "custom assert without extension method",
+      "time" : {
+        "start" : 1594220049390,
+        "stop" : 1594220049398,
+        "duration" : 8
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : false
+    } ],
+    "attachments" : [ {
+      "uid" : "565a452b494eae75",
+      "name" : "request http://localhost:31907/asserts/custom/int/amount",
+      "source" : "565a452b494eae75.txt",
+      "type" : "text/plain",
+      "size" : 255
+    }, {
+      "uid" : "be066ebb0d3dd48a",
+      "name" : "response http://localhost:31907/asserts/custom/int/amount",
+      "source" : "be066ebb0d3dd48a.txt",
+      "type" : "text/plain",
+      "size" : 246
+    } ],
+    "parameters" : [ ],
+    "stepsCount" : 5,
+    "attachmentsCount" : 3,
+    "shouldDisplayMessage" : false,
+    "hasContent" : true
+  },
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "framework",
+    "value" : "corounit"
+  }, {
+    "name" : "package",
+    "value" : "ru.fix.kbdd.example.cases.ResponseCustomAsserts"
+  }, {
+    "name" : "suite",
+    "value" : "ru.fix.kbdd.example.cases.ResponseCustomAsserts"
+  }, {
+    "name" : "feature",
+    "value" : "Custom"
+  }, {
+    "name" : "testMethod",
+    "value" : "provide custom asserts"
+  }, {
+    "name" : "epic",
+    "value" : "Asserts"
+  }, {
+    "name" : "testClass",
+    "value" : "ru.fix.kbdd.example.cases.ResponseCustomAsserts"
+  }, {
+    "name" : "thread",
+    "value" : "18ad01dd-2491-4cbf-aeaa-32cbd93323d5"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ {
+      "uid" : "3f83d5276e6c3b42",
+      "status" : "passed",
+      "time" : {
+        "start" : 1594219846685,
+        "stop" : 1594219851290,
+        "duration" : 4605
+      }
+    }, {
+      "uid" : "472f513399cfc781",
+      "status" : "passed",
+      "time" : {
+        "start" : 1594209653797,
+        "stop" : 1594209655020,
+        "duration" : 1223
+      }
+    } ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "b51723fca6e62e2.json",
+  "parameterValues" : [ ]
+}

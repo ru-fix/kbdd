@@ -1,0 +1,16 @@
+HTTP/1.1 200 OK
+Content-Type: application/json
+Matched-Stub-Id: fd939614-9264-40b1-aa14-4fd8b8563a72
+Content-Encoding: gzip
+Vary: Accept-Encoding, User-Agent
+Transfer-Encoding: chunked
+Server: Jetty(9.2.28.v20190418)
+
+{
+    "accounts": [
+        {
+            "name": "John",
+            "amount": 100
+        }
+    ]
+}

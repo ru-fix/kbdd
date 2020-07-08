@@ -1,0 +1,38 @@
+    @Test
+    suspend fun `navigate by filtering`() {
+        val url = "/navigation"
+
+        mockServer.`Given server for url answers`(
+                url,
+                """
+                {
+                    "accounts": [
+                        {
+                            "name": "John",
+                            "amount": 100
+                        },
+                        {
+                            "name": "Jane",
+                            "amount": 200
+                        }
+                    ]
+                }
+                """)
+
+        request {
+            baseUri(mockServer.baseUrl())
+            get(url)
+        }
+
+        bodyJson()["accounts"].filter { it["amount"].isGreaterThan(100) }.size().isEquals(1)
+        bodyJson()["accounts"].filter { it["amount"].isGreaterThan(100) }[0]["name"].isEquals("Jane")
+
+        "If you expecting only single value returned by filter, you can use 'single' instead of 'filter'"{
+            bodyJson()["accounts"].single { it["amount"].isLessThan(150) }["name"].isEquals("John")
+        }
+    }
+
+    @Description("""
+        Singleton arrays support 'single' navigation method         
+    """)
+    @Test

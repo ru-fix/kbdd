@@ -1,0 +1,116 @@
+{
+  "uid" : "7595060a6ad78776",
+  "name" : "navigate to child by index",
+  "fullName" : "navigate to child by index",
+  "historyId" : "2b0d86a2ea55d9cc5402f0491abfa08b",
+  "time" : {
+    "start" : 1594219902020,
+    "stop" : 1594219903671,
+    "duration" : 1651
+  },
+  "description" : "\n        Navigation to child by index allowed if currently selected node is an Array        \n    ",
+  "descriptionHtml" : "<pre><code>    Navigation to child by index allowed if currently selected node is an Array        \n</code></pre>\n",
+  "status" : "broken",
+  "statusMessage" : "Failed to access bodyJson()[\"account\"][0]. Current value is not a List. Actual type: class java.util.LinkedHashMap",
+  "statusTrace" : "java.lang.IllegalArgumentException: Failed to access bodyJson()[\"account\"][0]. Current value is not a List. Actual type: class java.util.LinkedHashMap\n\tat ru.fix.kbdd.asserts.NavigationContext$DefaultImpls.requireNotNullList(Explorable.kt:64)\n\tat ru.fix.kbdd.asserts.KPath$context$1.requireNotNullList(KPath.kt:29)\n\tat ru.fix.kbdd.asserts.ExplorableKt$get$1$1.node(Explorable.kt:147)\n\tat ru.fix.kbdd.asserts.KPath.navigate(KPath.kt:48)\n\tat ru.fix.kbdd.asserts.ExplorableKt.get(Explorable.kt:143)\n\tat ru.fix.kbdd.example.cases.NavigationTest.navigate to child by index(NavigationTest.kt:78)\n\tat ru.fix.kbdd.example.cases.NavigationTest$navigate to child by index$1.invokeSuspend(NavigationTest.kt)\n\tat \b\b\b(Coroutine boundary.\b(\b)\n\tat ru.fix.corounit.engine.ExecutionContext.notifyListenerAndRunInSupervisorScope(ExecutionContext.kt:21)\n\tat ru.fix.corounit.engine.ClassRunner$executeMethod$2.invokeSuspend(ClassRunner.kt:118)\nCaused by: java.lang.IllegalArgumentException: Failed to access bodyJson()[\"account\"][0]. Current value is not a List. Actual type: class java.util.LinkedHashMap\n\tat ru.fix.kbdd.asserts.NavigationContext$DefaultImpls.requireNotNullList(Explorable.kt:64)\n\tat ru.fix.kbdd.asserts.KPath$context$1.requireNotNullList(KPath.kt:29)\n\tat ru.fix.kbdd.asserts.ExplorableKt$get$1$1.node(Explorable.kt:147)\n\tat ru.fix.kbdd.asserts.KPath.navigate(KPath.kt:48)\n\tat ru.fix.kbdd.asserts.ExplorableKt.get(Explorable.kt:143)\n\tat ru.fix.kbdd.example.cases.NavigationTest.navigate to child by index(NavigationTest.kt:78)\n\tat ru.fix.kbdd.example.cases.NavigationTest$navigate to child by index$1.invokeSuspend(NavigationTest.kt)\n\tat kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:33)\n\tat kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:56)\n\tat java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)\n\tat java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)\n\tat java.base/java.lang.Thread.run(Thread.java:834)\n",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "testStage" : {
+    "description" : "\n        Navigation to child by index allowed if currently selected node is an Array        \n    ",
+    "status" : "broken",
+    "statusMessage" : "Failed to access bodyJson()[\"account\"][0]. Current value is not a List. Actual type: class java.util.LinkedHashMap",
+    "statusTrace" : "java.lang.IllegalArgumentException: Failed to access bodyJson()[\"account\"][0]. Current value is not a List. Actual type: class java.util.LinkedHashMap\n\tat ru.fix.kbdd.asserts.NavigationContext$DefaultImpls.requireNotNullList(Explorable.kt:64)\n\tat ru.fix.kbdd.asserts.KPath$context$1.requireNotNullList(KPath.kt:29)\n\tat ru.fix.kbdd.asserts.ExplorableKt$get$1$1.node(Explorable.kt:147)\n\tat ru.fix.kbdd.asserts.KPath.navigate(KPath.kt:48)\n\tat ru.fix.kbdd.asserts.ExplorableKt.get(Explorable.kt:143)\n\tat ru.fix.kbdd.example.cases.NavigationTest.navigate to child by index(NavigationTest.kt:78)\n\tat ru.fix.kbdd.example.cases.NavigationTest$navigate to child by index$1.invokeSuspend(NavigationTest.kt)\n\tat \b\b\b(Coroutine boundary.\b(\b)\n\tat ru.fix.corounit.engine.ExecutionContext.notifyListenerAndRunInSupervisorScope(ExecutionContext.kt:21)\n\tat ru.fix.corounit.engine.ClassRunner$executeMethod$2.invokeSuspend(ClassRunner.kt:118)\nCaused by: java.lang.IllegalArgumentException: Failed to access bodyJson()[\"account\"][0]. Current value is not a List. Actual type: class java.util.LinkedHashMap\n\tat ru.fix.kbdd.asserts.NavigationContext$DefaultImpls.requireNotNullList(Explorable.kt:64)\n\tat ru.fix.kbdd.asserts.KPath$context$1.requireNotNullList(KPath.kt:29)\n\tat ru.fix.kbdd.asserts.ExplorableKt$get$1$1.node(Explorable.kt:147)\n\tat ru.fix.kbdd.asserts.KPath.navigate(KPath.kt:48)\n\tat ru.fix.kbdd.asserts.ExplorableKt.get(Explorable.kt:143)\n\tat ru.fix.kbdd.example.cases.NavigationTest.navigate to child by index(NavigationTest.kt:78)\n\tat ru.fix.kbdd.example.cases.NavigationTest$navigate to child by index$1.invokeSuspend(NavigationTest.kt)\n\tat kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:33)\n\tat kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:56)\n\tat java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)\n\tat java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)\n\tat java.base/java.lang.Thread.run(Thread.java:834)\n",
+    "steps" : [ {
+      "name" : "Code snippet",
+      "time" : {
+        "start" : 1594219902078,
+        "stop" : 1594219902079,
+        "duration" : 1
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ {
+        "uid" : "b6f870efe9353c64",
+        "name" : "code-snippet",
+        "source" : "b6f870efe9353c64.txt",
+        "type" : "text/plain",
+        "size" : 1000
+      } ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 1,
+      "shouldDisplayMessage" : false,
+      "hasContent" : true
+    }, {
+      "name" : "Given server for url answers (url: /navigation, response: \n                {\n                    \"accounts\": [\n                        {\n                            \"name\": \"John\",\n                            \"amount\": 100\n                        },\n                        {\n                            \"name\": \"Jane\",\n                            \"amount\": 200\n                        }\n                    ]\n                }\n                )",
+      "time" : {
+        "start" : 1594219902088,
+        "stop" : 1594219902089,
+        "duration" : 1
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : false
+    } ],
+    "attachments" : [ {
+      "uid" : "700bf52bfd8f0c35",
+      "name" : "request http://localhost:43928/navigation",
+      "source" : "700bf52bfd8f0c35.txt",
+      "type" : "text/plain",
+      "size" : 240
+    }, {
+      "uid" : "2fb7687ae5643abe",
+      "name" : "response http://localhost:43928/navigation",
+      "source" : "2fb7687ae5643abe.txt",
+      "type" : "text/plain",
+      "size" : 291
+    } ],
+    "parameters" : [ ],
+    "stepsCount" : 2,
+    "attachmentsCount" : 3,
+    "shouldDisplayMessage" : true,
+    "hasContent" : true
+  },
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "framework",
+    "value" : "corounit"
+  }, {
+    "name" : "package",
+    "value" : "ru.fix.kbdd.example.cases.NavigationTest"
+  }, {
+    "name" : "suite",
+    "value" : "ru.fix.kbdd.example.cases.NavigationTest"
+  }, {
+    "name" : "testMethod",
+    "value" : "navigate to child by index"
+  }, {
+    "name" : "epic",
+    "value" : "Navigation"
+  }, {
+    "name" : "testClass",
+    "value" : "ru.fix.kbdd.example.cases.NavigationTest"
+  }, {
+    "name" : "thread",
+    "value" : "2e54fcc1-e6bf-4a4e-b016-5b89c9e7666d"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : true,
+  "retry" : true,
+  "extra" : {
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "7595060a6ad78776.json",
+  "parameterValues" : [ ]
+}
