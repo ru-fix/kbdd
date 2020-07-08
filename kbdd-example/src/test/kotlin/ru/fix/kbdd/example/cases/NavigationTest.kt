@@ -23,7 +23,7 @@ class NavigationTest : KoinComponent {
     @Test
     suspend fun `navigate to child by name`() {
         TestFramework.makeCodeSnippet()
-        val url = "/navigation"
+        val url = "/navigation/child-by-name"
 
         mockServer.`Given server for url answers`(
                 url,
@@ -51,7 +51,7 @@ class NavigationTest : KoinComponent {
     @Test
     suspend fun `navigate to child by index`() {
         TestFramework.makeCodeSnippet()
-        val url = "/navigation"
+        val url = "/navigation/child-by-index"
 
         mockServer.`Given server for url answers`(
                 url,
@@ -88,7 +88,7 @@ class NavigationTest : KoinComponent {
     @Test
     suspend fun `arrays size field`() {
         TestFramework.makeCodeSnippet()
-        val url = "/navigation"
+        val url = "/navigation/array-size"
 
         mockServer.`Given server for url answers`(
                 url,
@@ -113,9 +113,9 @@ class NavigationTest : KoinComponent {
         }
 
 
-        bodyJson()["account"].size().isEquals(2)
-        bodyJson()["account"][0]["amount"].isEquals(100)
-        bodyJson()["account"][1]["amount"].isEquals(200)
+        bodyJson()["accounts"].size().isEquals(2)
+        bodyJson()["accounts"][0]["amount"].isEquals(100)
+        bodyJson()["accounts"][1]["amount"].isEquals(200)
 
     }
 
@@ -127,7 +127,7 @@ class NavigationTest : KoinComponent {
     @Test
     suspend fun `navigate by filtering`() {
         TestFramework.makeCodeSnippet()
-        val url = "/navigation"
+        val url = "/navigation/filtering"
 
         mockServer.`Given server for url answers`(
                 url,
@@ -165,7 +165,7 @@ class NavigationTest : KoinComponent {
     @Test
     suspend fun `navigate to element within Array that contains single element`() {
         TestFramework.makeCodeSnippet()
-        val url = "/navigation"
+        val url = "/navigation/singleton-array"
 
         mockServer.`Given server for url answers`(
                 url,
@@ -194,7 +194,7 @@ class NavigationTest : KoinComponent {
     @Test
     suspend fun `use map to process each elements of array`() {
         TestFramework.makeCodeSnippet()
-        val url = "/navigation"
+        val url = "/navigation/map"
 
         mockServer.`Given server for url answers`(
                 url,
