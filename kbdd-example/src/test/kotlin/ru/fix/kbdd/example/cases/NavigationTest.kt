@@ -75,10 +75,10 @@ class NavigationTest : KoinComponent {
             get(url)
         }
 
-        bodyJson()["account"][0]["name"].isEquals("Jane")
-        bodyJson()["account"][1]["amount"].isEquals(200)
+        bodyJson()["accounts"][0]["name"].isEquals("John")
+        bodyJson()["accounts"][1]["amount"].isEquals(200)
 
-        bodyJson()["account"].size().isEquals(2)
+        bodyJson()["accounts"].size().isEquals(2)
     }
 
     @Description("""
