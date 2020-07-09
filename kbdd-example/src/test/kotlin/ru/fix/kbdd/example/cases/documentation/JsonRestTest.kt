@@ -1,6 +1,7 @@
 package ru.fix.kbdd.example.cases.documentation
 
 import io.qameta.allure.Epic
+import io.qameta.allure.Feature
 import org.junit.jupiter.api.Test
 import org.koin.core.KoinComponent
 import org.koin.core.inject
@@ -15,14 +16,15 @@ import ru.fix.kbdd.rest.Rest.statusCode
 import ru.fix.kbdd.rest.Rest.statusLine
 
 @Epic("Rest")
+@Feature("Json")
 @Package("Documentation")
-class RestTest : KoinComponent {
+class JsonRestTest : KoinComponent {
     val mockServer by inject<MockServer>()
 
     @Test
     suspend fun `sending and receiving elements of HTTP response`() {
         val url = "/rest/access-elements"
-        mockServer.`Given server for url answers`(url, "body-data")
+        mockServer.`Given server for url answers json`(url, "body-data")
         request {
             baseUri(mockServer.baseUrl())
             headers { "my-header" % "my-header-value" }
@@ -38,7 +40,7 @@ class RestTest : KoinComponent {
         makeCodeSnippet()
         val url = "/rest/post-json"
 
-        mockServer.`Given server for url answers`(
+        mockServer.`Given server for url answers json`(
                 url,
                 """ {"status": "ok"} """)
 
@@ -65,7 +67,7 @@ class RestTest : KoinComponent {
         makeCodeSnippet()
         val url = "/rest/post-object"
 
-        mockServer.`Given server for url answers`(
+        mockServer.`Given server for url answers json`(
                 url,
                 """ {"status": "ok"} """)
 
@@ -83,7 +85,7 @@ class RestTest : KoinComponent {
         makeCodeSnippet()
         val url = "/rest/json-with-nulls"
 
-        mockServer.`Given server for url answers`(url, """ {"status": "ok"} """)
+        mockServer.`Given server for url answers json`(url, """ {"status": "ok"} """)
 
         request {
             baseUri(mockServer.baseUrl())
@@ -100,7 +102,7 @@ class RestTest : KoinComponent {
         makeCodeSnippet()
         val url = "/rest/json-with-nulls"
 
-        mockServer.`Given server for url answers`(url, """ {"status": "ok"} """)
+        mockServer.`Given server for url answers json`(url, """ {"status": "ok"} """)
 
         request {
             baseUri(mockServer.baseUrl())

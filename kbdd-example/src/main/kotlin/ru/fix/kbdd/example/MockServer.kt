@@ -38,24 +38,17 @@ class MockServer {
 
         server.stubFor(WireMock.post(WireMock.urlEqualTo("/available"))
                 .willReturn(WireMock.aResponse()
-                        .withHeader("Content-Type", "application/json")
-                        .withBody(mapper.writeValueAsString(json {
-                            "result" % "success"
-                        }))
-                )
-        )
-
-        server.stubFor(WireMock.post(WireMock.urlEqualTo("/available_xml"))
-                .willReturn(WireMock.aResponse()
                         .withHeader("Content-Type", "application/xml")
                         .withBody("""
-                            <request a="val a" b="val b">
-                                <dayOfMonth a1="val a1">1</dayOfMonth>
-                                <month a2="val a2">Jan</month>
-                                <hour>10</hour>
-                                <hour>12</hour>
-                                <hour>15</hour>
-                            </request>
+                            <availability id="43805">
+                                <slot>
+                                    <month format="Mmm">Jan</month>
+                                    <dayOfMonth format="dd">01</dayOfMonth>
+                                    <time>1000</time>
+                                    <time>1400</time>
+                                    <time>1730</time>
+                                </slot>
+                            </availability>
                             """.trimIndent())
                 )
         )
@@ -72,10 +65,19 @@ class MockServer {
     fun baseUrl() = server.baseUrl()
 
     @Step
-    suspend fun `Given server for url answers`(url: String, response: String) {
+    suspend fun `Given server for url answers json`(url: String, response: String) {
         server.stubFor(WireMock.any(WireMock.urlPathEqualTo(url))
                 .willReturn(WireMock.aResponse()
                         .withHeader("Content-Type", "application/json")
+                        .withBody(response))
+        )
+    }
+
+    @Step
+    suspend fun `Given server for url answers xml`(url: String, response: String) {
+        server.stubFor(WireMock.any(WireMock.urlPathEqualTo(url))
+                .willReturn(WireMock.aResponse()
+                        .withHeader("Content-Type", "application/xml")
                         .withBody(response))
         )
     }

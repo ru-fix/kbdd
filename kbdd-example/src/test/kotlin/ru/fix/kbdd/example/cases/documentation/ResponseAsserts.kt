@@ -28,7 +28,7 @@ class ResponseAsserts: KoinComponent {
         TestFramework.makeCodeSnippet()
         val url = "/asserts/standard/int/amount"
 
-        mockServer.`Given server for url answers`(
+        mockServer.`Given server for url answers json`(
                 url,
                 """
                 {
@@ -60,7 +60,7 @@ class ResponseAsserts: KoinComponent {
         TestFramework.makeCodeSnippet()
         val url = "/asserts/standard/double/indicator"
 
-        mockServer.`Given server for url answers`(
+        mockServer.`Given server for url answers json`(
                 url,
                 """
                 {
@@ -92,7 +92,7 @@ class ResponseAsserts: KoinComponent {
         TestFramework.makeCodeSnippet()
         val url = "/asserts/standard/string/text"
 
-        mockServer.`Given server for url answers`(
+        mockServer.`Given server for url answers json`(
                 url,
                 """
                 {
@@ -131,7 +131,7 @@ class ResponseAsserts: KoinComponent {
         TestFramework.makeCodeSnippet()
         val url = "/asserts/standard/string/auto-cast"
 
-        mockServer.`Given server for url answers`(
+        mockServer.`Given server for url answers json`(
                 url,
                 """
                 {
@@ -180,7 +180,7 @@ class ResponseAsserts: KoinComponent {
         TestFramework.makeCodeSnippet()
         val url = "/asserts/standard/complex"
 
-        mockServer.`Given server for url answers`(
+        mockServer.`Given server for url answers json`(
                 url,
                 """
                 {

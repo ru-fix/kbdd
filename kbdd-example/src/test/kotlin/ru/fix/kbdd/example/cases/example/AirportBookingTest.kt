@@ -10,8 +10,6 @@ import org.koin.core.KoinComponent
 import org.koin.core.inject
 import ru.fix.corounit.allure.Package
 import ru.fix.corounit.allure.invoke
-import ru.fix.corounit.allure.parameterized
-import ru.fix.corounit.allure.row
 import ru.fix.kbdd.asserts.*
 import ru.fix.kbdd.example.steps.AirportSteps
 import ru.fix.kbdd.example.steps.AirportSteps.Booking
@@ -27,15 +25,14 @@ class AirportBookingTest : KoinComponent {
     val Airport by inject<AirportSteps>()
     val Billing by inject<BillingSteps>()
 
-    @Story("Flight booking")
+    @Story("Flight booking with Json Rest")
     @Description("""
         User successfully purchases a ticket for the tomorrow's flight.
         http://documentation.acme.com/booking.html
         """)
 
     @Test
-    suspend fun `Successfull booking for tomorrow`() {
-
+    suspend fun `Successful booking for tomorrow`() {
         var booking = Booking()
         "User make a request to reserve airport ticket for the next date"{
             booking = Airport.`Reserve airport ticket for a flight for date`(
@@ -54,35 +51,17 @@ class AirportBookingTest : KoinComponent {
     }
 
 
+    @Story("Booking availability with Xml Rest")
     @Test
-    suspend fun `Flight booking is available for three days (xml)`() {
+    suspend fun `Flight booking is available for three days`() {
+        Airport.`Check availability for the day`(1, "Jan")
 
-        Airport.`Check availability for the day (xml)`(1, "Jan")
-        val body = bodyXml()
-        body.xmlPath("$.dayOfMonth") isEquals 1
-        body.xmlPath("$.month") isEquals "Jan"
-
-        body.xmlPath("$.@a") isEquals "val a"
-        body.xmlPath("$.@b") isEquals "val b"
-        body.xmlPath("$.dayOfMonth.@a1") isEquals "val a1"
-        body.xmlPath("$.month.@a2") isEquals "val a2"
-        body.xmlPath("$.hour.size()") isEquals 3
-        body.xmlPath("$.hour[0]") isEquals 10
-        body.xmlPath("$.hour[1]") isEquals 12
-        body.xmlPath("$.hour[2]") isEquals 15
-
-        body.xmlPath("$.dayOfMonth").asInt() shouldBe 1
-        body.xmlPath("$.month").asString() shouldBe "Jan"
-        body.xmlPath("$.@a").asString() shouldBe "val a"
-        body.xmlPath("$.@b").asString() shouldBe "val b"
-        body.xmlPath("$.dayOfMonth.@a1").asString() shouldBe "val a1"
-        body.xmlPath("$.month.@a2").asString() shouldBe "val a2"
-        body.xmlPath("$.hour.size()").asInt() shouldBe 3
-        body.xmlPath("$.hour[0]").asInt() shouldBe 10
-        body.xmlPath("$.hour[1]").asInt() shouldBe 12
-        body.xmlPath("$.hour[2]").asInt() shouldBe 15
-
-        body.xmlPath("$.hour.size()").asLong() shouldBe 3L
-        body.xmlPath("$.hour[0]").asLong() shouldBe 10L
+        bodyXml().xmlPath("$.slot.size()") isEquals 1
+        bodyXml().xmlPath("$.slot[0].month") isEquals "Jan"
+        bodyXml().xmlPath("$.slot[0].dayOfMonth") isEquals 1
+        bodyXml().xmlPath("$.slot[0].time.size()") isEquals 3
+        bodyXml().xmlPath("$.slot[0].time[0]") isEquals "1000"
+        bodyXml().xmlPath("$.slot[0].time[1]") isEquals "1400"
+        bodyXml().xmlPath("$.slot[0].time[2]") isEquals "1730"
     }
 }

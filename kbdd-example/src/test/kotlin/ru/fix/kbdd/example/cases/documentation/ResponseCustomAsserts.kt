@@ -35,7 +35,7 @@ class ResponseCustomAsserts : KoinComponent {
         TestFramework.makeCodeSnippet()
         val url = "/asserts/custom/int/amount"
 
-        mockServer.`Given server for url answers`(
+        mockServer.`Given server for url answers json`(
                 url,
                 """
                 {

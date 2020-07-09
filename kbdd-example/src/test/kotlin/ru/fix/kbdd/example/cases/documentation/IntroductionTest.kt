@@ -29,7 +29,7 @@ class IntroductionTest : KoinComponent {
     suspend fun `Send HTTP request to application and validate response`() {
         makeCodeSnippet()
 
-        mockServer.`Given server for url answers`(
+        mockServer.`Given server for url answers json`(
                 "/introduction/account/state",
                 """
                 {

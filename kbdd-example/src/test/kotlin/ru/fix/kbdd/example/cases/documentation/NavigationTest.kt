@@ -27,7 +27,7 @@ class NavigationTest : KoinComponent {
         TestFramework.makeCodeSnippet()
         val url = "/navigation/child-by-name"
 
-        mockServer.`Given server for url answers`(
+        mockServer.`Given server for url answers json`(
                 url,
                 """
                 {
@@ -55,7 +55,7 @@ class NavigationTest : KoinComponent {
         TestFramework.makeCodeSnippet()
         val url = "/navigation/child-by-index"
 
-        mockServer.`Given server for url answers`(
+        mockServer.`Given server for url answers json`(
                 url,
                 """
                 {
@@ -92,7 +92,7 @@ class NavigationTest : KoinComponent {
         TestFramework.makeCodeSnippet()
         val url = "/navigation/array-size"
 
-        mockServer.`Given server for url answers`(
+        mockServer.`Given server for url answers json`(
                 url,
                 """
                 {
@@ -131,7 +131,7 @@ class NavigationTest : KoinComponent {
         TestFramework.makeCodeSnippet()
         val url = "/navigation/filtering"
 
-        mockServer.`Given server for url answers`(
+        mockServer.`Given server for url answers json`(
                 url,
                 """
                 {
@@ -169,7 +169,7 @@ class NavigationTest : KoinComponent {
         TestFramework.makeCodeSnippet()
         val url = "/navigation/singleton-array"
 
-        mockServer.`Given server for url answers`(
+        mockServer.`Given server for url answers json`(
                 url,
                 """
                 {
@@ -198,7 +198,7 @@ class NavigationTest : KoinComponent {
         TestFramework.makeCodeSnippet()
         val url = "/navigation/map"
 
-        mockServer.`Given server for url answers`(
+        mockServer.`Given server for url answers json`(
                 url,
                 """
                 {
@@ -248,7 +248,7 @@ class NavigationTest : KoinComponent {
         TestFramework.makeCodeSnippet()
         val url = "/navigation/array-to-list"
 
-        mockServer.`Given server for url answers`(
+        mockServer.`Given server for url answers json`(
                 url,
                 """
                 {
@@ -288,7 +288,7 @@ class NavigationTest : KoinComponent {
         TestFramework.makeCodeSnippet()
         val url = "/navigation/array-to-list"
 
-        mockServer.`Given server for url answers`(
+        mockServer.`Given server for url answers json`(
                 url,
                 """
                 {

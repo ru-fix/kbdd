@@ -24,7 +24,7 @@ class ParameterizedTest : KoinComponent {
 
     @BeforeEach
     suspend fun `setup mock server success response`() {
-        mockServer.`Given server for url answers`("$url", """ {"status": "success"} """)
+        mockServer.`Given server for url answers json`("$url", """ {"status": "success"} """)
     }
 
     @Test
