@@ -1,0 +1,17 @@
+    @Test
+    suspend fun `post json with nulls`() {
+        val url = "/rest/json-with-nulls"
+
+        mockServer.`Given server for url answers`(url, """ {"status": "ok"} """)
+
+        request {
+            baseUri(mockServer.baseUrl())
+            post(url)
+            body {
+                "one" % 1
+                "two" % null
+            }
+        }
+    }
+
+    @Test

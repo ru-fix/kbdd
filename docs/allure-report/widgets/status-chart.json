@@ -1,180 +1,230 @@
 [ {
-  "uid" : "f0e2b6c946225adf",
-  "name" : "Flight booking is available for three days",
+  "uid" : "85ee0f5e5e05b625",
+  "name" : "convert array to a list",
   "time" : {
-    "start" : 1594220045143,
-    "stop" : 1594220048931,
-    "duration" : 3788
+    "start" : 1594281668732,
+    "stop" : 1594281672524,
+    "duration" : 3792
   },
   "status" : "passed",
   "severity" : "normal"
 }, {
-  "uid" : "b51723fca6e62e2",
-  "name" : "provide custom asserts",
-  "time" : {
-    "start" : 1594220044777,
-    "stop" : 1594220049418,
-    "duration" : 4641
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "c92bad972651c640",
-  "name" : "integer asserts",
-  "time" : {
-    "start" : 1594220044707,
-    "stop" : 1594220048332,
-    "duration" : 3625
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "fd59de47fb89983c",
-  "name" : "floating point asserts",
-  "time" : {
-    "start" : 1594220044747,
-    "stop" : 1594220048311,
-    "duration" : 3564
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "514fa4d67ace88f8",
-  "name" : "navigate by filtering",
-  "time" : {
-    "start" : 1594220045367,
-    "stop" : 1594220048848,
-    "duration" : 3481
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "22805e688f70c2f",
-  "name" : "asserts can be combined into single assert block",
-  "time" : {
-    "start" : 1594220044694,
-    "stop" : 1594220048311,
-    "duration" : 3617
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "f78ba3f216b8f976",
-  "name" : "arrays size field",
-  "time" : {
-    "start" : 1594220045284,
-    "stop" : 1594220048856,
-    "duration" : 3572
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "7901b4b2c7ad1769",
-  "name" : "navigate to child by name",
-  "time" : {
-    "start" : 1594220045451,
-    "stop" : 1594220048848,
-    "duration" : 3397
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "9466777c12ce4b7a",
-  "name" : "Successfull booking for tomorrow",
-  "time" : {
-    "start" : 1594220045161,
-    "stop" : 1594220048873,
-    "duration" : 3712
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "574567a600b40d97",
-  "name" : "navigate to child by index",
-  "time" : {
-    "start" : 1594220045343,
-    "stop" : 1594220048851,
-    "duration" : 3508
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "13b4513cf1d6813e",
-  "name" : "string values can be auto-casted to numeric values",
-  "time" : {
-    "start" : 1594220044652,
-    "stop" : 1594220048335,
-    "duration" : 3683
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "a6c8da6f83a02b7",
-  "name" : "use map to process each elements of array",
-  "time" : {
-    "start" : 1594220045408,
-    "stop" : 1594220048851,
-    "duration" : 3443
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "92af1d096b5266af",
-  "name" : "Send HTTP request and validate response",
-  "time" : {
-    "start" : 1593789328660,
-    "stop" : 1593789330414,
-    "duration" : 1754
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "86eb8a077861fdd5",
+  "uid" : "adad142e8c47d451",
   "name" : "Send HTTP request to application and validate response",
   "time" : {
-    "start" : 1594220044458,
-    "stop" : 1594220049122,
-    "duration" : 4664
+    "start" : 1594281668156,
+    "stop" : 1594281672907,
+    "duration" : 4751
   },
   "status" : "passed",
   "severity" : "normal"
 }, {
-  "uid" : "860940b0c0a55cbf",
-  "name" : "string asserts",
+  "uid" : "b9849aa5974abf94",
+  "name" : "Successfull booking for tomorrow",
   "time" : {
-    "start" : 1594220044791,
-    "stop" : 1594220048311,
-    "duration" : 3520
+    "start" : 1594281668494,
+    "stop" : 1594281672513,
+    "duration" : 4019
   },
   "status" : "passed",
   "severity" : "normal"
 }, {
-  "uid" : "14bad0b9db7dbc77",
-  "name" : "REST request response",
+  "uid" : "ab3225843145ece6",
+  "name" : "navigate to child by index",
   "time" : {
-    "start" : 1593788736401,
-    "stop" : 1593788739047,
-    "duration" : 2646
+    "start" : 1594281668749,
+    "stop" : 1594281672507,
+    "duration" : 3758
   },
   "status" : "passed",
   "severity" : "normal"
 }, {
-  "uid" : "5aca178abb1c9276",
+  "uid" : "6560496fb4f1cfcb",
+  "name" : "navigate by filtering",
+  "time" : {
+    "start" : 1594281668757,
+    "stop" : 1594281672504,
+    "duration" : 3747
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "4c894af529acf3a5",
+  "name" : "post json without nulls",
+  "time" : {
+    "start" : 1594281668441,
+    "stop" : 1594281671873,
+    "duration" : 3432
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "c8e0b4a9582be6dd",
   "name" : "Flight booking is available for three days (xml)",
   "time" : {
-    "start" : 1594220045066,
-    "stop" : 1594220049815,
-    "duration" : 4749
+    "start" : 1594281668372,
+    "stop" : 1594281673586,
+    "duration" : 5214
   },
   "status" : "passed",
   "severity" : "normal"
 }, {
-  "uid" : "5a87f3a3b39a571f",
+  "uid" : "2dae7024c6cb5c0b",
+  "name" : "integer asserts",
+  "time" : {
+    "start" : 1594281668333,
+    "stop" : 1594281671763,
+    "duration" : 3430
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "67f07508bce73994",
+  "name" : "floating point asserts",
+  "time" : {
+    "start" : 1594281668361,
+    "stop" : 1594281671770,
+    "duration" : 3409
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "83e3c74468999cba",
   "name" : "navigate to element within Array that contains single element",
   "time" : {
-    "start" : 1594220045391,
-    "stop" : 1594220048848,
-    "duration" : 3457
+    "start" : 1594281668827,
+    "stop" : 1594281672497,
+    "duration" : 3670
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "d70a22670547df69",
+  "name" : "post json with nulls",
+  "time" : {
+    "start" : 1594281668352,
+    "stop" : 1594281671873,
+    "duration" : 3521
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "2b0fa4044b2133ac",
+  "name" : "convert object to a map",
+  "time" : {
+    "start" : 1594281668770,
+    "stop" : 1594281672523,
+    "duration" : 3753
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "4756aff765efe5e5",
+  "name" : "string values can be auto-casted to numeric values",
+  "time" : {
+    "start" : 1594281668207,
+    "stop" : 1594281671800,
+    "duration" : 3593
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "3cbe2668ad079c58",
+  "name" : "string asserts",
+  "time" : {
+    "start" : 1594281668378,
+    "stop" : 1594281671779,
+    "duration" : 3401
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "62413d47a80dda3a",
+  "name" : "post json using data object",
+  "time" : {
+    "start" : 1594281668456,
+    "stop" : 1594281671947,
+    "duration" : 3491
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "d9d8513355c91fa8",
+  "name" : "use map to process each elements of array",
+  "time" : {
+    "start" : 1594281668854,
+    "stop" : 1594281672539,
+    "duration" : 3685
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "f7df6d871779cfaa",
+  "name" : "navigate to child by name",
+  "time" : {
+    "start" : 1594281668863,
+    "stop" : 1594281672499,
+    "duration" : 3636
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "63dd81069a99d219",
+  "name" : "arrays size field",
+  "time" : {
+    "start" : 1594281668643,
+    "stop" : 1594281672500,
+    "duration" : 3857
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "e1939ffeaf3b321e",
+  "name" : "sending and receiving elements of HTTP response",
+  "time" : {
+    "start" : 1594281668537,
+    "stop" : 1594281671954,
+    "duration" : 3417
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "5c52e75a845c4321",
+  "name" : "asserts can be combined into single assert block",
+  "time" : {
+    "start" : 1594281668294,
+    "stop" : 1594281671764,
+    "duration" : 3470
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "aeba14762586e5e7",
+  "name" : "post json using json dsl",
+  "time" : {
+    "start" : 1594281668429,
+    "stop" : 1594281671939,
+    "duration" : 3510
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "edeb53d9fbae606d",
+  "name" : "provide custom assert",
+  "time" : {
+    "start" : 1594281668855,
+    "stop" : 1594281673434,
+    "duration" : 4579
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "ad986172d8cc0775",
+  "name" : "Flight booking is available for three days",
+  "time" : {
+    "start" : 1594281668458,
+    "stop" : 1594281672582,
+    "duration" : 4124
   },
   "status" : "passed",
   "severity" : "normal"

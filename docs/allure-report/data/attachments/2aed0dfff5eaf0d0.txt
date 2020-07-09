@@ -1,0 +1,34 @@
+    @Test
+    suspend fun `convert object to a map`() {
+        val url = "/navigation/array-to-list"
+
+        mockServer.`Given server for url answers`(
+                url,
+                """
+                {
+                    "accounts": [
+                        {
+                            "name": "John",
+                            "amount": 100
+                        },
+                        {
+                            "name": "Jane",
+                            "amount": 200
+                        }
+                    ],
+                    "numbers": [42, 43]
+                }
+                """)
+
+        request {
+            baseUri(mockServer.baseUrl())
+            get(url)
+        }
+
+        val accounts = bodyJson()["accounts"].asList<Map<String,Any?>>()
+        Assertions.assertEquals("John", accounts[0]["name"])
+
+        val numbers = bodyJson()["numbers"].asList<Int>()
+        Assertions.assertEquals(42, numbers[0])
+    }
+}

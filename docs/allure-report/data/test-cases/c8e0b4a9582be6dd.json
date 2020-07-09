@@ -1,0 +1,228 @@
+{
+  "uid" : "c8e0b4a9582be6dd",
+  "name" : "Flight booking is available for three days (xml)",
+  "fullName" : "Flight booking is available for three days (xml)",
+  "historyId" : "114a22e9c5f0ecee8edb17fc5312d273",
+  "time" : {
+    "start" : 1594281668372,
+    "stop" : 1594281673586,
+    "duration" : 5214
+  },
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "testStage" : {
+    "status" : "passed",
+    "steps" : [ {
+      "name" : "bodyXml().xmlPath(\"$.dayOfMonth\") == 1",
+      "time" : {
+        "start" : 1594281673201,
+        "stop" : 1594281673201,
+        "duration" : 0
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : false
+    }, {
+      "name" : "bodyXml().xmlPath(\"$.month\") == \"Jan\"",
+      "time" : {
+        "start" : 1594281673214,
+        "stop" : 1594281673214,
+        "duration" : 0
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : false
+    }, {
+      "name" : "bodyXml().xmlPath(\"$.@a\") == \"val a\"",
+      "time" : {
+        "start" : 1594281673267,
+        "stop" : 1594281673267,
+        "duration" : 0
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : false
+    }, {
+      "name" : "bodyXml().xmlPath(\"$.@b\") == \"val b\"",
+      "time" : {
+        "start" : 1594281673282,
+        "stop" : 1594281673282,
+        "duration" : 0
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : false
+    }, {
+      "name" : "bodyXml().xmlPath(\"$.dayOfMonth.@a1\") == \"val a1\"",
+      "time" : {
+        "start" : 1594281673298,
+        "stop" : 1594281673298,
+        "duration" : 0
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : false
+    }, {
+      "name" : "bodyXml().xmlPath(\"$.month.@a2\") == \"val a2\"",
+      "time" : {
+        "start" : 1594281673314,
+        "stop" : 1594281673314,
+        "duration" : 0
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : false
+    }, {
+      "name" : "bodyXml().xmlPath(\"$.hour.size()\") == 3",
+      "time" : {
+        "start" : 1594281673363,
+        "stop" : 1594281673363,
+        "duration" : 0
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : false
+    }, {
+      "name" : "bodyXml().xmlPath(\"$.hour[0]\") == 10",
+      "time" : {
+        "start" : 1594281673403,
+        "stop" : 1594281673403,
+        "duration" : 0
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : false
+    }, {
+      "name" : "bodyXml().xmlPath(\"$.hour[1]\") == 12",
+      "time" : {
+        "start" : 1594281673418,
+        "stop" : 1594281673418,
+        "duration" : 0
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : false
+    }, {
+      "name" : "bodyXml().xmlPath(\"$.hour[2]\") == 15",
+      "time" : {
+        "start" : 1594281673441,
+        "stop" : 1594281673441,
+        "duration" : 0
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : false
+    } ],
+    "attachments" : [ {
+      "uid" : "72890460e1e3ebda",
+      "name" : "request http://localhost:46037/available_xml",
+      "source" : "72890460e1e3ebda.txt",
+      "type" : "text/plain",
+      "size" : 354
+    }, {
+      "uid" : "60e040bd7686c90f",
+      "name" : "response http://localhost:46037/available_xml",
+      "source" : "60e040bd7686c90f.txt",
+      "type" : "text/plain",
+      "size" : 386
+    } ],
+    "parameters" : [ ],
+    "stepsCount" : 10,
+    "attachmentsCount" : 2,
+    "shouldDisplayMessage" : false,
+    "hasContent" : true
+  },
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "framework",
+    "value" : "corounit"
+  }, {
+    "name" : "package",
+    "value" : "ru.fix.kbdd.example.cases.AirportBookingTest"
+  }, {
+    "name" : "suite",
+    "value" : "ru.fix.kbdd.example.cases.AirportBookingTest"
+  }, {
+    "name" : "feature",
+    "value" : "Flight"
+  }, {
+    "name" : "testMethod",
+    "value" : "Flight booking is available for three days (xml)"
+  }, {
+    "name" : "epic",
+    "value" : "Travel"
+  }, {
+    "name" : "testClass",
+    "value" : "ru.fix.kbdd.example.cases.AirportBookingTest"
+  }, {
+    "name" : "thread",
+    "value" : "9bd1fd28-298d-430c-9f17-74926d1a0706"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "c8e0b4a9582be6dd.json",
+  "parameterValues" : [ ]
+}

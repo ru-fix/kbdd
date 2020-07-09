@@ -1,0 +1,129 @@
+{
+  "uid" : "83e3c74468999cba",
+  "name" : "navigate to element within Array that contains single element",
+  "fullName" : "navigate to element within Array that contains single element",
+  "historyId" : "5a44c121693834b52c986fa4d2ac8549",
+  "time" : {
+    "start" : 1594281668827,
+    "stop" : 1594281672497,
+    "duration" : 3670
+  },
+  "description" : "\n        Singleton arrays support 'single' navigation method         \n    ",
+  "descriptionHtml" : "<pre><code>    Singleton arrays support 'single' navigation method         \n</code></pre>\n",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "testStage" : {
+    "description" : "\n        Singleton arrays support 'single' navigation method         \n    ",
+    "status" : "passed",
+    "steps" : [ {
+      "name" : "Code snippet",
+      "time" : {
+        "start" : 1594281668921,
+        "stop" : 1594281668921,
+        "duration" : 0
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ {
+        "uid" : "eee3bfeb74d79a5c",
+        "name" : "code-snippet",
+        "source" : "eee3bfeb74d79a5c.txt",
+        "type" : "text/plain",
+        "size" : 766
+      } ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 1,
+      "shouldDisplayMessage" : false,
+      "hasContent" : true
+    }, {
+      "name" : "Given server for url answers (url: /navigation/singleton-array, response: \n                {\n                    \"accounts\": [\n                        {\n                            \"name\": \"John\",\n                            \"amount\": 100\n                        }\n                    ]\n                }\n                )",
+      "time" : {
+        "start" : 1594281668950,
+        "stop" : 1594281668955,
+        "duration" : 5
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : false
+    }, {
+      "name" : "bodyJson()[\"accounts\"].single()[\"name\"] == \"John\"",
+      "time" : {
+        "start" : 1594281672491,
+        "stop" : 1594281672491,
+        "duration" : 0
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : false
+    } ],
+    "attachments" : [ {
+      "uid" : "edbac7d294d7f3e7",
+      "name" : "request http://localhost:47759/navigation/singleton-array",
+      "source" : "edbac7d294d7f3e7.txt",
+      "type" : "text/plain",
+      "size" : 256
+    }, {
+      "uid" : "8fcd9383275bdc17",
+      "name" : "response http://localhost:47759/navigation/singleton-array",
+      "source" : "8fcd9383275bdc17.txt",
+      "type" : "text/plain",
+      "size" : 320
+    } ],
+    "parameters" : [ ],
+    "stepsCount" : 3,
+    "attachmentsCount" : 3,
+    "shouldDisplayMessage" : false,
+    "hasContent" : true
+  },
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "framework",
+    "value" : "corounit"
+  }, {
+    "name" : "package",
+    "value" : "ru.fix.kbdd.example.cases.NavigationTest"
+  }, {
+    "name" : "suite",
+    "value" : "ru.fix.kbdd.example.cases.NavigationTest"
+  }, {
+    "name" : "testMethod",
+    "value" : "navigate to element within Array that contains single element"
+  }, {
+    "name" : "epic",
+    "value" : "Navigation"
+  }, {
+    "name" : "testClass",
+    "value" : "ru.fix.kbdd.example.cases.NavigationTest"
+  }, {
+    "name" : "thread",
+    "value" : "5b18f37a-2f0c-4836-868c-e1f43455cace"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "83e3c74468999cba.json",
+  "parameterValues" : [ ]
+}

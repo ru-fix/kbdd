@@ -1,0 +1,252 @@
+{
+  "uid" : "3cbe2668ad079c58",
+  "name" : "string asserts",
+  "fullName" : "string asserts",
+  "historyId" : "ff2837375a4b2a3c480a597db3dc298d",
+  "time" : {
+    "start" : 1594281668378,
+    "stop" : 1594281671779,
+    "duration" : 3401
+  },
+  "description" : "\n        Asserts for strings validate content. \n        String also can be lexicographically compared to another string.\n    ",
+  "descriptionHtml" : "<pre><code>    Asserts for strings validate content. \n    String also can be lexicographically compared to another string.\n</code></pre>\n",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "testStage" : {
+    "description" : "\n        Asserts for strings validate content. \n        String also can be lexicographically compared to another string.\n    ",
+    "status" : "passed",
+    "steps" : [ {
+      "name" : "Code snippet",
+      "time" : {
+        "start" : 1594281668480,
+        "stop" : 1594281668481,
+        "duration" : 1
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ {
+        "uid" : "598ec48a61742ce2",
+        "name" : "code-snippet",
+        "source" : "598ec48a61742ce2.txt",
+        "type" : "text/plain",
+        "size" : 1474
+      } ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 1,
+      "shouldDisplayMessage" : false,
+      "hasContent" : true
+    }, {
+      "name" : "Given server for url answers (url: /asserts/standard/string/text, response: \n                {\n                    \"text\": \"Brown little fox with 4 friends\",\n                    \"word\": \"orange\"\n                }\n                )",
+      "time" : {
+        "start" : 1594281668481,
+        "stop" : 1594281668481,
+        "duration" : 0
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : false
+    }, {
+      "name" : "bodyJson()[\"text\"].isContains(little)",
+      "time" : {
+        "start" : 1594281671694,
+        "stop" : 1594281671694,
+        "duration" : 0
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : false
+    }, {
+      "name" : "bodyJson()[\"text\"].isMatches(\".*\\d.*\")",
+      "time" : {
+        "start" : 1594281671697,
+        "stop" : 1594281671697,
+        "duration" : 0
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : false
+    }, {
+      "name" : "bodyJson()[\"word\"] > apple",
+      "time" : {
+        "start" : 1594281671706,
+        "stop" : 1594281671706,
+        "duration" : 0
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : false
+    }, {
+      "name" : "bodyJson()[\"word\"] >= apple",
+      "time" : {
+        "start" : 1594281671708,
+        "stop" : 1594281671708,
+        "duration" : 0
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : false
+    }, {
+      "name" : "bodyJson()[\"word\"] >= orange",
+      "time" : {
+        "start" : 1594281671710,
+        "stop" : 1594281671710,
+        "duration" : 0
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : false
+    }, {
+      "name" : "bodyJson()[\"word\"] == \"orange\"",
+      "time" : {
+        "start" : 1594281671739,
+        "stop" : 1594281671739,
+        "duration" : 0
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : false
+    }, {
+      "name" : "bodyJson()[\"word\"] <= orange",
+      "time" : {
+        "start" : 1594281671740,
+        "stop" : 1594281671740,
+        "duration" : 0
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : false
+    }, {
+      "name" : "bodyJson()[\"word\"] <= peach",
+      "time" : {
+        "start" : 1594281671741,
+        "stop" : 1594281671741,
+        "duration" : 0
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : false
+    }, {
+      "name" : "bodyJson()[\"word\"] < peach",
+      "time" : {
+        "start" : 1594281671742,
+        "stop" : 1594281671742,
+        "duration" : 0
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : false
+    } ],
+    "attachments" : [ {
+      "uid" : "1ce089e8a7a7ab10",
+      "name" : "request http://localhost:41420/asserts/standard/string/text",
+      "source" : "1ce089e8a7a7ab10.txt",
+      "type" : "text/plain",
+      "size" : 258
+    }, {
+      "uid" : "c97c3dd4cc643d27",
+      "name" : "response http://localhost:41420/asserts/standard/string/text",
+      "source" : "c97c3dd4cc643d27.txt",
+      "type" : "text/plain",
+      "size" : 290
+    } ],
+    "parameters" : [ ],
+    "stepsCount" : 11,
+    "attachmentsCount" : 3,
+    "shouldDisplayMessage" : false,
+    "hasContent" : true
+  },
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "framework",
+    "value" : "corounit"
+  }, {
+    "name" : "package",
+    "value" : "ru.fix.kbdd.example.cases.ResponseAsserts"
+  }, {
+    "name" : "suite",
+    "value" : "ru.fix.kbdd.example.cases.ResponseAsserts"
+  }, {
+    "name" : "feature",
+    "value" : "Standard"
+  }, {
+    "name" : "testMethod",
+    "value" : "string asserts"
+  }, {
+    "name" : "epic",
+    "value" : "Asserts"
+  }, {
+    "name" : "testClass",
+    "value" : "ru.fix.kbdd.example.cases.ResponseAsserts"
+  }, {
+    "name" : "thread",
+    "value" : "1a73c4aa-3fe3-4ccd-a6e1-720e67270876"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "3cbe2668ad079c58.json",
+  "parameterValues" : [ ]
+}

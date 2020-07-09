@@ -529,35 +529,15 @@ table.CodeRay td.code>pre{padding:0}
 <ul class="sectlevel1">
 <li><a href="#_framework_guiding_examples">Framework guiding examples</a></li>
 <li><a href="#_suspending_scenarios">Suspending scenarios</a></li>
-<li><a href="#_rest">Rest</a>
-<ul class="sectlevel2">
-<li><a href="#_methods">Methods</a></li>
-<li><a href="#_json_dsl">Json DSL</a></li>
-<li><a href="#_pojo">POJO</a></li>
-<li><a href="#_do_not_send_nulls">Do not send nulls</a></li>
-</ul>
-</li>
-<li><a href="#_response_assertions">Response Assertions</a>
-<ul class="sectlevel2">
-<li><a href="#_content_reading">Content reading</a></li>
-<li><a href="#_access_collections">Access collections</a></li>
-<li><a href="#_single_assertion">Single assertion</a></li>
-<li><a href="#_complex_assertion">Complex assertion</a></li>
-</ul>
-</li>
-<li><a href="#_custom_assertions_and_response_navigation">Custom assertions and response navigation</a></li>
-<li><a href="#_best_practice">Best practice</a>
-<ul class="sectlevel2">
-<li><a href="#_add_reference_to_documentation_in_description">Add reference to documentation in @Description</a></li>
-<li><a href="#_string_steps_describe_hi_level_scenario">String steps describe hi level scenario</a></li>
-<li><a href="#_each_test_prepare_its_own_data_in_self_recoverable_way">Each test prepare it&#8217;s own data in self-recoverable way</a></li>
-</ul>
-</li>
+<li><a href="#_http_client_and_assertions">HTTP client and assertions</a></li>
 <li><a href="#_real_time_allure_report_update">Real time Allure report update</a></li>
 <li><a href="#_how_to_integrate_in_to_your_project">How to integrate in to your project</a></li>
 <li><a href="#_best_practices">Best practices</a>
 <ul class="sectlevel2">
 <li><a href="#_how_to_manage_test_data">How to manage test data</a></li>
+<li><a href="#_add_reference_to_documentation_in_description">Add reference to documentation in @Description</a></li>
+<li><a href="#_string_steps_describe_hi_level_scenario">String steps describe hi level scenario</a></li>
+<li><a href="#_each_test_prepare_its_own_data_in_self_recoverable_way">Each test prepare it&#8217;s own data in self-recoverable way</a></li>
 </ul>
 </li>
 </ul>
@@ -643,446 +623,12 @@ repeatUntilSuccess{
 </div>
 </div>
 <div class="sect1">
-<h2 id="_rest">Rest</h2>
-<div class="sectionbody">
-<div class="sect2">
-<h3 id="_methods">Methods</h3>
-<div class="ulist">
-<ul>
-<li>
-<p><code>Rest.request</code> provides DSL for building HTTP request</p>
-</li>
-<li>
-<p><code>Rest.statusCode()</code> provide access to response status code</p>
-</li>
-<li>
-<p><code>Rest.statusLine()</code> provide access to response status line</p>
-</li>
-<li>
-<p><code>Rest.bodyJson()</code> provide access to response body as a json object</p>
-</li>
-<li>
-<p><code>Rest.bodyString()</code> provide access to response body as a String</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_json_dsl">Json DSL</h3>
-<div class="paragraph">
-<p>In given example we will send request:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code>POST /auth-service/check-permission
-{
-  "identity": {
-    "token": "03A40BC430D9F3579D8CA"
-  }
-}</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>And validate response:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="json">{
-  <span class="key"><span class="delimiter">&quot;</span><span class="content">error</span><span class="delimiter">&quot;</span></span>: <span class="value">null</span>,
-  <span class="key"><span class="delimiter">&quot;</span><span class="content">permissions</span><span class="delimiter">&quot;</span></span>: [
-    {
-      <span class="key"><span class="delimiter">&quot;</span><span class="content">resource</span><span class="delimiter">&quot;</span></span>:  <span class="string"><span class="delimiter">&quot;</span><span class="content">booking</span><span class="delimiter">&quot;</span></span>,
-      <span class="key"><span class="delimiter">&quot;</span><span class="content">status</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">enabled</span><span class="delimiter">&quot;</span></span>
-    },
-    {
-      <span class="key"><span class="delimiter">&quot;</span><span class="content">resource</span><span class="delimiter">&quot;</span></span>:  <span class="string"><span class="delimiter">&quot;</span><span class="content">selling</span><span class="delimiter">&quot;</span></span>,
-      <span class="key"><span class="delimiter">&quot;</span><span class="content">status</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">disabled</span><span class="delimiter">&quot;</span></span>
-    }
-  ]
-}</code></pre>
-</div>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="kotlin">request {
-    baseUri(settings.myServiceBaseUri)
-    post(&quot;/auth-service/check-permission&quot;)
-    body {
-        &quot;identity&quot; {
-            &quot;token&quot; % &quot;03A40BC430D9F3579D8CA&quot;
-        }
-    }
-}
-
-statusCode().isEquals(200)
-bodyJson()[&quot;error&quot;].isNull()
-bodyJson()[&quot;permissions&quot;].first{
-    it[&quot;resource&quot;].isEquals(&quot;booking&quot;)
-}[&quot;status&quot;].isEquals(&quot;enabled&quot;)</code></pre>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_pojo">POJO</h3>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="kotlin">data class Identity(val token: String)
-
-request {
-    baseUri(settings.myServiceBaseUri)
-    post(&quot;/auth-service/check-permission&quot;)
-    body (Identity(toke=&quot;03A40BC430D9F3579D8CA&quot;))
-}
-
-statusCode().isEquals(200)
-bodyJson()[&quot;error&quot;].isNull()
-bodyJson()[&quot;permissions&quot;].first{
-    it[&quot;resource&quot;].isEquals(&quot;booking&quot;)
-}[&quot;status&quot;].isEquals(&quot;enabled&quot;)</code></pre>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_do_not_send_nulls">Do not send nulls</h3>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="kotlin"> request {
-    baseUri(server.baseUrl())
-    post(&quot;/json-post-with-nulls&quot;)
-    body {
-        &quot;one&quot; % 1
-        &quot;two&quot; % null
-    }
-}</code></pre>
-</div>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="json">{
-  <span class="key"><span class="delimiter">&quot;</span><span class="content">one</span><span class="delimiter">&quot;</span></span>: <span class="integer">1</span>,
-  <span class="key"><span class="delimiter">&quot;</span><span class="content">two</span><span class="delimiter">&quot;</span></span>: <span class="value">null</span>
-}</code></pre>
-</div>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="kotlin"> request {
-    baseUri(server.baseUrl())
-    post(&quot;/json-post-without-nulls&quot;)
-    body(sendNulls=false) {
-        &quot;one&quot; % 1
-        &quot;two&quot; % null
-    }
-}</code></pre>
-</div>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="json">{
-  <span class="key"><span class="delimiter">&quot;</span><span class="content">one</span><span class="delimiter">&quot;</span></span>: <span class="integer">1</span>
-}</code></pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_response_assertions">Response Assertions</h2>
-<div class="sectionbody">
-<div class="sect2">
-<h3 id="_content_reading">Content reading</h3>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="json">{
-  <span class="key"><span class="delimiter">&quot;</span><span class="content">count</span><span class="delimiter">&quot;</span></span>: <span class="integer">56</span>,
-  <span class="key"><span class="delimiter">&quot;</span><span class="content">items</span><span class="delimiter">&quot;</span></span>: [<span class="string"><span class="delimiter">&quot;</span><span class="content">first</span><span class="delimiter">&quot;</span></span>, <span class="string"><span class="delimiter">&quot;</span><span class="content">second</span><span class="delimiter">&quot;</span></span>]
-}</code></pre>
-</div>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="kotlin">val count = bodyJson()[&quot;count&quot;].asInt()
-//56
-println(count)
-
-val items = bodyJson()[&quot;items&quot;].asList&lt;String&gt;()
-//firstsecond
-println(items[0] + items[1])</code></pre>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_access_collections">Access collections</h3>
-<div class="paragraph">
-<p>Using map method access elements of json array as <code>Explorable</code> elements
-and converting them to integers by <code>asInt()</code></p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="json">{
-  <span class="key"><span class="delimiter">&quot;</span><span class="content">data</span><span class="delimiter">&quot;</span></span>: [
-   {<span class="key"><span class="delimiter">&quot;</span><span class="content">id</span><span class="delimiter">&quot;</span></span>: <span class="integer">14</span>},
-   {<span class="key"><span class="delimiter">&quot;</span><span class="content">id</span><span class="delimiter">&quot;</span></span>:  <span class="integer">15</span>}
-  ]
-}</code></pre>
-</div>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="kotlin">//14, 15
-val listOfInts = path[&quot;data&quot;].map { it[&quot;id&quot;].asInt() }</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Using map method access and validating each element individually</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="json">{
-  <span class="key"><span class="delimiter">&quot;</span><span class="content">data</span><span class="delimiter">&quot;</span></span>: [
-   {<span class="key"><span class="delimiter">&quot;</span><span class="content">id</span><span class="delimiter">&quot;</span></span>: <span class="integer">14</span>},
-   {<span class="key"><span class="delimiter">&quot;</span><span class="content">id</span><span class="delimiter">&quot;</span></span>:  <span class="integer">15</span>}
-  ]
-}</code></pre>
-</div>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="kotlin">bodyJson()[&quot;data&quot;].map{it[&quot;id&quot;]}.forEach{element -&gt;
-    element.isLessThan(20)
-}</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Access collections by converting node to Kotlin List of Maps and using Kotlin collection API</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="json">{
-  <span class="key"><span class="delimiter">&quot;</span><span class="content">data</span><span class="delimiter">&quot;</span></span>: [
-   {<span class="key"><span class="delimiter">&quot;</span><span class="content">id</span><span class="delimiter">&quot;</span></span>: <span class="integer">14</span>},
-   {<span class="key"><span class="delimiter">&quot;</span><span class="content">id</span><span class="delimiter">&quot;</span></span>:  <span class="integer">15</span>}
-  ]
-}</code></pre>
-</div>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="kotlin">//14, 15
-val listOfInts = path[&quot;data&quot;].asListOfMaps()
-    .map { it[&quot;id&quot;] as String }
-    .map { it.toInt() }</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Access collections by converting node to Kotlin List and using Kotlin collection API</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="json">{
-  <span class="key"><span class="delimiter">&quot;</span><span class="content">data</span><span class="delimiter">&quot;</span></span>: [
-   {<span class="key"><span class="delimiter">&quot;</span><span class="content">id</span><span class="delimiter">&quot;</span></span>: <span class="integer">14</span>},
-   {<span class="key"><span class="delimiter">&quot;</span><span class="content">id</span><span class="delimiter">&quot;</span></span>:  <span class="integer">15</span>}
-  ]
-}</code></pre>
-</div>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="kotlin">//14, 15
-val listOfInts = path[&quot;data&quot;].asList&lt;Map&lt;String, Any?&gt;&gt;()
-    .map { it[&quot;id&quot;] as String }
-    .map { it.toInt() }</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Using size of a json array and explicitly iterating through elements using Kotlin API</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="json">{
-  <span class="key"><span class="delimiter">&quot;</span><span class="content">data</span><span class="delimiter">&quot;</span></span>: [
-   {<span class="key"><span class="delimiter">&quot;</span><span class="content">id</span><span class="delimiter">&quot;</span></span>: <span class="integer">14</span>},
-   {<span class="key"><span class="delimiter">&quot;</span><span class="content">id</span><span class="delimiter">&quot;</span></span>:  <span class="integer">15</span>}
-  ]
-}</code></pre>
-</div>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="kotlin">//14, 15
-val listOfInts = (0 until path[&quot;data&quot;].size().asInt())
-    .map { path[&quot;data&quot;][it][&quot;id&quot;].asInt() }</code></pre>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_single_assertion">Single assertion</h3>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="json">{
-  <span class="key"><span class="delimiter">&quot;</span><span class="content">data</span><span class="delimiter">&quot;</span></span>: <span class="integer">42</span>
-}</code></pre>
-</div>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="kotlin">bodyJson()[&quot;data&quot;].isLessThanOrEqual(43)</code></pre>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_complex_assertion">Complex assertion</h3>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="json">{
-  <span class="key"><span class="delimiter">&quot;</span><span class="content">product</span><span class="delimiter">&quot;</span></span>: {
-    <span class="key"><span class="delimiter">&quot;</span><span class="content">type</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">wood</span><span class="delimiter">&quot;</span></span>,
-    <span class="key"><span class="delimiter">&quot;</span><span class="content">amount</span><span class="delimiter">&quot;</span></span>: <span class="integer">150</span>
-  }
-}</code></pre>
-</div>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="kotlin">bodyJson()[&quot;product&quot;].assert{
-    it[&quot;type&quot;].isEquals(&quot;water&quot;) or it[&quot;amount&quot;].isLessThanOrEqual(150)
-}</code></pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_custom_assertions_and_response_navigation">Custom assertions and response navigation</h2>
+<h2 id="_http_client_and_assertions">HTTP client and assertions</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>All asserts and navigation methods implemented via extension function to the <code>Checkable</code> and <code>Explorable</code> interfaces.
-To add new one simply write your own extension functions to these interfaces and follow same convention.</p>
-</div>
-<div class="paragraph">
-<p>Build in assertion function example:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="kotlin">bodyJson()[&quot;result&quot;].isLessThanOrEqual(12)</code></pre>
-</div>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="kotlin">fun Checkable.isLessThanOrEqual(other: Any) = express { source -&gt;
-    object : Expression {
-        override fun print(): String = &quot;${source.print()} &lt;= $other&quot;
-        override fun evaluate(): Boolean = (source.evaluate() as Comparable&lt;Any?&gt;) &lt;= other
-    }
-}</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Build in navigation function example:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="kotlin">bodyJson()[&quot;entries&quot;].single()[&quot;data&quot;].isEquals(12)</code></pre>
-</div>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="kotlin">fun Explorable.single() = navigate {
-    object : Navigation {
-        override fun path() = &quot;$path.single()&quot;
-        override fun node(): Any? {
-            val node = requireNotNullList(path())
-            require(node.size == 1) {
-                &quot;Failed to evaluatte $path(). Expected single element in the List. Actual: $node&quot;
-            }
-            return node[0]
-        }
-    }
-}</code></pre>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_best_practice">Best practice</h2>
-<div class="sectionbody">
-<div class="sect2">
-<h3 id="_add_reference_to_documentation_in_description">Add reference to documentation in @Description</h3>
-<div class="paragraph">
-<p>Scenario description have a reference to project wiki or documentation with detailed description of tested cases.</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="kotlin">@Description(&quot;&quot;&quot;
-    User makes a simple purchase in the site
-    http://documentation.acme.com/purchase/details
-    &quot;&quot;&quot;)
-class PurchaseTest(){
-    //...
-}</code></pre>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_string_steps_describe_hi_level_scenario">String steps describe hi level scenario</h3>
-<div class="paragraph">
-<p>Use string steps to describe business process in clear way that all members of your team, including non-tech people, easily understand.
-This will lead to a clear readable Allure report.</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="kotlin">suspend fun `make a purchase in the shop`(){
-    &quot;Ensure that user account with amount of 100 exist&quot;{
-        //...
-    }
-    &quot;User adds item of price 45 into the basket&quot;{
-        //...
-    }
-    &quot;User creates a purchase order&quot;{
-        //...
-    }
-    &quot;User select shipment condition&quot;{
-        //...
-    }
-    &quot;User agrees for money withdraw from use account&quot;{
-        //...
-    }
-    &quot;User account balance became 55&quot;{
-        //...
-    }
-}</code></pre>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_each_test_prepare_its_own_data_in_self_recoverable_way">Each test prepare it&#8217;s own data in self-recoverable way</h3>
-<div class="paragraph">
-<p>Keep in mind that all tests are running in parallel.
-Our task is to make tests independent on each other.
-Best way to do that is through tested system configuration.
-E.g. we can use unique account id for each test case.
-Since test can broke on eny step we should take into consideration that should be able
-to restart the test.
-So our test should be able to reset test conditions and system state that was corrupted due to
-previous failed test run.</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="kotlin">suspend fun `make a purchase in the shop`(){
-    val userAccount = 9473234983L
-    &quot;Ensure that user account with amount of 100 exist&quot;{
-        //create account 9473234983L with amount 100 if such account does not exist yet
-        //if account exist, then set account amount to 100
-        //...
-    }
-    &quot;User adds item of price 45 into the basket&quot;{
-        //...
-    }
-    //...
-}</code></pre>
-</div>
-</div>
+<p>KBDD provides basic functionality of HTTP client and response assertions.
+Detailed examples can be found here:<br>
+<a href="allure-report/index.html#behaviors" class="bare">allure-report/index.html#behaviors</a></p>
 </div>
 </div>
 </div>
@@ -1096,7 +642,7 @@ This option is handy when you are writing new test and want to immediately see u
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code>gradle allureReport -t</code></pre>
+<pre>gradle allureReport -t</pre>
 </div>
 </div>
 </div>
@@ -1105,38 +651,39 @@ This option is handy when you are writing new test and want to immediately see u
 <h2 id="_how_to_integrate_in_to_your_project">How to integrate in to your project</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>It is often useful to run kbb tests as separate step in your build pipeline.
-This allows not to run integraton kbb scenarios and unit test within same gradle test task.</p>
+<p>It is often useful to run KBDD tests as separate step in your build pipeline.
+This allows not to run integration kbdd scenarios and unit test within same gradle test task.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code>my-project
+<pre>my-project
  ┕ my-a-module
  ┕ my-b-module
  ┕ my-c-module
  ┕ kbdd-test
-   ┕ build.kts</code></pre>
+   ┕ build.kts</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Disable <code>test</code> task in kbdd-test module and renaming it to <code>kbdd</code></p>
+<p>Disable <code>test</code> task in <code>kbdd-test</code> module and rename it to <code>kbdd</code></p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code>tasks.test {
-onlyIf { false }
+<pre class="CodeRay highlight"><code data-lang="kotlin">tasks.test {
+    onlyIf { false }
 }
 
-tasks.register("kbdd", org.gradle.api.tasks.testing.Test::class) {
-dependsOn(":${Projs.`crudility-server`.name}:crudility-server-during-build")
-outputs.upToDateWhen { false }
+tasks.register(&quot;kbdd&quot;, org.gradle.api.tasks.testing.Test::class) {
+    description = &quot;Start tests in KBDD module&quot;
+    dependsOn( &quot;&lt;setup mock servers and testing environment&gt;&quot; )
+    outputs.upToDateWhen { false }
 }</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Now you can use
+<p>Now you can use use
 * <code>gradle build</code> to build and test your project as usual without involving kbb-test module
-* <code>gradle kbb</code> to start kbb tests in your pipeline</p>
+* <code>gradle kbdd</code> to start kbdd tests in your pipeline</p>
 </div>
 </div>
 </div>
@@ -1237,9 +784,87 @@ suspend fun `Success registrly re-upload from Bank to ABX after failed upload du
 @Test
 suspend fun `Success registrly re-upload from Bank to ABX after failed upload due to invalid config`() {
     ...
-    abx.`Prepare contractor`(Contractor(name=&quot;Auto T3234 registry uploading contractor&quot;, ...)
+    abx.`Prepare contractor`(Contract22or(name=&quot;Auto T3234 registry uploading contractor&quot;, ...)
     abx.`Prepare contact`(Contracts(nane=&quot;Auto T3234 registry uploading contract for single product merchant&quot;,...)))
     ...
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_add_reference_to_documentation_in_description">Add reference to documentation in @Description</h3>
+<div class="paragraph">
+<p>Scenario description have a reference to project wiki or documentation
+with detailed description of tested cases.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="kotlin">@Description(&quot;&quot;&quot;
+    User makes a simple purchase in the site
+    http://documentation.acme.com/purchase/details
+    &quot;&quot;&quot;)
+class PurchaseTest(){
+    //...
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_string_steps_describe_hi_level_scenario">String steps describe hi level scenario</h3>
+<div class="paragraph">
+<p>Use string steps to describe business process in clear way that all members of your team, including non-tech people, easily understand.
+This will lead to a clear readable Allure report.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="kotlin">suspend fun `make a purchase in the shop`(){
+    &quot;Ensure that user account with amount of 100 exist&quot;{
+        //...
+    }
+    &quot;User adds item of price 45 into the basket&quot;{
+        //...
+    }
+    &quot;User creates a purchase order&quot;{
+        //...
+    }
+    &quot;User select shipment condition&quot;{
+        //...
+    }
+    &quot;User agrees for money withdraw from use account&quot;{
+        //...
+    }
+    &quot;User account balance became 55&quot;{
+        //...
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_each_test_prepare_its_own_data_in_self_recoverable_way">Each test prepare it&#8217;s own data in self-recoverable way</h3>
+<div class="paragraph">
+<p>Keep in mind that all tests are running in parallel.
+Our task is to make tests independent on each other.
+Best way to do that is through tested system configuration.
+E.g. we can use unique account id for each test case.
+Since test can broke on eny step we should take into consideration that should be able
+to restart the test.
+So our test should be able to reset test conditions and system state that was corrupted due to
+previous failed test run.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="kotlin">suspend fun `make a purchase in the shop`(){
+    val userAccount = 9473234983L
+    &quot;Ensure that user account with amount of 100 exist&quot;{
+        //create account 9473234983L with amount 100 if such account does not exist yet
+        //if account exist, then set account amount to 100
+        //...
+    }
+    &quot;User adds item of price 45 into the basket&quot;{
+        //...
+    }
+    //...
 }</code></pre>
 </div>
 </div>
@@ -1249,7 +874,7 @@ suspend fun `Success registrly re-upload from Bank to ABX after failed upload du
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-07-08 17:55:29 +0300
+Last updated 2020-07-09 10:27:47 +0300
 </div>
 </div>
 </body>

@@ -1,5 +1,5 @@
 {
-  "total" : 5,
+  "total" : 6,
   "items" : [ {
     "uid" : "e9fa34de9879bcd3596a49d11cea2579",
     "name" : "ru.fix.kbdd.example.cases.NavigationTest",
@@ -7,9 +7,9 @@
       "failed" : 0,
       "broken" : 0,
       "skipped" : 0,
-      "passed" : 6,
+      "passed" : 8,
       "unknown" : 0,
-      "total" : 6
+      "total" : 8
     }
   }, {
     "uid" : "46dac8815c07596607fecd9e458f0116",
@@ -23,15 +23,15 @@
       "total" : 5
     }
   }, {
-    "uid" : "5944a934116b7db84c8b24f448984052",
-    "name" : "ru.fix.kbdd.example.cases.IntroductionTest",
+    "uid" : "078874ae4df947f464aac2e2ac8322b9",
+    "name" : "ru.fix.kbdd.example.cases.RestTest",
     "statistic" : {
       "failed" : 0,
       "broken" : 0,
       "skipped" : 0,
-      "passed" : 3,
+      "passed" : 5,
       "unknown" : 0,
-      "total" : 3
+      "total" : 5
     }
   }, {
     "uid" : "ba59090a75de8f7c8914c4a9cae92b47",
@@ -43,6 +43,17 @@
       "passed" : 3,
       "unknown" : 0,
       "total" : 3
+    }
+  }, {
+    "uid" : "5944a934116b7db84c8b24f448984052",
+    "name" : "ru.fix.kbdd.example.cases.IntroductionTest",
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 1,
+      "unknown" : 0,
+      "total" : 1
     }
   }, {
     "uid" : "8e29ac62fecd41f3c4f3eb22b94568a1",
