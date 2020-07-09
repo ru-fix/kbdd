@@ -44,5 +44,6 @@ dependencies {
     testImplementation(Libs.koin)
 
     aspect(Libs.jfix_corounit_allure)
+    testAspect(Libs.jfix_corounit_allure)
 }
 
