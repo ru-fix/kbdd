@@ -50,6 +50,7 @@ object Rest {
 
 
     /**
+     * Provides DSL for building HTTP request
      * Creates request specification with default encodings, logging filters and Allure integration
      */
     suspend fun request(request: RequestDsl.() -> Unit): Unit {
@@ -265,7 +266,7 @@ object Rest {
     private suspend fun rawResponse() = lastResponse.get() ?: throw IllegalStateException("Previous response not found")
 
     /**
-     * Returns last request
+     * provide access to response status code
      */
     suspend fun statusCode(): Checkable {
         val response = rawResponse()
@@ -277,6 +278,9 @@ object Rest {
         )
     }
 
+    /**
+     * provide access to response status line
+     */
     suspend fun statusLine(): Checkable {
         val response = rawResponse()
         return AlluredKPath(
@@ -287,6 +291,9 @@ object Rest {
         )
     }
 
+    /**
+     * provide access to response body as a String
+     */
     suspend fun bodyString(): Checkable {
         val response = rawResponse()
         return AlluredKPath(
@@ -297,6 +304,9 @@ object Rest {
         )
     }
 
+    /**
+     * provide access to response body as a json object
+     */
     suspend fun bodyJson(): Explorable {
         val response = rawResponse()
         return AlluredKPath(

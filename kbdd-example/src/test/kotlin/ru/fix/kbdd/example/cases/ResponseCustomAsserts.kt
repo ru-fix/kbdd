@@ -21,11 +21,15 @@ class ResponseCustomAsserts : KoinComponent {
 
     @Description("""
         You can write custom asserts by providing extension function. 
-        If you do so, maybe your asserts is worth to be added to main asserts list into KBDD project. 
+        All asserts and navigation methods implemented via extension function 
+        to the `Checkable` and `Explorable` interfaces.
+        To add new one simply write your own extension functions to these interfaces 
+        and follow convention of default onces.
+        Maybe your asserts is worth to be added to default asserts list into KBDD project. 
         Pull Requests are welcome!
     """)
     @Test
-    suspend fun `provide custom asserts`() {
+    suspend fun `provide custom assert`() {
         TestFramework.makeCodeSnippet()
         val url = "/asserts/custom/int/amount"
 

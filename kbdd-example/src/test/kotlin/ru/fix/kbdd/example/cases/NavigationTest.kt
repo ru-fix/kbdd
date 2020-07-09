@@ -223,6 +223,15 @@ class NavigationTest : KoinComponent {
             Assertions.assertEquals("JohnJane", names)
         }
 
+        "using 'map' method to access element and convert them to integers"{
+            val listOfInts = bodyJson()["accounts"].map { it["amount"].asInt() }
+            Assertions.assertEquals(listOfInts, listOf(100, 200))
+        }
+
+        "using 'map' method to validate all children"{
+            val names = bodyJson()["accounts"].map { it["name"].isContains("J") }
+        }
+
         "using iteration over collection by index"{
             var names = ""
             for (index in 0 until bodyJson()["accounts"].size().asInt()) {
@@ -231,5 +240,79 @@ class NavigationTest : KoinComponent {
             Assertions.assertEquals("JohnJane", names)
         }
 
+    }
+    @Test
+    suspend fun `convert array to a list`() {
+        TestFramework.makeCodeSnippet()
+        val url = "/navigation/array-to-list"
+
+        mockServer.`Given server for url answers`(
+                url,
+                """
+                {
+                    "accounts": [
+                        {
+                            "name": "John",
+                            "amount": 100
+                        },
+                        {
+                            "name": "Jane",
+                            "amount": 200
+                        }
+                    ],
+                    "numbers": [42, 43]
+                }
+                """)
+
+        request {
+            baseUri(mockServer.baseUrl())
+            get(url)
+        }
+
+        "Access collections by converting node to Kotlin List of Maps"{
+            val accounts = bodyJson()["accounts"].asListOfMaps()
+            Assertions.assertEquals("John", accounts[0]["name"])
+        }
+
+
+        "Access collections by converting node to Kotlin List"{
+            val numbers = bodyJson()["numbers"].asList<Int>()
+            Assertions.assertEquals(42, numbers[0])
+        }
+    }
+
+    @Test
+    suspend fun `convert object to a map`() {
+        TestFramework.makeCodeSnippet()
+        val url = "/navigation/array-to-list"
+
+        mockServer.`Given server for url answers`(
+                url,
+                """
+                {
+                    "accounts": [
+                        {
+                            "name": "John",
+                            "amount": 100
+                        },
+                        {
+                            "name": "Jane",
+                            "amount": 200
+                        }
+                    ],
+                    "numbers": [42, 43]
+                }
+                """)
+
+        request {
+            baseUri(mockServer.baseUrl())
+            get(url)
+        }
+
+        val accounts = bodyJson()["accounts"].asList<Map<String,Any?>>()
+        Assertions.assertEquals("John", accounts[0]["name"])
+
+        val numbers = bodyJson()["numbers"].asList<Int>()
+        Assertions.assertEquals(42, numbers[0])
     }
 }
