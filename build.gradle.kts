@@ -186,7 +186,18 @@ subprojects {
             }
         }
         withType<Test> {
-            useJUnitPlatform()
+            useJUnitPlatform() {
+                val includeTags = "includeTags"
+                val excludeTags = "excludeTags"
+
+                if (project.hasProperty(includeTags)) {
+                    includeTags(project.properties[includeTags] as String)
+                }
+
+                if (project.hasProperty(excludeTags)) {
+                    includeTags(project.properties[excludeTags] as String)
+                }
+            }
 
             maxParallelForks = 10
 
