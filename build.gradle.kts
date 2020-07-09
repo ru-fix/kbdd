@@ -215,6 +215,8 @@ tasks {
         }
     }
 
+
+
     register("docs") {
         description = """
             Generates project site based on ascidoc and allure-report.
@@ -223,7 +225,11 @@ tasks {
             """.trimIndent()
         outputs.upToDateWhen { false }
 
-        dependsOn(":kbdd-example:build", ":kbdd-example:allureReport", "asciidoctor")
+        val kbddExampleProject = project("kbdd-example")
+        kbddExampleProject.tasks["build"].shouldRunAfter(kbddExampleProject.tasks["clean"])
+        kbddExampleProject.tasks["allureReport"].shouldRunAfter(kbddExampleProject.tasks["build"])
+
+        dependsOn(":kbdd-example:clean", ":kbdd-example:build", ":kbdd-example:allureReport", "asciidoctor")
 
         doLast {
             val targetDirectory = project.file("docs/allure-report")
