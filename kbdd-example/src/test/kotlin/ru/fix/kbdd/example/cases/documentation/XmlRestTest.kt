@@ -18,7 +18,7 @@ import ru.fix.kbdd.rest.Rest.statusCode
 import ru.fix.kbdd.rest.Rest.statusLine
 
 @Epic("Rest")
-@Feature("Json")
+@Feature("Xml")
 @Package("Documentation")
 class XmlRestTest : KoinComponent {
     val mockServer by inject<MockServer>()

@@ -18,9 +18,9 @@ import ru.fix.kbdd.rest.Rest.bodyJson
 import ru.fix.kbdd.rest.Rest.bodyXml
 import java.time.LocalDate
 
-@Epic("Travel")
+@Epic("Example")
 @Feature("Flight")
-@Package("Example.AriportBooking.For the next day")
+@Package("Example.AirportBooking.For the next day")
 class AirportBookingTest : KoinComponent {
     val Airport by inject<AirportSteps>()
     val Billing by inject<BillingSteps>()
