@@ -9,6 +9,7 @@ import ru.fix.kbdd.asserts.isEquals
 import ru.fix.kbdd.example.MockServer
 import ru.fix.kbdd.example.TestFramework.makeCodeSnippet
 import ru.fix.kbdd.rest.Rest.bodyJson
+import ru.fix.kbdd.rest.Rest.bodyString
 import ru.fix.kbdd.rest.Rest.request
 import ru.fix.kbdd.rest.Rest.statusCode
 import ru.fix.kbdd.rest.Rest.statusLine
@@ -28,7 +29,7 @@ class RestTest : KoinComponent {
         }
         statusCode().isEquals(200)
         statusLine().isContains("OK")
-        bodyJson().isContains("body-data")
+        bodyString().isContains("body-data")
     }
 
     @Test
