@@ -1,0 +1,19 @@
+    @Test
+    suspend fun `parameterize test case with 'parameterized' function `() = parameterized(
+            row(12, "Jan"),
+            row(17, "Feb"),
+            row(23, "Mar")
+    ) { dayOfMonth, month ->
+
+
+        request {
+            baseUri(mockServer.baseUrl())
+            get(url)
+            queryParams {
+                "dayOfMonth" % "$dayOfMonth"
+                "month" % month
+            }
+        }
+        bodyJson()["status"].isEquals("success")
+    }
+}

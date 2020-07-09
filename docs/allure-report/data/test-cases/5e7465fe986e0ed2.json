@@ -1,0 +1,192 @@
+{
+  "uid" : "5e7465fe986e0ed2",
+  "name" : "asserts can be combined into single assert block",
+  "fullName" : "asserts can be combined into single assert block",
+  "historyId" : "7300b63cf9e6524b7daf8433540d5b13",
+  "time" : {
+    "start" : 1594302975945,
+    "stop" : 1594302980493,
+    "duration" : 4548
+  },
+  "description" : "\n        Multiple assert of response subtree can be combained. \n        You can invoke assert block on parent node \n        and access and validate values within parent subtree. \n    ",
+  "descriptionHtml" : "<pre><code>    Multiple assert of response subtree can be combained. \n    You can invoke assert block on parent node \n    and access and validate values within parent subtree. \n</code></pre>\n",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "testStage" : {
+    "description" : "\n        Multiple assert of response subtree can be combained. \n        You can invoke assert block on parent node \n        and access and validate values within parent subtree. \n    ",
+    "status" : "passed",
+    "steps" : [ {
+      "name" : "Code snippet",
+      "time" : {
+        "start" : 1594302976225,
+        "stop" : 1594302976243,
+        "duration" : 18
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ {
+        "uid" : "fd5f5a29af7b34db",
+        "name" : "code-snippet",
+        "source" : "fd5f5a29af7b34db.txt",
+        "type" : "text/plain",
+        "size" : 1121
+      } ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 1,
+      "shouldDisplayMessage" : false,
+      "hasContent" : true
+    }, {
+      "name" : "Given server for url answers json (url: /asserts/standard/complex, response: \n                {\n                    \"number\": 1024,\n                    \"word\": \"orange\"\n                }\n                )",
+      "time" : {
+        "start" : 1594302976262,
+        "stop" : 1594302976263,
+        "duration" : 1
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : false
+    }, {
+      "name" : "single-expression field assert without assert block",
+      "time" : {
+        "start" : 1594302980178,
+        "stop" : 1594302980467,
+        "duration" : 289
+      },
+      "status" : "passed",
+      "steps" : [ {
+        "name" : "bodyJson()[\"number\"] > 100",
+        "time" : {
+          "start" : 1594302980466,
+          "stop" : 1594302980466,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "stepsCount" : 0,
+        "attachmentsCount" : 0,
+        "shouldDisplayMessage" : false,
+        "hasContent" : false
+      } ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "stepsCount" : 1,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : true
+    }, {
+      "name" : "single-expression field assert iside explicit assert block",
+      "time" : {
+        "start" : 1594302980467,
+        "stop" : 1594302980470,
+        "duration" : 3
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : false
+    }, {
+      "name" : "single-expression assert with field selector inside explicit assert block",
+      "time" : {
+        "start" : 1594302980471,
+        "stop" : 1594302980473,
+        "duration" : 2
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : false
+    }, {
+      "name" : "multi-expression assert",
+      "time" : {
+        "start" : 1594302980473,
+        "stop" : 1594302980487,
+        "duration" : 14
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : false
+    } ],
+    "attachments" : [ {
+      "uid" : "c4cb25221ace7417",
+      "name" : "request http://localhost:46406/asserts/standard/complex",
+      "source" : "c4cb25221ace7417.txt",
+      "type" : "text/plain",
+      "size" : 254
+    }, {
+      "uid" : "d246870e6e236c78",
+      "name" : "response http://localhost:46406/asserts/standard/complex",
+      "source" : "d246870e6e236c78.txt",
+      "type" : "text/plain",
+      "size" : 263
+    } ],
+    "parameters" : [ ],
+    "stepsCount" : 7,
+    "attachmentsCount" : 3,
+    "shouldDisplayMessage" : false,
+    "hasContent" : true
+  },
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "framework",
+    "value" : "corounit"
+  }, {
+    "name" : "package",
+    "value" : "Documentation"
+  }, {
+    "name" : "suite",
+    "value" : "ru.fix.kbdd.example.cases.documentation.ResponseAsserts"
+  }, {
+    "name" : "feature",
+    "value" : "Standard"
+  }, {
+    "name" : "testMethod",
+    "value" : "asserts can be combined into single assert block"
+  }, {
+    "name" : "epic",
+    "value" : "Asserts"
+  }, {
+    "name" : "testClass",
+    "value" : "ru.fix.kbdd.example.cases.documentation.ResponseAsserts"
+  }, {
+    "name" : "thread",
+    "value" : "0c0cb167-57db-4d78-8a02-4a2264f599e5"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "5e7465fe986e0ed2.json",
+  "parameterValues" : [ ]
+}

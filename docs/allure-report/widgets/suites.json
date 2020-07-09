@@ -1,8 +1,8 @@
 {
-  "total" : 6,
+  "total" : 8,
   "items" : [ {
-    "uid" : "e9fa34de9879bcd3596a49d11cea2579",
-    "name" : "ru.fix.kbdd.example.cases.NavigationTest",
+    "uid" : "6f2b963bcc8982ea841203c7e577c06d",
+    "name" : "ru.fix.kbdd.example.cases.documentation.NavigationTest",
     "statistic" : {
       "failed" : 0,
       "broken" : 0,
@@ -12,8 +12,8 @@
       "total" : 8
     }
   }, {
-    "uid" : "46dac8815c07596607fecd9e458f0116",
-    "name" : "ru.fix.kbdd.example.cases.ResponseAsserts",
+    "uid" : "36e23f9d113f90ecbe7e407406216f45",
+    "name" : "ru.fix.kbdd.example.cases.documentation.JsonRestTest",
     "statistic" : {
       "failed" : 0,
       "broken" : 0,
@@ -23,8 +23,8 @@
       "total" : 5
     }
   }, {
-    "uid" : "078874ae4df947f464aac2e2ac8322b9",
-    "name" : "ru.fix.kbdd.example.cases.RestTest",
+    "uid" : "65573caf3742b64b7dbf357cfb433c00",
+    "name" : "ru.fix.kbdd.example.cases.documentation.ResponseAsserts",
     "statistic" : {
       "failed" : 0,
       "broken" : 0,
@@ -34,19 +34,19 @@
       "total" : 5
     }
   }, {
-    "uid" : "ba59090a75de8f7c8914c4a9cae92b47",
-    "name" : "ru.fix.kbdd.example.cases.AirportBookingTest",
+    "uid" : "9a24e8d89bf34f61a533fc6b7e0e3080",
+    "name" : "ru.fix.kbdd.example.cases.example.AirportBookingTest",
     "statistic" : {
       "failed" : 0,
       "broken" : 0,
       "skipped" : 0,
-      "passed" : 3,
+      "passed" : 2,
       "unknown" : 0,
-      "total" : 3
+      "total" : 2
     }
   }, {
-    "uid" : "5944a934116b7db84c8b24f448984052",
-    "name" : "ru.fix.kbdd.example.cases.IntroductionTest",
+    "uid" : "28b6a1ccc9503646c74ca8e69fb8d8c8",
+    "name" : "ru.fix.kbdd.example.cases.documentation.ResponseCustomAsserts",
     "statistic" : {
       "failed" : 0,
       "broken" : 0,
@@ -56,8 +56,30 @@
       "total" : 1
     }
   }, {
-    "uid" : "8e29ac62fecd41f3c4f3eb22b94568a1",
-    "name" : "ru.fix.kbdd.example.cases.ResponseCustomAsserts",
+    "uid" : "2e8d5e83bf8cf5b3ba5f3505c5211f8c",
+    "name" : "ru.fix.kbdd.example.cases.documentation.XmlRestTest",
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 1,
+      "unknown" : 0,
+      "total" : 1
+    }
+  }, {
+    "uid" : "398488ed84377debb91412ff4233bc63",
+    "name" : "ru.fix.kbdd.example.cases.documentation.IntroductionTest",
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 1,
+      "unknown" : 0,
+      "total" : 1
+    }
+  }, {
+    "uid" : "202e040917e2c88fe387f62b87a81441",
+    "name" : "ru.fix.kbdd.example.cases.documentation.ParameterizedTest",
     "statistic" : {
       "failed" : 0,
       "broken" : 0,

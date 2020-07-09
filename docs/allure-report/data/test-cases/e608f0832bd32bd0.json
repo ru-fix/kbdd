@@ -1,0 +1,204 @@
+{
+  "uid" : "e608f0832bd32bd0",
+  "name" : "use map to process each elements of array",
+  "fullName" : "use map to process each elements of array",
+  "historyId" : "784c05d94aee566756a47dabe3c8a17c",
+  "time" : {
+    "start" : 1594302976066,
+    "stop" : 1594302980653,
+    "duration" : 4587
+  },
+  "description" : "\n        Arrays support map method that get you access to each of the itmes\n    ",
+  "descriptionHtml" : "<pre><code>    Arrays support map method that get you access to each of the itmes\n</code></pre>\n",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "testStage" : {
+    "description" : "\n        Arrays support map method that get you access to each of the itmes\n    ",
+    "status" : "passed",
+    "steps" : [ {
+      "name" : "Code snippet",
+      "time" : {
+        "start" : 1594302976145,
+        "stop" : 1594302976145,
+        "duration" : 0
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ {
+        "uid" : "e37745825a7002c0",
+        "name" : "code-snippet",
+        "source" : "e37745825a7002c0.txt",
+        "type" : "text/plain",
+        "size" : 1624
+      } ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 1,
+      "shouldDisplayMessage" : false,
+      "hasContent" : true
+    }, {
+      "name" : "Given server for url answers json (url: /navigation/map, response: \n                {\n                    \"accounts\": [\n                        {\n                            \"name\": \"John\",\n                            \"amount\": 100\n                        },\n                        {\n                            \"name\": \"Jane\",\n                            \"amount\": 200\n                        }\n                    ]\n                }\n                )",
+      "time" : {
+        "start" : 1594302976146,
+        "stop" : 1594302976156,
+        "duration" : 10
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : false
+    }, {
+      "name" : "using 'map' method to access all children",
+      "time" : {
+        "start" : 1594302980142,
+        "stop" : 1594302980532,
+        "duration" : 390
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : false
+    }, {
+      "name" : "using 'map' method to access element and convert them to integers",
+      "time" : {
+        "start" : 1594302980537,
+        "stop" : 1594302980560,
+        "duration" : 23
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : false
+    }, {
+      "name" : "using 'map' method to validate all children",
+      "time" : {
+        "start" : 1594302980561,
+        "stop" : 1594302980563,
+        "duration" : 2
+      },
+      "status" : "passed",
+      "steps" : [ {
+        "name" : "bodyJson()[\"accounts\"][0][\"name\"].isContains(J)",
+        "time" : {
+          "start" : 1594302980563,
+          "stop" : 1594302980563,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "stepsCount" : 0,
+        "attachmentsCount" : 0,
+        "shouldDisplayMessage" : false,
+        "hasContent" : false
+      }, {
+        "name" : "bodyJson()[\"accounts\"][1][\"name\"].isContains(J)",
+        "time" : {
+          "start" : 1594302980563,
+          "stop" : 1594302980563,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "stepsCount" : 0,
+        "attachmentsCount" : 0,
+        "shouldDisplayMessage" : false,
+        "hasContent" : false
+      } ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "stepsCount" : 2,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : true
+    }, {
+      "name" : "using iteration over collection by index",
+      "time" : {
+        "start" : 1594302980564,
+        "stop" : 1594302980637,
+        "duration" : 73
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : false
+    } ],
+    "attachments" : [ {
+      "uid" : "a6e84ebf7245c80b",
+      "name" : "request http://localhost:37203/navigation/map",
+      "source" : "a6e84ebf7245c80b.txt",
+      "type" : "text/plain",
+      "size" : 244
+    }, {
+      "uid" : "66e9197977593f7a",
+      "name" : "response http://localhost:37203/navigation/map",
+      "source" : "66e9197977593f7a.txt",
+      "type" : "text/plain",
+      "size" : 395
+    } ],
+    "parameters" : [ ],
+    "stepsCount" : 8,
+    "attachmentsCount" : 3,
+    "shouldDisplayMessage" : false,
+    "hasContent" : true
+  },
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "framework",
+    "value" : "corounit"
+  }, {
+    "name" : "package",
+    "value" : "Documentation"
+  }, {
+    "name" : "suite",
+    "value" : "ru.fix.kbdd.example.cases.documentation.NavigationTest"
+  }, {
+    "name" : "testMethod",
+    "value" : "use map to process each elements of array"
+  }, {
+    "name" : "epic",
+    "value" : "Navigation"
+  }, {
+    "name" : "testClass",
+    "value" : "ru.fix.kbdd.example.cases.documentation.NavigationTest"
+  }, {
+    "name" : "thread",
+    "value" : "87cf2681-e513-46d6-a179-5fe45637e4df"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "e608f0832bd32bd0.json",
+  "parameterValues" : [ ]
+}

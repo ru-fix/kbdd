@@ -1,0 +1,28 @@
+    @Test
+    suspend fun `navigate to child by name`() {
+        val url = "/navigation/child-by-name"
+
+        mockServer.`Given server for url answers json`(
+                url,
+                """
+                {
+                    "account": {
+                        "name": "John",
+                        "amount": 100
+                    }
+                }
+                """)
+
+        request {
+            baseUri(mockServer.baseUrl())
+            get(url)
+        }
+
+        bodyJson()["account"]["name"].isEquals("John")
+        bodyJson()["account"]["amount"].isEquals(100)
+    }
+
+    @Description("""
+        Navigation to child by index allowed if currently selected node is an Array        
+    """)
+    @Test

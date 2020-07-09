@@ -1,0 +1,17 @@
+HTTP/1.1 200 OK
+Content-Type: application/xml
+Matched-Stub-Id: 72bab1bf-9a95-4d1a-9bcd-014abf88a303
+Content-Encoding: gzip
+Vary: Accept-Encoding, User-Agent
+Transfer-Encoding: chunked
+Server: Jetty(9.2.28.v20190418)
+
+<availability id="43805">
+  <slot>
+    <month format="Mmm">Jan</month>
+    <dayOfMonth format="dd">01</dayOfMonth>
+    <time>1000</time>
+    <time>1400</time>
+    <time>1730</time>
+  </slot>
+</availability>

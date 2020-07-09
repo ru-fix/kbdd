@@ -1,5 +1,5 @@
 {
-  "total" : 5,
+  "total" : 6,
   "items" : [ {
     "uid" : "0e3c709c74cf4c6a317ec19089925dbc",
     "name" : "Navigation",
@@ -18,9 +18,9 @@
       "failed" : 0,
       "broken" : 0,
       "skipped" : 0,
-      "passed" : 5,
+      "passed" : 2,
       "unknown" : 0,
-      "total" : 5
+      "total" : 2
     }
   }, {
     "uid" : "0ea2521763f67d3ef0136a8a0e172427",
@@ -34,6 +34,17 @@
       "total" : 2
     }
   }, {
+    "uid" : "edcc8f79425c3ceb04e1a57acd5799c7",
+    "name" : "Example",
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 1,
+      "unknown" : 0,
+      "total" : 1
+    }
+  }, {
     "uid" : "b7ce5fc2bbf1afdc784fd817341171a0",
     "name" : "Introduction",
     "statistic" : {
@@ -45,8 +56,8 @@
       "total" : 1
     }
   }, {
-    "uid" : "907e3fe635aad291863239152808eda2",
-    "name" : "Travel",
+    "uid" : "05db4da238d21f7a8ca08716f3c65fad",
+    "name" : "Parameterized",
     "statistic" : {
       "failed" : 0,
       "broken" : 0,
