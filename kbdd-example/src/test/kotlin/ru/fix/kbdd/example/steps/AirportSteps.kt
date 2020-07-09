@@ -36,6 +36,7 @@ open class AirportSteps : KoinComponent {
         return Booking(price = bodyJson()["price"].asInt())
     }
 
+    @Step
     open suspend fun `Check availability for the day`(dayOfMonth: Int, month: String) {
         Rest.request {
             baseUri(settings.baseUri)
