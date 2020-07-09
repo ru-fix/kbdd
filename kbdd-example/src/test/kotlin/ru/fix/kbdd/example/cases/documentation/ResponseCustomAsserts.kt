@@ -1,4 +1,4 @@
-package ru.fix.kbdd.example.cases
+package ru.fix.kbdd.example.cases.documentation
 
 import io.qameta.allure.Description
 import io.qameta.allure.Epic
@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 import org.koin.core.KoinComponent
 import org.koin.core.inject
+import ru.fix.corounit.allure.Package
 import ru.fix.corounit.allure.invoke
 import ru.fix.kbdd.asserts.*
 import ru.fix.kbdd.example.MockServer
@@ -16,6 +17,7 @@ import ru.fix.kbdd.rest.Rest.bodyJson
 
 @Epic("Asserts")
 @Feature("Custom")
+@Package("Documentation")
 class ResponseCustomAsserts : KoinComponent {
     val mockServer by inject<MockServer>()
 

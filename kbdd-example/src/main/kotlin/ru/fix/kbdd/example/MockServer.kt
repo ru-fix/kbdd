@@ -73,7 +73,7 @@ class MockServer {
 
     @Step
     suspend fun `Given server for url answers`(url: String, response: String) {
-        server.stubFor(WireMock.any(WireMock.urlEqualTo(url))
+        server.stubFor(WireMock.any(WireMock.urlPathEqualTo(url))
                 .willReturn(WireMock.aResponse()
                         .withHeader("Content-Type", "application/json")
                         .withBody(response))

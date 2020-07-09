@@ -1,20 +1,21 @@
-package ru.fix.kbdd.example.cases
+package ru.fix.kbdd.example.cases.documentation
 
 import io.qameta.allure.Epic
 import org.junit.jupiter.api.Test
 import org.koin.core.KoinComponent
 import org.koin.core.inject
+import ru.fix.corounit.allure.Package
 import ru.fix.kbdd.asserts.isContains
 import ru.fix.kbdd.asserts.isEquals
 import ru.fix.kbdd.example.MockServer
 import ru.fix.kbdd.example.TestFramework.makeCodeSnippet
-import ru.fix.kbdd.rest.Rest.bodyJson
 import ru.fix.kbdd.rest.Rest.bodyString
 import ru.fix.kbdd.rest.Rest.request
 import ru.fix.kbdd.rest.Rest.statusCode
 import ru.fix.kbdd.rest.Rest.statusLine
 
 @Epic("Rest")
+@Package("Documentation")
 class RestTest : KoinComponent {
     val mockServer by inject<MockServer>()
 

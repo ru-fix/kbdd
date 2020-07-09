@@ -1,4 +1,4 @@
-package ru.fix.kbdd.example.cases
+package ru.fix.kbdd.example.cases.example
 
 import io.kotlintest.shouldBe
 import io.qameta.allure.Description
@@ -13,8 +13,6 @@ import ru.fix.corounit.allure.invoke
 import ru.fix.corounit.allure.parameterized
 import ru.fix.corounit.allure.row
 import ru.fix.kbdd.asserts.*
-import ru.fix.kbdd.example.CorounitConfig
-import ru.fix.kbdd.example.config.Settings
 import ru.fix.kbdd.example.steps.AirportSteps
 import ru.fix.kbdd.example.steps.AirportSteps.Booking
 import ru.fix.kbdd.example.steps.BillingSteps
@@ -24,22 +22,17 @@ import java.time.LocalDate
 
 @Epic("Travel")
 @Feature("Flight")
+@Package("Example.AriportBooking.For the next day")
 class AirportBookingTest : KoinComponent {
-
-    companion object {
-        val my = CorounitConfig
-    }
-
     val Airport by inject<AirportSteps>()
     val Billing by inject<BillingSteps>()
-    val settings by inject<Settings>()
 
     @Story("Flight booking")
     @Description("""
         User successfully purchases a ticket for the tomorrow's flight.
         http://documentation.acme.com/booking.html
         """)
-    @Package("Flights.Booking.For the next day.Successful")
+
     @Test
     suspend fun `Successfull booking for tomorrow`() {
 
@@ -57,21 +50,9 @@ class AirportBookingTest : KoinComponent {
             Billing.`Withdraw money from customers account`(booking.price)
             bodyJson()["result"].isEquals("success")
             bodyJson()["bonusMiles"].isGreaterThanOrEqual(1)
-            bodyJson()["bonusMiles"].asInt() shouldBe 2
-            bodyJson()["bonusMiles"].asLong() shouldBe 2L
         }
     }
 
-    @Test
-    suspend fun `Flight booking is available for three days`() = parameterized(
-            row(1, "Jan"),
-            row(2, "Feb"),
-            row(3, "Mar")
-    ) { dayOfMonth, month ->
-
-        Airport.`Check availability for the day`(dayOfMonth, month)
-        bodyJson()["result"].isEquals("success")
-    }
 
     @Test
     suspend fun `Flight booking is available for three days (xml)`() {
