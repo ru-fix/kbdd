@@ -86,6 +86,28 @@ Now you can use use
 * `gradle build` to build and test your project as usual without involving kbb-test module
 * `gradle kbdd` to start kbdd tests in your pipeline
 
+To enable junit tag support: 
+
+[source, kotlin]
+----
+tasks {
+    withType<Test> {
+        useJUnitPlatform() {
+            val includeTags = "includeTags"
+            val excludeTags = "excludeTags"
+
+            if (project.hasProperty(includeTags)) {
+                includeTags(project.properties[includeTags] as String)
+            }
+
+            if (project.hasProperty(excludeTags)) {
+                includeTags(project.properties[excludeTags] as String)
+            }
+        }
+    }
+}
+----
+Example: `gradle kbdd -PincludeTags={tag1,tag2,tag3}` `gradle kbdd -PexcludeTags=tag4`
 
 == Best practices
 
