@@ -81,4 +81,15 @@ class MockServer {
                         .withBody(response))
         )
     }
+
+    @Step
+    suspend fun `Given server for url answers cookie`(url: String, response: String, cookie: String) {
+        server.stubFor(WireMock.any(WireMock.urlPathEqualTo(url))
+                .willReturn(WireMock.aResponse()
+                        .withHeader("Set-Cookie","SESSION=$cookie")
+                        .withHeader("Content-Type", "application/json")
+                        .withBody(response))
+        )
+    }
+
 }

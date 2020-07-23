@@ -326,4 +326,15 @@ object Rest {
                 path = "bodyXml()"
         )
     }
+
+    suspend fun cookie(): Explorable {
+        val response = rawResponse()
+        return AlluredKPath(
+                parentStep = AllureStep.fromCurrentCoroutineContext(),
+                node = response.cookies,
+                mode = KPath.Mode.IMMEDIATE_ASSERT,
+                path = "cookie()"
+        )
+    }
+
 }
