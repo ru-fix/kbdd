@@ -19,19 +19,14 @@ class CookieRestTest : KoinComponent {
     val mockServer by inject<MockServer>()
 
     @Test
-    suspend fun `sending and receiving elements of HTTP response`() {
+    suspend fun `receiving cookie from the response`() {
         makeCodeSnippet()
 
         mockServer.`Given server for url answers cookie`(
-                "/introduction/account/state",
+                "/rest/cookies",
                 """
                 {
                     "status": "active",
-                    "amount": 120,
-                    "owner": {
-                        "firstName": "John",
-                        "lastName": "Smith"
-                    }
                 }
                 """,
                 "1234")
@@ -39,14 +34,12 @@ class CookieRestTest : KoinComponent {
         "Send HTTP GET request to a mocked server"{
             Rest.request {
                 baseUri(mockServer.baseUrl())
-                get("/introduction/account/state")
+                get("/rest/cookies")
             }
         }
 
         "Validate HTTP response content from previous request"{
             Rest.bodyJson()["status"].isEquals("active")
-            Rest.bodyJson()["amount"].assert { it.isGreaterThan(100) and it.isLessThanOrEqual(300) }
-            Rest.bodyJson()["owner"]["firstName"].isEquals("John")
             Rest.cookie()["SESSION"].isEquals("1234")
 
         }
