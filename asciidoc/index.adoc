@@ -242,3 +242,25 @@ suspend fun `make a purchase in the shop`(){
     //...
 }
 ----
+=== How to use or, and, not
+[source, json]
+----
+{
+  "data": {
+    "name": "one",
+    "age": 20
+  }
+}
+----
+[source, kotlin]
+----
+bodyJson["data"].assert {
+    it["name"].isEquals("one") or it["name"].isEquals("two")
+}
+bodyJson["data"].assert {
+    it["age"].isGreaterThan(18) and it["name"].isEquals("one")
+}
+bodyJson["data"].assert {
+    it["age"].isEquals("one") not it["name"].isEquals("two") and it["age"].isEquals(20)
+}
+----
