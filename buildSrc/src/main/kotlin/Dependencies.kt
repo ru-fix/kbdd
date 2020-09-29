@@ -1,6 +1,6 @@
 object Vers {
     //Plugins
-    const val gradle_release_plugin = "1.3.15"
+    const val gradle_release_plugin = "1.3.17"
     const val dokkav = "0.9.18"
     const val asciidoctor = "1.5.9.2"
     const val allure_plugin = "2.8.1"
