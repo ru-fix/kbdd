@@ -317,4 +317,43 @@ class NavigationTest : KoinComponent {
         val numbers = bodyJson()["numbers"].asList<Int>()
         Assertions.assertEquals(42, numbers[0])
     }
+
+    data class Account(val name: String, val amount: Int)
+
+    @Description("Function level data classes not supported by jackson." +
+            " Use class level or package level data classes.")
+    @Test
+    suspend fun `convert object to a data class`() {
+        TestFramework.makeCodeSnippet()
+        val url = "/navigation/array-to-list"
+
+        mockServer.`Given server for url answers json`(
+                url,
+                """
+                {
+                    "accounts": [
+                        {
+                            "name": "John",
+                            "amount": 100
+                        },
+                        {
+                            "name": "Jane",
+                            "amount": 200
+                        }
+                    ],
+                    "numbers": [42, 43]
+                }
+                """)
+
+        request {
+            baseUri(mockServer.baseUrl())
+            get(url)
+        }
+
+        val accounts = bodyJson()["accounts"].asList<Account>()
+        Assertions.assertEquals("John", accounts[0].name)
+
+        val secondAccount = bodyJson()["accounts"][1].asObject<Account>()
+        Assertions.assertEquals("Jane", secondAccount.name)
+    }
 }

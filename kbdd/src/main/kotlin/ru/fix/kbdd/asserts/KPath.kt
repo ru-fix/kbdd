@@ -1,5 +1,8 @@
 package ru.fix.kbdd.asserts
 
+import com.fasterxml.jackson.databind.ObjectMapper
+import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
+
 interface KPathAssertor {
     fun assert(expressionPrint: String, actualValue: Any?, result: Boolean)
 }
@@ -21,7 +24,8 @@ open class KPath(
         private val node: Any?,
         private val path: String = "",
         private val mode: Mode = Mode.IMMEDIATE_ASSERT,
-        private val assertor: KPathAssertor = DefaultAssertor
+        private val assertor: KPathAssertor = DefaultAssertor,
+        private val objectMapper: ObjectMapper = jacksonObjectMapper()
 ) : Explorable {
 
     enum class Mode { LAZY_EVALUATE, IMMEDIATE_ASSERT }
@@ -29,15 +33,20 @@ open class KPath(
     private fun context() = object : NavigationContext {
         override val path: String
             get() = this@KPath.path
+
         override val node: Any?
             get() = this@KPath.node
+
+        override val objectMapper: ObjectMapper
+            get() = this@KPath.objectMapper
 
         override fun evaluatePredicate(item: Any?, predicate: (Explorable) -> Expression): Boolean {
             val expression = predicate(KPath(
                     node = item,
                     path = "it",
                     mode = Mode.LAZY_EVALUATE,
-                    assertor = assertor))
+                    assertor = assertor,
+                    objectMapper = objectMapper))
             return expression.evaluate()
         }
     }
@@ -48,7 +57,8 @@ open class KPath(
                 node = navigation.node(),
                 path = navigation.path(),
                 mode = mode,
-                assertor = assertor)
+                assertor = assertor,
+                objectMapper = objectMapper)
     }
 
     override fun <T> export(exporter: NavigationContext.() -> T): T {

@@ -293,7 +293,7 @@ internal class KPathTest {
     }
 
     @Test
-    fun `assert complex expression`(){
+    fun `assert complex expression`() {
         val json = """
             {
                 "sql": null,
@@ -326,4 +326,94 @@ internal class KPathTest {
         assertionError.message.shouldContain("20169")
         println(assertionError.message)
     }
+
+    data class File(val id: Int, val file_name: String)
+
+    @Test
+    fun `convert part of json to data class`() {
+        val json = """
+            {
+                "sql": null,
+                "data": [
+                    {
+                        "id": "201695",
+                        "file_name": "cd55accd-00bb-44d9-a66d-80d837722727_registry"
+                    },
+                    {
+                        "id": "201696",
+                        "file_name": "3232-00bb-44d9-a66d-32"
+                    }
+                ]
+            }
+        """
+        val map = ObjectMapper().registerKotlinModule().readValue<Map<*, *>>(json, Map::class.java)
+        val path = KPath(map)
+
+        val file = path["data"][0].asObject<File>()
+
+        file.id.shouldBe(201695)
+        file.file_name.shouldBe("cd55accd-00bb-44d9-a66d-80d837722727_registry")
+    }
+
+    @Test
+    fun `convert part of json to list of data classes`() {
+        val json = """
+            {
+                "sql": null,
+                "data": [
+                    {
+                        "id": "201695",
+                        "file_name": "cd55accd-00bb-44d9-a66d-80d837722727_registry"
+                    },
+                    {
+                        "id": "201696",
+                        "file_name": "3232-00bb-44d9-a66d-32"
+                    }
+                ]
+            }
+        """
+        val map = ObjectMapper().registerKotlinModule().readValue<Map<*, *>>(json, Map::class.java)
+        val path = KPath(map)
+
+        val files = path["data"].asList<File>()
+
+        files.size.shouldBe(2)
+        files[0].id.shouldBe(201695)
+        files[0].file_name.shouldBe("cd55accd-00bb-44d9-a66d-80d837722727_registry")
+
+        files[1].id.shouldBe(201696)
+        files[1].file_name.shouldBe("3232-00bb-44d9-a66d-32")
+    }
+
+    @Test
+    fun `json to list of primitives`() {
+        val json = """
+            {
+                "sql": null,
+                "data": [1, 2, 3]
+            }
+        """
+        val map = ObjectMapper().registerKotlinModule().readValue<Map<*, *>>(json, Map::class.java)
+        val path = KPath(map)
+
+        val ints = path["data"].asList<Int>()
+        ints.shouldContainExactly(1, 2, 3)
+    }
+
+    @Test
+    fun `json to list of maps`() {
+        val json = """
+            {
+                "sql": null,
+                "data": [{"value":1}, {"value":2}, {"value":3}]
+            }
+        """
+        val map = ObjectMapper().registerKotlinModule().readValue<Map<*, *>>(json, Map::class.java)
+        val path = KPath(map)
+
+        val ints = path["data"].asListOfMaps().map { it["value"] as Int }
+        ints.shouldContainExactly(1, 2, 3)
+    }
+
+
 }

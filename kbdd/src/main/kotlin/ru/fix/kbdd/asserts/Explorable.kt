@@ -1,5 +1,7 @@
 package ru.fix.kbdd.asserts
 
+import com.fasterxml.jackson.core.type.TypeReference
+import com.fasterxml.jackson.databind.ObjectMapper
 import io.restassured.path.xml.XmlPath
 import java.time.LocalDateTime
 import java.time.OffsetDateTime
@@ -10,6 +12,8 @@ internal class PathRecorder(val path: String) : Explorable {
         override val path: String
             get() = this@PathRecorder.path
         override val node: Any
+            get() = throw UnsupportedOperationException()
+        override val objectMapper: ObjectMapper
             get() = throw UnsupportedOperationException()
 
         override fun evaluatePredicate(item: Any?, predicate: (Explorable) -> Expression): Boolean {
@@ -36,6 +40,7 @@ internal class PathRecorder(val path: String) : Explorable {
 interface NavigationContext {
     val path: String
     val node: Any?
+    val objectMapper: ObjectMapper
 
     fun evaluatePredicate(item: Any?, predicate: (Explorable) -> Expression): Boolean
 
@@ -91,9 +96,20 @@ fun Explorable.asMap() = export {
  * Assert that current value can be represented as a `List`
  * and returns content as a `List`
  */
-fun <T : Any?> Explorable.asList() = export {
-    requireNotNullList(path) as List<T>
+fun <T : Any?> Explorable.asList(clazz: Class<T>) = export {
+    val list = requireNotNullList(path)
+    if(clazz.isPrimitive
+            || List::class.java.isAssignableFrom(clazz)
+            || Map::class.java.isAssignableFrom(clazz)){
+        list as List<T>
+    } else {
+        list.map{
+            objectMapper.convertValue(it, clazz)
+        }
+    }
 }
+
+inline fun <reified T : Any?> Explorable.asList() = asList(T::class.java)
 
 fun Explorable.asListOfMaps() = export {
     requireNotNullList(path) as List<Map<String, Any?>>
@@ -119,6 +135,13 @@ fun Explorable.asString() = export {
     requireNotNullNode(path)
     node.toString()
 }
+
+fun <T> Explorable.asObject(clazz: Class<T>): T = export{
+    val map = requireNotNullMap(path)
+    this.objectMapper.convertValue(map, clazz)
+}
+
+inline fun <reified T> Explorable.asObject(): T = asObject(T::class.java)
 
 /**
  * @return OffsetDateTime, parsing using ISO_ZONED_DATE_TIME formatter
