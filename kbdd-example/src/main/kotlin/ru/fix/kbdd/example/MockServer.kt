@@ -5,9 +5,7 @@ import com.github.tomakehurst.wiremock.WireMockServer
 import com.github.tomakehurst.wiremock.client.WireMock
 import com.github.tomakehurst.wiremock.core.WireMockConfiguration
 import ru.fix.corounit.allure.Step
-import ru.fix.kbdd.json.Json
 import ru.fix.kbdd.json.json
-import ru.fix.kbdd.rest.Rest
 import ru.fix.stdlib.socket.SocketChecker
 
 class MockServer {
@@ -86,9 +84,16 @@ class MockServer {
     suspend fun `Given server for url answers cookie`(url: String, response: String, cookie: String) {
         server.stubFor(WireMock.any(WireMock.urlPathEqualTo(url))
                 .willReturn(WireMock.aResponse()
-                        .withHeader("Set-Cookie","SESSION=$cookie")
+                        .withHeader("Set-Cookie", "SESSION=$cookie")
                         .withHeader("Content-Type", "application/json")
                         .withBody(response))
+        )
+    }
+
+    @Step
+    suspend fun `Given server for url temporary redirects`(url: String, location: String) {
+        server.stubFor(WireMock.any(WireMock.urlPathEqualTo(url))
+                .willReturn(WireMock.temporaryRedirect(location))
         )
     }
 

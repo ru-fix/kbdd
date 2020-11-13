@@ -55,6 +55,8 @@ object Rest {
      */
     suspend fun request(request: RequestDsl.() -> Unit): Unit {
 
+        val dsl = RequestDsl().apply(request)
+
         val config = RestAssuredConfig.config()
                 .encoderConfig(
                         EncoderConfig.encoderConfig().defaultContentCharset(Charsets.UTF_8)
@@ -63,9 +65,12 @@ object Rest {
                 .decoderConfig(
                         DecoderConfig.decoderConfig().defaultContentCharset(Charsets.UTF_8)
                                 .defaultCharsetForContentType(Charsets.UTF_8, ContentType.JSON)
-                )
+                ).let { c ->
+                    val followRedirects = dsl.followRedirects
+                            ?: return@let c
 
-        val dsl = RequestDsl().apply(request)
+                    c.redirect(c.redirectConfig.followRedirects(followRedirects))
+                }
 
         val allureStep = AllureStep.fromCurrentCoroutineContext()
 
@@ -177,6 +182,7 @@ object Rest {
         internal var headers: MutableMap<String, String>? = null
         internal var filename: String? = null
         internal var fileContent: InputStream? = null
+        internal var followRedirects: Boolean? = null
 
         fun baseUri(baseUrl: String) {
             this.baseUrl = baseUrl
@@ -256,6 +262,10 @@ object Rest {
             this.filename = filename
             this.fileContent = fileContent
         }
+
+        fun followRedirects(followRedirects: Boolean) {
+            this.followRedirects = followRedirects
+        }
     }
 
     /**
@@ -334,6 +344,22 @@ object Rest {
                 node = response.cookies,
                 mode = KPath.Mode.IMMEDIATE_ASSERT,
                 path = "cookie()"
+        )
+    }
+
+    suspend fun headers(): Explorable {
+        val response = rawResponse()
+        return AlluredKPath(
+                parentStep = AllureStep.fromCurrentCoroutineContext(),
+                node = response.headers.groupBy {
+                    it.name
+                }.mapValues {
+                    it.value.joinToString { header ->
+                        header.value
+                    }
+                },
+                mode = KPath.Mode.IMMEDIATE_ASSERT,
+                path = "headers()"
         )
     }
 
