@@ -685,6 +685,32 @@ tasks.register(&quot;kbdd&quot;, org.gradle.api.tasks.testing.Test::class) {
 * <code>gradle build</code> to build and test your project as usual without involving kbb-test module
 * <code>gradle kbdd</code> to start kbdd tests in your pipeline</p>
 </div>
+<div class="paragraph">
+<p>To enable junit tag support:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="kotlin">tasks {
+    withType&lt;Test&gt; {
+        useJUnitPlatform() {
+            val includeTags = &quot;includeTags&quot;
+            val excludeTags = &quot;excludeTags&quot;
+
+            if (project.hasProperty(includeTags)) {
+                includeTags(project.properties[includeTags] as String)
+            }
+
+            if (project.hasProperty(excludeTags)) {
+                includeTags(project.properties[excludeTags] as String)
+            }
+        }
+    }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Example: <code>gradle kbdd -PincludeTags={tag1,tag2,tag3}</code> <code>gradle kbdd -PexcludeTags=tag4</code></p>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -874,7 +900,7 @@ previous failed test run.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-07-09 10:27:47 +0300
+Last updated 2020-09-29 10:45:02 +0300
 </div>
 </div>
 </body>

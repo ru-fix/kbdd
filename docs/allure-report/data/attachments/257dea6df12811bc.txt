@@ -1,0 +1,12 @@
+Request method:	GET
+Request URI:	http://localhost:52104/parameterized/success-status?dayOfMonth=12&month=Jan
+Proxy:			<none>
+Request params:	<none>
+Query params:	dayOfMonth=12
+				month=Jan
+Form params:	<none>
+Path params:	<none>
+Headers:		Accept=*/*
+Cookies:		<none>
+Multiparts:		<none>
+Body:			<none>

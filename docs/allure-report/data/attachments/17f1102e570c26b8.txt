@@ -1,0 +1,12 @@
+HTTP/1.1 200 OK
+Content-Type: application/json
+Matched-Stub-Id: be3ab6ae-0c49-4d2b-ac33-3d4627edb2ff
+Content-Encoding: gzip
+Vary: Accept-Encoding, User-Agent
+Transfer-Encoding: chunked
+Server: Jetty(9.2.28.v20190418)
+
+{
+    "text": "Brown little fox with 4 friends",
+    "word": "orange"
+}

@@ -1,0 +1,27 @@
+    @Test
+    suspend fun `receiving redirect response`() {
+
+        mockServer.`Given server for url temporary redirects`(
+                url = "/introduction/account/state",
+                location = mockServer.baseUrl() + "/another/path"
+        )
+
+        mockServer.`Given server for url answers json`(
+                url = "/another/path",
+                response = """{"key": "value"}"""
+        )
+
+        "Send HTTP GET request to a mocked server"{
+            Rest.request {
+                baseUri(mockServer.baseUrl())
+                get("/introduction/account/state")
+            }
+        }
+
+        "Validate HTTP response content from previous request"{
+            Rest.statusCode().isEquals(200)
+            Rest.bodyJson()["key"].isEquals("value")
+        }
+    }
+
+    @Test

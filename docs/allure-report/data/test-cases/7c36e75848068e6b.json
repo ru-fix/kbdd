@@ -1,0 +1,129 @@
+{
+  "uid" : "7c36e75848068e6b",
+  "name" : "navigate to element within Array that contains single element",
+  "fullName" : "navigate to element within Array that contains single element",
+  "historyId" : "25ff6659daf936e0388d812db638f471",
+  "time" : {
+    "start" : 1633116978984,
+    "stop" : 1633116984076,
+    "duration" : 5092
+  },
+  "description" : "\n        Singleton arrays support 'single' navigation method         \n    ",
+  "descriptionHtml" : "<pre><code>    Singleton arrays support 'single' navigation method         \n</code></pre>\n",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "testStage" : {
+    "description" : "\n        Singleton arrays support 'single' navigation method         \n    ",
+    "status" : "passed",
+    "steps" : [ {
+      "name" : "Code snippet",
+      "time" : {
+        "start" : 1633116979147,
+        "stop" : 1633116979148,
+        "duration" : 1
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ {
+        "uid" : "9bb454f1a9f87d44",
+        "name" : "code-snippet",
+        "source" : "9bb454f1a9f87d44.txt",
+        "type" : "text/plain",
+        "size" : 771
+      } ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 1,
+      "shouldDisplayMessage" : false,
+      "hasContent" : true
+    }, {
+      "name" : "Given server for url answers json (url: /navigation/singleton-array, response: \n                {\n                    \"accounts\": [\n                        {\n                            \"name\": \"John\",\n                            \"amount\": 100\n                        }\n                    ]\n                }\n                )",
+      "time" : {
+        "start" : 1633116979197,
+        "stop" : 1633116979198,
+        "duration" : 1
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : false
+    }, {
+      "name" : "bodyJson()[\"accounts\"].single()[\"name\"] == \"John\"",
+      "time" : {
+        "start" : 1633116984073,
+        "stop" : 1633116984073,
+        "duration" : 0
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : false
+    } ],
+    "attachments" : [ {
+      "uid" : "30f5ec4e8c0aa98d",
+      "name" : "request http://localhost:52104/navigation/singleton-array",
+      "source" : "30f5ec4e8c0aa98d.txt",
+      "type" : "text/plain",
+      "size" : 256
+    }, {
+      "uid" : "a74b86036e63cbba",
+      "name" : "response http://localhost:52104/navigation/singleton-array",
+      "source" : "a74b86036e63cbba.txt",
+      "type" : "text/plain",
+      "size" : 320
+    } ],
+    "parameters" : [ ],
+    "stepsCount" : 3,
+    "attachmentsCount" : 3,
+    "shouldDisplayMessage" : false,
+    "hasContent" : true
+  },
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "framework",
+    "value" : "corounit"
+  }, {
+    "name" : "package",
+    "value" : "Documentation"
+  }, {
+    "name" : "suite",
+    "value" : "ru.fix.kbdd.example.cases.documentation.NavigationTest"
+  }, {
+    "name" : "testMethod",
+    "value" : "navigate to element within Array that contains single element"
+  }, {
+    "name" : "epic",
+    "value" : "Navigation"
+  }, {
+    "name" : "testClass",
+    "value" : "ru.fix.kbdd.example.cases.documentation.NavigationTest"
+  }, {
+    "name" : "thread",
+    "value" : "eeb3bed9-6907-49e5-8c5a-e1c93582e75d"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "7c36e75848068e6b.json",
+  "parameterValues" : [ ]
+}

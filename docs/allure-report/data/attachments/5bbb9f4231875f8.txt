@@ -1,0 +1,16 @@
+HTTP/1.1 200 OK
+Content-Type: application/json
+Matched-Stub-Id: e1faafea-cc4b-4f82-a4f2-9a45e096f0f7
+Content-Encoding: gzip
+Vary: Accept-Encoding, User-Agent
+Transfer-Encoding: chunked
+Server: Jetty(9.2.28.v20190418)
+
+{
+    "data": {
+        "isFromShop": true,
+        "shop": {
+            "id": 100
+        }
+    }
+}

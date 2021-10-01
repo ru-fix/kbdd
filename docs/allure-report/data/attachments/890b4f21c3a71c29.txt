@@ -1,0 +1,23 @@
+    @Test
+    suspend fun `receiving redirect response without following`() {
+
+        val redirectUrl = mockServer.baseUrl() + "/another/path"
+        mockServer.`Given server for url temporary redirects`(
+                url = "/introduction/account/state",
+                location = redirectUrl
+        )
+
+        "Send HTTP GET request to a mocked server"{
+            Rest.request {
+                followRedirects(false)
+                baseUri(mockServer.baseUrl())
+                get("/introduction/account/state")
+            }
+        }
+
+        "Validate HTTP response content from previous request"{
+            Rest.statusCode().isEquals(302)
+            Rest.headers()[HttpHeaders.LOCATION].isEquals(redirectUrl)
+        }
+    }
+}

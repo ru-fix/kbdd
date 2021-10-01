@@ -1,0 +1,34 @@
+Request method:	POST
+Request URI:	http://localhost:51044/rest/post-json
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	<none>
+Headers:		Accept=*/*
+				Content-Type=application/json; charset=UTF-8
+Cookies:		<none>
+Multiparts:		<none>
+Body:
+{
+    "request-data": {
+        "number": 42,
+        "string": "hello",
+        "object": {
+            "content": "nice"
+        },
+        "array-of-numbers": [
+            1,
+            2,
+            3
+        ],
+        "array-of-objects": [
+            {
+                "name": "first"
+            },
+            {
+                "name": "second"
+            }
+        ]
+    }
+}

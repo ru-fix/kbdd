@@ -1,0 +1,13 @@
+HTTP/1.1 200 OK
+Set-Cookie: SESSION=1234
+Content-Type: application/json
+Matched-Stub-Id: 847ba65f-7b68-412d-be7b-dee9d6e03b50
+Content-Encoding: gzip
+Vary: Accept-Encoding, User-Agent
+Transfer-Encoding: chunked
+Server: Jetty(9.2.28.v20190418)
+
+{
+    "status": "active",
+    
+}

@@ -1,0 +1,12 @@
+HTTP/1.1 200 OK
+Content-Type: application/json
+Matched-Stub-Id: 75e39dd5-3ed6-4696-8860-a2b6bb5b34e9
+Content-Encoding: gzip
+Vary: Accept-Encoding, User-Agent
+Transfer-Encoding: chunked
+Server: Jetty(9.2.28.v20190418)
+
+{
+    "indicator": 120.5,
+    
+}

@@ -1,0 +1,138 @@
+{
+  "uid" : "12ade945b27488d8",
+  "name" : "sending and receiving elements of HTTP response",
+  "fullName" : "sending and receiving elements of HTTP response",
+  "historyId" : "ae6978b23f50c54e6a8235e6e523894d",
+  "time" : {
+    "start" : 1633116980028,
+    "stop" : 1633116984879,
+    "duration" : 4851
+  },
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "testStage" : {
+    "status" : "passed",
+    "steps" : [ {
+      "name" : "Given server for url answers json (url: /rest/access-elements, response: body-data)",
+      "time" : {
+        "start" : 1633116980142,
+        "stop" : 1633116980144,
+        "duration" : 2
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : false
+    }, {
+      "name" : "statusCode() == 200",
+      "time" : {
+        "start" : 1633116984873,
+        "stop" : 1633116984873,
+        "duration" : 0
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : false
+    }, {
+      "name" : "statusLine().isContains(OK)",
+      "time" : {
+        "start" : 1633116984877,
+        "stop" : 1633116984878,
+        "duration" : 1
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : false
+    }, {
+      "name" : "bodyString().isContains(body-data)",
+      "time" : {
+        "start" : 1633116984878,
+        "stop" : 1633116984878,
+        "duration" : 0
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : false
+    } ],
+    "attachments" : [ {
+      "uid" : "17f4367641029dab",
+      "name" : "request http://localhost:51044/rest/access-elements",
+      "source" : "17f4367641029dab.txt",
+      "type" : "text/plain",
+      "size" : 347
+    }, {
+      "uid" : "bbc77db515f7c8be",
+      "name" : "response http://localhost:51044/rest/access-elements",
+      "source" : "bbc77db515f7c8be.txt",
+      "type" : "text/plain",
+      "size" : 228
+    } ],
+    "parameters" : [ ],
+    "stepsCount" : 4,
+    "attachmentsCount" : 2,
+    "shouldDisplayMessage" : false,
+    "hasContent" : true
+  },
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "framework",
+    "value" : "corounit"
+  }, {
+    "name" : "package",
+    "value" : "Documentation"
+  }, {
+    "name" : "suite",
+    "value" : "ru.fix.kbdd.example.cases.documentation.JsonRestTest"
+  }, {
+    "name" : "feature",
+    "value" : "Json"
+  }, {
+    "name" : "testMethod",
+    "value" : "sending and receiving elements of HTTP response"
+  }, {
+    "name" : "epic",
+    "value" : "Rest"
+  }, {
+    "name" : "testClass",
+    "value" : "ru.fix.kbdd.example.cases.documentation.JsonRestTest"
+  }, {
+    "name" : "thread",
+    "value" : "2880f012-d0df-4a8b-acea-21d8e6ef920e"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "12ade945b27488d8.json",
+  "parameterValues" : [ ]
+}

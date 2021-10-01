@@ -1,0 +1,159 @@
+{
+  "uid" : "5b8ebb57ae881474",
+  "name" : "navigate to child by index",
+  "fullName" : "navigate to child by index",
+  "historyId" : "5eff9193fa0d894be55422cfc73df0c5",
+  "time" : {
+    "start" : 1633116978945,
+    "stop" : 1633116984108,
+    "duration" : 5163
+  },
+  "description" : "\n        Navigation to child by index allowed if currently selected node is an Array        \n    ",
+  "descriptionHtml" : "<pre><code>    Navigation to child by index allowed if currently selected node is an Array        \n</code></pre>\n",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "testStage" : {
+    "description" : "\n        Navigation to child by index allowed if currently selected node is an Array        \n    ",
+    "status" : "passed",
+    "steps" : [ {
+      "name" : "Code snippet",
+      "time" : {
+        "start" : 1633116979137,
+        "stop" : 1633116979138,
+        "duration" : 1
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ {
+        "uid" : "769bff068dc3f47c",
+        "name" : "code-snippet",
+        "source" : "769bff068dc3f47c.txt",
+        "type" : "text/plain",
+        "size" : 1023
+      } ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 1,
+      "shouldDisplayMessage" : false,
+      "hasContent" : true
+    }, {
+      "name" : "Given server for url answers json (url: /navigation/child-by-index, response: \n                {\n                    \"accounts\": [\n                        {\n                            \"name\": \"John\",\n                            \"amount\": 100\n                        },\n                        {\n                            \"name\": \"Jane\",\n                            \"amount\": 200\n                        }\n                    ]\n                }\n                )",
+      "time" : {
+        "start" : 1633116979198,
+        "stop" : 1633116979199,
+        "duration" : 1
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : false
+    }, {
+      "name" : "bodyJson()[\"accounts\"][0][\"name\"] == \"John\"",
+      "time" : {
+        "start" : 1633116984087,
+        "stop" : 1633116984087,
+        "duration" : 0
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : false
+    }, {
+      "name" : "bodyJson()[\"accounts\"][1][\"amount\"] == 200",
+      "time" : {
+        "start" : 1633116984090,
+        "stop" : 1633116984090,
+        "duration" : 0
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : false
+    }, {
+      "name" : "bodyJson()[\"accounts\"].size() == 2",
+      "time" : {
+        "start" : 1633116984107,
+        "stop" : 1633116984107,
+        "duration" : 0
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : false
+    } ],
+    "attachments" : [ {
+      "uid" : "ca414b389791b1fa",
+      "name" : "request http://localhost:52104/navigation/child-by-index",
+      "source" : "ca414b389791b1fa.txt",
+      "type" : "text/plain",
+      "size" : 255
+    }, {
+      "uid" : "da35712ee322b2a",
+      "name" : "response http://localhost:52104/navigation/child-by-index",
+      "source" : "da35712ee322b2a.txt",
+      "type" : "text/plain",
+      "size" : 395
+    } ],
+    "parameters" : [ ],
+    "stepsCount" : 5,
+    "attachmentsCount" : 3,
+    "shouldDisplayMessage" : false,
+    "hasContent" : true
+  },
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "framework",
+    "value" : "corounit"
+  }, {
+    "name" : "package",
+    "value" : "Documentation"
+  }, {
+    "name" : "suite",
+    "value" : "ru.fix.kbdd.example.cases.documentation.NavigationTest"
+  }, {
+    "name" : "testMethod",
+    "value" : "navigate to child by index"
+  }, {
+    "name" : "epic",
+    "value" : "Navigation"
+  }, {
+    "name" : "testClass",
+    "value" : "ru.fix.kbdd.example.cases.documentation.NavigationTest"
+  }, {
+    "name" : "thread",
+    "value" : "e4311660-d738-46cb-8a43-f3ed01b82f9e"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "5b8ebb57ae881474.json",
+  "parameterValues" : [ ]
+}

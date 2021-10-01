@@ -1,0 +1,174 @@
+{
+  "uid" : "2900eb358543996d",
+  "name" : "navigate by filtering",
+  "fullName" : "navigate by filtering",
+  "historyId" : "72bd67f945033d421fd6772939b2c79a",
+  "time" : {
+    "start" : 1633116978955,
+    "stop" : 1633116984097,
+    "duration" : 5142
+  },
+  "description" : "\n        Array items can be filtered during navigation.\n        Use 'single' method if you expect single result after filtering\n    ",
+  "descriptionHtml" : "<pre><code>    Array items can be filtered during navigation.\n    Use 'single' method if you expect single result after filtering\n</code></pre>\n",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "testStage" : {
+    "description" : "\n        Array items can be filtered during navigation.\n        Use 'single' method if you expect single result after filtering\n    ",
+    "status" : "passed",
+    "steps" : [ {
+      "name" : "Code snippet",
+      "time" : {
+        "start" : 1633116979164,
+        "stop" : 1633116979165,
+        "duration" : 1
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ {
+        "uid" : "830d6353c594ddd3",
+        "name" : "code-snippet",
+        "source" : "830d6353c594ddd3.txt",
+        "type" : "text/plain",
+        "size" : 1206
+      } ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 1,
+      "shouldDisplayMessage" : false,
+      "hasContent" : true
+    }, {
+      "name" : "Given server for url answers json (url: /navigation/filtering, response: \n                {\n                    \"accounts\": [\n                        {\n                            \"name\": \"John\",\n                            \"amount\": 100\n                        },\n                        {\n                            \"name\": \"Jane\",\n                            \"amount\": 200\n                        }\n                    ]\n                }\n                )",
+      "time" : {
+        "start" : 1633116979195,
+        "stop" : 1633116979195,
+        "duration" : 0
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : false
+    }, {
+      "name" : "bodyJson()[\"accounts\"].filter{it[\"amount\"] > 100}.size() == 1",
+      "time" : {
+        "start" : 1633116984080,
+        "stop" : 1633116984080,
+        "duration" : 0
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : false
+    }, {
+      "name" : "bodyJson()[\"accounts\"].filter{it[\"amount\"] > 100}[0][\"name\"] == \"Jane\"",
+      "time" : {
+        "start" : 1633116984085,
+        "stop" : 1633116984085,
+        "duration" : 0
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : false
+    }, {
+      "name" : "If you expecting only single value returned by filter, you can use 'single' instead of 'filter'",
+      "time" : {
+        "start" : 1633116984086,
+        "stop" : 1633116984096,
+        "duration" : 10
+      },
+      "status" : "passed",
+      "steps" : [ {
+        "name" : "bodyJson()[\"accounts\"].single{it[\"amount\"] < 150}[\"name\"] == \"John\"",
+        "time" : {
+          "start" : 1633116984096,
+          "stop" : 1633116984096,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "stepsCount" : 0,
+        "attachmentsCount" : 0,
+        "shouldDisplayMessage" : false,
+        "hasContent" : false
+      } ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "stepsCount" : 1,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : true
+    } ],
+    "attachments" : [ {
+      "uid" : "2eeffea968ff9e6b",
+      "name" : "request http://localhost:52104/navigation/filtering",
+      "source" : "2eeffea968ff9e6b.txt",
+      "type" : "text/plain",
+      "size" : 250
+    }, {
+      "uid" : "d0d70775ed0e9f03",
+      "name" : "response http://localhost:52104/navigation/filtering",
+      "source" : "d0d70775ed0e9f03.txt",
+      "type" : "text/plain",
+      "size" : 395
+    } ],
+    "parameters" : [ ],
+    "stepsCount" : 6,
+    "attachmentsCount" : 3,
+    "shouldDisplayMessage" : false,
+    "hasContent" : true
+  },
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "framework",
+    "value" : "corounit"
+  }, {
+    "name" : "package",
+    "value" : "Documentation"
+  }, {
+    "name" : "suite",
+    "value" : "ru.fix.kbdd.example.cases.documentation.NavigationTest"
+  }, {
+    "name" : "testMethod",
+    "value" : "navigate by filtering"
+  }, {
+    "name" : "epic",
+    "value" : "Navigation"
+  }, {
+    "name" : "testClass",
+    "value" : "ru.fix.kbdd.example.cases.documentation.NavigationTest"
+  }, {
+    "name" : "thread",
+    "value" : "aa5c56f1-c728-4856-b21d-89b98faf2330"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "2900eb358543996d.json",
+  "parameterValues" : [ ]
+}

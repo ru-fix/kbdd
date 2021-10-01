@@ -1,5 +1,5 @@
 {
-  "total" : 8,
+  "total" : 10,
   "items" : [ {
     "uid" : "6f2b963bcc8982ea841203c7e577c06d",
     "name" : "ru.fix.kbdd.example.cases.documentation.NavigationTest",
@@ -7,13 +7,13 @@
       "failed" : 0,
       "broken" : 0,
       "skipped" : 0,
-      "passed" : 8,
+      "passed" : 11,
       "unknown" : 0,
-      "total" : 8
+      "total" : 11
     }
   }, {
-    "uid" : "36e23f9d113f90ecbe7e407406216f45",
-    "name" : "ru.fix.kbdd.example.cases.documentation.JsonRestTest",
+    "uid" : "65573caf3742b64b7dbf357cfb433c00",
+    "name" : "ru.fix.kbdd.example.cases.documentation.ResponseAsserts",
     "statistic" : {
       "failed" : 0,
       "broken" : 0,
@@ -23,8 +23,8 @@
       "total" : 5
     }
   }, {
-    "uid" : "65573caf3742b64b7dbf357cfb433c00",
-    "name" : "ru.fix.kbdd.example.cases.documentation.ResponseAsserts",
+    "uid" : "36e23f9d113f90ecbe7e407406216f45",
+    "name" : "ru.fix.kbdd.example.cases.documentation.JsonRestTest",
     "statistic" : {
       "failed" : 0,
       "broken" : 0,
@@ -45,8 +45,19 @@
       "total" : 2
     }
   }, {
-    "uid" : "28b6a1ccc9503646c74ca8e69fb8d8c8",
-    "name" : "ru.fix.kbdd.example.cases.documentation.ResponseCustomAsserts",
+    "uid" : "b2c3f449fc28d4a4f04715f78ef02080",
+    "name" : "ru.fix.kbdd.example.cases.documentation.RedirectRestTest",
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 2,
+      "unknown" : 0,
+      "total" : 2
+    }
+  }, {
+    "uid" : "202e040917e2c88fe387f62b87a81441",
+    "name" : "ru.fix.kbdd.example.cases.documentation.ParameterizedTest",
     "statistic" : {
       "failed" : 0,
       "broken" : 0,
@@ -67,6 +78,17 @@
       "total" : 1
     }
   }, {
+    "uid" : "28b6a1ccc9503646c74ca8e69fb8d8c8",
+    "name" : "ru.fix.kbdd.example.cases.documentation.ResponseCustomAsserts",
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 1,
+      "unknown" : 0,
+      "total" : 1
+    }
+  }, {
     "uid" : "398488ed84377debb91412ff4233bc63",
     "name" : "ru.fix.kbdd.example.cases.documentation.IntroductionTest",
     "statistic" : {
@@ -78,8 +100,8 @@
       "total" : 1
     }
   }, {
-    "uid" : "202e040917e2c88fe387f62b87a81441",
-    "name" : "ru.fix.kbdd.example.cases.documentation.ParameterizedTest",
+    "uid" : "c2cc6b6994f872928879e3f184e0d32f",
+    "name" : "ru.fix.kbdd.example.cases.documentation.CookieRestTest",
     "statistic" : {
       "failed" : 0,
       "broken" : 0,

@@ -1,0 +1,273 @@
+{
+  "uid" : "a970b497b6cc263a",
+  "name" : "sending and receiving elements of HTTP response",
+  "fullName" : "sending and receiving elements of HTTP response",
+  "historyId" : "2643da1a06c8fd20a7d801f977fc9e21",
+  "time" : {
+    "start" : 1633116979346,
+    "stop" : 1633116986589,
+    "duration" : 7243
+  },
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "testStage" : {
+    "status" : "passed",
+    "steps" : [ {
+      "name" : "Given server for url answers xml (url: /rest/xml/available-booking, response: \n                    <response id=\"765\" location=\"kzn\">\n                        <dayOfMonth calendar=\"gregorian\">1</dayOfMonth>\n                        <month format=\"Mmm\">Jan</month>\n                        <hour>10</hour>\n                        <hour>12</hour>\n                        <hour>15</hour>\n                    </response>\n                    )",
+      "time" : {
+        "start" : 1633116979475,
+        "stop" : 1633116979477,
+        "duration" : 2
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : false
+    }, {
+      "name" : "statusCode() == 200",
+      "time" : {
+        "start" : 1633116985729,
+        "stop" : 1633116985730,
+        "duration" : 1
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : false
+    }, {
+      "name" : "statusLine().isContains(OK)",
+      "time" : {
+        "start" : 1633116985731,
+        "stop" : 1633116985731,
+        "duration" : 0
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : false
+    }, {
+      "name" : "bodyXml().xmlPath(\"$.dayOfMonth\") == 1",
+      "time" : {
+        "start" : 1633116986328,
+        "stop" : 1633116986328,
+        "duration" : 0
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : false
+    }, {
+      "name" : "bodyXml().xmlPath(\"$.month\") == \"Jan\"",
+      "time" : {
+        "start" : 1633116986341,
+        "stop" : 1633116986341,
+        "duration" : 0
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : false
+    }, {
+      "name" : "bodyXml().xmlPath(\"$.@id\") == 765",
+      "time" : {
+        "start" : 1633116986368,
+        "stop" : 1633116986368,
+        "duration" : 0
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : false
+    }, {
+      "name" : "bodyXml().xmlPath(\"$.@location\") == \"kzn\"",
+      "time" : {
+        "start" : 1633116986379,
+        "stop" : 1633116986379,
+        "duration" : 0
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : false
+    }, {
+      "name" : "bodyXml().xmlPath(\"$.dayOfMonth.@calendar\") == \"gregorian\"",
+      "time" : {
+        "start" : 1633116986391,
+        "stop" : 1633116986391,
+        "duration" : 0
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : false
+    }, {
+      "name" : "bodyXml().xmlPath(\"$.month.@format\") == \"Mmm\"",
+      "time" : {
+        "start" : 1633116986403,
+        "stop" : 1633116986403,
+        "duration" : 0
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : false
+    }, {
+      "name" : "bodyXml().xmlPath(\"$.hour.size()\") == 3",
+      "time" : {
+        "start" : 1633116986419,
+        "stop" : 1633116986419,
+        "duration" : 0
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : false
+    }, {
+      "name" : "bodyXml().xmlPath(\"$.hour[0]\") == 10",
+      "time" : {
+        "start" : 1633116986446,
+        "stop" : 1633116986446,
+        "duration" : 0
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : false
+    }, {
+      "name" : "bodyXml().xmlPath(\"$.hour[1]\") == 12",
+      "time" : {
+        "start" : 1633116986454,
+        "stop" : 1633116986454,
+        "duration" : 0
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : false
+    }, {
+      "name" : "bodyXml().xmlPath(\"$.hour[2]\") == 15",
+      "time" : {
+        "start" : 1633116986466,
+        "stop" : 1633116986466,
+        "duration" : 0
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : false
+    } ],
+    "attachments" : [ {
+      "uid" : "b7906676d1286bd6",
+      "name" : "request http://localhost:53205/rest/xml/available-booking",
+      "source" : "b7906676d1286bd6.txt",
+      "type" : "text/plain",
+      "size" : 405
+    }, {
+      "uid" : "d9919112738c9896",
+      "name" : "response http://localhost:53205/rest/xml/available-booking",
+      "source" : "d9919112738c9896.txt",
+      "type" : "text/plain",
+      "size" : 402
+    } ],
+    "parameters" : [ ],
+    "stepsCount" : 13,
+    "attachmentsCount" : 2,
+    "shouldDisplayMessage" : false,
+    "hasContent" : true
+  },
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "framework",
+    "value" : "corounit"
+  }, {
+    "name" : "package",
+    "value" : "Documentation"
+  }, {
+    "name" : "suite",
+    "value" : "ru.fix.kbdd.example.cases.documentation.XmlRestTest"
+  }, {
+    "name" : "feature",
+    "value" : "Xml"
+  }, {
+    "name" : "testMethod",
+    "value" : "sending and receiving elements of HTTP response"
+  }, {
+    "name" : "epic",
+    "value" : "Rest"
+  }, {
+    "name" : "testClass",
+    "value" : "ru.fix.kbdd.example.cases.documentation.XmlRestTest"
+  }, {
+    "name" : "thread",
+    "value" : "6cd392cb-3eb0-4292-806e-76ae75d96bfc"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "a970b497b6cc263a.json",
+  "parameterValues" : [ ]
+}

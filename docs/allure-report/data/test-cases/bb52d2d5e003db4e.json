@@ -1,0 +1,114 @@
+{
+  "uid" : "bb52d2d5e003db4e",
+  "name" : "convert object to a data class",
+  "fullName" : "convert object to a data class",
+  "historyId" : "e0dfbcb212cc88048e0a34fc0fb25649",
+  "time" : {
+    "start" : 1633116979005,
+    "stop" : 1633116984231,
+    "duration" : 5226
+  },
+  "description" : "Function level data classes not supported by jackson. Use class level or package level data classes.",
+  "descriptionHtml" : "<p>Function level data classes not supported by jackson. Use class level or package level data classes.</p>\n",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "testStage" : {
+    "description" : "Function level data classes not supported by jackson. Use class level or package level data classes.",
+    "status" : "passed",
+    "steps" : [ {
+      "name" : "Code snippet",
+      "time" : {
+        "start" : 1633116979174,
+        "stop" : 1633116979175,
+        "duration" : 1
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ {
+        "uid" : "8089c1e3adc24480",
+        "name" : "code-snippet",
+        "source" : "8089c1e3adc24480.txt",
+        "type" : "text/plain",
+        "size" : 1087
+      } ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 1,
+      "shouldDisplayMessage" : false,
+      "hasContent" : true
+    }, {
+      "name" : "Given server for url answers json (url: /navigation/array-to-list, response: \n                {\n                    \"accounts\": [\n                        {\n                            \"name\": \"John\",\n                            \"amount\": 100\n                        },\n                        {\n                            \"name\": \"Jane\",\n                            \"amount\": 200\n                        }\n                    ],\n                    \"numbers\": [42, 43]\n                }\n                )",
+      "time" : {
+        "start" : 1633116979190,
+        "stop" : 1633116979190,
+        "duration" : 0
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : false
+    } ],
+    "attachments" : [ {
+      "uid" : "a9fe0545e01043b7",
+      "name" : "request http://localhost:52104/navigation/array-to-list",
+      "source" : "a9fe0545e01043b7.txt",
+      "type" : "text/plain",
+      "size" : 254
+    }, {
+      "uid" : "3440b8996e47784b",
+      "name" : "response http://localhost:52104/navigation/array-to-list",
+      "source" : "3440b8996e47784b.txt",
+      "type" : "text/plain",
+      "size" : 442
+    } ],
+    "parameters" : [ ],
+    "stepsCount" : 2,
+    "attachmentsCount" : 3,
+    "shouldDisplayMessage" : false,
+    "hasContent" : true
+  },
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "framework",
+    "value" : "corounit"
+  }, {
+    "name" : "package",
+    "value" : "Documentation"
+  }, {
+    "name" : "suite",
+    "value" : "ru.fix.kbdd.example.cases.documentation.NavigationTest"
+  }, {
+    "name" : "testMethod",
+    "value" : "convert object to a data class"
+  }, {
+    "name" : "epic",
+    "value" : "Navigation"
+  }, {
+    "name" : "testClass",
+    "value" : "ru.fix.kbdd.example.cases.documentation.NavigationTest"
+  }, {
+    "name" : "thread",
+    "value" : "e1af4c19-b0dc-4ca3-96c0-0d2a6e1da035"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "bb52d2d5e003db4e.json",
+  "parameterValues" : [ ]
+}

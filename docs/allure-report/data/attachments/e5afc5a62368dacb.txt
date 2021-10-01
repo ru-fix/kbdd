@@ -1,0 +1,5 @@
+HTTP/1.1 302 Found
+Location: http://localhost:52273/another/path
+Matched-Stub-Id: 2d3cfd1f-f813-4644-93cc-94447d4478d9
+Transfer-Encoding: chunked
+Server: Jetty(9.2.28.v20190418)

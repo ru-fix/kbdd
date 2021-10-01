@@ -1,0 +1,126 @@
+{
+  "uid" : "e7e6ca26d715694a",
+  "name" : "check if part of json tree is present in response and then assert that part ",
+  "fullName" : "check if part of json tree is present in response and then assert that part ",
+  "historyId" : "ec81bed0395352c93c86b319494fe689",
+  "time" : {
+    "start" : 1633116978973,
+    "stop" : 1633116984077,
+    "duration" : 5104
+  },
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "testStage" : {
+    "status" : "passed",
+    "steps" : [ {
+      "name" : "Code snippet",
+      "time" : {
+        "start" : 1633116979169,
+        "stop" : 1633116979170,
+        "duration" : 1
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ {
+        "uid" : "4a63476f8a5cf59a",
+        "name" : "code-snippet",
+        "source" : "4a63476f8a5cf59a.txt",
+        "type" : "text/plain",
+        "size" : 742
+      } ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 1,
+      "shouldDisplayMessage" : false,
+      "hasContent" : true
+    }, {
+      "name" : "Given server for url answers json (url: /navigation/check-part-of-json-tree, response: \n                {\n                    \"data\": {\n                            \"isFromShop\": true,\n                            \"shop\": { \"id\": 100 }\n                    }\n                }\n                )",
+      "time" : {
+        "start" : 1633116979189,
+        "stop" : 1633116979189,
+        "duration" : 0
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : false
+    }, {
+      "name" : "bodyJson()[\"data\"][\"shop\"][\"id\"] == 100",
+      "time" : {
+        "start" : 1633116984077,
+        "stop" : 1633116984077,
+        "duration" : 0
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : false
+    } ],
+    "attachments" : [ {
+      "uid" : "9f78ef63ca1cc3b0",
+      "name" : "request http://localhost:52104/navigation/check-part-of-json-tree",
+      "source" : "9f78ef63ca1cc3b0.txt",
+      "type" : "text/plain",
+      "size" : 264
+    }, {
+      "uid" : "5bbb9f4231875f8",
+      "name" : "response http://localhost:52104/navigation/check-part-of-json-tree",
+      "source" : "5bbb9f4231875f8.txt",
+      "type" : "text/plain",
+      "size" : 320
+    } ],
+    "parameters" : [ ],
+    "stepsCount" : 3,
+    "attachmentsCount" : 3,
+    "shouldDisplayMessage" : false,
+    "hasContent" : true
+  },
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "framework",
+    "value" : "corounit"
+  }, {
+    "name" : "package",
+    "value" : "Documentation"
+  }, {
+    "name" : "suite",
+    "value" : "ru.fix.kbdd.example.cases.documentation.NavigationTest"
+  }, {
+    "name" : "testMethod",
+    "value" : "check if part of json tree is present in response and then assert that part "
+  }, {
+    "name" : "epic",
+    "value" : "Navigation"
+  }, {
+    "name" : "testClass",
+    "value" : "ru.fix.kbdd.example.cases.documentation.NavigationTest"
+  }, {
+    "name" : "thread",
+    "value" : "1cff84c7-9e90-47da-94f7-e1c4f1fc2628"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "e7e6ca26d715694a.json",
+  "parameterValues" : [ ]
+}

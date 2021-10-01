@@ -1,0 +1,13 @@
+Request method:	POST
+Request URI:	http://localhost:51044/rest/access-elements
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	<none>
+Headers:		my-header=my-header-value
+				Accept=*/*
+				Content-Type=application/x-www-form-urlencoded; charset=UTF-8
+Cookies:		<none>
+Multiparts:		<none>
+Body:			<none>

@@ -1,0 +1,41 @@
+    @Test
+    suspend fun `absent data can be treated as null`() {
+        val url = "/navigation/absent-data-as-null"
+
+        mockServer.`Given server for url answers json`(
+            url,
+            """
+                {
+                    "data": {
+                            "name": "John",
+                            "shop": { "id": 100 }
+                    }
+                }
+                """)
+
+        request {
+            baseUri(mockServer.baseUrl())
+            get(url)
+        }
+
+        Assertions.assertEquals(Shop(100), bodyJson()["data"]["shop"].asObject<Shop>())
+        Assertions.assertEquals("John", bodyJson()["data"]["name"].asString())
+
+        Assertions.assertNull(bodyJson()["not-existent"].asObjectOrNull<MetaInfo>())
+        Assertions.assertNull(bodyJson()["not"]["existent"].asObjectOrNull<MetaInfo>())
+        Assertions.assertNull(bodyJson()["not"]["existent"].asMapOrNull())
+        Assertions.assertNull(bodyJson()["not"]["existent"].asListOrNull<MetaInfo>())
+        Assertions.assertNull(bodyJson()["not"]["existent"].asListOfMapsOrNull())
+        Assertions.assertNull(bodyJson()["not"]["existent"].asStringOrNull())
+        Assertions.assertNull(bodyJson()["not"]["existent"].asIntOrNull())
+        Assertions.assertNull(bodyJson()["not"]["existent"].asLongOrNull())
+        Assertions.assertNull(bodyJson()["not"]["existent"].asLocalDateTimeOrNull())
+        Assertions.assertNull(bodyJson()["not"]["existent"].asOffsetDateTimeOrNull())
+        Assertions.assertNull(bodyJson()["not"]["existent"].asOffsetDateTimeOrNull())
+        Assertions.assertNull(bodyJson()["not"][2]["existent"].asOffsetDateTimeOrNull())
+        Assertions.assertNull(bodyJson()["not"].filter { it["value"].isGreaterThan(10) }["existent"].asOffsetDateTimeOrNull())
+        Assertions.assertNull(bodyJson()["not"].first { it["value"].isGreaterThan(10) }["existent"].asOffsetDateTimeOrNull())
+        Assertions.assertNull(bodyJson()["not"].single { it["value"].isGreaterThan(10) }["existent"].asOffsetDateTimeOrNull())
+    }
+
+    @Test

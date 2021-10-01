@@ -1,0 +1,141 @@
+{
+  "uid" : "65aa7c5a302affd2",
+  "name" : "convert array to a list",
+  "fullName" : "convert array to a list",
+  "historyId" : "c5d5e7b6d647d6da0ae1bfd744948844",
+  "time" : {
+    "start" : 1633116978863,
+    "stop" : 1633116984133,
+    "duration" : 5270
+  },
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "testStage" : {
+    "status" : "passed",
+    "steps" : [ {
+      "name" : "Code snippet",
+      "time" : {
+        "start" : 1633116979132,
+        "stop" : 1633116979133,
+        "duration" : 1
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ {
+        "uid" : "5d6f44c77fe359b4",
+        "name" : "code-snippet",
+        "source" : "5d6f44c77fe359b4.txt",
+        "type" : "text/plain",
+        "size" : 1143
+      } ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 1,
+      "shouldDisplayMessage" : false,
+      "hasContent" : true
+    }, {
+      "name" : "Given server for url answers json (url: /navigation/array-to-list, response: \n                {\n                    \"accounts\": [\n                        {\n                            \"name\": \"John\",\n                            \"amount\": 100\n                        },\n                        {\n                            \"name\": \"Jane\",\n                            \"amount\": 200\n                        }\n                    ],\n                    \"numbers\": [42, 43]\n                }\n                )",
+      "time" : {
+        "start" : 1633116979200,
+        "stop" : 1633116979201,
+        "duration" : 1
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : false
+    }, {
+      "name" : "Access collections by converting node to Kotlin List of Maps",
+      "time" : {
+        "start" : 1633116983760,
+        "stop" : 1633116984099,
+        "duration" : 339
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : false
+    }, {
+      "name" : "Access collections by converting node to Kotlin List",
+      "time" : {
+        "start" : 1633116984125,
+        "stop" : 1633116984132,
+        "duration" : 7
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : false
+    } ],
+    "attachments" : [ {
+      "uid" : "4478844832d86bcb",
+      "name" : "request http://localhost:52104/navigation/array-to-list",
+      "source" : "4478844832d86bcb.txt",
+      "type" : "text/plain",
+      "size" : 254
+    }, {
+      "uid" : "9f85e331a1e75e34",
+      "name" : "response http://localhost:52104/navigation/array-to-list",
+      "source" : "9f85e331a1e75e34.txt",
+      "type" : "text/plain",
+      "size" : 442
+    } ],
+    "parameters" : [ ],
+    "stepsCount" : 4,
+    "attachmentsCount" : 3,
+    "shouldDisplayMessage" : false,
+    "hasContent" : true
+  },
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "framework",
+    "value" : "corounit"
+  }, {
+    "name" : "package",
+    "value" : "Documentation"
+  }, {
+    "name" : "suite",
+    "value" : "ru.fix.kbdd.example.cases.documentation.NavigationTest"
+  }, {
+    "name" : "testMethod",
+    "value" : "convert array to a list"
+  }, {
+    "name" : "epic",
+    "value" : "Navigation"
+  }, {
+    "name" : "testClass",
+    "value" : "ru.fix.kbdd.example.cases.documentation.NavigationTest"
+  }, {
+    "name" : "thread",
+    "value" : "59c43bce-2c34-4c16-b020-15eed630a8a5"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "65aa7c5a302affd2.json",
+  "parameterValues" : [ ]
+}

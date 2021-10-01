@@ -1,13 +1,18 @@
 "Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
-"passed","Thu Jul 09 16:56:15 MSK 2020","Thu Jul 09 16:56:20 MSK 2020","4821","","ru.fix.kbdd.example.cases.documentation.NavigationTest","","ru.fix.kbdd.example.cases.documentation.NavigationTest","arrays size field","arrays size field","
+"passed","Fri Oct 01 22:36:18 MSK 2021","Fri Oct 01 22:36:24 MSK 2021","5278","","ru.fix.kbdd.example.cases.documentation.NavigationTest","","ru.fix.kbdd.example.cases.documentation.NavigationTest","arrays size field","arrays size field","
         Arrays provide system field: size.
         Size can be used to validate count of elements within array.         
     "
-"passed","Thu Jul 09 16:56:15 MSK 2020","Thu Jul 09 16:56:20 MSK 2020","4711","","ru.fix.kbdd.example.cases.documentation.NavigationTest","","ru.fix.kbdd.example.cases.documentation.NavigationTest","navigate by filtering","navigate by filtering","
-        Array items can be filtered during navigation.
-        Use 'single' method if you expect single result after filtering
+"passed","Fri Oct 01 22:36:19 MSK 2021","Fri Oct 01 22:36:26 MSK 2021","6217","","ru.fix.kbdd.example.cases.documentation.CookieRestTest","","ru.fix.kbdd.example.cases.documentation.CookieRestTest","receiving cookie from the response","receiving cookie from the response",""
+"passed","Fri Oct 01 22:36:19 MSK 2021","Fri Oct 01 22:36:23 MSK 2021","4382","","ru.fix.kbdd.example.cases.documentation.ResponseAsserts","","ru.fix.kbdd.example.cases.documentation.ResponseAsserts","integer asserts","integer asserts","
+        Integer asserts provide basic equality and comparision checks 
     "
-"passed","Thu Jul 09 16:56:16 MSK 2020","Thu Jul 09 16:56:23 MSK 2020","7872","","ru.fix.kbdd.example.cases.documentation.ResponseCustomAsserts","","ru.fix.kbdd.example.cases.documentation.ResponseCustomAsserts","provide custom assert","provide custom assert","
+"passed","Fri Oct 01 22:36:19 MSK 2021","Fri Oct 01 22:36:24 MSK 2021","5184","","ru.fix.kbdd.example.cases.documentation.NavigationTest","","ru.fix.kbdd.example.cases.documentation.NavigationTest","navigate to child by name","navigate to child by name","
+        Navigation to child by name allowed if currently selected node is a Map        
+    "
+"passed","Fri Oct 01 22:36:18 MSK 2021","Fri Oct 01 22:36:25 MSK 2021","6652","","ru.fix.kbdd.example.cases.example.AirportBookingTest","","ru.fix.kbdd.example.cases.example.AirportBookingTest","Flight booking is available for three days","Flight booking is available for three days",""
+"passed","Fri Oct 01 22:36:18 MSK 2021","Fri Oct 01 22:36:24 MSK 2021","5270","","ru.fix.kbdd.example.cases.documentation.NavigationTest","","ru.fix.kbdd.example.cases.documentation.NavigationTest","convert array to a list","convert array to a list",""
+"passed","Fri Oct 01 22:36:19 MSK 2021","Fri Oct 01 22:36:25 MSK 2021","5482","","ru.fix.kbdd.example.cases.documentation.ResponseCustomAsserts","","ru.fix.kbdd.example.cases.documentation.ResponseCustomAsserts","provide custom assert","provide custom assert","
         You can write custom asserts by providing extension function. 
         All asserts and navigation methods implemented via extension function 
         to the `Checkable` and `Explorable` interfaces.
@@ -16,30 +21,7 @@
         Maybe your asserts is worth to be added to default asserts list into KBDD project. 
         Pull Requests are welcome!
     "
-"passed","Thu Jul 09 16:56:16 MSK 2020","Thu Jul 09 16:56:20 MSK 2020","4528","","ru.fix.kbdd.example.cases.documentation.ResponseAsserts","","ru.fix.kbdd.example.cases.documentation.ResponseAsserts","floating point asserts","floating point asserts","
-        Asserts for floating point numbers looks the same as for integers. 
-        Be aware that you can not simply check two floating point numbers for equality 
-        and should always provide delta that sets value comparison error limit.
-    "
-"passed","Thu Jul 09 16:56:16 MSK 2020","Thu Jul 09 16:56:20 MSK 2020","4501","","ru.fix.kbdd.example.cases.documentation.NavigationTest","","ru.fix.kbdd.example.cases.documentation.NavigationTest","navigate to child by name","navigate to child by name","
-        Navigation to child by name allowed if currently selected node is a Map        
-    "
-"passed","Thu Jul 09 16:56:15 MSK 2020","Thu Jul 09 16:56:20 MSK 2020","4496","","ru.fix.kbdd.example.cases.documentation.ResponseAsserts","","ru.fix.kbdd.example.cases.documentation.ResponseAsserts","integer asserts","integer asserts","
-        Integer asserts provides basic equality and comparision checks 
-    "
-"passed","Thu Jul 09 16:56:15 MSK 2020","Thu Jul 09 16:56:20 MSK 2020","4532","","ru.fix.kbdd.example.cases.documentation.JsonRestTest","","ru.fix.kbdd.example.cases.documentation.JsonRestTest","post json without nulls","post json without nulls",""
-"passed","Thu Jul 09 16:56:15 MSK 2020","Thu Jul 09 16:56:20 MSK 2020","5211","","ru.fix.kbdd.example.cases.example.AirportBookingTest","","ru.fix.kbdd.example.cases.example.AirportBookingTest","Successful booking for tomorrow","Successful booking for tomorrow","
-        User successfully purchases a ticket for the tomorrow's flight.
-        http://documentation.acme.com/booking.html
-        "
-"passed","Thu Jul 09 16:56:15 MSK 2020","Thu Jul 09 16:56:20 MSK 2020","4673","","ru.fix.kbdd.example.cases.documentation.NavigationTest","","ru.fix.kbdd.example.cases.documentation.NavigationTest","convert array to a list","convert array to a list",""
-"passed","Thu Jul 09 16:56:15 MSK 2020","Thu Jul 09 16:56:20 MSK 2020","4548","","ru.fix.kbdd.example.cases.documentation.ResponseAsserts","","ru.fix.kbdd.example.cases.documentation.ResponseAsserts","asserts can be combined into single assert block","asserts can be combined into single assert block","
-        Multiple assert of response subtree can be combained. 
-        You can invoke assert block on parent node 
-        and access and validate values within parent subtree. 
-    "
-"passed","Thu Jul 09 16:56:15 MSK 2020","Thu Jul 09 16:56:20 MSK 2020","4783","","ru.fix.kbdd.example.cases.documentation.JsonRestTest","","ru.fix.kbdd.example.cases.documentation.JsonRestTest","post json with nulls","post json with nulls",""
-"passed","Thu Jul 09 16:56:15 MSK 2020","Thu Jul 09 16:56:20 MSK 2020","4675","","ru.fix.kbdd.example.cases.documentation.ResponseAsserts","","ru.fix.kbdd.example.cases.documentation.ResponseAsserts","string values can be auto-casted to numeric values","string values can be auto-casted to numeric values","
+"passed","Fri Oct 01 22:36:18 MSK 2021","Fri Oct 01 22:36:23 MSK 2021","4567","","ru.fix.kbdd.example.cases.documentation.ResponseAsserts","","ru.fix.kbdd.example.cases.documentation.ResponseAsserts","string values can be auto-casted to numeric values","string values can be auto-casted to numeric values","
         To simplify assertion logic string values in response can be automatically cast to numbers. 
         Casting relay on asserting method argument. 
         If you compare value from response with number, and value in response is a string, 
@@ -48,29 +30,53 @@
         Test demonstratest difference in comparing string with string and 
         comparing string with numbers with auto-cast in action.
         "
-"passed","Thu Jul 09 16:56:16 MSK 2020","Thu Jul 09 16:56:20 MSK 2020","4587","","ru.fix.kbdd.example.cases.documentation.NavigationTest","","ru.fix.kbdd.example.cases.documentation.NavigationTest","use map to process each elements of array","use map to process each elements of array","
+"passed","Fri Oct 01 22:36:19 MSK 2021","Fri Oct 01 22:36:24 MSK 2021","4835","","ru.fix.kbdd.example.cases.documentation.JsonRestTest","","ru.fix.kbdd.example.cases.documentation.JsonRestTest","post json using json dsl","post json using json dsl",""
+"passed","Fri Oct 01 22:36:18 MSK 2021","Fri Oct 01 22:36:23 MSK 2021","4425","","ru.fix.kbdd.example.cases.documentation.ResponseAsserts","","ru.fix.kbdd.example.cases.documentation.ResponseAsserts","asserts can be combined into single assert block","asserts can be combined into single assert block","
+        Multiple assert of response subtree can be combained. 
+        You can invoke assert block on parent node 
+        and access and validate values within parent subtree. 
+    "
+"passed","Fri Oct 01 22:36:19 MSK 2021","Fri Oct 01 22:36:24 MSK 2021","4803","","ru.fix.kbdd.example.cases.documentation.JsonRestTest","","ru.fix.kbdd.example.cases.documentation.JsonRestTest","post json without nulls","post json without nulls",""
+"passed","Fri Oct 01 22:36:19 MSK 2021","Fri Oct 01 22:36:23 MSK 2021","4170","","ru.fix.kbdd.example.cases.documentation.RedirectRestTest","","ru.fix.kbdd.example.cases.documentation.RedirectRestTest","receiving redirect response without following","receiving redirect response without following",""
+"passed","Fri Oct 01 22:36:18 MSK 2021","Fri Oct 01 22:36:23 MSK 2021","4632","","ru.fix.kbdd.example.cases.documentation.RedirectRestTest","","ru.fix.kbdd.example.cases.documentation.RedirectRestTest","receiving redirect response","receiving redirect response",""
+"passed","Fri Oct 01 22:36:19 MSK 2021","Fri Oct 01 22:36:24 MSK 2021","4976","","ru.fix.kbdd.example.cases.documentation.JsonRestTest","","ru.fix.kbdd.example.cases.documentation.JsonRestTest","post json with nulls","post json with nulls",""
+"passed","Fri Oct 01 22:36:19 MSK 2021","Fri Oct 01 22:36:23 MSK 2021","4754","","ru.fix.kbdd.example.cases.example.AirportBookingTest","","ru.fix.kbdd.example.cases.example.AirportBookingTest","Successful booking for tomorrow","Successful booking for tomorrow","
+        User successfully purchases a ticket for the tomorrow's flight.
+        http://documentation.acme.com/booking.html
+        "
+"passed","Fri Oct 01 22:36:18 MSK 2021","Fri Oct 01 22:36:24 MSK 2021","5092","","ru.fix.kbdd.example.cases.documentation.NavigationTest","","ru.fix.kbdd.example.cases.documentation.NavigationTest","navigate to element within Array that contains single element","navigate to element within Array that contains single element","
+        Singleton arrays support 'single' navigation method         
+    "
+"passed","Fri Oct 01 22:36:18 MSK 2021","Fri Oct 01 22:36:24 MSK 2021","5104","","ru.fix.kbdd.example.cases.documentation.NavigationTest","","ru.fix.kbdd.example.cases.documentation.NavigationTest","check if part of json tree is present in response and then assert that part ","check if part of json tree is present in response and then assert that part ",""
+"passed","Fri Oct 01 22:36:18 MSK 2021","Fri Oct 01 22:36:24 MSK 2021","5163","","ru.fix.kbdd.example.cases.documentation.NavigationTest","","ru.fix.kbdd.example.cases.documentation.NavigationTest","navigate to child by index","navigate to child by index","
+        Navigation to child by index allowed if currently selected node is an Array        
+    "
+"passed","Fri Oct 01 22:36:19 MSK 2021","Fri Oct 01 22:36:24 MSK 2021","4787","","ru.fix.kbdd.example.cases.documentation.JsonRestTest","","ru.fix.kbdd.example.cases.documentation.JsonRestTest","post json using data object","post json using data object",""
+"passed","Fri Oct 01 22:36:19 MSK 2021","Fri Oct 01 22:36:26 MSK 2021","7243","","ru.fix.kbdd.example.cases.documentation.XmlRestTest","","ru.fix.kbdd.example.cases.documentation.XmlRestTest","sending and receiving elements of HTTP response","sending and receiving elements of HTTP response",""
+"passed","Fri Oct 01 22:36:19 MSK 2021","Fri Oct 01 22:36:24 MSK 2021","5151","","ru.fix.kbdd.example.cases.documentation.NavigationTest","","ru.fix.kbdd.example.cases.documentation.NavigationTest","use map to process each elements of array","use map to process each elements of array","
         Arrays support map method that get you access to each of the itmes
     "
-"passed","Thu Jul 09 16:56:15 MSK 2020","Thu Jul 09 16:56:20 MSK 2020","4459","","ru.fix.kbdd.example.cases.documentation.JsonRestTest","","ru.fix.kbdd.example.cases.documentation.JsonRestTest","sending and receiving elements of HTTP response","sending and receiving elements of HTTP response",""
-"passed","Thu Jul 09 16:56:15 MSK 2020","Thu Jul 09 16:56:20 MSK 2020","4559","","ru.fix.kbdd.example.cases.documentation.JsonRestTest","","ru.fix.kbdd.example.cases.documentation.JsonRestTest","post json using json dsl","post json using json dsl",""
-"passed","Thu Jul 09 16:56:15 MSK 2020","Thu Jul 09 16:56:23 MSK 2020","7926","","ru.fix.kbdd.example.cases.example.AirportBookingTest","","ru.fix.kbdd.example.cases.example.AirportBookingTest","Flight booking is available for three days","Flight booking is available for three days",""
-"passed","Thu Jul 09 16:56:16 MSK 2020","Thu Jul 09 16:56:24 MSK 2020","8248","","ru.fix.kbdd.example.cases.documentation.ParameterizedTest","","ru.fix.kbdd.example.cases.documentation.ParameterizedTest","parameterize test case with 'parameterized' function ","parameterize test case with 'parameterized' function ",""
-"passed","Thu Jul 09 16:56:16 MSK 2020","Thu Jul 09 16:56:24 MSK 2020","7862","","ru.fix.kbdd.example.cases.documentation.IntroductionTest","","ru.fix.kbdd.example.cases.documentation.IntroductionTest","Send HTTP request to application and validate response","Send HTTP request to application and validate response","
+"passed","Fri Oct 01 22:36:19 MSK 2021","Fri Oct 01 22:36:24 MSK 2021","5226","","ru.fix.kbdd.example.cases.documentation.NavigationTest","","ru.fix.kbdd.example.cases.documentation.NavigationTest","convert object to a data class","convert object to a data class","Function level data classes not supported by jackson. Use class level or package level data classes."
+"passed","Fri Oct 01 22:36:19 MSK 2021","Fri Oct 01 22:36:23 MSK 2021","4355","","ru.fix.kbdd.example.cases.documentation.ResponseAsserts","","ru.fix.kbdd.example.cases.documentation.ResponseAsserts","floating point asserts","floating point asserts","
+        Asserts for floating point numbers looks the same as for integers. 
+        Be aware that you can not simply check two floating point numbers for equality 
+        and should always provide delta that sets value comparison error limit.
+    "
+"passed","Fri Oct 01 22:36:19 MSK 2021","Fri Oct 01 22:36:23 MSK 2021","4341","","ru.fix.kbdd.example.cases.documentation.ResponseAsserts","","ru.fix.kbdd.example.cases.documentation.ResponseAsserts","string asserts","string asserts","
+        Asserts for strings validate content. 
+        String also can be lexicographically compared to another string.
+    "
+"passed","Fri Oct 01 22:36:18 MSK 2021","Fri Oct 01 22:36:24 MSK 2021","5142","","ru.fix.kbdd.example.cases.documentation.NavigationTest","","ru.fix.kbdd.example.cases.documentation.NavigationTest","navigate by filtering","navigate by filtering","
+        Array items can be filtered during navigation.
+        Use 'single' method if you expect single result after filtering
+    "
+"passed","Fri Oct 01 22:36:18 MSK 2021","Fri Oct 01 22:36:24 MSK 2021","5423","","ru.fix.kbdd.example.cases.documentation.NavigationTest","","ru.fix.kbdd.example.cases.documentation.NavigationTest","absent data can be treated as null","absent data can be treated as null",""
+"passed","Fri Oct 01 22:36:19 MSK 2021","Fri Oct 01 22:36:25 MSK 2021","5481","","ru.fix.kbdd.example.cases.documentation.IntroductionTest","","ru.fix.kbdd.example.cases.documentation.IntroductionTest","Send HTTP request to application and validate response","Send HTTP request to application and validate response","
         KBDD provides useful classes and methods that simplify test driven development.
         Given example demonstrate simple HTTP interaction with testable application. 
         Code example Allure step contains current test code snippet.
         MockServer is used to setup HTTP response in local HTTP mock server.
     "
-"passed","Thu Jul 09 16:56:16 MSK 2020","Thu Jul 09 16:56:20 MSK 2020","4474","","ru.fix.kbdd.example.cases.documentation.ResponseAsserts","","ru.fix.kbdd.example.cases.documentation.ResponseAsserts","string asserts","string asserts","
-        Asserts for strings validate content. 
-        String also can be lexicographically compared to another string.
-    "
-"passed","Thu Jul 09 16:56:15 MSK 2020","Thu Jul 09 16:56:20 MSK 2020","4656","","ru.fix.kbdd.example.cases.documentation.NavigationTest","","ru.fix.kbdd.example.cases.documentation.NavigationTest","convert object to a map","convert object to a map",""
-"passed","Thu Jul 09 16:56:15 MSK 2020","Thu Jul 09 16:56:20 MSK 2020","4493","","ru.fix.kbdd.example.cases.documentation.JsonRestTest","","ru.fix.kbdd.example.cases.documentation.JsonRestTest","post json using data object","post json using data object",""
-"passed","Thu Jul 09 16:56:15 MSK 2020","Thu Jul 09 16:56:20 MSK 2020","4704","","ru.fix.kbdd.example.cases.documentation.NavigationTest","","ru.fix.kbdd.example.cases.documentation.NavigationTest","navigate to child by index","navigate to child by index","
-        Navigation to child by index allowed if currently selected node is an Array        
-    "
-"passed","Thu Jul 09 16:56:16 MSK 2020","Thu Jul 09 16:56:25 MSK 2020","9082","","ru.fix.kbdd.example.cases.documentation.XmlRestTest","","ru.fix.kbdd.example.cases.documentation.XmlRestTest","sending and receiving elements of HTTP response","sending and receiving elements of HTTP response",""
-"passed","Thu Jul 09 16:56:16 MSK 2020","Thu Jul 09 16:56:20 MSK 2020","4512","","ru.fix.kbdd.example.cases.documentation.NavigationTest","","ru.fix.kbdd.example.cases.documentation.NavigationTest","navigate to element within Array that contains single element","navigate to element within Array that contains single element","
-        Singleton arrays support 'single' navigation method         
-    "
+"passed","Fri Oct 01 22:36:18 MSK 2021","Fri Oct 01 22:36:24 MSK 2021","5495","","ru.fix.kbdd.example.cases.documentation.ParameterizedTest","","ru.fix.kbdd.example.cases.documentation.ParameterizedTest","parameterize test case with 'parameterized' function ","parameterize test case with 'parameterized' function ",""
+"passed","Fri Oct 01 22:36:18 MSK 2021","Fri Oct 01 22:36:24 MSK 2021","5151","","ru.fix.kbdd.example.cases.documentation.NavigationTest","","ru.fix.kbdd.example.cases.documentation.NavigationTest","convert object to a map","convert object to a map",""
+"passed","Fri Oct 01 22:36:20 MSK 2021","Fri Oct 01 22:36:24 MSK 2021","4851","","ru.fix.kbdd.example.cases.documentation.JsonRestTest","","ru.fix.kbdd.example.cases.documentation.JsonRestTest","sending and receiving elements of HTTP response","sending and receiving elements of HTTP response",""

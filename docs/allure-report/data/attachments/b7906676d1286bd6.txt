@@ -1,0 +1,17 @@
+Request method:	POST
+Request URI:	http://localhost:53205/rest/xml/available-booking
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	<none>
+Headers:		my-header=my-header-value
+				Accept=*/*
+				Content-Type=application/xml; charset=UTF-8
+Cookies:		<none>
+Multiparts:		<none>
+Body:
+<request>
+  <timestamp>1633116979483</timestamp>
+  <zone>UTC</zone>
+</request>

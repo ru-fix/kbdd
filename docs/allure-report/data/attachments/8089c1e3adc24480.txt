@@ -1,0 +1,38 @@
+    @Test
+    suspend fun `convert object to a data class`() {
+        val url = "/navigation/array-to-list"
+
+        mockServer.`Given server for url answers json`(
+                url,
+                """
+                {
+                    "accounts": [
+                        {
+                            "name": "John",
+                            "amount": 100
+                        },
+                        {
+                            "name": "Jane",
+                            "amount": 200
+                        }
+                    ],
+                    "numbers": [42, 43]
+                }
+                """)
+
+        request {
+            baseUri(mockServer.baseUrl())
+            get(url)
+        }
+
+        val accounts = bodyJson()["accounts"].asList<Account>()
+        Assertions.assertEquals("John", accounts[0].name)
+
+        val secondAccount = bodyJson()["accounts"][1].asObject<Account>()
+        Assertions.assertEquals("Jane", secondAccount.name)
+    }
+
+    data class MetaInfo(val timestamp: String)
+    data class Shop(val id: Long)
+
+    @Test

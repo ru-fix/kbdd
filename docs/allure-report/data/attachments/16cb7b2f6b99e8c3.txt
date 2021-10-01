@@ -1,0 +1,12 @@
+HTTP/1.1 200 OK
+Content-Type: application/json
+Matched-Stub-Id: 6db84388-9afc-43b6-a9bf-00aea29bec83
+Content-Encoding: gzip
+Vary: Accept-Encoding, User-Agent
+Transfer-Encoding: chunked
+Server: Jetty(9.2.28.v20190418)
+
+{
+    "number": 1024,
+    "word": "orange"
+}

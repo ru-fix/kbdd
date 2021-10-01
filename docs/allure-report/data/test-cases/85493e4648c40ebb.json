@@ -1,0 +1,114 @@
+{
+  "uid" : "85493e4648c40ebb",
+  "name" : "post json without nulls",
+  "fullName" : "post json without nulls",
+  "historyId" : "b2d04958d9c9b30a68db53317d03abb3",
+  "time" : {
+    "start" : 1633116979970,
+    "stop" : 1633116984773,
+    "duration" : 4803
+  },
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "testStage" : {
+    "status" : "passed",
+    "steps" : [ {
+      "name" : "Code snippet",
+      "time" : {
+        "start" : 1633116980036,
+        "stop" : 1633116980067,
+        "duration" : 31
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ {
+        "uid" : "3060abe9f6501d33",
+        "name" : "code-snippet",
+        "source" : "3060abe9f6501d33.txt",
+        "type" : "text/plain",
+        "size" : 394
+      } ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 1,
+      "shouldDisplayMessage" : false,
+      "hasContent" : true
+    }, {
+      "name" : "Given server for url answers json (url: /rest/json-with-nulls, response:  {\"status\": \"ok\"} )",
+      "time" : {
+        "start" : 1633116980149,
+        "stop" : 1633116980150,
+        "duration" : 1
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : false
+    } ],
+    "attachments" : [ {
+      "uid" : "57671c83324547f4",
+      "name" : "request http://localhost:51044/rest/json-with-nulls",
+      "source" : "57671c83324547f4.txt",
+      "type" : "text/plain",
+      "size" : 308
+    }, {
+      "uid" : "342885e457a22b53",
+      "name" : "response http://localhost:51044/rest/json-with-nulls",
+      "source" : "342885e457a22b53.txt",
+      "type" : "text/plain",
+      "size" : 241
+    } ],
+    "parameters" : [ ],
+    "stepsCount" : 2,
+    "attachmentsCount" : 3,
+    "shouldDisplayMessage" : false,
+    "hasContent" : true
+  },
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "framework",
+    "value" : "corounit"
+  }, {
+    "name" : "package",
+    "value" : "Documentation"
+  }, {
+    "name" : "suite",
+    "value" : "ru.fix.kbdd.example.cases.documentation.JsonRestTest"
+  }, {
+    "name" : "feature",
+    "value" : "Json"
+  }, {
+    "name" : "testMethod",
+    "value" : "post json without nulls"
+  }, {
+    "name" : "epic",
+    "value" : "Rest"
+  }, {
+    "name" : "testClass",
+    "value" : "ru.fix.kbdd.example.cases.documentation.JsonRestTest"
+  }, {
+    "name" : "thread",
+    "value" : "46b4d083-cdaf-46c3-aa97-f54fae517989"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "85493e4648c40ebb.json",
+  "parameterValues" : [ ]
+}

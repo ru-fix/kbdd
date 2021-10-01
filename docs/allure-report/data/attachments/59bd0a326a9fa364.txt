@@ -1,0 +1,26 @@
+    @Test
+    suspend fun `receiving cookie from the response`() {
+
+        mockServer.`Given server for url answers cookie`(
+                "/rest/cookies",
+                """
+                {
+                    "status": "active",
+                }
+                """,
+                "1234")
+
+        "Send HTTP GET request to a mocked server"{
+            Rest.request {
+                baseUri(mockServer.baseUrl())
+                get("/rest/cookies")
+            }
+        }
+
+        "Validate HTTP response content from previous request"{
+            Rest.bodyJson()["status"].isEquals("active")
+            Rest.cookie()["SESSION"].isEquals("1234")
+
+        }
+    }
+}

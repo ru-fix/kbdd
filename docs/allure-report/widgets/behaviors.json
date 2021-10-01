@@ -7,9 +7,9 @@
       "failed" : 0,
       "broken" : 0,
       "skipped" : 0,
-      "passed" : 8,
+      "passed" : 11,
       "unknown" : 0,
-      "total" : 8
+      "total" : 11
     }
   }, {
     "uid" : "c5baa533fb694a6e69974c19825fc291",
@@ -18,9 +18,9 @@
       "failed" : 0,
       "broken" : 0,
       "skipped" : 0,
-      "passed" : 2,
+      "passed" : 4,
       "unknown" : 0,
-      "total" : 2
+      "total" : 4
     }
   }, {
     "uid" : "0ea2521763f67d3ef0136a8a0e172427",
@@ -32,6 +32,17 @@
       "passed" : 2,
       "unknown" : 0,
       "total" : 2
+    }
+  }, {
+    "uid" : "05db4da238d21f7a8ca08716f3c65fad",
+    "name" : "Parameterized",
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 1,
+      "unknown" : 0,
+      "total" : 1
     }
   }, {
     "uid" : "edcc8f79425c3ceb04e1a57acd5799c7",
@@ -47,17 +58,6 @@
   }, {
     "uid" : "b7ce5fc2bbf1afdc784fd817341171a0",
     "name" : "Introduction",
-    "statistic" : {
-      "failed" : 0,
-      "broken" : 0,
-      "skipped" : 0,
-      "passed" : 1,
-      "unknown" : 0,
-      "total" : 1
-    }
-  }, {
-    "uid" : "05db4da238d21f7a8ca08716f3c65fad",
-    "name" : "Parameterized",
     "statistic" : {
       "failed" : 0,
       "broken" : 0,
