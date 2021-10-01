@@ -21,7 +21,7 @@ class ResponseAsserts: KoinComponent {
     val mockServer by inject<MockServer>()
 
     @Description("""
-        Integer asserts provides basic equality and comparision checks 
+        Integer asserts provide basic equality and comparision checks 
     """)
     @Test
     suspend fun `integer asserts`() {

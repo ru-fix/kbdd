@@ -7,12 +7,12 @@ object Vers {
     const val allure_cli = "2.13.1"
 
     //Dependencies
-    const val kotlin = "1.3.71"
-    const val gradle_kotlin = "1.3.70"
-    const val kotlin_coroutines = "1.3.5"
+    const val kotlin = "1.5.31"
+    const val gradle_kotlin = "1.4.20"
+    const val kotlin_coroutines = "1.5.2"
 
     const val junit = "5.6.0"
-    const val rest_assured = "4.2.0"
+    const val rest_assured = "4.4.0"
     const val log4j = "2.13.1"
     const val jackson = "2.10.2"
     const val dynamic_property = "1.1.9"

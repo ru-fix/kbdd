@@ -93,26 +93,62 @@ fun Explorable.asMap() = export {
 }
 
 /**
+ * Assert that current value can be represented as a `Map<String, Any?>`
+ * and returns content as a `Map<String, Any?>`
+ * Returns Null if the path is not exist
+ */
+fun Explorable.asMapOrNull() = export {
+    if (node == null) {
+        null
+    } else {
+        requireNotNullMap(path) as Map<String, Any?>
+    }
+}
+
+
+/**
  * Assert that current value can be represented as a `List`
  * and returns content as a `List`
  */
 fun <T : Any?> Explorable.asList(clazz: Class<T>) = export {
     val list = requireNotNullList(path)
-    if(clazz.isPrimitive
-            || List::class.java.isAssignableFrom(clazz)
-            || Map::class.java.isAssignableFrom(clazz)){
+    if (clazz.isPrimitive
+        || List::class.java.isAssignableFrom(clazz)
+        || Map::class.java.isAssignableFrom(clazz)
+    ) {
         list as List<T>
     } else {
-        list.map{
+        list.map {
             objectMapper.convertValue(it, clazz)
         }
     }
 }
 
+/**
+ * Assert that current value can be represented as a `List`
+ * and returns content as a `List`
+ * Returns NUll if the path is missing.
+ */
+fun <T : Any?> Explorable.asListOrNull(clazz: Class<T>) = export {
+    if (node == null) {
+        null
+    } else {
+        asList(clazz)
+    }
+}
+
 inline fun <reified T : Any?> Explorable.asList() = asList(T::class.java)
+inline fun <reified T : Any?> Explorable.asListOrNull() = asListOrNull(T::class.java)
 
 fun Explorable.asListOfMaps() = export {
     requireNotNullList(path) as List<Map<String, Any?>>
+}
+
+fun Explorable.asListOfMapsOrNull() = export {
+    if(node == null)
+        null
+    else
+        asListOfMaps()
 }
 
 fun Explorable.asInt() = export {
@@ -120,6 +156,14 @@ fun Explorable.asInt() = export {
     when (val n = node) {
         is String -> n.toInt()
         else -> (n as Number).toInt()
+    }
+}
+
+fun Explorable.asIntOrNull() = export {
+    if (node == null) {
+        null
+    } else {
+        asInt()
     }
 }
 
@@ -131,44 +175,82 @@ fun Explorable.asLong() = export {
     }
 }
 
+fun Explorable.asLongOrNull() = export {
+    if(node == null) null else asLong()
+}
+
+
 fun Explorable.asString() = export {
     requireNotNullNode(path)
     node.toString()
 }
+fun Explorable.asStringOrNull() = export {
+    if(node == null)
+        null
+    else
+        asString()
+}
 
-fun <T> Explorable.asObject(clazz: Class<T>): T = export{
+fun <T> Explorable.asObject(clazz: Class<T>): T = export {
     val map = requireNotNullMap(path)
     this.objectMapper.convertValue(map, clazz)
 }
 
+fun <T> Explorable.asObjectOrNull(clazz: Class<T>): T? = export {
+    if (node == null) {
+        null
+    } else {
+        asObject(clazz)
+    }
+}
+
 inline fun <reified T> Explorable.asObject(): T = asObject(T::class.java)
+inline fun <reified T> Explorable.asObjectOrNull(): T? = asObjectOrNull(T::class.java)
 
 /**
  * @return OffsetDateTime, parsing using ISO_ZONED_DATE_TIME formatter
  **/
 fun Explorable.asOffsetDateTime() = this.asOffsetDateTime(DateTimeFormatter.ISO_ZONED_DATE_TIME)
 
+/**
+ * @return OffsetDateTime, parsing using ISO_ZONED_DATE_TIME formatter
+ **/
+fun Explorable.asOffsetDateTimeOrNull() = this.asOffsetDateTimeOrNull(DateTimeFormatter.ISO_ZONED_DATE_TIME)
+
 fun Explorable.asOffsetDateTime(formatter: DateTimeFormatter) = export {
     requireNotNullNode(path)
     OffsetDateTime.parse(node.toString(), formatter)
 }
 
+fun Explorable.asOffsetDateTimeOrNull(formatter: DateTimeFormatter) = export {
+    if(node == null) null else asOffsetDateTime(formatter)
+}
 /**
  * @return LocalDateTime, parsing using ISO_ZONED_DATE_TIME formatter
  **/
 fun Explorable.asLocalDateTime() = this.asLocalDateTime(DateTimeFormatter.ISO_ZONED_DATE_TIME)
+
+fun Explorable.asLocalDateTimeOrNull() = this.asLocalDateTimeOrNull(DateTimeFormatter.ISO_ZONED_DATE_TIME)
 
 fun Explorable.asLocalDateTime(formatter: DateTimeFormatter) = export {
     requireNotNullNode(path)
     LocalDateTime.parse(node.toString(), formatter)
 }
 
+fun Explorable.asLocalDateTimeOrNull(formatter: DateTimeFormatter) = export {
+    if(node == null) null else asLocalDateTime(formatter)
+}
+
 operator fun Explorable.get(index: Int) = navigate {
     object : Navigation {
         override fun path() = "$path[$index]"
         override fun node(): Any? {
-            val node = requireNotNullList(path())
-            return node[index]
+            if(node == null){
+                return null
+            } else {
+                val node = requireNotNullList(path())
+                return node[index]
+            }
         }
     }
 }
@@ -177,8 +259,12 @@ operator fun Explorable.get(property: String) = navigate {
     object : Navigation {
         override fun path() = "$path[\"$property\"]"
         override fun node(): Any? {
-            val node = requireNotNullMap(path())
-            return node[property]
+            if(node == null) {
+                return null
+            }  else {
+                val node = requireNotNullMap(path())
+                return node[property]
+            }
         }
     }
 }
@@ -213,11 +299,15 @@ fun Explorable.single() = navigate {
     object : Navigation {
         override fun path() = "$path.single()"
         override fun node(): Any? {
-            val node = requireNotNullList(path())
-            require(node.size == 1) {
-                "Failed to evaluatte $path(). Expected single element in the List. Actual: $node"
+            if(node == null){
+                return null
+            } else {
+                val node = requireNotNullList(path())
+                require(node.size == 1) {
+                    "Failed to evaluatte $path(). Expected single element in the List. Actual: $node"
+                }
+                return node[0]
             }
-            return node[0]
         }
     }
 }
@@ -226,11 +316,15 @@ fun Explorable.filter(predicate: (Explorable) -> Expression) = navigate {
     object : Navigation {
         override fun path() = "$path.filter{${printPredicate(predicate)}}"
         override fun node(): Any? {
-            val node = requireNotNullList(path())
-            return if (node.isEmpty()) {
-                node
+            if(node == null){
+                return null
             } else {
-                node.filter { evaluatePredicate(it, predicate) }
+                val node = requireNotNullList(path())
+                return if (node.isEmpty()) {
+                    node
+                } else {
+                    node.filter { evaluatePredicate(it, predicate) }
+                }
             }
         }
     }
@@ -251,6 +345,8 @@ fun Explorable.first(predicate: (Explorable) -> Expression) = navigate {
     object : Navigation {
         override fun path() = "$path.first{${printPredicate(predicate)}}"
         override fun node(): Any? {
+            if(node == null) return null
+
             val node = requireNotNullList(path())
             require(node.isNotEmpty()) {
                 "Failed to access ${path()}. Current List does not contain elements."
@@ -264,6 +360,8 @@ fun Explorable.single(predicate: (Explorable) -> Expression) = navigate {
     object : Navigation {
         override fun path() = "$path.single{${printPredicate(predicate)}}"
         override fun node(): Any? {
+            if(node == null) return null
+
             val node = requireNotNullList(path())
             require(node.isNotEmpty()) {
                 "Failed to access ${path()}. Current List does not contain elements."
