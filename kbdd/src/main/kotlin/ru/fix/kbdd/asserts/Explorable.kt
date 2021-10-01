@@ -179,6 +179,17 @@ fun Explorable.asLongOrNull() = export {
     if(node == null) null else asLong()
 }
 
+fun Explorable.asBoolean() = export {
+    requireNotNullNode(path)
+    when (val n = node) {
+        is String -> n.toBoolean()
+        else -> n as Boolean
+    }
+}
+
+fun Explorable.asBooleanOrNull() = export {
+    if(node == null) null else asBoolean()
+}
 
 fun Explorable.asString() = export {
     requireNotNullNode(path)

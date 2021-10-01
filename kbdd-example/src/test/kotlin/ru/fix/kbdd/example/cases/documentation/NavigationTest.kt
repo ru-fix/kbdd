@@ -400,4 +400,30 @@ class NavigationTest : KoinComponent {
         Assertions.assertNull(bodyJson()["not"].first { it["value"].isGreaterThan(10) }["existent"].asOffsetDateTimeOrNull())
         Assertions.assertNull(bodyJson()["not"].single { it["value"].isGreaterThan(10) }["existent"].asOffsetDateTimeOrNull())
     }
+
+    @Test
+    suspend fun `check if part of json tree is present in response and then assert that part `() {
+        TestFramework.makeCodeSnippet()
+        val url = "/navigation/check-part-of-json-tree"
+
+        mockServer.`Given server for url answers json`(
+            url,
+            """
+                {
+                    "data": {
+                            "isFromShop": true,
+                            "shop": { "id": 100 }
+                    }
+                }
+                """)
+
+        request {
+            baseUri(mockServer.baseUrl())
+            get(url)
+        }
+
+        if(bodyJson()["data"]["isFromShop"].asBoolean() && bodyJson()["data"]["shop"].asMapOrNull() != null){
+            bodyJson()["data"]["shop"]["id"].isEquals(100)
+        }
+    }
 }
