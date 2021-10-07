@@ -8,7 +8,7 @@ object Vers {
 
     //Dependencies
     const val kotlin = "1.5.31"
-    const val gradle_kotlin = "1.4.20"
+    const val gradle_kotlin = "1.5.21"
     const val kotlin_coroutines = "1.5.2"
 
     const val junit = "5.6.0"
