@@ -1,10 +1,10 @@
 object Vers {
     //Plugins
-    const val gradle_release_plugin = "1.3.17"
-    const val dokkav = "0.9.18"
+    const val gradle_release_plugin = "1.4.3"
+    const val dokkav = "1.4.30"
     const val asciidoctor = "1.5.9.2"
-    const val allure_plugin = "2.8.1"
-    const val allure_cli = "2.13.1"
+    const val allure_plugin = "2.9.4"
+    const val allure_cli = "2.15.0"
 
     //Dependencies
     const val kotlin = "1.5.31"

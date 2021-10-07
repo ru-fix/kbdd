@@ -11,7 +11,6 @@ import kotlin.reflect.KProperty
 
 buildscript {
     repositories {
-        jcenter()
         mavenCentral()
         mavenLocal()
     }
@@ -87,13 +86,8 @@ subprojects {
         from("src/main/kotlin")
     }
 
-    val dokkaTask by tasks.creating(DokkaTask::class) {
-        outputFormat = "javadoc"
-        outputDirectory = "$buildDir/dokka"
-
-        //TODO: wait dokka support JDK11 - https://github.com/Kotlin/dokka/issues/428
-        //TODO: wait dokka fix https://github.com/Kotlin/dokka/issues/464
-        enabled = false
+    val dokkaTask = tasks.getByName<DokkaTask>("dokkaJavadoc") {
+        outputDirectory.set(buildDir.resolve("dokka"))
     }
 
     val dokkaJar by tasks.creating(Jar::class) {

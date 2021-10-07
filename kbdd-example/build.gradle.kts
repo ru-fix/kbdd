@@ -6,7 +6,7 @@ plugins {
 }
 
 allure {
-    version = Vers.allure_cli
+    version.set(Vers.allure_cli)
 }
 
 dependencies {
