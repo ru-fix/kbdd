@@ -1,7 +1,7 @@
 package ru.fix.kbdd.json
 
-import io.kotlintest.matchers.string.shouldContain
-import io.kotlintest.shouldBe
+import io.kotest.matchers.shouldBe
+import io.kotest.matchers.string.shouldContain
 import io.qameta.allure.model.Status
 import kotlinx.coroutines.runBlocking
 import mu.KotlinLogging

@@ -32,6 +32,7 @@ dependencies {
     implementation(Libs.log4j_core)
     implementation(Libs.slf4j_over_log4j)
 
+    testApi(Libs.kotlin_test)
     testImplementation(Libs.wiremock)
 
 

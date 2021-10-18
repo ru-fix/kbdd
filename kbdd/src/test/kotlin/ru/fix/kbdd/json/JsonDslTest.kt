@@ -3,7 +3,7 @@ package ru.fix.kbdd.json
 import com.fasterxml.jackson.core.json.JsonWriteFeature
 import com.fasterxml.jackson.databind.JsonNode
 import com.fasterxml.jackson.databind.ObjectMapper
-import io.kotlintest.shouldBe
+import io.kotest.matchers.shouldBe
 import org.junit.jupiter.api.Test
 
 class JsonDslTest {

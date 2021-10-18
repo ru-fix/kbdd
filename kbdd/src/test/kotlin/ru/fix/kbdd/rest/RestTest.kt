@@ -2,7 +2,7 @@ package ru.fix.kbdd.rest
 
 import com.github.tomakehurst.wiremock.WireMockServer
 import com.github.tomakehurst.wiremock.client.WireMock.*
-import io.kotlintest.matchers.string.shouldContain
+import io.kotest.matchers.string.shouldContain
 import mu.KotlinLogging
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.TestInstance

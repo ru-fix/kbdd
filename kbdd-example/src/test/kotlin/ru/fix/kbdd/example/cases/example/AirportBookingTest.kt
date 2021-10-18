@@ -1,6 +1,5 @@
 package ru.fix.kbdd.example.cases.example
 
-import io.kotlintest.shouldBe
 import io.qameta.allure.Description
 import io.qameta.allure.Epic
 import io.qameta.allure.Feature

@@ -1,7 +1,7 @@
 package ru.fix.kbdd.example.cases.documentation
 
 import com.github.tomakehurst.wiremock.client.WireMock
-import io.kotlintest.shouldBe
+import io.kotest.matchers.shouldBe
 import io.qameta.allure.Epic
 import io.qameta.allure.Feature
 import org.junit.jupiter.api.Test

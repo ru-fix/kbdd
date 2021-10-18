@@ -1,7 +1,7 @@
 object Vers {
     //Plugins
     const val gradle_release_plugin = "1.4.3"
-    const val dokkav = "1.4.30"
+    const val dokkav = "1.5.31"
     const val asciidoctor = "1.5.9.2"
     const val allure_plugin = "2.9.4"
     const val allure_cli = "2.15.0"
@@ -17,7 +17,7 @@ object Vers {
     const val jackson = "2.10.2"
     const val dynamic_property = "1.1.9"
     const val jfix_stdlib = "2.0.2"
-    const val corounit = "1.0.30"
+    const val corounit = "1.1.1"
     const val koin = "2.0.1"
 
     const val aspectj = "1.9.5"
@@ -80,7 +80,7 @@ object Libs {
     const val rest_assured = "io.rest-assured:rest-assured:${Vers.rest_assured}"
     const val rest_assured_kotlin = "io.rest-assured:kotlin-extensions:${Vers.rest_assured}"
 
-    const val kotlin_test = "io.kotlintest:kotlintest-assertions:3.4.2"
+    const val kotlin_test = "io.kotest:kotest-assertions-core-jvm:4.6.3"
 
     const val wiremock = "com.github.tomakehurst:wiremock:2.26.1"
     const val jfix_stdlib_socket = "ru.fix:jfix-stdlib-socket:${Vers.jfix_stdlib}"
