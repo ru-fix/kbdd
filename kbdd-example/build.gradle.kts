@@ -2,11 +2,19 @@ plugins {
     java
     kotlin("jvm")
     id("io.qameta.allure") version Vers.allure_plugin
-    id("io.freefair.aspectj.post-compile-weaving") version Vers.freefair_aspectj
 }
 
-allure {
-    version.set(Vers.allure_cli)
+allure{
+    adapter{
+        version.set(Vers.allure_cli)
+        allureJavaVersion.set(Vers.allure_java)
+
+        frameworks{
+            junit5{
+                enabled.set(false)
+            }
+        }
+    }
 }
 
 dependencies {
@@ -42,8 +50,5 @@ dependencies {
     testImplementation(Libs.jfix_corounit_allure)
     testImplementation(Libs.jfix_corounit_engine)
     testImplementation(Libs.koin)
-
-    aspect(Libs.jfix_corounit_allure)
-    testAspect(Libs.jfix_corounit_allure)
 }
 

@@ -5,6 +5,7 @@ object Vers {
     const val asciidoctor = "1.5.9.2"
     const val allure_plugin = "2.9.4"
     const val allure_cli = "2.15.0"
+    const val allure_java = "2.15.0"
 
     //Dependencies
     const val kotlin = "1.5.31"
