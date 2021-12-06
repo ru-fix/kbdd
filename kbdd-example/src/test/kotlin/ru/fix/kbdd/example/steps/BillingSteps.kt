@@ -6,11 +6,10 @@ import ru.fix.corounit.allure.Step
 import ru.fix.kbdd.example.config.Settings
 import ru.fix.kbdd.rest.Rest
 
-class BillingSteps : KoinComponent {
+open class BillingSteps : KoinComponent {
     val settings by inject<Settings>()
 
-    @Step
-    suspend fun `Withdraw money from customers account`(amount: Int) {
+    open suspend fun `Withdraw money from customers account`(amount: Int) {
         Rest.request {
             baseUri(settings.baseUri)
             body {
