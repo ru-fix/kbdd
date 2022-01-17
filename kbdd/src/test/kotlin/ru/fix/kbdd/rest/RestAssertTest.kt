@@ -16,6 +16,7 @@ import ru.fix.kbdd.rest.Rest.request
 import ru.fix.kbdd.rest.Rest.statusCode
 import ru.fix.kbdd.rest.Rest.statusLine
 import ru.fix.stdlib.socket.SocketChecker
+import java.math.BigDecimal
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 class RestAssertTest {
@@ -68,6 +69,9 @@ class RestAssertTest {
 
             val intValue = bodyJson()["data"]["dataValue"].asInt()
             intValue.shouldBe(56)
+
+            val bigDecimalValue = bodyJson()["data"]["fraction"].asBigDecimal()
+            bigDecimalValue.shouldBe(BigDecimal("8079.07941"))
         }
     }
 
