@@ -6,8 +6,10 @@ import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
 import io.restassured.RestAssured.given
 import io.restassured.config.DecoderConfig
 import io.restassured.config.EncoderConfig
+import io.restassured.config.JsonConfig
 import io.restassured.config.RestAssuredConfig
 import io.restassured.http.ContentType
+import io.restassured.path.json.config.JsonPathConfig
 import io.restassured.response.Response
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.asCoroutineDispatcher
@@ -65,7 +67,16 @@ object Rest {
                 .decoderConfig(
                         DecoderConfig.decoderConfig().defaultContentCharset(Charsets.UTF_8)
                                 .defaultCharsetForContentType(Charsets.UTF_8, ContentType.JSON)
-                ).let { c ->
+                )
+                .jsonConfig(
+                        // Default value FLOAT_AND_DOUBLE results in rounded fractional values.
+                        // Conversion happens in ConfigurableJsonSlurper. If value fits into Float it converts it by
+                        // calling BigDecimal.floatValue().
+                        // From floatValue() javadoc: "Note that even when the return
+                        // value is finite, this conversion can lose information about the precision".
+                        JsonConfig.jsonConfig().numberReturnType(JsonPathConfig.NumberReturnType.DOUBLE)
+                )
+                .let { c ->
                     val followRedirects = dsl.followRedirects
                             ?: return@let c
 

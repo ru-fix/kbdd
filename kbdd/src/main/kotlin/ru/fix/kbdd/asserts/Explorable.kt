@@ -3,6 +3,7 @@ package ru.fix.kbdd.asserts
 import com.fasterxml.jackson.core.type.TypeReference
 import com.fasterxml.jackson.databind.ObjectMapper
 import io.restassured.path.xml.XmlPath
+import java.math.BigDecimal
 import java.time.LocalDateTime
 import java.time.OffsetDateTime
 import java.time.format.DateTimeFormatter
@@ -164,6 +165,22 @@ fun Explorable.asIntOrNull() = export {
         null
     } else {
         asInt()
+    }
+}
+
+fun Explorable.asBigDecimal() = export {
+    requireNotNullNode(path)
+    when (val n = node) {
+        is String -> n.toBigDecimal()
+        else -> BigDecimal((n as Number).toString())
+    }
+}
+
+fun Explorable.asBigDecimalOrNull() = export {
+    if (node == null) {
+        null
+    } else {
+        asBigDecimal()
     }
 }
 

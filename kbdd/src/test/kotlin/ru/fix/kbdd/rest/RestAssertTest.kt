@@ -16,6 +16,7 @@ import ru.fix.kbdd.rest.Rest.request
 import ru.fix.kbdd.rest.Rest.statusCode
 import ru.fix.kbdd.rest.Rest.statusLine
 import ru.fix.stdlib.socket.SocketChecker
+import java.math.BigDecimal
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 class RestAssertTest {
@@ -41,7 +42,8 @@ class RestAssertTest {
                                         "value": 2
                                     }
                                 ],
-                                "dataValue": 56
+                                "dataValue": 56,
+                                "fraction": 8079.07941
                             }
                         }""")))
     }
@@ -67,6 +69,9 @@ class RestAssertTest {
 
             val intValue = bodyJson()["data"]["dataValue"].asInt()
             intValue.shouldBe(56)
+
+            val bigDecimalValue = bodyJson()["data"]["fraction"].asBigDecimal()
+            bigDecimalValue.shouldBe(BigDecimal("8079.07941"))
         }
     }
 
@@ -138,6 +143,21 @@ class RestAssertTest {
         children[i++].step.name.shouldBe("""bodyJson()["data"]["entries"]""" +
                 """.filter{(it["name"] == "two") and (it["value"] == 2)}""" +
                 """.single()["value"] == 2""")
+    }
+
+    @Test
+    fun `asserts work on fractional numbers`() {
+        val step = AllureStep()
+        runBlocking(step) {
+
+            request {
+                baseUri(server.baseUrl())
+                body { }
+                post("/json-request")
+            }
+
+            bodyJson()["data"]["fraction"].isContains("8079.07941")
+        }
     }
 
 }
