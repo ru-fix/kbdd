@@ -146,13 +146,15 @@ object Rest {
                     dsl.get != null -> spec.get(dsl.get)
                     dsl.delete != null -> spec.delete(dsl.delete)
                     dsl.put != null -> spec.put(dsl.put)
+                    dsl.head != null -> spec.head(dsl.head)
+                    dsl.options != null -> spec.options(dsl.options)
+                    dsl.patch != null -> spec.patch(dsl.patch)
                     else -> throw IllegalArgumentException(
-                            "Neither post, get, delete or put method was declared in request")
+                            "No http method was declared in the request")
                 }
             } catch (exc: Exception) {
-                throw RuntimeException("Failed to execute request with" +
-                        " baseUrl: ${dsl.baseUrl}" +
-                        ", path: ${dsl.post ?: dsl.get ?: dsl.delete ?: dsl.put}", exc)
+                val path = with(dsl) { post ?: get ?: put ?: delete ?: head ?: options ?: patch }
+                throw RuntimeException("Failed to execute request with baseUrl: ${dsl.baseUrl}, path: $path", exc)
             }
         }
 
@@ -188,6 +190,9 @@ object Rest {
         internal var get: String? = null
         internal var delete: String? = null
         internal var put: String? = null
+        internal var head: String? = null
+        internal var options: String? = null
+        internal var patch: String? = null
         internal var formParams: MutableMap<String, String>? = null
         internal var queryParams: MutableMap<String, String>? = null
         internal var headers: MutableMap<String, String>? = null
@@ -231,6 +236,18 @@ object Rest {
 
         fun put(path: String) {
             this.put = path
+        }
+
+        fun head(path: String) {
+            this.head = path
+        }
+
+        fun options(path: String) {
+            this.options = path
+        }
+
+        fun patch(path: String) {
+            this.patch = path
         }
 
         private fun addFormParams(formParams: Map<String, String>) {
