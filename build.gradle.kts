@@ -11,8 +11,10 @@ import kotlin.reflect.KProperty
 
 buildscript {
     repositories {
+        jcenter()
         mavenCentral()
         mavenLocal()
+        maven(url = "https://repo.gradle.org/artifactory/jcenter-backup/")
     }
     dependencies {
         classpath(Libs.gradle_release_plugin)
@@ -78,6 +80,7 @@ subprojects {
         jcenter()
         mavenCentral()
         mavenLocal()
+        maven(url = "https://repo.gradle.org/artifactory/jcenter-backup/")
     }
 
     val sourcesJar by tasks.creating(Jar::class) {
