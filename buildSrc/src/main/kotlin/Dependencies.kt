@@ -19,10 +19,7 @@ object Vers {
     const val dynamic_property = "1.1.9"
     const val jfix_stdlib = "2.0.2"
     const val corounit = "1.1.1"
-    const val koin = "2.0.1"
-
-    const val aspectj = "1.9.5"
-    const val freefair_aspectj = "5.0.1"
+    const val koin = "2.2.3"
 }
 
 object Libs {
@@ -46,14 +43,6 @@ object Libs {
     const val groovy = "org.codehaus.groovy:groovy:3.0.1"
     const val groovy_xml = "org.codehaus.groovy:groovy-xml:3.0.1"
 
-    const val dynamic_property_api = "ru.fix:dynamic-property-api:${Vers.dynamic_property}"
-
-    const val dynamic_property_std_source = "ru.fix:dynamic-property-std-source:${Vers.dynamic_property}"
-    const val dynamic_property_jackson = "ru.fix:dynamic-property-jackson:${Vers.dynamic_property}"
-    const val dynamic_property_spring = "ru.fix:dynamic-property-spring:${Vers.dynamic_property}"
-    const val jfix_stdlib_files = "ru.fix:jfix-stdlib-files:${Vers.jfix_stdlib}"
-
-    const val jfix_stdlib_concurrency = "ru.fix:jfix-stdlib-concurrency:${Vers.jfix_stdlib}"
     const val jfix_corounit_engine = "ru.fix:corounit-engine:${Vers.corounit}"
     const val jfix_corounit_allure = "ru.fix:corounit-allure:${Vers.corounit}"
 
@@ -86,7 +75,7 @@ object Libs {
     const val wiremock = "com.github.tomakehurst:wiremock:2.26.1"
     const val jfix_stdlib_socket = "ru.fix:jfix-stdlib-socket:${Vers.jfix_stdlib}"
 
-    const val koin = "org.koin:koin-core:${Vers.koin}"
+    const val koin = "io.insert-koin:koin-core:${Vers.koin}"
 }
 
 enum class Projs {
