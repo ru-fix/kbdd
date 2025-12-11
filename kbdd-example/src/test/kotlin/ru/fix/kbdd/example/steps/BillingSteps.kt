@@ -1,7 +1,7 @@
 package ru.fix.kbdd.example.steps
 
-import org.koin.core.KoinComponent
-import org.koin.core.inject
+import org.koin.core.component.KoinComponent
+import org.koin.core.component.inject
 import ru.fix.corounit.allure.Step
 import ru.fix.kbdd.example.config.Settings
 import ru.fix.kbdd.rest.Rest

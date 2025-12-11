@@ -3,8 +3,8 @@ package ru.fix.kbdd.example.cases.documentation
 import io.qameta.allure.Epic
 import io.qameta.allure.Feature
 import org.junit.jupiter.api.Test
-import org.koin.core.KoinComponent
-import org.koin.core.inject
+import org.koin.core.component.KoinComponent
+import org.koin.core.component.inject
 import ru.fix.corounit.allure.Package
 import ru.fix.corounit.allure.invoke
 import ru.fix.kbdd.asserts.*
