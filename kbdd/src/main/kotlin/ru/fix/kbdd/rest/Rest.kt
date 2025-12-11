@@ -13,7 +13,7 @@ import io.restassured.path.json.config.JsonPathConfig
 import io.restassured.response.Response
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.asCoroutineDispatcher
-import kotlinx.coroutines.withContext
+import kotlinx.coroutines.runInterruptible
 import mu.KotlinLogging
 import ru.fix.corounit.allure.AllureStep
 import ru.fix.kbdd.asserts.AlluredKPath
@@ -31,22 +31,23 @@ private val log = KotlinLogging.logger { }
 object Rest {
     private val defaultMapper = jacksonObjectMapper()
     private val doNotSendNullsMapper = defaultMapper.copy()
-            .setSerializationInclusion(JsonInclude.Include.NON_NULL)
+        .setSerializationInclusion(JsonInclude.Include.NON_NULL)
 
     private fun selectMapper(sendNulls: Boolean = true) =
-            if (sendNulls) {
-                defaultMapper
-            } else {
-                doNotSendNullsMapper
-            }
+        if (sendNulls) {
+            defaultMapper
+        } else {
+            doNotSendNullsMapper
+        }
 
 
     private val lastResponse = ThreadLocal<Response>()
 
     var threadPoolSize = 10
+    var restAssuredConfigCustomizer: RestAssuredConfig.() -> RestAssuredConfig = { this }
 
     private val dispatcher by lazy {
-        Executors.newFixedThreadPool(10).asCoroutineDispatcher() +
+        Executors.newFixedThreadPool(threadPoolSize).asCoroutineDispatcher() +
                 CoroutineExceptionHandler { _, thr -> log.error(thr) {} }
     }
 
@@ -60,86 +61,88 @@ object Rest {
         val dsl = RequestDsl().apply(request)
 
         val config = RestAssuredConfig.config()
-                .encoderConfig(
-                        EncoderConfig.encoderConfig().defaultContentCharset(Charsets.UTF_8)
-                                .defaultCharsetForContentType(Charsets.UTF_8, ContentType.JSON)
-                )
-                .decoderConfig(
-                        DecoderConfig.decoderConfig().defaultContentCharset(Charsets.UTF_8)
-                                .defaultCharsetForContentType(Charsets.UTF_8, ContentType.JSON)
-                )
-                .jsonConfig(
-                        // Default value FLOAT_AND_DOUBLE results in rounded fractional values.
-                        // Conversion happens in ConfigurableJsonSlurper. If value fits into Float it converts it by
-                        // calling BigDecimal.floatValue().
-                        // From floatValue() javadoc: "Note that even when the return
-                        // value is finite, this conversion can lose information about the precision".
-                        JsonConfig.jsonConfig().numberReturnType(JsonPathConfig.NumberReturnType.DOUBLE)
-                )
-                .let { c ->
-                    val followRedirects = dsl.followRedirects
-                            ?: return@let c
+            .encoderConfig(
+                EncoderConfig.encoderConfig()
+                    .defaultContentCharset(Charsets.UTF_8)
+                    .defaultCharsetForContentType(Charsets.UTF_8, ContentType.JSON)
+            )
+            .decoderConfig(
+                DecoderConfig.decoderConfig()
+                    .defaultContentCharset(Charsets.UTF_8)
+                    .defaultCharsetForContentType(Charsets.UTF_8, ContentType.JSON)
+            )
+            .jsonConfig(
+                // Default value FLOAT_AND_DOUBLE results in rounded fractional values.
+                // Conversion happens in ConfigurableJsonSlurper. If value fits into Float it converts it by
+                // calling BigDecimal.floatValue().
+                // From floatValue() javadoc: "Note that even when the return
+                // value is finite, this conversion can lose information about the precision".
+                JsonConfig.jsonConfig().numberReturnType(JsonPathConfig.NumberReturnType.DOUBLE)
+            )
+            .let { config ->
+                val followRedirects = dsl.followRedirects
+                    ?: return@let config
 
-                    c.redirect(c.redirectConfig.followRedirects(followRedirects))
-                }
+                config.redirect(config.redirectConfig.followRedirects(followRedirects))
+            }.restAssuredConfigCustomizer()
 
         val allureStep = AllureStep.fromCurrentCoroutineContext()
 
         val spec = given()
-                .filter(HttpAllureAttachmentFilter(allureStep))
-                .run {
-                    when {
-                        dsl.formParams != null -> contentType(ContentType.URLENC)
-                        dsl.bodyJsonDsl != null -> contentType(ContentType.JSON)
-                        dsl.bodyString != null -> contentType(ContentType.JSON)
-                        dsl.bodyXml != null -> contentType(ContentType.XML)
-                        else -> this
-                    }
+            .filter(HttpAllureAttachmentFilter(allureStep))
+            .run {
+                when {
+                    dsl.formParams != null -> contentType(ContentType.URLENC)
+                    dsl.bodyJsonDsl != null -> contentType(ContentType.JSON)
+                    dsl.bodyString != null -> contentType(ContentType.JSON)
+                    dsl.bodyXml != null -> contentType(ContentType.XML)
+                    else -> this
                 }
-                .config(config)
-                .run {
-                    dsl.headers?.let { headers(it) } ?: this
-                }
-                .run {
-                    dsl.baseUrl?.let { baseUri(it) } ?: this
-                }
-                .run {
-                    when {
-                        dsl.bodyJsonDsl != null -> {
-                            val selectedMapper = selectMapper(dsl.bodyJsonSendNulls)
-                            val objectNode = selectedMapper.json(dsl.bodyJsonDsl!!)
-                            if (!dsl.bodyJsonSendNulls) {
-                                removeNullFiledsInObjectNodes(listOf(objectNode))
-                            }
-                            val content = selectedMapper.writeValueAsString(objectNode)
-                            body(content)
+            }
+            .config(config)
+            .run {
+                dsl.headers?.let { headers(it) } ?: this
+            }
+            .run {
+                dsl.baseUrl?.let { baseUri(it) } ?: this
+            }
+            .run {
+                when {
+                    dsl.bodyJsonDsl != null -> {
+                        val selectedMapper = selectMapper(dsl.bodyJsonSendNulls)
+                        val objectNode = selectedMapper.json(dsl.bodyJsonDsl!!)
+                        if (!dsl.bodyJsonSendNulls) {
+                            removeNullFiledsInObjectNodes(listOf(objectNode))
                         }
-
-                        dsl.bodyString != null ->
-                            body(dsl.bodyString!!)
-
-                        dsl.bodyXml != null ->
-                            body(dsl.bodyXml!!)
-
-                        else -> this
+                        val content = selectedMapper.writeValueAsString(objectNode)
+                        body(content)
                     }
+
+                    dsl.bodyString != null ->
+                        body(dsl.bodyString!!)
+
+                    dsl.bodyXml != null ->
+                        body(dsl.bodyXml!!)
+
+                    else -> this
                 }
-                .run {
-                    dsl.formParams?.let { formParams(it) } ?: this
-                }
-                .run {
-                    dsl.queryParams?.let { queryParams(it) } ?: this
-                }
-                .run {
-                    dsl.filename?.let { name ->
-                        dsl.fileContent?.let { content ->
-                            multiPart("file", name, content)
-                        }
-                    } ?: this
-                }
+            }
+            .run {
+                dsl.formParams?.let { formParams(it) } ?: this
+            }
+            .run {
+                dsl.queryParams?.let { queryParams(it) } ?: this
+            }
+            .run {
+                dsl.filename?.let { name ->
+                    dsl.fileContent?.let { content ->
+                        multiPart("file", name, content)
+                    }
+                } ?: this
+            }
 
 
-        val response = withContext(dispatcher) {
+        val response = runInterruptible(dispatcher) {
             try {
                 when {
                     dsl.post != null -> spec.post(dsl.post)
@@ -147,12 +150,15 @@ object Rest {
                     dsl.delete != null -> spec.delete(dsl.delete)
                     dsl.put != null -> spec.put(dsl.put)
                     else -> throw IllegalArgumentException(
-                            "Neither post, get, delete or put method was declared in request")
+                        "Neither post, get, delete or put method was declared in request"
+                    )
                 }
             } catch (exc: Exception) {
-                throw RuntimeException("Failed to execute request with" +
-                        " baseUrl: ${dsl.baseUrl}" +
-                        ", path: ${dsl.post ?: dsl.get ?: dsl.delete ?: dsl.put}", exc)
+                throw RuntimeException(
+                    "Failed to execute request with" +
+                            " baseUrl: ${dsl.baseUrl}" +
+                            ", path: ${dsl.post ?: dsl.get ?: dsl.delete ?: dsl.put}", exc
+                )
             }
         }
 
@@ -284,7 +290,7 @@ object Rest {
      */
     fun json(json: Json.() -> Unit): ObjectNode = defaultMapper.json(json)
 
-    private suspend fun rawResponse() = lastResponse.get() ?: throw IllegalStateException("Previous response not found")
+    private fun rawResponse() = lastResponse.get() ?: throw IllegalStateException("Previous response not found")
 
     /**
      * provide access to response status code
@@ -292,10 +298,10 @@ object Rest {
     suspend fun statusCode(): Checkable {
         val response = rawResponse()
         return AlluredKPath(
-                parentStep = AllureStep.fromCurrentCoroutineContext(),
-                node = response.statusCode,
-                mode = KPath.Mode.IMMEDIATE_ASSERT,
-                path = "statusCode()"
+            parentStep = AllureStep.fromCurrentCoroutineContext(),
+            node = response.statusCode,
+            mode = KPath.Mode.IMMEDIATE_ASSERT,
+            path = "statusCode()"
         )
     }
 
@@ -305,10 +311,10 @@ object Rest {
     suspend fun statusLine(): Checkable {
         val response = rawResponse()
         return AlluredKPath(
-                parentStep = AllureStep.fromCurrentCoroutineContext(),
-                node = response.statusLine,
-                mode = KPath.Mode.IMMEDIATE_ASSERT,
-                path = "statusLine()"
+            parentStep = AllureStep.fromCurrentCoroutineContext(),
+            node = response.statusLine,
+            mode = KPath.Mode.IMMEDIATE_ASSERT,
+            path = "statusLine()"
         )
     }
 
@@ -318,10 +324,10 @@ object Rest {
     suspend fun bodyString(): Checkable {
         val response = rawResponse()
         return AlluredKPath(
-                parentStep = AllureStep.fromCurrentCoroutineContext(),
-                node = response.body().asString(),
-                mode = KPath.Mode.IMMEDIATE_ASSERT,
-                path = "bodyString()"
+            parentStep = AllureStep.fromCurrentCoroutineContext(),
+            node = response.body().asString(),
+            mode = KPath.Mode.IMMEDIATE_ASSERT,
+            path = "bodyString()"
         )
     }
 
@@ -331,46 +337,46 @@ object Rest {
     suspend fun bodyJson(): Explorable {
         val response = rawResponse()
         return AlluredKPath(
-                parentStep = AllureStep.fromCurrentCoroutineContext(),
-                node = response.jsonPath().get<Any?>()!!,
-                mode = KPath.Mode.IMMEDIATE_ASSERT,
-                path = "bodyJson()"
+            parentStep = AllureStep.fromCurrentCoroutineContext(),
+            node = response.jsonPath().get<Any?>()!!,
+            mode = KPath.Mode.IMMEDIATE_ASSERT,
+            path = "bodyJson()"
         )
     }
 
     suspend fun bodyXml(): Explorable {
         val response = rawResponse()
         return AlluredKPath(
-                parentStep = AllureStep.fromCurrentCoroutineContext(),
-                node = response.xmlPath(),
-                mode = KPath.Mode.IMMEDIATE_ASSERT,
-                path = "bodyXml()"
+            parentStep = AllureStep.fromCurrentCoroutineContext(),
+            node = response.xmlPath(),
+            mode = KPath.Mode.IMMEDIATE_ASSERT,
+            path = "bodyXml()"
         )
     }
 
     suspend fun cookie(): Explorable {
         val response = rawResponse()
         return AlluredKPath(
-                parentStep = AllureStep.fromCurrentCoroutineContext(),
-                node = response.cookies,
-                mode = KPath.Mode.IMMEDIATE_ASSERT,
-                path = "cookie()"
+            parentStep = AllureStep.fromCurrentCoroutineContext(),
+            node = response.cookies,
+            mode = KPath.Mode.IMMEDIATE_ASSERT,
+            path = "cookie()"
         )
     }
 
     suspend fun headers(): Explorable {
         val response = rawResponse()
         return AlluredKPath(
-                parentStep = AllureStep.fromCurrentCoroutineContext(),
-                node = response.headers.groupBy {
-                    it.name
-                }.mapValues {
-                    it.value.joinToString { header ->
-                        header.value
-                    }
-                },
-                mode = KPath.Mode.IMMEDIATE_ASSERT,
-                path = "headers()"
+            parentStep = AllureStep.fromCurrentCoroutineContext(),
+            node = response.headers.groupBy {
+                it.name
+            }.mapValues {
+                it.value.joinToString { header ->
+                    header.value
+                }
+            },
+            mode = KPath.Mode.IMMEDIATE_ASSERT,
+            path = "headers()"
         )
     }
 
