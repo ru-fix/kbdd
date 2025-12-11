@@ -25,6 +25,7 @@ import ru.fix.kbdd.json.json
 import ru.fix.kbdd.map.MapDsl
 import java.io.InputStream
 import java.util.concurrent.Executors
+import kotlin.coroutines.CoroutineContext
 
 private val log = KotlinLogging.logger { }
 
@@ -43,12 +44,27 @@ object Rest {
 
     private val lastResponse = ThreadLocal<Response>()
 
-    var threadPoolSize = 10
     var restAssuredConfigCustomizer: RestAssuredConfig.() -> RestAssuredConfig = { this }
 
-    private val dispatcher by lazy {
-        Executors.newFixedThreadPool(threadPoolSize).asCoroutineDispatcher() +
+    var defaultBlockingThreadPoolSize = 10
+    @Deprecated("Old alias for backward compatibility", ReplaceWith("defaultBlockingThreadPoolSize"))
+    var threadPoolSize: Int
+        get() = defaultBlockingThreadPoolSize
+        set(value) {
+            defaultBlockingThreadPoolSize = value
+        }
+
+    /**
+     * Being able to completely override dispatcher for blocking http calls.
+     * By default, it creates fixed thread pool with [defaultBlockingThreadPoolSize] threads.
+     */
+    var httpBlockingCallsDispatcherProvider: () -> CoroutineContext = {
+        Executors.newFixedThreadPool(defaultBlockingThreadPoolSize).asCoroutineDispatcher() +
                 CoroutineExceptionHandler { _, thr -> log.error(thr) {} }
+    }
+
+    private val dispatcher: CoroutineContext by lazy {
+        httpBlockingCallsDispatcherProvider()
     }
 
 
