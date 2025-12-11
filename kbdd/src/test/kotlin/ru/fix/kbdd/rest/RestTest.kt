@@ -2,8 +2,15 @@ package ru.fix.kbdd.rest
 
 import com.github.tomakehurst.wiremock.WireMockServer
 import com.github.tomakehurst.wiremock.client.WireMock.*
+import io.kotest.assertions.throwables.shouldThrow
+import io.kotest.assertions.throwables.shouldThrowAny
 import io.kotest.matchers.string.shouldContain
+import io.kotest.matchers.throwable.shouldHaveCause
+import io.kotest.matchers.throwable.shouldHaveCauseInstanceOf
+import io.kotest.matchers.throwable.shouldHaveCauseOfType
+import io.restassured.config.HttpClientConfig
 import mu.KotlinLogging
+import org.apache.http.params.CoreConnectionPNames
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.TestInstance
 import org.junit.jupiter.api.fail
@@ -14,6 +21,8 @@ import ru.fix.kbdd.rest.Rest.request
 import ru.fix.kbdd.rest.Rest.statusCode
 import ru.fix.kbdd.rest.Rest.statusLine
 import ru.fix.stdlib.socket.SocketChecker
+import java.net.SocketTimeoutException
+import java.time.Duration
 
 private val log = KotlinLogging.logger { }
 
@@ -21,18 +30,26 @@ private val log = KotlinLogging.logger { }
 class RestTest {
     private lateinit var server: WireMockServer
 
+    companion object {
+        val HUGE_DELAY_REST_DELAY: Duration = Duration.ofMinutes(1)
+    }
+
     suspend fun beforeAll() {
         server = WireMockServer(SocketChecker.getAvailableRandomPort())
         server.start()
 
         for (path in listOf(
-                "/json-post-request",
-                "/json-post-from-string-request")) {
+            "/json-post-request",
+            "/json-post-from-string-request"
+        )) {
 
-            server.stubFor(post(urlPathEqualTo(path))
-                    .willReturn(aResponse()
+            server.stubFor(
+                post(urlPathEqualTo(path))
+                    .willReturn(
+                        aResponse()
                             .withHeader("Content-Type", "application/json")
-                            .withBody("""{
+                            .withBody(
+                                """{
                             "data":{
                                 "entries":[
                                     {
@@ -45,29 +62,52 @@ class RestTest {
                                     }],
                                 "result":56
                                 }
-                            }""")))
+                            }"""
+                            )
+                    )
+            )
         }
 
         for (path in listOf(
-                "/post-form-data-request",
-                "/json-post-without-nulls",
-                "/json-post-with-nulls",
-                "/json-post-dto-as-part-of-json-dsl",
-                "/json-post-dto-object-in-body",
-                "/json-post-dto-with-nulls",
-                "/json-post-dsl-dto-with-nulls",
-                "/json-post-dsl-dto-without-nulls",
-                "/json-post-dto-without-nulls")) {
+            "/post-form-data-request",
+            "/json-post-without-nulls",
+            "/json-post-with-nulls",
+            "/json-post-dto-as-part-of-json-dsl",
+            "/json-post-dto-object-in-body",
+            "/json-post-dto-with-nulls",
+            "/json-post-dsl-dto-with-nulls",
+            "/json-post-dsl-dto-without-nulls",
+            "/json-post-dto-without-nulls"
+        )) {
 
-            server.stubFor(post(urlPathEqualTo(path))
-                    .willReturn(aResponse()
+            server.stubFor(
+                post(urlPathEqualTo(path))
+                    .willReturn(
+                        aResponse()
                             .withHeader("Content-Type", "application/json")
-                            .withBody("""{
+                            .withBody(
+                                """{
                                 "status":"success"
-                            }""")))
+                            }"""
+                            )
+                    )
+            )
 
 
         }
+
+        server.stubFor(
+            get(urlPathEqualTo("/get-with-huge-delay"))
+                .willReturn(
+                    aResponse()
+                        .withFixedDelay(HUGE_DELAY_REST_DELAY.toMillis().toInt())
+                        .withBody(
+                            """{
+                                "status":"success"
+                            }"""
+                        )
+                )
+        )
     }
 
     suspend fun afterAll() {
@@ -89,14 +129,14 @@ class RestTest {
             body {
                 "data" {
                     "entries" % array(
-                            {
-                                "name" % "one"
-                                "value" % 1
-                            },
-                            {
-                                "name" % "two"
-                                "value" % 2
-                            }
+                        {
+                            "name" % "one"
+                            "value" % 1
+                        },
+                        {
+                            "name" % "two"
+                            "value" % 2
+                        }
                     )
 
                 }
@@ -113,19 +153,19 @@ class RestTest {
         }.single()["value"].isEquals(2)
 
         server.verify(
-                postRequestedFor(urlPathEqualTo("/json-post-request"))
-                        .withQueryParam("queryParam10", equalTo("10"))
-                        .withQueryParam("queryParam11", equalTo("11"))
-                        .withHeader("my-header1", equalTo("header-value1"))
-                        .withHeader("my-header2", equalTo("header-value2"))
+            postRequestedFor(urlPathEqualTo("/json-post-request"))
+                .withQueryParam("queryParam10", equalTo("10"))
+                .withQueryParam("queryParam11", equalTo("11"))
+                .withHeader("my-header1", equalTo("header-value1"))
+                .withHeader("my-header2", equalTo("header-value2"))
         )
 
 
         try {
 
             bodyJson()["data"]["entries"]
-                    .first { it["value"].isEquals(2) }["name"]
-                    .isEquals("one")
+                .first { it["value"].isEquals(2) }["name"]
+                .isEquals("one")
             fail("there should be an assertion error, but was none")
         } catch (err: AssertionError) {
             err.message.shouldContain("first")
@@ -158,13 +198,13 @@ class RestTest {
         statusLine().isContains("OK")
 
         server.verify(
-                postRequestedFor(urlPathEqualTo("/json-post-from-string-request"))
-                        .withQueryParam("queryParam10", equalTo("10"))
-                        .withQueryParam("queryParam11", equalTo("11"))
-                        .withHeader("my-header1", equalTo("header-value1"))
-                        .withHeader("my-header2", equalTo("header-value2"))
-                        .withHeader("Content-Type", containing("application/json"))
-                        .withRequestBody(equalToJson(json))
+            postRequestedFor(urlPathEqualTo("/json-post-from-string-request"))
+                .withQueryParam("queryParam10", equalTo("10"))
+                .withQueryParam("queryParam11", equalTo("11"))
+                .withHeader("my-header1", equalTo("header-value1"))
+                .withHeader("my-header2", equalTo("header-value2"))
+                .withHeader("Content-Type", containing("application/json"))
+                .withRequestBody(equalToJson(json))
         )
     }
 
@@ -182,10 +222,10 @@ class RestTest {
         bodyJson()["status"].isEquals("success")
 
         server.verify(
-                postRequestedFor(urlPathEqualTo("/post-form-data-request"))
-                        .withRequestBody(containing("formParam10=10"))
-                        .withRequestBody(containing("formParam11=11"))
-                        .withHeader("my-header", equalTo("header-value"))
+            postRequestedFor(urlPathEqualTo("/post-form-data-request"))
+                .withRequestBody(containing("formParam10=10"))
+                .withRequestBody(containing("formParam11=11"))
+                .withHeader("my-header", equalTo("header-value"))
         )
     }
 
@@ -208,8 +248,8 @@ class RestTest {
             }
             """
         server.verify(
-                postRequestedFor(urlPathEqualTo("/json-post-dto-object-in-body"))
-                        .withRequestBody(equalToJson(json))
+            postRequestedFor(urlPathEqualTo("/json-post-dto-object-in-body"))
+                .withRequestBody(equalToJson(json))
         )
     }
 
@@ -236,8 +276,8 @@ class RestTest {
             }
             """
         server.verify(
-                postRequestedFor(urlPathEqualTo("/json-post-dto-as-part-of-json-dsl"))
-                        .withRequestBody(equalToJson(json))
+            postRequestedFor(urlPathEqualTo("/json-post-dto-as-part-of-json-dsl"))
+                .withRequestBody(equalToJson(json))
         )
     }
 
@@ -255,13 +295,17 @@ class RestTest {
         }
         statusCode().isEquals(200)
         server.verify(
-                postRequestedFor(urlPathEqualTo("/json-post-with-nulls"))
-                        .withRequestBody(equalToJson("""
+            postRequestedFor(urlPathEqualTo("/json-post-with-nulls"))
+                .withRequestBody(
+                    equalToJson(
+                        """
                             {
                                 "one": 1,
                                 "two": null
                             }
-                            """))
+                            """
+                    )
+                )
         )
     }
 
@@ -279,12 +323,16 @@ class RestTest {
         }
         statusCode().isEquals(200)
         server.verify(
-                postRequestedFor(urlPathEqualTo("/json-post-without-nulls"))
-                        .withRequestBody(equalToJson("""
+            postRequestedFor(urlPathEqualTo("/json-post-without-nulls"))
+                .withRequestBody(
+                    equalToJson(
+                        """
                             {
                                 "one": 1
                             }
-                            """))
+                            """
+                    )
+                )
         )
     }
 
@@ -302,14 +350,18 @@ class RestTest {
         }
         statusCode().isEquals(200)
         server.verify(
-                postRequestedFor(urlPathEqualTo("/json-post-dto-without-nulls"))
-                        .withRequestBody(equalToJson("""
+            postRequestedFor(urlPathEqualTo("/json-post-dto-without-nulls"))
+                .withRequestBody(
+                    equalToJson(
+                        """
                             {
                                 "myObject": {
                                     "foo": "foo"
                                 }
                             }
-                            """))
+                            """
+                    )
+                )
         )
     }
 
@@ -325,13 +377,17 @@ class RestTest {
         }
         statusCode().isEquals(200)
         server.verify(
-                postRequestedFor(urlPathEqualTo("/json-post-dto-with-nulls"))
-                        .withRequestBody(equalToJson("""
+            postRequestedFor(urlPathEqualTo("/json-post-dto-with-nulls"))
+                .withRequestBody(
+                    equalToJson(
+                        """
                             {
                                 "foo": "foo",
                                 "bar": null
                             }
-                            """))
+                            """
+                    )
+                )
         )
     }
 
@@ -351,8 +407,10 @@ class RestTest {
         }
         statusCode().isEquals(200)
         server.verify(
-                postRequestedFor(urlPathEqualTo("/json-post-dsl-dto-with-nulls"))
-                        .withRequestBody(equalToJson("""
+            postRequestedFor(urlPathEqualTo("/json-post-dsl-dto-with-nulls"))
+                .withRequestBody(
+                    equalToJson(
+                        """
                             {
                                 "one": 1,
                                 "two": null,
@@ -361,7 +419,9 @@ class RestTest {
                                     "bar": null
                                 }
                             }
-                            """))
+                            """
+                    )
+                )
         )
     }
 
@@ -381,17 +441,23 @@ class RestTest {
         }
         statusCode().isEquals(200)
         server.verify(
-                postRequestedFor(urlPathEqualTo("/json-post-dsl-dto-without-nulls"))
-                        .withRequestBody(equalToJson("""
+            postRequestedFor(urlPathEqualTo("/json-post-dsl-dto-without-nulls"))
+                .withRequestBody(
+                    equalToJson(
+                        """
                             {
                                 "one": 1,
                                 "myObject": {
                                     "foo": "foo"
                                 }
                             }
-                            """))
+                            """
+                    )
+                )
         )
     }
+
+
 
     @Test
     suspend fun `post multipart data`() {
@@ -406,18 +472,42 @@ class RestTest {
         bodyJson()["status"].isEquals("success")
 
         server.verify(
-                postRequestedFor(urlPathEqualTo("/post-form-data-request"))
-                        .withHeader("my-header", equalTo("header-value"))
-                        .withHeader("Content-Type", containing("multipart/form-data"))
-                        .withRequestBodyPart(
-                                aMultipart()
-                                        .withHeader("Content-Disposition", containing("form-data"))
-                                        .withHeader("Content-Disposition", containing("name=\"file\""))
-                                        .withHeader("Content-Disposition", containing("filename=\"multipart-data-file.json\""))
-                                        .withHeader("Content-Type", equalTo("application/octet-stream"))
-                                        .withBody(equalTo("{\n  \"parameter\": \"value\"\n}"))
-                                        .build()
-                        )
+            postRequestedFor(urlPathEqualTo("/post-form-data-request"))
+                .withHeader("my-header", equalTo("header-value"))
+                .withHeader("Content-Type", containing("multipart/form-data"))
+                .withRequestBodyPart(
+                    aMultipart()
+                        .withHeader("Content-Disposition", containing("form-data"))
+                        .withHeader("Content-Disposition", containing("name=\"file\""))
+                        .withHeader("Content-Disposition", containing("filename=\"multipart-data-file.json\""))
+                        .withHeader("Content-Type", equalTo("application/octet-stream"))
+                        .withBody(equalTo("{\n  \"parameter\": \"value\"\n}"))
+                        .build()
+                )
         )
+    }
+
+    @Test
+    suspend fun `rest client timeout works`() {
+        val restClientTimeout: Int = Duration.ofSeconds(2).toMillis().toInt()
+        Rest.restAssuredConfigCustomizer = {
+            httpClient(
+                HttpClientConfig
+                    .httpClientConfig()
+                    .setParam(CoreConnectionPNames.SO_TIMEOUT, restClientTimeout)
+                    .setParam(CoreConnectionPNames.CONNECTION_TIMEOUT, restClientTimeout)
+            )
+        }
+
+        val thrownError = shouldThrowAny {
+            request {
+                baseUri(server.baseUrl())
+                get("/get-with-huge-delay")
+            }
+        }
+        log.info("Test thrown error: ", thrownError)
+        thrownError.shouldHaveCause {
+            it.shouldHaveCauseInstanceOf<SocketTimeoutException>()
+        }
     }
 }
