@@ -1,4 +1,4 @@
-import de.marcphilipp.gradle.nexus.NexusPublishExtension
+import io.github.gradlenexus.publishplugin.NexusPublishExtension
 import org.asciidoctor.gradle.AsciidoctorTask
 import org.gradle.api.tasks.testing.logging.TestExceptionFormat
 import org.gradle.api.tasks.testing.logging.TestLogEvent
@@ -11,7 +11,6 @@ import kotlin.reflect.KProperty
 
 buildscript {
     repositories {
-        jcenter()
         mavenCentral()
         mavenLocal()
         maven(url = "https://repo.gradle.org/artifactory/jcenter-backup/")
@@ -29,8 +28,10 @@ plugins {
     kotlin("jvm") version Vers.kotlin apply false
     signing
     `maven-publish`
-    id(Libs.nexus_publish_plugin) version "0.4.0" apply false
-    id(Libs.nexus_staging_plugin) version "0.21.2"
+
+//  How to use plugin:
+//  https://github.com/gradle-nexus/publish-plugin
+    id(Libs.nexus_publish_plugin) version "2.0.0"
     id("org.asciidoctor.convert") version Vers.asciidoctor
 }
 
@@ -39,11 +40,11 @@ plugins {
  */
 fun envConfig() = object : ReadOnlyProperty<Any?, String?> {
     override fun getValue(thisRef: Any?, property: KProperty<*>): String? =
-            if (ext.has(property.name)) {
-                ext[property.name] as? String
-            } else {
-                System.getenv(property.name)
-            }
+        if (ext.has(property.name)) {
+            ext[property.name] as? String
+        } else {
+            System.getenv(property.name)
+        }
 }
 
 val repositoryUser by envConfig()
@@ -53,16 +54,36 @@ val signingKeyId by envConfig()
 val signingPassword by envConfig()
 val signingSecretKeyRingFile by envConfig()
 
-nexusStaging {
-    packageGroup = "ru.fix"
-    username = "$repositoryUser"
-    password = "$repositoryPassword"
-    numberOfRetries = 50
-    delayBetweenRetriesInMillis = 3_000
-}
+
 
 apply {
     plugin("ru.fix.gradle.release")
+    plugin(Libs.nexus_publish_plugin)
+}
+
+nexusPublishing {
+    packageGroup = "ru.fix"
+
+    repositories {
+        sonatype {
+            username.set("$repositoryUser")
+            password.set("$repositoryPassword")
+            useStaging.set(true)
+
+            //custom repository name - 'sonatype' is pre-configured
+            //for Sonatype Nexus (OSSRH) which is used for The Central Repository
+            //stagingProfileId = "yourStagingProfileId" //can reduce execution time by even 10 seconds
+        }
+    }
+
+
+    clientTimeout.set(Duration.of(3, ChronoUnit.MINUTES))
+    connectTimeout = Duration.ofSeconds(60)
+
+    transitionCheckOptions {
+        maxRetries.set(50)
+        delayBetween.set(java.time.Duration.ofMillis(3_000))
+    }
 }
 
 subprojects {
@@ -73,18 +94,16 @@ subprojects {
         plugin("signing")
         plugin("java")
         plugin("org.jetbrains.dokka")
-        plugin(Libs.nexus_publish_plugin)
     }
 
     repositories {
-        jcenter()
         mavenCentral()
         mavenLocal()
         maven(url = "https://repo.gradle.org/artifactory/jcenter-backup/")
     }
 
     val sourcesJar by tasks.creating(Jar::class) {
-        classifier = "sources"
+        archiveClassifier = "sources"
         from("src/main/java")
         from("src/main/kotlin")
     }
@@ -94,22 +113,14 @@ subprojects {
     }
 
     val dokkaJar by tasks.creating(Jar::class) {
-        classifier = "javadoc"
+        archiveClassifier = "javadoc"
 
         from(dokkaTask.outputDirectory)
         dependsOn(dokkaTask)
     }
 
-    configure<NexusPublishExtension> {
-        repositories {
-            sonatype {
-                username.set("$repositoryUser")
-                password.set("$repositoryPassword")
-                useStaging.set(true)
-            }
-        }
-        clientTimeout.set(Duration.of(3, ChronoUnit.MINUTES))
-    }
+
+
 
     project.afterEvaluate {
         publishing {
@@ -176,10 +187,16 @@ subprojects {
         sign(publishing.publications)
     }
 
+
     tasks {
+
+        withType<JavaCompile> {
+            targetCompatibility = JavaVersion.VERSION_11.toString()
+        }
+
         withType<KotlinCompile> {
             kotlinOptions {
-                jvmTarget = JavaVersion.VERSION_1_8.toString()
+                jvmTarget = JavaVersion.VERSION_11.toString()
             }
         }
         withType<Test> {

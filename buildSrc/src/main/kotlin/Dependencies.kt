@@ -8,8 +8,11 @@ object Vers {
     const val allure_java = "2.15.0"
 
     //Dependencies
-    const val kotlin = "1.5.31"
-    const val gradle_kotlin = "1.5.21"
+
+    // Gradle compatibility
+    // https://docs.gradle.org/current/userguide/compatibility.html
+    const val kotlin = "1.8.22"
+    const val gradle_kotlin = "1.8.22"
     const val kotlin_coroutines = "1.5.2"
 
     const val junit = "5.6.0"
@@ -19,15 +22,14 @@ object Vers {
     const val dynamic_property = "1.1.9"
     const val jfix_stdlib = "2.0.2"
     const val corounit = "1.1.1"
-    const val koin = "2.2.3"
+    const val koin = "3.4.3"
 }
 
 object Libs {
     //Plugins
     val gradle_release_plugin = "ru.fix:gradle-release-plugin:${Vers.gradle_release_plugin}"
     val dokka_gradle_plugin = "org.jetbrains.dokka:dokka-gradle-plugin:${Vers.dokkav}"
-    val nexus_staging_plugin = "io.codearte.nexus-staging"
-    val nexus_publish_plugin = "de.marcphilipp.nexus-publish"
+    val nexus_publish_plugin = "io.github.gradle-nexus.publish-plugin"
     val asciidoctor = "org.asciidoctor:asciidoctor-gradle-plugin:${Vers.asciidoctor}"
 
     //Dependencies
