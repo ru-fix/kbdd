@@ -73,6 +73,11 @@ nexusPublishing {
             //custom repository name - 'sonatype' is pre-configured
             //for Sonatype Nexus (OSSRH) which is used for The Central Repository
             //stagingProfileId = "yourStagingProfileId" //can reduce execution time by even 10 seconds
+
+            // https://central.sonatype.org/publish/publish-portal-ossrh-staging-api/#configuration
+            nexusUrl.set(uri("https://ossrh-staging-api.central.sonatype.com/service/local/"))
+            snapshotRepositoryUrl.set(uri("https://central.sonatype.com/repository/maven-snapshots/"))
+
         }
     }
 
